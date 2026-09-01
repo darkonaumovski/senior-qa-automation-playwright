@@ -54,11 +54,17 @@ npx playwright install --with-deps chromium firefox
 ### 3. Run the tests
 
 ```bash
-npm test                        # run all tests headlessly
-npm run test:headed             # run with browser visible
+npm test                        # run all tests headlessly (parallel)
+npm run test:headed             # run with browser visible (single worker – see note below)
 npm run test:debug              # open Playwright Inspector
 npm run test:ui                 # open Playwright UI mode
 ```
+
+> **Headed mode note**: in headed mode multiple workers share the same virtual display cursor.
+> Run with `--workers=1` to avoid hover-state conflicts between parallel tests:
+> ```bash
+> TODO_BASE_URL=http://localhost:8080 npx playwright test --headed --workers=1
+> ```
 
 ### 4. Generate and open the Allure report
 
