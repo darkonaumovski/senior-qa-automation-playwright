@@ -1,0 +1,31 @@
+node_modules/
+dist/
+
+# Playwright output
+test-results/
+playwright-report/
+
+# Allure output (results are committed; generated report is not)
+allure-report/
+
+# Allure result files (generated per run – not committed except categories.json)
+allure-results/*.json
+allure-results/*.xml
+allure-results/*.webm
+allure-results/*.png
+allure-results/*.zip
+allure-results/*.md
+allure-results/attachments/
+allure-results/history/
+!allure-results/categories.json
+
+# Editor / OS
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Environment
+.env
+.env.local

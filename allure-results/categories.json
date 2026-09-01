@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Ignored / Skipped tests",
+    "matchedStatuses": ["skipped"]
+  },
+  {
+    "name": "Infrastructure problems",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*(timeout|TimeoutError|net::ERR|ECONNREFUSED).*"
+  },
+  {
+    "name": "Product defects",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*expect.*toHaveText.*|.*expect.*toHaveCount.*|.*expect.*toBeVisible.*"
+  },
+  {
+    "name": "Test defects",
+    "matchedStatuses": ["failed", "broken"]
+  }
+]

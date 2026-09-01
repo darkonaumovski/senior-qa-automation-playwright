@@ -1,0 +1,46 @@
+version: '3.8'
+
+# ─── Development / CI compose setup ──────────────────────────────────────────
+#
+# Usage:
+#   docker compose up --build --abort-on-container-exit
+#
+# The 'app' service starts the cypress-example-kitchensink application and
+# exposes it on port 8080.  The 'tests' service waits until the app is healthy
+# before running the Playwright + Allure suite.
+#
+# Results are written to ./allure-results on the host via a bind-mount.
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/todo"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      app:
+        condition: service_healthy
+    environment:
+      - TODO_BASE_URL=http://app:8080
+      - CI=true
+    volumes:
+      - ./allure-results:/workspace/allure-results
+      - ./test-results:/workspace/test-results
+      - ./playwright-report:/workspace/playwright-report
+    # Override the default entrypoint so the app is NOT started inside this
+    # container – it is already running in the 'app' service.
+    entrypoint: ["npm", "test"]

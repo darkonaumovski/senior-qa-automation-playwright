@@ -1,0 +1,23 @@
+{
+  "name": "todo-playwright-tests",
+  "version": "1.0.0",
+  "description": "Playwright E2E test suite for the TodoMVC application (cypress-example-kitchensink)",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:docker": "TODO_BASE_URL=http://localhost:8080 playwright test",
+    "report:generate": "allure generate allure-results --clean -o allure-report",
+    "report:open": "allure open allure-report",
+    "report": "npm run report:generate && npm run report:open",
+    "app:start": "cd /opt/kitchensink && npm start"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.0",
+    "allure-playwright": "^3.0.0",
+    "allure-commandline": "^2.30.0",
+    "typescript": "^5.5.4"
+  }
+}
