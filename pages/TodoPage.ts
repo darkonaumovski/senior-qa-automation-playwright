@@ -73,8 +73,21 @@ export class TodoPage {
       // that the app's internal state and localStorage both start clean.
       let count = await this.todoItems.count();
       while (count > 0) {
-        await this.item(0).hover();
-        await this.destroyButton(0).click();
+        // dispatchEvent bypasses CSS display:none — the app uses delegated click
+        // handlers on .todo-list so the event still reaches the remove handler.
+        await this.page.evaluate(() => {
+          const btn = document.querySelector(
+            '.todo-list li .destroy',
+          ) as HTMLElement | null;
+          btn?.dispatchEvent(
+            new MouseEvent('click', { bubbles: true, cancelable: true }),
+          );
+        });
+        // Wait for the list to shrink before the next iteration
+        await this.page.waitForFunction(
+          (n) => document.querySelectorAll('.todo-list li').length < n,
+          count,
+        );
         count = await this.todoItems.count();
       }
       // Move the cursor away so the `:hover` CSS state does not persist on
@@ -133,6 +146,8 @@ export class TodoPage {
 
   async deleteTodo(index: number): Promise<void> {
     await this.item(index).hover();
+    // The destroy button only becomes visible on :hover; wait for it, then click.
+    await this.destroyButton(index).waitFor({ state: 'visible' });
     await this.destroyButton(index).click();
   }
 
