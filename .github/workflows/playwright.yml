@@ -22,6 +22,9 @@ jobs:
     name: Run Playwright tests
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    # Required by peaceiris/actions-gh-pages when publishing the Allure report.
+    permissions:
+      contents: write
 
     steps:
       # ── Checkout ─────────────────────────────────────────────────────────────
