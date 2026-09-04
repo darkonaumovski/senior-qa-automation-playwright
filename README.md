@@ -172,7 +172,7 @@ Failure categories (`allure-results/categories.json`):
 ```
 tests/
 └── todo/
-    ├── add.spec.ts          – Adding todos (6 tests)
+    ├── add.spec.ts          – Adding todos (7 tests)
     ├── complete.spec.ts     – Completing / uncompleting (5 tests)
     ├── delete.spec.ts       – Deleting todos (5 tests)
     ├── edit.spec.ts         – Inline editing (6 tests)
@@ -181,7 +181,7 @@ tests/
     └── persistence.spec.ts  – localStorage persistence (3 tests)
 ```
 
-Total: **39 tests** across two browser projects = **78 test executions** per CI run.
+Total: **40 tests** across two browser projects = **80 test executions** per CI run.
 
 ---
 
