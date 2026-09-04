@@ -52,7 +52,17 @@ export default defineConfig({
     },
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: {
+        ...devices['Desktop Firefox'],
+        // The managed Windows runner cannot start Firefox content processes
+        // unless its content and GMP sandboxes are disabled.
+        launchOptions: {
+          env: {
+            MOZ_DISABLE_CONTENT_SANDBOX: '1',
+            MOZ_DISABLE_GMP_SANDBOX: '1',
+          },
+        },
+      },
     },
   ],
 });
