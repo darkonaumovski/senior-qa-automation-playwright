@@ -11,7 +11,8 @@ End-to-end Playwright test suite for the **TodoMVC** application served by
 |------|---------|
 | `tests/todo/` | Playwright specs (add, complete, delete, edit, filter, bulk, persistence) |
 | `pages/TodoPage.ts` | Page Object Model |
-| `tests/fixtures/todoFixtures.ts` | Custom test fixture (auto-navigate + clear state) |
+| `tests/fixtures/todoFixtures.ts` | Shared page lifecycle and Allure metadata fixtures |
+| `ARCHITECTURE.md` | Duplication analysis and refactoring design |
 | `playwright.config.ts` | Project config (browsers, reporter, timeouts) |
 | `Dockerfile` | Combined image: app + test runner |
 | `Dockerfile.app` | App-only image (used by docker-compose) |
@@ -55,6 +56,7 @@ npx playwright install --with-deps chromium firefox
 
 ```bash
 npm test                        # run all tests headlessly (parallel)
+npm run typecheck               # check TypeScript without emitting files
 npm run test:headed             # run with browser visible (single worker – see note below)
 npm run test:debug              # open Playwright Inspector
 npm run test:ui                 # open Playwright UI mode
@@ -178,10 +180,11 @@ tests/
     ├── edit.spec.ts         – Inline editing (6 tests)
     ├── filter.spec.ts       – Filtering views (7 tests)
     ├── bulk-actions.spec.ts – Toggle-all & clear-completed (7 tests)
-    └── persistence.spec.ts  – localStorage persistence (3 tests)
+    ├── persistence.spec.ts  – localStorage persistence (3 tests)
+    └── lifecycle.spec.ts    – Page Object cleanup/navigation contracts (4 tests)
 ```
 
-Total: **40 tests** across two browser projects = **80 test executions** per CI run.
+Total: **44 tests** across two browser projects = **88 test executions** per CI run.
 
 ---
 
@@ -190,9 +193,14 @@ Total: **40 tests** across two browser projects = **80 test executions** per CI 
 | Decision | Rationale |
 |----------|-----------|
 | Page Object Model | Centralises selectors; tests read as business-level descriptions |
-| Custom `todoPage` fixture | Isolates state via `localStorage` clear + reload before every test |
-| Persistence tests bypass fixture | They need explicit control over when storage is cleared |
+| Custom `todoPage` fixture | Supplies a clean page in a fresh browser context; removes sample todos through the UI |
+| Persistence tests share fixture | Setup runs once per test; `todoPage.reload()` preserves storage and the URL hash |
+| Allure option fixtures | Specs declare `todoFeature`; shared setup applies reporting labels |
 | `test.step()` for steps | Works with both Playwright's built-in trace viewer and Allure |
 | `allure-playwright` reporter | Satisfies reporting requirements with zero extra tooling except Java |
 | Multi-stage Dockerfile | Separates app build from test runner; keeps final image lean |
 | `docker-compose.yml` separate services | More realistic for CI pipelines; tests and app can scale independently |
+
+See [ARCHITECTURE.md](ARCHITECTURE.md) for the analysis and lifecycle contracts.
+`goto()` resets the todo list by default; `goto({ clearData: false })` only
+navigates. The application reseeds sample todos when an empty list is reloaded.

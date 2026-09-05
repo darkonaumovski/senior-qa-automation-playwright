@@ -2,10 +2,7 @@ import { test, expect } from '../fixtures/todoFixtures';
 import { allure } from 'allure-playwright';
 
 test.describe('Filter todos', () => {
-  test.beforeEach(async () => {
-    await allure.epic('Todo Management');
-    await allure.feature('Filter Todos');
-  });
+  test.use({ todoFeature: 'Filter Todos' });
 
   test('should show all todos when the "All" filter is active', async ({ todoPage }) => {
     await allure.story('All filter');

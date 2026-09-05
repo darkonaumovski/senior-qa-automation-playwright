@@ -1,11 +1,8 @@
-import { test, expect } from '../fixtures/todoFixtures';
+import { test } from '../fixtures/todoFixtures';
 import { allure } from 'allure-playwright';
 
 test.describe('Complete todo', () => {
-  test.beforeEach(async ({}, testInfo) => {
-    await allure.epic('Todo Management');
-    await allure.feature('Complete Todo');
-  });
+  test.use({ todoFeature: 'Complete Todo' });
 
   test('should mark a todo as complete by clicking its checkbox', async ({ todoPage }) => {
     await allure.story('Mark complete');

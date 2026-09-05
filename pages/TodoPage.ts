@@ -4,7 +4,7 @@ import { type Page, type Locator, expect } from '@playwright/test';
  * Page Object Model for the TodoMVC application.
  *
  * Selectors are based on the standard TodoMVC CSS class names used
- * by the cypress-example-kitchensink React implementation.
+ * by the cypress-example-kitchensink vanilla JavaScript implementation.
  */
 export class TodoPage {
   readonly page: Page;
@@ -30,70 +30,45 @@ export class TodoPage {
     this.filterCompleted = page.locator('.filters a[href="#/completed"]');
     this.clearCompletedButton = page.locator('.clear-completed');
     this.toggleAllCheckbox = page.locator('#toggle-all');
-    this.toggleAllLabel = page.locator('[for="toggle-all"], label[for="toggle-all"]');
+    this.toggleAllLabel = page.locator('label[for="toggle-all"]');
     this.footer = page.locator('.footer');
     this.main = page.locator('.main');
   }
 
   // ─── Navigation ──────────────────────────────────────────────────────────────
 
-  /**
-   * Navigate to the todo page and ensure a clean state.
-   *
-   * The cypress-example-kitchensink app seeds two default todos ("Pay electric
-   * bill" and "Walk the dog") whenever it finds localStorage empty.  To bypass
-   * this we inject an addInitScript that places a sentinel item before the page
-   * initialises; the sentinel prevents the default-seeding branch from running.
-   * We then delete every visible item via the UI, leaving a genuinely empty list.
-   *
-   * Set clearData:false only when the caller wants to preserve existing state
-   * (e.g., when navigating to a freshly seeded page intentionally).
-   */
+  /** Navigate and reset the list unless the caller explicitly preserves data. */
   async goto({ clearData = true }: { clearData?: boolean } = {}): Promise<void> {
-    if (clearData) {
-      // Runs before any app script on each navigation of this page.
-      // Only injects the sentinel when storage is truly absent (null) so
-      // that reloads in persistence tests with real items are unaffected.
-      await this.page.addInitScript(() => {
-        const key = 'todos-vanillajs';
-        if (window.localStorage.getItem(key) === null) {
-          window.localStorage.setItem(
-            key,
-            JSON.stringify([{ id: 99999999, title: '__pw_seed__', completed: false }]),
-          );
-        }
-      });
-    }
-
     await this.page.goto('/todo');
-    await this.newTodoInput.waitFor({ state: 'visible' });
-
+    await this.waitUntilReady();
     if (clearData) {
-      // Delete every visible item (sentinel + any leftovers) via the UI so
-      // that the app's internal state and localStorage both start clean.
-      let count = await this.todoItems.count();
-      while (count > 0) {
-        // dispatchEvent bypasses CSS display:none — the app uses delegated click
-        // handlers on .todo-list so the event still reaches the remove handler.
-        await this.page.evaluate(() => {
-          const btn = document.querySelector(
-            '.todo-list li .destroy',
-          ) as HTMLElement | null;
-          btn?.dispatchEvent(
-            new MouseEvent('click', { bubbles: true, cancelable: true }),
-          );
-        });
-        // Wait for the list to shrink before the next iteration
-        await this.page.waitForFunction(
-          (n) => document.querySelectorAll('.todo-list li').length < n,
-          count,
-        );
-        count = await this.todoItems.count();
-      }
-      // Move the cursor away so the `:hover` CSS state does not persist on
-      // items added by subsequent test steps.
-      await this.page.mouse.move(0, 0);
+      await this.clearTodos();
     }
+  }
+
+  /** Reload without resetting stored todos or the current filter hash. */
+  async reload(): Promise<void> {
+    await this.page.reload();
+    await this.waitUntilReady();
+  }
+
+  private async waitUntilReady(): Promise<void> {
+    await this.newTodoInput.waitFor({ state: 'visible' });
+  }
+
+  /** Remove all todos, including items hidden by the selected filter. */
+  async clearTodos(): Promise<void> {
+    // Opening the All view makes cleanup independent of the current filter.
+    if (await this.filterAll.isVisible()) {
+      await this.filterByAll();
+      await this.expectActiveFilterLink('all');
+    }
+    for (let count = await this.todoItems.count(); count > 0; count--) {
+      await this.deleteTodo(0);
+      await this.expectTodoCount(count - 1);
+    }
+    // Leave newly added items unhovered for visibility assertions.
+    await this.page.mouse.move(0, 0);
   }
 
   // ─── Add ─────────────────────────────────────────────────────────────────────

@@ -2,10 +2,7 @@ import { test, expect } from '../fixtures/todoFixtures';
 import { allure } from 'allure-playwright';
 
 test.describe('Bulk actions', () => {
-  test.beforeEach(async () => {
-    await allure.epic('Todo Management');
-    await allure.feature('Bulk Actions');
-  });
+  test.use({ todoFeature: 'Bulk Actions' });
 
   test('should mark all todos as complete using toggle-all', async ({ todoPage }) => {
     await allure.story('Toggle all to complete');

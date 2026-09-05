@@ -2,11 +2,7 @@ import { test, expect } from '../fixtures/todoFixtures';
 import { allure } from 'allure-playwright';
 
 test.describe('Add todo', () => {
-  test.beforeEach(async ({}, testInfo) => {
-    await allure.epic('Todo Management');
-    await allure.feature('Add Todo');
-    await allure.owner('QA Team');
-  });
+  test.use({ todoFeature: 'Add Todo' });
 
   test('should add a single todo item', async ({ todoPage }) => {
     await allure.story('Single todo');
@@ -62,7 +58,6 @@ test.describe('Add todo', () => {
   test('should not add a todo containing only whitespace', async ({ todoPage }) => {
     await allure.story('Whitespace input validation');
 
-
     await test.step('Type only spaces and press Enter', async () => {
       await todoPage.addTodo('   ');
     });
@@ -74,7 +69,6 @@ test.describe('Add todo', () => {
 
   test('should trim leading and trailing whitespace from todo text', async ({ todoPage }) => {
     await allure.story('Whitespace trimming');
-
 
     await test.step('Add todo with surrounding whitespace', async () => {
       await todoPage.addTodo('  Buy milk  ');

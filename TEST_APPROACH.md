@@ -4,7 +4,7 @@
 
 **URL**: `http://localhost:8080/todo`  
 **Source**: [cypress-io/cypress-example-kitchensink](https://github.com/cypress-io/cypress-example-kitchensink)  
-**Implementation**: React-based TodoMVC
+**Implementation**: Vanilla JavaScript TodoMVC
 
 ---
 
@@ -89,7 +89,7 @@ Editing is the most interaction-heavy feature and historically the most fragile 
 
 ## Assumptions
 
-1. The application stores state in `localStorage`. Each test clears it via `page.evaluate(() => window.localStorage.clear())` before navigation to guarantee isolation.
+1. The application stores state in `localStorage`. Playwright creates an isolated browser context for each test; the shared fixture navigates and removes the application's sample todos through the UI.
 2. Tests target `http://localhost:8080` by default. The `TODO_BASE_URL` environment variable overrides this for Docker or remote environments.
 3. The filtering mechanism uses URL hashes (`#/`, `#/active`, `#/completed`). This means filter state survives reload without additional persistence logic.
 
@@ -98,8 +98,8 @@ Editing is the most interaction-heavy feature and historically the most fragile 
 ## Test data strategy
 
 - All test data is **generated inline** within each test (no external fixtures or seed files needed because `localStorage` is trivially writable).
-- Each test calls `goto()` which clears `localStorage` and reloads the page, giving a clean slate.
-- Persistence tests bypass this clearing step and manage localStorage manually to assert the expected state after reload.
+- The shared fixture calls `goto()` once per test, giving a clean todo list without changing unrelated storage keys or installing persistent initialization scripts.
+- Persistence tests use the same fixture and call `reload()` to preserve storage and the selected filter after setup.
 - No shared state between tests: every test is self-contained and order-independent.
 
 ---
