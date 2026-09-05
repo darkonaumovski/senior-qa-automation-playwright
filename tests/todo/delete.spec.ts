@@ -2,10 +2,7 @@ import { test, expect } from '../fixtures/todoFixtures';
 import { allure } from 'allure-playwright';
 
 test.describe('Delete todo', () => {
-  test.beforeEach(async () => {
-    await allure.epic('Todo Management');
-    await allure.feature('Delete Todo');
-  });
+  test.use({ todoFeature: 'Delete Todo' });
 
   test('should delete a todo by clicking the destroy button', async ({ todoPage }) => {
     await allure.story('Delete single todo');

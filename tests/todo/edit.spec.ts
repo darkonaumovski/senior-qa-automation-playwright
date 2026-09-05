@@ -2,10 +2,7 @@ import { test, expect } from '../fixtures/todoFixtures';
 import { allure } from 'allure-playwright';
 
 test.describe('Edit todo', () => {
-  test.beforeEach(async () => {
-    await allure.epic('Todo Management');
-    await allure.feature('Edit Todo');
-  });
+  test.use({ todoFeature: 'Edit Todo' });
 
   test('should enter edit mode when double-clicking a todo label', async ({ todoPage }) => {
     await allure.story('Enter edit mode');
@@ -106,7 +103,6 @@ test.describe('Edit todo', () => {
 
   test('should trim whitespace when saving an edited todo', async ({ todoPage }) => {
     await allure.story('Trim whitespace on edit save');
-
 
     await test.step('Add a todo', async () => {
       await todoPage.addTodo('Original');
