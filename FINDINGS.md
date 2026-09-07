@@ -188,6 +188,22 @@ product owner if prioritisation matters to the intended users.
 
 ---
 
+## Dependency audit — pinned app server
+
+Running `npm install --ignore-scripts --omit=dev` and `npm audit --omit=dev`
+against the revision in `.app-commit` on 2026-09-07 reports one high-severity
+dependency finding: `serve → ajv → fast-uri@3.1.5`. npm identifies 3.1.6 as the
+patched version; see [GHSA-f65p-4m7j-42xc](https://github.com/advisories/GHSA-f65p-4m7j-42xc)
+and the related advisories in the audit output.
+
+This is a dependency advisory, not a demonstrated exploit in TodoMVC. It belongs
+to the external application's dependency tree. Updating this suite's lockfile
+does not remediate it; the pinned application's dependencies need an upstream
+update and a reviewed pin change. The suite's own locked dependencies reported
+zero vulnerabilities during the same check.
+
+---
+
 ## Withdrawn — New todo titles are stored untrimmed
 
 **Status**: Withdrawn as invalid on verification. Not a defect.

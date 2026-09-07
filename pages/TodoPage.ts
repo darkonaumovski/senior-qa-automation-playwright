@@ -62,7 +62,7 @@ export class TodoPage {
   }
 
   /**
-   * Wait until the rendered list agrees with stored data.
+   * Wait until the rendered list agrees with stored data for the current filter.
    *
    * `page.goto` resolves on the `load` event, but the app seeds its sample
    * todos from its own `window.load` listener and renders them afterwards, and
@@ -71,7 +71,7 @@ export class TodoPage {
    * clearTodos() sizes its delete loop from a single count(): a count read too
    * early leaves a dirty list for every test sharing this fixture, not just one.
    *
-   * Waiting for a non-empty list is safe on every load, including one that
+   * Waiting for non-empty storage is safe on every load, including one that
    * follows clearTodos(): the app reseeds two samples whenever stored data is
    * empty (app/assets/js/todo/app.js), which is the behaviour issue #4 reports.
    * Store also initialises a missing key to [] before that reseed runs, so
@@ -89,11 +89,15 @@ export class TodoPage {
       }
       try {
         const stored: unknown = JSON.parse(raw);
-        return (
-          Array.isArray(stored) &&
-          stored.length > 0 &&
-          document.querySelectorAll('.todo-list li').length === stored.length
+        if (!Array.isArray(stored) || stored.length === 0) {
+          return false;
+        }
+        const route = window.location.hash.split('/')[1];
+        const todos = stored as Array<{ completed: boolean }>;
+        const filtered = todos.filter((todo) =>
+          route === 'active' ? !todo.completed : route === 'completed' ? todo.completed : true,
         );
+        return document.querySelectorAll('.todo-list li').length === filtered.length;
       } catch {
         return false;
       }
@@ -132,7 +136,6 @@ export class TodoPage {
       { key: TODO_STORAGE_KEY, value: JSON.stringify(records) },
     );
     await this.reload();
-    await this.expectTodoCount(records.length);
   }
 
   /** Remove all todos, including items hidden by the selected filter. */

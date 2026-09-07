@@ -112,7 +112,7 @@ docker run --rm -v "$(pwd)/allure-results:/workspace/allure-results" todo-playwr
 ## Docker Compose – two-service setup
 
 ```bash
-docker compose up --build --abort-on-container-exit
+docker compose up --build --abort-on-container-exit --exit-code-from tests
 ```
 
 This will:

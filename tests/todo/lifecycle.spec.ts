@@ -64,6 +64,42 @@ test.describe('Todo page lifecycle', () => {
     expect(await todoPage.storedTitles()).toEqual(['Seeded item']);
   });
 
+  for (const filter of ['active', 'completed'] as const) {
+    test(`should reload mixed todos in the ${filter} view`, async ({ todoPage, page }) => {
+      await todoPage.seedTodos(['Active task', { title: 'Done task', completed: true }]);
+      await page.goto(`/todo#/${filter}`);
+
+      await todoPage.reload();
+
+      await todoPage.expectActiveFilterLink(filter);
+      await todoPage.expectTodoCount(1);
+      expect(await todoPage.storedTitles()).toEqual(['Active task', 'Done task']);
+    });
+  }
+
+  test('should reload an empty filtered view with stored todos', async ({ todoPage }) => {
+    await todoPage.seedTodos(['Active task']);
+    await todoPage.filterByCompleted();
+
+    await todoPage.reload();
+
+    await todoPage.expectActiveFilterLink('completed');
+    await todoPage.expectTodoCount(0);
+    expect(await todoPage.storedTitles()).toEqual(['Active task']);
+  });
+
+  test('should seed todos while preserving a filter that hides some items', async ({ todoPage }) => {
+    await todoPage.seedTodos(['Original task']);
+    await todoPage.filterByCompleted();
+
+    await todoPage.seedTodos(['New active', { title: 'New done', completed: true }]);
+
+    await todoPage.expectActiveFilterLink('completed');
+    await todoPage.expectTodoCount(1);
+    await todoPage.expectTodoText(0, 'New done');
+    expect(await todoPage.storedTitles()).toEqual(['New active', 'New done']);
+  });
+
   test('should reject seeding an empty list, which the application cannot hold', async ({ todoPage }) => {
     // Documents the constraint behind issue #4: storage set to an empty array
     // makes the app reseed its samples, so emptiness needs clearTodos().
