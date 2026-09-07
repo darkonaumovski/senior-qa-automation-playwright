@@ -24,16 +24,20 @@ ARG APP_COMMIT=""
 # Shallow fetch of the exact commit where the server allows it, falling back to
 # a full fetch. The fallback checks out the resolved SHA explicitly rather than
 # FETCH_HEAD, so a fallback can never quietly pin a different revision.
-RUN APP_COMMIT="${APP_COMMIT:-$(tr -d '[:space:]' < /tmp/.app-commit)}" \
-    && echo "Building against application commit ${APP_COMMIT}" \
+# `pin` is deliberately a different name from the ARG: reusing APP_COMMIT for
+# both would leave it ambiguous whether each reference resolves to the build arg
+# or to the shell variable, and the build log renders it misleadingly.
+RUN pin="${APP_COMMIT:-$(tr -d '[:space:]' < /tmp/.app-commit)}" \
+    && echo "Building against application commit ${pin}" \
     && git init /opt/kitchensink \
     && cd /opt/kitchensink \
     && git remote add origin https://github.com/cypress-io/cypress-example-kitchensink \
-    && if git fetch --depth 1 origin "${APP_COMMIT}"; then \
+    && if git fetch --depth 1 origin "${pin}"; then \
          git checkout FETCH_HEAD; \
        else \
-         git fetch origin && git checkout "${APP_COMMIT}"; \
-       fi
+         git fetch origin && git checkout "${pin}"; \
+       fi \
+    && echo "Checked out $(git rev-parse HEAD)"
 
 WORKDIR /opt/kitchensink
 # --ignore-scripts avoids the husky post-install hook in the kitchensink repo
