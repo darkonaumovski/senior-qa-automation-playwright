@@ -12,7 +12,7 @@ End-to-end Playwright test suite for the **TodoMVC** application served by
 | `tests/todo/` | Playwright specs (add, complete, delete, edit, filter, bulk, persistence) |
 | `pages/TodoPage.ts` | Page Object Model |
 | `tests/fixtures/todoFixtures.ts` | Shared page lifecycle and Allure metadata fixtures |
-| `ARCHITECTURE.md` | Duplication analysis and refactoring design |
+| `ARCHITECTURE.md` | How the suite is put together and why |
 | `playwright.config.ts` | Project config (browsers, reporter, timeouts) |
 | `Dockerfile` | Combined image: app + test runner |
 | `Dockerfile.app` | App-only image (used by docker-compose) |
@@ -39,6 +39,9 @@ End-to-end Playwright test suite for the **TodoMVC** application served by
 ```bash
 git clone https://github.com/cypress-io/cypress-example-kitchensink
 cd cypress-example-kitchensink
+# Pin to the same commit CI and the Docker images use, so local results are
+# comparable with CI results. See APP_COMMIT in .github/workflows/playwright.yml.
+git checkout a89cccc91045a0a36ce559cd716aebc31fa302a8
 npm install
 npm start
 # Application available at http://localhost:8080/todo
@@ -121,15 +124,41 @@ npm run report:generate && npm run report:open
 
 ## CI / GitHub Actions
 
-The workflow at `.github/workflows/playwright.yml` runs on every push to `main` and on pull requests.
+The workflow at `.github/workflows/playwright.yml` runs on every push to `main` and on pull requests, as three jobs.
 
-**Steps:**
-1. Checkout both this repo and `cypress-example-kitchensink`
-2. Start the app in the background
-3. Run Playwright tests (Chromium + Firefox, 4 parallel workers)
+**`static`** — `tsc --noEmit`. Runs first and gates the other two, so a compile
+error costs seconds rather than a full browser run.
+
+**`test`** — the suite itself:
+1. Checkout this repo, and `cypress-example-kitchensink` at the pinned `APP_COMMIT`
+2. Start the app in the background and wait for `/todo` to respond
+3. Run Playwright tests (Chromium + Firefox, 4 parallel workers, 2 retries)
 4. Generate an Allure HTML report (with trend history from the previous run)
 5. Upload report and raw results as CI artifacts
 6. Deploy the Allure report to **GitHub Pages** (branch `gh-pages`, path `allure-report/`)
+
+**`docker`** — builds the combined image and runs the suite through
+`docker compose`, so the Docker deliverable is exercised rather than merely
+reviewed. This is what catches the failure mode where the image builds but the
+suite cannot actually run inside it.
+
+The application under test is pinned by commit in three places that must stay in
+step: `APP_COMMIT` in this workflow, and the `APP_COMMIT` build args in
+`Dockerfile` and `Dockerfile.app`. Without a pin the suite tests whatever
+upstream `master` happens to be, and a red build cannot be attributed to either
+side.
+
+### Flake detection
+
+`.github/workflows/flake-detection.yml` runs nightly and on demand. It executes
+every test three times per browser with `--retries=0`, because the main
+workflow's retries are there to keep pull requests usable and will happily
+conceal a test that only usually passes. A green pull request says the change
+works; this job is what says the suite is trustworthy.
+
+```bash
+npm run test:repeat             # the same idea locally
+```
 
 **Enable GitHub Pages** (one-time setup):
 1. Go to `Settings → Pages`
@@ -174,17 +203,21 @@ Failure categories (`allure-results/categories.json`):
 ```
 tests/
 └── todo/
-    ├── add.spec.ts          – Adding todos (7 tests)
-    ├── complete.spec.ts     – Completing / uncompleting (5 tests)
-    ├── delete.spec.ts       – Deleting todos (5 tests)
-    ├── edit.spec.ts         – Inline editing (6 tests)
-    ├── filter.spec.ts       – Filtering views (7 tests)
-    ├── bulk-actions.spec.ts – Toggle-all & clear-completed (7 tests)
-    ├── persistence.spec.ts  – localStorage persistence (3 tests)
-    └── lifecycle.spec.ts    – Page Object cleanup/navigation contracts (4 tests)
+    ├── add.spec.ts          – Adding todos
+    ├── complete.spec.ts     – Completing / uncompleting
+    ├── delete.spec.ts       – Deleting todos
+    ├── edit.spec.ts         – Inline editing
+    ├── filter.spec.ts       – Filtering views
+    ├── bulk-actions.spec.ts – Toggle-all & clear-completed
+    ├── persistence.spec.ts  – localStorage persistence
+    └── lifecycle.spec.ts    – Page Object seeding/cleanup contracts
 ```
 
-Total: **44 tests** across two browser projects = **88 test executions** per CI run.
+Every spec runs against both browser projects, so the executed total is twice
+the test count. Counts are deliberately not written down here: they drift the
+moment a test is added, and a stale number in a README is worse than no number.
+Run `npx playwright test --list` for the current figure, or read it off the
+[published report](https://darkonaumovski.github.io/senior-qa-automation-playwright/allure-report/).
 
 ---
 
@@ -195,7 +228,7 @@ Total: **44 tests** across two browser projects = **88 test executions** per CI 
 | Page Object Model | Centralises selectors; tests read as business-level descriptions |
 | Custom `todoPage` fixture | Supplies a clean page in a fresh browser context; removes sample todos through the UI |
 | `seedTodos()` for preconditions | Writes stored todos and reloads, so setup costs one step instead of several clicks and does not depend on the add, toggle or destroy affordances. Behaviour under test is still driven through the UI. Cannot produce an empty list — see [issue #4](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/4) |
-| `todoStart: 'as-is'` opt-out | Describes whose tests all seed skip the fixture's UI cleanup, which `seedTodos()` would immediately overwrite |
+| `todoStart: 'as-is'` opt-out | Lets a spec that seeds all of its own data skip the fixture's UI cleanup, which `seedTodos()` would overwrite a moment later anyway |
 | Persistence tests share fixture | Setup runs once per test; `todoPage.reload()` preserves storage and the URL hash |
 | Allure option fixtures | Specs declare `todoFeature`; shared setup applies reporting labels |
 | `test.step()` for steps | Works with both Playwright's built-in trace viewer and Allure |
@@ -203,6 +236,21 @@ Total: **44 tests** across two browser projects = **88 test executions** per CI 
 | Multi-stage Dockerfile | Separates app build from test runner; keeps final image lean |
 | `docker-compose.yml` separate services | More realistic for CI pipelines; tests and app can scale independently |
 
-See [ARCHITECTURE.md](ARCHITECTURE.md) for the analysis and lifecycle contracts.
+See [ARCHITECTURE.md](ARCHITECTURE.md) for the structure and lifecycle contracts.
 `goto()` resets the todo list by default; `goto({ clearData: false })` only
 navigates. The application reseeds sample todos when an empty list is reloaded.
+
+---
+
+## Known limitations
+
+Stated plainly, because a reviewer will otherwise find them and wonder whether
+they were noticed.
+
+| Limitation | Detail |
+|---|---|
+| Firefox instability on Windows hosts | Under full parallelism on a managed Windows host, individual Firefox tests fail intermittently with graphics errors, varying between runs and passing consistently in isolation. `playwright.config.ts` documents and works around the environment cause. Linux CI has not reproduced it. If you see it locally, run Firefox with `--workers=1`. |
+| Coverage is UI-level only | No API, accessibility, visual-regression or performance coverage. See the exclusions in [TEST_APPROACH.md](TEST_APPROACH.md), which state the residual risk each exclusion leaves. |
+| Two browser projects | Chromium and Firefox. WebKit is not run; it would roughly add 50% to CI time for an application with no browser-specific behaviour. |
+| The app cannot start empty | It reseeds two sample todos whenever stored data is empty, so `seedTodos([])` throws rather than pretending to work. See [issue #4](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/4). |
+| Allure needs a JVM | `allure-commandline` requires Java 17+ to generate the HTML report locally. Running the tests does not. |
