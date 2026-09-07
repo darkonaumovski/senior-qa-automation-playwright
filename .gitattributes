@@ -1,0 +1,8 @@
+# .app-commit is read by shell scripts, Dockerfiles and the README's `cat` form.
+# A CRLF checkout on Windows would put a stray carriage return in the SHA, so
+# force LF regardless of the platform. The consumers that use `tr -d` or
+# `.trim()` would survive it; `cat` in a subshell would not.
+.app-commit text eol=lf
+
+# Shell scripts must keep LF or they will not execute inside the Linux images.
+*.sh text eol=lf
