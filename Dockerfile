@@ -3,7 +3,11 @@
 # ──────────────────────────────────────────────────────────────────────────────
 FROM node:20-slim AS app-builder
 
-RUN apt-get update && apt-get install -y git --no-install-recommends \
+# ca-certificates is required: node:*-slim ships without a CA bundle, so an
+# https clone fails with "server certificate verification failed".
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 # Pinned so the image is reproducible. An unpinned clone means the application
@@ -11,11 +15,17 @@ RUN apt-get update && apt-get install -y git --no-install-recommends \
 # attribute to either the tests or the app. Keep in step with APP_COMMIT in
 # .github/workflows/playwright.yml.
 ARG APP_COMMIT=a89cccc91045a0a36ce559cd716aebc31fa302a8
+# Shallow fetch of the exact commit where the server allows it, falling back to
+# a full fetch. The fallback checks out APP_COMMIT explicitly rather than
+# FETCH_HEAD, so a fallback can never quietly pin a different revision.
 RUN git init /opt/kitchensink \
     && cd /opt/kitchensink \
     && git remote add origin https://github.com/cypress-io/cypress-example-kitchensink \
-    && git fetch --depth 1 origin "${APP_COMMIT}" \
-    && git checkout FETCH_HEAD
+    && if git fetch --depth 1 origin "${APP_COMMIT}"; then \
+         git checkout FETCH_HEAD; \
+       else \
+         git fetch origin && git checkout "${APP_COMMIT}"; \
+       fi
 
 WORKDIR /opt/kitchensink
 # --ignore-scripts avoids the husky post-install hook in the kitchensink repo
