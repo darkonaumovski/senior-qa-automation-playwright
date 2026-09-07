@@ -100,8 +100,10 @@ Editing is the most interaction-heavy feature and historically the most fragile 
 ## Test data strategy
 
 - All test data is **generated inline** within each test (no external fixtures or seed files needed because `localStorage` is trivially writable).
-- The shared fixture calls `goto()` once per test, giving a clean todo list without changing unrelated storage keys or installing persistent initialization scripts.
-- Persistence tests use the same fixture and call `reload()` to preserve storage and the selected filter after setup.
+- **Preconditions are seeded, behaviour is driven through the UI.** `todoPage.seedTodos()` writes stored todos directly and reloads, so a test that needs "three todos with two completed" gets there in one step instead of five clicks. Interactions that are the subject of a test — adding, toggling, editing, deleting — are always performed through the UI.
+- The shared fixture starts each test from an empty list, without changing unrelated storage keys or installing persistent initialization scripts. Describes whose tests all seed opt out with `test.use({ todoStart: 'as-is' })`, since the cleanup would be discarded a moment later.
+- **The application cannot be made to start empty.** It reseeds two sample todos whenever stored data is empty (`app/assets/js/todo/app.js`), and its `Store` initialises a missing key to `[]`. Seeding at least one item is what suppresses the samples; a genuinely empty list still requires deleting through the UI. `seedTodos([])` throws rather than appearing to work. See [issue #4](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/4).
+- Persistence tests deliberately keep adding through the UI and call `reload()`, because seeding would reduce them to asserting that `localStorage` survives a reload.
 - No shared state between tests: every test is self-contained and order-independent.
 
 ---

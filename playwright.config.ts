@@ -6,6 +6,36 @@ import { defineConfig, devices } from '@playwright/test';
  */
 const BASE_URL = process.env.TODO_BASE_URL ?? 'http://localhost:8080';
 
+/**
+ * Firefox launch options.
+ *
+ * Some managed Windows hosts cannot start Firefox content processes unless the
+ * content and GMP sandboxes are disabled. That workaround is scoped to Windows:
+ * weakening sandboxing everywhere, including Linux CI, buys nothing.
+ *
+ * launchOptions.env *replaces* the browser's environment rather than extending
+ * it, so process.env has to be spread back in. Passing only the MOZ_* variables
+ * strips SystemRoot, TEMP and APPDATA, which makes Firefox unstable on Windows
+ * with graphics failures such as "RenderCompositorSWGL failed mapping default
+ * framebuffer".
+ */
+function firefoxLaunchOptions(): { env?: Record<string, string> } {
+  if (process.platform !== 'win32') {
+    return {};
+  }
+
+  const env: Record<string, string> = {};
+  for (const [key, value] of Object.entries(process.env)) {
+    if (value !== undefined) {
+      env[key] = value;
+    }
+  }
+  env.MOZ_DISABLE_CONTENT_SANDBOX = '1';
+  env.MOZ_DISABLE_GMP_SANDBOX = '1';
+
+  return { env };
+}
+
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
@@ -55,14 +85,7 @@ export default defineConfig({
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
-        // The managed Windows runner cannot start Firefox content processes
-        // unless its content and GMP sandboxes are disabled.
-        launchOptions: {
-          env: {
-            MOZ_DISABLE_CONTENT_SANDBOX: '1',
-            MOZ_DISABLE_GMP_SANDBOX: '1',
-          },
-        },
+        launchOptions: firefoxLaunchOptions(),
       },
     },
   ],

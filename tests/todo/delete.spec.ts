@@ -2,13 +2,15 @@ import { test, expect } from '../fixtures/todoFixtures';
 import { allure } from 'allure-playwright';
 
 test.describe('Delete todo', () => {
-  test.use({ todoFeature: 'Delete Todo' });
+  // Items are seeded, but every destroy click stays: deleting is the behaviour
+  // under test here.
+  test.use({ todoFeature: 'Delete Todo', todoStart: 'as-is' });
 
   test('should delete a todo by clicking the destroy button', async ({ todoPage }) => {
     await allure.story('Delete single todo');
 
-    await test.step('Add a todo', async () => {
-      await todoPage.addTodo('Buy groceries');
+    await test.step('Seed a todo', async () => {
+      await todoPage.seedTodos(['Buy groceries']);
     });
 
     await test.step('Delete the todo', async () => {
@@ -27,8 +29,8 @@ test.describe('Delete todo', () => {
   test('should delete one todo from a list of many', async ({ todoPage }) => {
     await allure.story('Delete from list');
 
-    await test.step('Add three todos', async () => {
-      await todoPage.addTodos('Task A', 'Task B', 'Task C');
+    await test.step('Seed three todos', async () => {
+      await todoPage.seedTodos(['Task A', 'Task B', 'Task C']);
     });
 
     await test.step('Delete the middle todo', async () => {
@@ -45,9 +47,8 @@ test.describe('Delete todo', () => {
   test('should delete a completed todo', async ({ todoPage }) => {
     await allure.story('Delete completed todo');
 
-    await test.step('Add and complete a todo', async () => {
-      await todoPage.addTodo('Completed task');
-      await todoPage.toggleTodo(0);
+    await test.step('Seed an already completed todo', async () => {
+      await todoPage.seedTodos([{ title: 'Completed task', completed: true }]);
     });
 
     await test.step('Delete the completed todo', async () => {
@@ -62,8 +63,8 @@ test.describe('Delete todo', () => {
   test('should show destroy button only on hover', async ({ todoPage }) => {
     await allure.story('Destroy button visibility');
 
-    await test.step('Add a todo', async () => {
-      await todoPage.addTodo('Hover me');
+    await test.step('Seed a todo', async () => {
+      await todoPage.seedTodos(['Hover me']);
     });
 
     await test.step('Verify destroy button is not visible by default', async () => {
@@ -80,8 +81,8 @@ test.describe('Delete todo', () => {
   test('should delete all todos one by one and empty the list', async ({ todoPage }) => {
     await allure.story('Delete all todos');
 
-    await test.step('Add two todos', async () => {
-      await todoPage.addTodos('First', 'Second');
+    await test.step('Seed two todos', async () => {
+      await todoPage.seedTodos(['First', 'Second']);
     });
 
     await test.step('Delete the first todo', async () => {

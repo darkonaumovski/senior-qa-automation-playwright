@@ -2,14 +2,15 @@ import { test, expect } from '../fixtures/todoFixtures';
 import { allure } from 'allure-playwright';
 
 test.describe('Filter todos', () => {
-  test.use({ todoFeature: 'Filter Todos' });
+  // Every test here seeds its own data, so the fixture's UI cleanup would be
+  // wasted work: seedTodos() overwrites stored todos regardless.
+  test.use({ todoFeature: 'Filter Todos', todoStart: 'as-is' });
 
   test('should show all todos when the "All" filter is active', async ({ todoPage }) => {
     await allure.story('All filter');
 
-    await test.step('Add two todos and complete one', async () => {
-      await todoPage.addTodos('Active task', 'Completed task');
-      await todoPage.toggleTodo(1);
+    await test.step('Seed two todos with the second completed', async () => {
+      await todoPage.seedTodos(['Active task', { title: 'Completed task', completed: true }]);
     });
 
     await test.step('Navigate to Active then back to All', async () => {
@@ -29,9 +30,8 @@ test.describe('Filter todos', () => {
   test('should show only active (incomplete) todos when "Active" filter is selected', async ({ todoPage }) => {
     await allure.story('Active filter');
 
-    await test.step('Add three todos and complete one', async () => {
-      await todoPage.addTodos('Active 1', 'Active 2', 'Completed');
-      await todoPage.toggleTodo(2);
+    await test.step('Seed three todos with the third completed', async () => {
+      await todoPage.seedTodos(['Active 1', 'Active 2', { title: 'Completed', completed: true }]);
     });
 
     await test.step('Switch to Active filter', async () => {
@@ -52,10 +52,12 @@ test.describe('Filter todos', () => {
   test('should show only completed todos when "Completed" filter is selected', async ({ todoPage }) => {
     await allure.story('Completed filter');
 
-    await test.step('Add three todos and complete two', async () => {
-      await todoPage.addTodos('Done 1', 'Done 2', 'Active');
-      await todoPage.toggleTodo(0);
-      await todoPage.toggleTodo(1);
+    await test.step('Seed three todos with the first two completed', async () => {
+      await todoPage.seedTodos([
+        { title: 'Done 1', completed: true },
+        { title: 'Done 2', completed: true },
+        'Active',
+      ]);
     });
 
     await test.step('Switch to Completed filter', async () => {
@@ -76,8 +78,8 @@ test.describe('Filter todos', () => {
   test('should update the Active view in real-time when a visible todo is completed', async ({ todoPage }) => {
     await allure.story('Real-time active filter update');
 
-    await test.step('Add two active todos', async () => {
-      await todoPage.addTodos('Task A', 'Task B');
+    await test.step('Seed two active todos', async () => {
+      await todoPage.seedTodos(['Task A', 'Task B']);
     });
 
     await test.step('Switch to Active filter', async () => {
@@ -97,8 +99,8 @@ test.describe('Filter todos', () => {
   test('should reflect the selected filter in the URL hash', async ({ todoPage, page }) => {
     await allure.story('URL hash routing');
 
-    await test.step('Add a todo', async () => {
-      await todoPage.addTodo('Sample');
+    await test.step('Seed a todo', async () => {
+      await todoPage.seedTodos(['Sample']);
     });
 
     await test.step('Navigate to Active and verify URL', async () => {
@@ -120,10 +122,11 @@ test.describe('Filter todos', () => {
   test('should show zero todos in Active filter when all are completed', async ({ todoPage }) => {
     await allure.story('Empty active filter');
 
-    await test.step('Add and complete all todos', async () => {
-      await todoPage.addTodos('Task 1', 'Task 2');
-      await todoPage.toggleTodo(0);
-      await todoPage.toggleTodo(1);
+    await test.step('Seed two completed todos', async () => {
+      await todoPage.seedTodos([
+        { title: 'Task 1', completed: true },
+        { title: 'Task 2', completed: true },
+      ]);
     });
 
     await test.step('Switch to Active filter', async () => {
@@ -138,8 +141,8 @@ test.describe('Filter todos', () => {
   test('should show zero todos in Completed filter when none are completed', async ({ todoPage }) => {
     await allure.story('Empty completed filter');
 
-    await test.step('Add active todos only', async () => {
-      await todoPage.addTodos('Task 1', 'Task 2');
+    await test.step('Seed active todos only', async () => {
+      await todoPage.seedTodos(['Task 1', 'Task 2']);
     });
 
     await test.step('Switch to Completed filter', async () => {
