@@ -62,8 +62,9 @@ test.describe('Add todo', () => {
       await todoPage.addTodo('   ');
     });
 
-    await test.step('Verify no todo was added', async () => {
+    await test.step('Verify no todo was added or stored', async () => {
       await todoPage.expectTodoCount(0);
+      expect(await todoPage.storedTitles()).toEqual([]);
     });
   });
 
@@ -74,9 +75,12 @@ test.describe('Add todo', () => {
       await todoPage.addTodo('  Buy milk  ');
     });
 
-    await test.step('Verify text is saved trimmed', async () => {
+    await test.step('Verify text is saved trimmed in the DOM and in storage', async () => {
       await todoPage.expectTodoCount(1);
-      await todoPage.expectTodoText(0, 'Buy milk');
+      // Asserted exactly rather than with toHaveText, which normalizes whitespace
+      // and would pass even if the title were stored padded. Model.create() trims.
+      await todoPage.expectExactTodoText(0, 'Buy milk');
+      expect(await todoPage.storedTitles()).toEqual(['Buy milk']);
     });
   });
 

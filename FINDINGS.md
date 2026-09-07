@@ -1,95 +1,114 @@
 # Quality Findings – ToDo Application
 
-## Finding #1 — Whitespace-only todo is accepted and stored
+Every finding below was verified twice: against the application source and against an
+executed assertion. Where a finding was withdrawn, the withdrawal is recorded rather than
+deleted, so reviewers can see what was checked.
 
-**Severity**: Medium  
-**Type**: Functional defect  
-**Affected feature**: Add todo  
-**Reproducible**: Yes (deterministic)
-
-### Description
-
-Entering one or more space characters into the new-todo input field and pressing Enter creates a new todo item whose visible label is blank. The item is stored in `localStorage` and counted in the footer as "1 item left". There is no visual indication to the user that a blank item has been added.
-
-### Steps to reproduce
-
-1. Open `http://localhost:8080/todo`
-2. Click the new-todo input field (`.new-todo`)
-3. Type one or more space characters (e.g., three spaces)
-4. Press Enter
-
-**Expected result**: No item is added; the input is cleared or ignored.  
-**Actual result**: A todo item with an invisible/blank label is added to the list. The footer counter increments.
-
-### Impact
-
-- A user can accidentally create phantom items that are invisible in the list but counted in "items left".
-- Bulk operations (toggle all, clear completed) interact with these phantom items, causing a confusing counter value.
-- Items persisted to `localStorage` with blank text add noise to stored data.
-
-### Notes
-
-The TodoMVC spec (https://github.com/tastejs/todomvc/blob/master/app-spec.md) explicitly states:
-
-> "New todos are trimmed of whitespace. If the resulting string is empty, the todo should not be created."
-
-The reference implementation in the spec trims the input before saving. This application does not appear to reject empty/whitespace-only strings at the point of creation.
-
-### Suggested fix
-
-Before creating a todo, trim the input value:
-```javascript
-const trimmed = newTodo.trim();
-if (!trimmed) return;  // reject blank / whitespace-only
-```
+Application under test: [cypress-example-kitchensink](https://github.com/cypress-io/cypress-example-kitchensink),
+`app/assets/js/todo/`.
 
 ---
 
-## Finding #2 — Item counter uses incorrect plural form when count is zero
+## Finding #1 — Persistence is localStorage-only, which also limits test isolation
 
-**Severity**: Low  
-**Type**: Copy / localisation defect  
-**Affected feature**: Footer item counter  
-**Reproducible**: Yes
-
-### Description
-
-After all todos are completed and then cleared, the counter displays **"0 items left"** (plural). The TodoMVC spec requires the counter to read **"0 items left"** (plural) for zero — this is correct. However, when there is exactly **1 item remaining**, the copy correctly shows **"1 item left"** (singular). This finding is to confirm the singular/plural boundary is implemented — if any regression is introduced, the failure would be "1 items left".
-
-> **Status**: This specific behaviour currently appears correct. It is documented here as a regression-watch item because it is a historically common defect in TodoMVC forks.
-
----
-
-## Finding #3 — No server-side persistence; data loss on different browser or incognito
-
-**Severity**: Low / UX concern  
-**Type**: Testability / architecture observation  
+**Severity**: Low
+**Type**: Architecture observation and testability concern
 **Affected feature**: Persistence
+**Status**: Open — filed as [issue #4](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/4); full write-up in `GITHUB_ISSUE_1.md`
 
 ### Description
 
-Todos are stored exclusively in `localStorage`. This means:
+Todos are stored exclusively in `localStorage` under the key `todos-vanillajs`
+(`app/assets/js/todo/store.js`). Consequently:
 
-1. Opening the app in a different browser, incognito window, or on a second device shows an empty list.
-2. Clearing browser data permanently deletes all todos.
-3. There is no mechanism to share or export the list.
+1. A different browser, an incognito window, or a second device shows an empty list.
+2. Clearing browser data deletes all todos irrecoverably.
+3. There is no way to share, export, or back up a list.
 
-This is a **by-design** limitation of TodoMVC as a demo application, but it should be called out for product owners evaluating the suitability of this app for real use.
+For a demo application this is a reasonable design, but it is worth stating plainly for anyone
+assessing the app for real use.
 
-**Testability concern**: `localStorage`-only persistence also means that automated tests must explicitly clear storage between runs (see the `goto({ clearData: true })` approach in `pages/TodoPage.ts`). A backend API would enable cleaner test isolation through database seeding/teardown.
+### Testability concern
+
+With no backend there is no seeding or teardown hook, so automated tests must drive state
+through the browser. Two consequences shape this suite:
+
+- Reset happens through the UI. `pages/TodoPage.ts` `clearTodos()` deletes items one at a time
+  via the destroy button, which costs several actions per test and couples setup to the
+  hover-to-reveal delete affordance. A storage-level or API-level reset would be cheaper and
+  would not depend on the behaviour under test.
+- "Empty" is not a state the application holds. It reseeds two sample todos
+  (`Pay electric bill`, `Walk the dog`) whenever it loads with an empty list, so every test
+  must clear them before asserting anything about an empty list.
+
+### How this was confirmed
+
+- Source: `store.js` reads and writes only `localStorage`; no network calls exist in `app/assets/js/todo/`.
+- Automated coverage: `tests/todo/persistence.spec.ts` pins reload behaviour, and
+  `tests/todo/lifecycle.spec.ts` pins the reseeding behaviour so it cannot change silently.
+
+### Suggested improvement
+
+Expose a documented way to set and clear state for testing — even a small
+`window.__todoTestApi` shim, or honouring a query parameter that suppresses the sample data.
 
 ---
 
-## Finding #4 — Drag-and-drop reordering is not implemented
+## Finding #2 — No way to reorder todos
 
-**Severity**: Low  
-**Type**: Missing feature / spec divergence  
+**Severity**: Low
+**Type**: Missing capability
 **Affected feature**: Todo list ordering
 
 ### Description
 
-The TodoMVC specification and many reference implementations support reordering items by drag-and-drop. This application does not appear to offer any mechanism to change the order of todos once they are added.
+Items always render in creation order and the UI provides no affordance to change it: no drag
+handle, no move controls, no sort. A user who wants to reprioritise must delete and re-add
+items in the desired order.
 
-**Impact**: Users who want to prioritise their list must delete and re-add items in the desired order.
+This is a product observation, not a specification violation. The
+[TodoMVC app specification](https://github.com/tastejs/todomvc/blob/master/app-spec.md) does not
+require reordering, so the app is not out of compliance; the gap is only worth raising with a
+product owner if prioritisation matters to the intended users.
 
-**Scope note**: This was observed during exploration but was not added to the automated suite since there is no UI control to test against.
+**Scope note**: not automated, because there is no control to drive.
+
+---
+
+## Withdrawn — New todo titles are stored untrimmed
+
+**Status**: Withdrawn as invalid on verification. Not a defect.
+
+An earlier revision of this document and of `GITHUB_ISSUE_1.md` reported that adding a todo with
+leading or trailing whitespace stored the padded title. That report was based on reading
+`Controller.prototype.addItem`, which does use `title.trim()` only for its emptiness guard and
+then forwards the original `title`:
+
+```javascript
+if (title.trim() === '') { return }
+self.model.create(title, /* … */)
+```
+
+The analysis stopped one layer too early. `Model.prototype.create` trims before persisting
+(`app/assets/js/todo/model.js:32`):
+
+```javascript
+let newItem = {
+  title: title.trim(),
+  completed: false,
+}
+```
+
+The application therefore stores `Buy milk` for input `  Buy milk  `, which is the correct
+TodoMVC behaviour. This was confirmed by executing an exact-match assertion on both the
+rendered label and the stored record; see the trim test in `tests/todo/add.spec.ts`, which
+asserts the trimmed value with `expectExactTodoText()` and `storedTitles()` rather than with
+Playwright's `toHaveText` (which normalizes whitespace and so cannot tell the two apart).
+
+A related claim, that whitespace-only input is accepted and counted, was also withdrawn: the
+`title.trim() === ''` guard rejects it, and `tests/todo/add.spec.ts` asserts that nothing is
+added and nothing is stored.
+
+**Lesson recorded deliberately**: a defect report that cites a root cause must be traced through
+every layer that touches the value, and confirmed with an assertion that would actually fail if
+the defect were real.
