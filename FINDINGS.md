@@ -14,7 +14,7 @@ Application under test: [cypress-example-kitchensink](https://github.com/cypress
 **Severity**: Low
 **Type**: Architecture observation and testability concern
 **Affected feature**: Persistence
-**Status**: Open — see `GITHUB_ISSUE_1.md`
+**Status**: Open — filed as [issue #4](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/4); full write-up in `GITHUB_ISSUE_1.md`
 
 ### Description
 

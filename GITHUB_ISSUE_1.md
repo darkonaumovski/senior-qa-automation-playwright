@@ -1,5 +1,8 @@
 # [Testability] No supported way to set or clear todo state, and the app reseeds sample todos
 
+> Filed as [issue #4](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/4).
+> The subject is the third-party application under test, not this test suite.
+
 **Labels**: testability, enhancement, low priority
 **Component**: Todo persistence (`app/assets/js/todo/store.js`, `model.js`)
 **Reproducible**: 100% – deterministic
