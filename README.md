@@ -194,6 +194,8 @@ Total: **44 tests** across two browser projects = **88 test executions** per CI 
 |----------|-----------|
 | Page Object Model | Centralises selectors; tests read as business-level descriptions |
 | Custom `todoPage` fixture | Supplies a clean page in a fresh browser context; removes sample todos through the UI |
+| `seedTodos()` for preconditions | Writes stored todos and reloads, so setup costs one step instead of several clicks and does not depend on the add, toggle or destroy affordances. Behaviour under test is still driven through the UI. Cannot produce an empty list — see [issue #4](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/4) |
+| `todoStart: 'as-is'` opt-out | Describes whose tests all seed skip the fixture's UI cleanup, which `seedTodos()` would immediately overwrite |
 | Persistence tests share fixture | Setup runs once per test; `todoPage.reload()` preserves storage and the URL hash |
 | Allure option fixtures | Specs declare `todoFeature`; shared setup applies reporting labels |
 | `test.step()` for steps | Works with both Playwright's built-in trace viewer and Allure |

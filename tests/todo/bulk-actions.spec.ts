@@ -2,13 +2,15 @@ import { test, expect } from '../fixtures/todoFixtures';
 import { allure } from 'allure-playwright';
 
 test.describe('Bulk actions', () => {
-  test.use({ todoFeature: 'Bulk Actions' });
+  // Every test here seeds its own data, so the fixture's UI cleanup would be
+  // wasted work: seedTodos() overwrites stored todos regardless.
+  test.use({ todoFeature: 'Bulk Actions', todoStart: 'as-is' });
 
   test('should mark all todos as complete using toggle-all', async ({ todoPage }) => {
     await allure.story('Toggle all to complete');
 
-    await test.step('Add three todos', async () => {
-      await todoPage.addTodos('Task 1', 'Task 2', 'Task 3');
+    await test.step('Seed three active todos', async () => {
+      await todoPage.seedTodos(['Task 1', 'Task 2', 'Task 3']);
     });
 
     await test.step('Click toggle-all', async () => {
@@ -29,9 +31,11 @@ test.describe('Bulk actions', () => {
   test('should unmark all todos when toggle-all is clicked while all are completed', async ({ todoPage }) => {
     await allure.story('Toggle all to uncomplete');
 
-    await test.step('Add and complete all todos', async () => {
-      await todoPage.addTodos('Task 1', 'Task 2');
-      await todoPage.toggleAll();
+    await test.step('Seed two completed todos', async () => {
+      await todoPage.seedTodos([
+        { title: 'Task 1', completed: true },
+        { title: 'Task 2', completed: true },
+      ]);
     });
 
     await test.step('Click toggle-all again to uncomplete', async () => {
@@ -51,9 +55,12 @@ test.describe('Bulk actions', () => {
   test('should complete remaining active todos when toggle-all is used with mixed state', async ({ todoPage }) => {
     await allure.story('Toggle all with mixed state');
 
-    await test.step('Add three todos and complete one', async () => {
-      await todoPage.addTodos('Task 1', 'Task 2', 'Task 3');
-      await todoPage.toggleTodo(0);
+    await test.step('Seed three todos with the first completed', async () => {
+      await todoPage.seedTodos([
+        { title: 'Task 1', completed: true },
+        'Task 2',
+        'Task 3',
+      ]);
     });
 
     await test.step('Click toggle-all', async () => {
@@ -70,10 +77,12 @@ test.describe('Bulk actions', () => {
   test('should remove all completed todos via "Clear completed"', async ({ todoPage }) => {
     await allure.story('Clear completed removes completed items');
 
-    await test.step('Add three todos and complete two', async () => {
-      await todoPage.addTodos('Active task', 'Done 1', 'Done 2');
-      await todoPage.toggleTodo(1);
-      await todoPage.toggleTodo(2);
+    await test.step('Seed three todos with the last two completed', async () => {
+      await todoPage.seedTodos([
+        'Active task',
+        { title: 'Done 1', completed: true },
+        { title: 'Done 2', completed: true },
+      ]);
     });
 
     await test.step('Click Clear completed', async () => {
@@ -89,8 +98,8 @@ test.describe('Bulk actions', () => {
   test('should not show "Clear completed" button when no todos are completed', async ({ todoPage }) => {
     await allure.story('Clear completed button visibility');
 
-    await test.step('Add active todos only', async () => {
-      await todoPage.addTodos('Active 1', 'Active 2');
+    await test.step('Seed active todos only', async () => {
+      await todoPage.seedTodos(['Active 1', 'Active 2']);
     });
 
     await test.step('Verify Clear completed is not visible', async () => {
@@ -101,8 +110,8 @@ test.describe('Bulk actions', () => {
   test('should show "Clear completed" only when at least one todo is completed', async ({ todoPage }) => {
     await allure.story('Clear completed appears on completion');
 
-    await test.step('Add an active todo', async () => {
-      await todoPage.addTodo('Task');
+    await test.step('Seed an active todo', async () => {
+      await todoPage.seedTodos(['Task']);
     });
 
     await test.step('Verify Clear completed is hidden', async () => {
@@ -129,10 +138,13 @@ test.describe('Bulk actions', () => {
   test('should update item count correctly after clearing completed todos', async ({ todoPage }) => {
     await allure.story('Counter after clear completed');
 
-    await test.step('Add four todos, complete two', async () => {
-      await todoPage.addTodos('Active 1', 'Active 2', 'Done 1', 'Done 2');
-      await todoPage.toggleTodo(2);
-      await todoPage.toggleTodo(3);
+    await test.step('Seed four todos with the last two completed', async () => {
+      await todoPage.seedTodos([
+        'Active 1',
+        'Active 2',
+        { title: 'Done 1', completed: true },
+        { title: 'Done 2', completed: true },
+      ]);
     });
 
     await test.step('Clear completed', async () => {

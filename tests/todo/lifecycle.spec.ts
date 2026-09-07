@@ -46,6 +46,32 @@ test.describe('Todo page lifecycle', () => {
     await todoPage.expectTodoText(0, 'Only new item');
   });
 
+  test('should start from seeded data instead of the application sample todos', async ({ todoPage }) => {
+    await todoPage.seedTodos(['Seeded active', { title: 'Seeded done', completed: true }]);
+
+    await todoPage.expectTodoCount(2);
+    await todoPage.expectTodoText(0, 'Seeded active');
+    await todoPage.expectTodoNotCompleted(0);
+    await todoPage.expectTodoText(1, 'Seeded done');
+    await todoPage.expectTodoCompleted(1);
+    await todoPage.expectItemCountText('1 item left');
+  });
+
+  test('should leave unrelated storage untouched when seeding', async ({ todoPage, page }) => {
+    await page.evaluate(() => localStorage.setItem('unrelated-setting', 'keep'));
+
+    await todoPage.seedTodos(['Seeded item']);
+
+    expect(await page.evaluate(() => localStorage.getItem('unrelated-setting'))).toBe('keep');
+    expect(await todoPage.storedTitles()).toEqual(['Seeded item']);
+  });
+
+  test('should reject seeding an empty list, which the application cannot hold', async ({ todoPage }) => {
+    // Documents the constraint behind issue #4: storage set to an empty array
+    // makes the app reseed its samples, so emptiness needs clearTodos().
+    await expect(todoPage.seedTodos([])).rejects.toThrow(/cannot produce an empty list/);
+  });
+
   test('should allow normal application seeding after storage is removed', async ({ todoPage, page }) => {
     // An init script left by cleanup would inject its sentinel on this reload.
     await page.evaluate((key) => localStorage.removeItem(key), TODO_STORAGE_KEY);

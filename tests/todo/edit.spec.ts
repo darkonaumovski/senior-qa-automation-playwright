@@ -2,13 +2,15 @@ import { test, expect } from '../fixtures/todoFixtures';
 import { allure } from 'allure-playwright';
 
 test.describe('Edit todo', () => {
-  test.use({ todoFeature: 'Edit Todo' });
+  // Items are seeded; every edit interaction stays, since editing is the
+  // behaviour under test.
+  test.use({ todoFeature: 'Edit Todo', todoStart: 'as-is' });
 
   test('should enter edit mode when double-clicking a todo label', async ({ todoPage }) => {
     await allure.story('Enter edit mode');
 
-    await test.step('Add a todo', async () => {
-      await todoPage.addTodo('Original text');
+    await test.step('Seed a todo', async () => {
+      await todoPage.seedTodos(['Original text']);
     });
 
     await test.step('Double-click the label', async () => {
@@ -28,8 +30,8 @@ test.describe('Edit todo', () => {
   test('should save edited text when pressing Enter', async ({ todoPage }) => {
     await allure.story('Save with Enter');
 
-    await test.step('Add a todo', async () => {
-      await todoPage.addTodo('Original text');
+    await test.step('Seed a todo', async () => {
+      await todoPage.seedTodos(['Original text']);
     });
 
     await test.step('Edit the todo and confirm with Enter', async () => {
@@ -48,8 +50,8 @@ test.describe('Edit todo', () => {
   test('should save edited text when focus leaves the input (blur)', async ({ todoPage }) => {
     await allure.story('Save on blur');
 
-    await test.step('Add a todo', async () => {
-      await todoPage.addTodo('Original text');
+    await test.step('Seed a todo', async () => {
+      await todoPage.seedTodos(['Original text']);
     });
 
     await test.step('Edit the todo and confirm by blurring', async () => {
@@ -64,8 +66,8 @@ test.describe('Edit todo', () => {
   test('should revert to original text when pressing Escape', async ({ todoPage }) => {
     await allure.story('Cancel with Escape');
 
-    await test.step('Add a todo', async () => {
-      await todoPage.addTodo('Original text');
+    await test.step('Seed a todo', async () => {
+      await todoPage.seedTodos(['Original text']);
     });
 
     await test.step('Start editing and press Escape', async () => {
@@ -87,8 +89,8 @@ test.describe('Edit todo', () => {
   test('should delete a todo when its edited text is cleared and Enter is pressed', async ({ todoPage }) => {
     await allure.story('Delete by clearing edit');
 
-    await test.step('Add two todos', async () => {
-      await todoPage.addTodos('Keep me', 'Delete me');
+    await test.step('Seed two todos', async () => {
+      await todoPage.seedTodos(['Keep me', 'Delete me']);
     });
 
     await test.step('Edit the second todo and clear its text', async () => {
@@ -104,8 +106,8 @@ test.describe('Edit todo', () => {
   test('should trim whitespace when saving an edited todo', async ({ todoPage }) => {
     await allure.story('Trim whitespace on edit save');
 
-    await test.step('Add a todo', async () => {
-      await todoPage.addTodo('Original');
+    await test.step('Seed a todo', async () => {
+      await todoPage.seedTodos(['Original']);
     });
 
     await test.step('Edit and add surrounding whitespace', async () => {
@@ -113,7 +115,7 @@ test.describe('Edit todo', () => {
     });
 
     await test.step('Verify whitespace was trimmed on save', async () => {
-      // Asserted exactly: editItemSave trims, unlike addItem. See GITHUB_ISSUE_1.md.
+      // Asserted exactly: toHaveText would normalize the whitespace away.
       await todoPage.expectExactTodoText(0, 'Updated');
       expect(await todoPage.storedTitles()).toEqual(['Updated']);
     });

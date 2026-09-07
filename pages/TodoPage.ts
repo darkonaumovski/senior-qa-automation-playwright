@@ -3,6 +3,12 @@ import { type Page, type Locator, expect } from '@playwright/test';
 /** Storage key used by the vanilla JavaScript TodoMVC implementation. */
 export const TODO_STORAGE_KEY = 'todos-vanillajs';
 
+/** A todo to seed. A bare string means an active (incomplete) item. */
+export type TodoSeed = string | { title: string; completed?: boolean };
+
+/** The app generates ids with Date.now(), so any distinct numbers are valid. */
+const SEED_ID_BASE = 1_700_000_000_000;
+
 /**
  * Page Object Model for the TodoMVC application.
  *
@@ -57,6 +63,41 @@ export class TodoPage {
 
   private async waitUntilReady(): Promise<void> {
     await this.newTodoInput.waitFor({ state: 'visible' });
+  }
+
+  /**
+   * Replace the stored todos with `items` and reload so the app renders them.
+   *
+   * Prefer this over building a starting state with addTodo()/toggleTodo() when
+   * the existing items are a precondition rather than the behaviour under test:
+   * it removes the per-test delete loop in clearTodos() and does not depend on
+   * the add, toggle or destroy affordances.
+   *
+   * An empty list cannot be produced this way. The app reseeds its two sample
+   * todos whenever findAll() returns an empty array (app/assets/js/todo/app.js),
+   * and Store initialises a missing key to []. Seeding at least one item is what
+   * suppresses that sample data; emptiness still requires clearTodos().
+   */
+  async seedTodos(items: TodoSeed[]): Promise<void> {
+    if (items.length === 0) {
+      throw new Error(
+        'seedTodos() cannot produce an empty list: the application reseeds its sample ' +
+          'todos whenever stored data is empty. Use clearTodos() instead.',
+      );
+    }
+
+    const records = items.map((item, index) => ({
+      id: SEED_ID_BASE + index,
+      title: typeof item === 'string' ? item : item.title,
+      completed: typeof item === 'string' ? false : (item.completed ?? false),
+    }));
+
+    await this.page.evaluate(
+      ({ key, value }) => localStorage.setItem(key, value),
+      { key: TODO_STORAGE_KEY, value: JSON.stringify(records) },
+    );
+    await this.reload();
+    await this.expectTodoCount(records.length);
   }
 
   /** Remove all todos, including items hidden by the selected filter. */
