@@ -1,16 +1,18 @@
-# [Bug] Todo with leading/trailing whitespace is stored with spaces instead of being trimmed
+# [Testability] No supported way to set or clear todo state, and the app reseeds sample todos
 
-**Labels**: bug, medium priority  
-**Component**: Add Todo  
+**Labels**: testability, enhancement, low priority
+**Component**: Todo persistence (`app/assets/js/todo/store.js`, `model.js`)
 **Reproducible**: 100% – deterministic
 
 ---
 
 ## Summary
 
-Typing a todo title with leading or trailing whitespace (e.g. `"  Buy milk  "`) creates a todo whose stored text retains the surrounding spaces. The TodoMVC specification explicitly requires trimming before saving.
-
-When the user later edits the item, the edit input pre-fills with the padded value. The title also contributes to subtle rendering oddities (e.g. the text may appear indented in narrow viewports).
+The ToDo application keeps all state in `localStorage` and offers no supported hook for setting
+or clearing that state. It also reseeds two sample todos whenever it loads with an empty list.
+Together these mean every automated test has to reach into browser internals or drive the UI
+just to reach a known starting state, which makes suites slower and couples test setup to the
+very behaviour under test.
 
 ---
 
@@ -19,67 +21,66 @@ When the user later edits the item, the edit input pre-fills with the padded val
 | Detail | Value |
 |--------|-------|
 | Application | cypress-example-kitchensink `/todo` |
-| Browser tested | Chrome 126, Firefox 127 |
-| Storage | `localStorage` key `todos-vanillajs` |
+| Browsers verified | Chromium 143, Firefox (both via Playwright 1.62.1) |
+| Storage | `localStorage`, key `todos-vanillajs` |
+| Relevant source | `app/assets/js/todo/store.js`, `app/assets/js/todo/model.js` |
 
 ---
 
 ## Steps to reproduce
 
-1. Open `http://localhost:8080/todo`.
-2. Click the `.new-todo` input field.
-3. Type **`   Buy milk   `** (three leading spaces, three trailing spaces).
-4. Press **Enter**.
+1. Open `http://localhost:8080/todo` in a clean browser profile.
+2. Observe that two todos already exist: **Pay electric bill** and **Walk the dog**.
+3. Delete both so the list is empty.
+4. Reload the page.
 
-**Expected result**: A todo with the title **"Buy milk"** is added (whitespace trimmed before saving).
-
-**Actual result**: A todo with the title **"   Buy milk   "** (including spaces) is stored and rendered. The visible label appears to have invisible leading and trailing spaces.
-
----
-
-## Root cause
-
-In `app/assets/js/todo/controller.js`, the `addItem` method validates the input but does **not** trim before creating the record:
-
-```javascript
-Controller.prototype.addItem = function (title) {
-  if (title.trim() === '') {   // ← trim used only for validation …
-    return
-  }
-  self.model.create(title, …)  // ← … but original (un-trimmed) title is saved
-}
-```
-
-The TodoMVC app specification (https://github.com/tastejs/todomvc/blob/master/app-spec.md) states:
-
-> "New todos are trimmed of whitespace. If the resulting string is empty, the todo should not be created."
+**Expected result**: the list stays empty, or there is a documented way to start empty.
+**Actual result**: the two sample todos are recreated. An empty list is not a state the
+application will hold.
 
 ---
 
-## Suggested fix
+## Why this matters for testing
 
-Pass `title.trim()` to `model.create` rather than the raw `title`:
+An automated suite needs a known starting state per test. With no seeding hook, the options are:
 
-```javascript
-Controller.prototype.addItem = function (title) {
-  const trimmed = title.trim()
-  if (trimmed === '') return
-  self.model.create(trimmed, function () { … })
-}
-```
+1. **Drive the UI** — delete every item through the destroy button. This is what this suite does
+   (`pages/TodoPage.ts` `clearTodos()`). It is honest but costs several actions per test, and it
+   makes setup depend on hover-to-reveal delete behaviour, so a regression in delete breaks
+   every unrelated test's setup.
+2. **Write `localStorage` directly** — faster, but it hard-codes the storage key and the record
+   schema into the tests, so an internal storage change silently breaks the suite.
+3. **Install an init script** — reliable, but it persists across navigations and leaks into
+   assertions about the app's own seeding behaviour.
+
+All three trade correctness against cost. A supported hook would remove the trade-off.
+
+---
+
+## Suggested improvement
+
+Any one of these would be sufficient:
+
+- Honour a query parameter such as `/todo?seed=none` that skips the sample data.
+- Expose a small documented test surface, for example `window.__todoTestApi.reset()`.
+- Document the storage key and record schema as a stable contract, so option 2 above becomes a
+  supported integration point rather than a guess.
 
 ---
 
 ## Impact
 
-- **User experience**: Invisible padding in todo titles is confusing during editing.
-- **Data quality**: `localStorage` accumulates todos with invisible whitespace that cannot be detected visually.
-- **Counter accuracy**: A whitespace-only todo (e.g. a single space) passes the validation check and is added to the list. This inflates the "items left" counter with a non-deletable-by-inspection phantom item.
+- **Test cost**: every test pays a multi-action reset before it can assert anything.
+- **Test coupling**: setup depends on the delete affordance, so one UI regression cascades into
+  unrelated failures.
+- **Product**: unrelated to testing, users on a second browser or after clearing site data see
+  an empty list with no export or backup path. Worth a product decision, not just a test one.
 
 ---
 
-## Additional notes
+## Automated coverage
 
-The **edit path** (`editItemSave`) does correctly apply `title.trim()` before saving, so fixing the `addItem` path would make the two code paths consistent.
-
-Automated regression test: `tests/todo/add.spec.ts` → _"should trim leading and trailing whitespace from todo text"_ will act as a guard once this fix is applied.
+- `tests/todo/lifecycle.spec.ts` pins the reseeding behaviour and asserts that cleanup leaves
+  unrelated `localStorage` keys untouched and installs no persistent init script.
+- `tests/todo/persistence.spec.ts` covers reload persistence of items, completion state and the
+  selected filter.

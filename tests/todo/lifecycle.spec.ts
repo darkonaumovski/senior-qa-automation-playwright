@@ -1,4 +1,5 @@
 import { test, expect } from '../fixtures/todoFixtures';
+import { TODO_STORAGE_KEY } from '../../pages/TodoPage';
 
 test.describe('Todo page lifecycle', () => {
   test.use({ todoFeature: 'Page Lifecycle' });
@@ -47,7 +48,7 @@ test.describe('Todo page lifecycle', () => {
 
   test('should allow normal application seeding after storage is removed', async ({ todoPage, page }) => {
     // An init script left by cleanup would inject its sentinel on this reload.
-    await page.evaluate(() => localStorage.removeItem('todos-vanillajs'));
+    await page.evaluate((key) => localStorage.removeItem(key), TODO_STORAGE_KEY);
 
     await todoPage.reload();
 

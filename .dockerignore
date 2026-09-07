@@ -1,0 +1,35 @@
+# Host artefacts must never shadow what the image installs or builds.
+# Without this file, `COPY . .` overwrites the image's npm ci install with a
+# host node_modules built for a different platform and Playwright version.
+node_modules/
+dist/
+
+# Generated test output
+allure-report/
+allure-results/*
+!allure-results/categories.json
+allure-latest-report/
+allure-latest-results/
+playwright-report/
+test-results/
+
+# Repository metadata not needed at runtime
+.git/
+.github/
+.gitignore
+.dockerignore
+
+# The application is cloned inside the image, not copied from the host.
+cypress-example-kitchensink/
+
+# Docs
+*.md
+
+# Editor / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Environment
+.env
+.env.local

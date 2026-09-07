@@ -60,8 +60,10 @@ Editing is the most interaction-heavy feature and historically the most fragile 
 
 ### Priority 5 – Edge cases and data quality (risk mitigation)
 - Empty input is rejected
-- Whitespace-only input is rejected (see Findings)
-- Leading/trailing whitespace is trimmed on save
+- Whitespace-only input is rejected
+- Leading/trailing whitespace is trimmed on add and on edit — asserted exactly, on both the
+  rendered label and the stored record, because `toHaveText` normalizes whitespace and would
+  pass even if the title were persisted padded
 - Special characters are rendered as plain text (XSS-safe)
 
 ### Priority 6 – Persistence (completeness)

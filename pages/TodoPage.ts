@@ -1,5 +1,8 @@
 import { type Page, type Locator, expect } from '@playwright/test';
 
+/** Storage key used by the vanilla JavaScript TodoMVC implementation. */
+export const TODO_STORAGE_KEY = 'todos-vanillajs';
+
 /**
  * Page Object Model for the TodoMVC application.
  *
@@ -185,6 +188,26 @@ export class TodoPage {
 
   async expectTodoText(index: number, text: string): Promise<void> {
     await expect(this.label(index)).toHaveText(text);
+  }
+
+  /**
+   * Assert the label text character for character.
+   * expectTodoText() uses toHaveText(), which normalizes whitespace and
+   * therefore cannot distinguish "Buy milk" from "  Buy milk  ".
+   */
+  async expectExactTodoText(index: number, text: string): Promise<void> {
+    await expect(this.label(index)).toHaveJSProperty('textContent', text);
+  }
+
+  /** Titles exactly as the application persisted them, bypassing DOM normalization. */
+  async storedTitles(): Promise<string[]> {
+    return this.page.evaluate((key) => {
+      const raw = localStorage.getItem(key);
+      if (!raw) {
+        return [];
+      }
+      return (JSON.parse(raw) as Array<{ title: string }>).map((todo) => todo.title);
+    }, TODO_STORAGE_KEY);
   }
 
   async expectTodoCompleted(index: number): Promise<void> {

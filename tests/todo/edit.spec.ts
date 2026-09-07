@@ -113,7 +113,9 @@ test.describe('Edit todo', () => {
     });
 
     await test.step('Verify whitespace was trimmed on save', async () => {
-      await todoPage.expectTodoText(0, 'Updated');
+      // Asserted exactly: editItemSave trims, unlike addItem. See GITHUB_ISSUE_1.md.
+      await todoPage.expectExactTodoText(0, 'Updated');
+      expect(await todoPage.storedTitles()).toEqual(['Updated']);
     });
   });
 });
