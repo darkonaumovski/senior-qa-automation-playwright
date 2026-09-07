@@ -103,7 +103,7 @@ test.describe('Bulk actions', () => {
     });
 
     await test.step('Verify Clear completed is not visible', async () => {
-      await expect(todoPage.clearCompletedButton).not.toBeVisible();
+      await expect(todoPage.clearCompletedButton).toBeHidden();
     });
   });
 
@@ -115,7 +115,7 @@ test.describe('Bulk actions', () => {
     });
 
     await test.step('Verify Clear completed is hidden', async () => {
-      await expect(todoPage.clearCompletedButton).not.toBeVisible();
+      await expect(todoPage.clearCompletedButton).toBeHidden();
     });
 
     await test.step('Complete the todo', async () => {
@@ -131,7 +131,7 @@ test.describe('Bulk actions', () => {
     });
 
     await test.step('Verify Clear completed is hidden again', async () => {
-      await expect(todoPage.clearCompletedButton).not.toBeVisible();
+      await expect(todoPage.clearCompletedButton).toBeHidden();
     });
   });
 

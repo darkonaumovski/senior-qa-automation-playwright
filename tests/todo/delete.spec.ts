@@ -69,7 +69,7 @@ test.describe('Delete todo', () => {
 
     await test.step('Verify destroy button is not visible by default', async () => {
       // The button exists in the DOM but is invisible until hover
-      await expect(todoPage.destroyButton(0)).not.toBeVisible();
+      await expect(todoPage.destroyButton(0)).toBeHidden();
     });
 
     await test.step('Hover over item and verify button appears', async () => {

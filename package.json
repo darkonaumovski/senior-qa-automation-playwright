@@ -6,6 +6,8 @@
   "scripts": {
     "test": "playwright test",
     "typecheck": "tsc --noEmit",
+    "lint": "eslint . --max-warnings=0",
+    "lint:fix": "eslint . --fix",
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
     "test:ui": "playwright test --ui",
@@ -16,10 +18,14 @@
     "report": "npm run report:generate && npm run report:open"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@playwright/test": "1.62.1",
     "@types/node": "^22.0.0",
-    "allure-playwright": "^3.0.0",
     "allure-commandline": "^2.30.0",
-    "typescript": "^5.5.4"
+    "allure-playwright": "^3.0.0",
+    "eslint": "^10.10.0",
+    "eslint-plugin-playwright": "^2.11.0",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.69.0"
   }
 }

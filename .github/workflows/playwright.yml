@@ -17,32 +17,78 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  # Commit of cypress-example-kitchensink to test against. Pinned so a failure
-  # is attributable to this suite rather than to an upstream change landing
-  # mid-run. Keep in step with the APP_COMMIT build args in Dockerfile and
-  # Dockerfile.app. Bump deliberately, in its own commit.
-  APP_COMMIT: a89cccc91045a0a36ce559cd716aebc31fa302a8
+# The commit of cypress-example-kitchensink to test against is not declared
+# here: it lives in .app-commit and is read into APP_COMMIT per job. Pinning it
+# keeps a failure attributable to this suite rather than to an upstream change
+# landing mid-run, and keeping it in one file stops the workflow, the two
+# Dockerfiles and the compose stack from drifting apart. The `pin` job below
+# fails the build if the SHA is written down anywhere else again.
 
 jobs:
-  # Fast feedback: compile the suite before spending runner time on browsers.
+  # Fast feedback: compile and lint the suite before spending runner time on
+  # browsers.
   static:
-    name: Typecheck
+    name: Static checks
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
           cache-dependency-path: package-lock.json
       - run: npm ci --ignore-scripts
       - run: npm run typecheck
+      - run: npm run lint
+
+  # Guards the single source of truth. Without this, .app-commit is just a
+  # convention and a copy-pasted SHA can quietly reappear.
+  pin:
+    name: Check the app pin is single-source
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate the .app-commit format
+        run: |
+          pin="$(tr -d '[:space:]' < .app-commit)"
+          if ! printf '%s' "$pin" | grep -Eq '^[0-9a-f]{40}$'; then
+            echo "ERROR: .app-commit must hold one full 40-character commit SHA, got '${pin}'." >&2
+            exit 1
+          fi
+          echo "Pinned application commit: ${pin}"
+
+      - name: Confirm the commit exists upstream
+        run: |
+          pin="$(tr -d '[:space:]' < .app-commit)"
+          git init upstream-check
+          cd upstream-check
+          git remote add origin https://github.com/cypress-io/cypress-example-kitchensink
+          if ! git fetch --depth 1 origin "${pin}"; then
+            echo "ERROR: ${pin} is not fetchable from cypress-example-kitchensink." >&2
+            exit 1
+          fi
+
+      - name: Fail if a 40-character SHA is hard-coded anywhere else
+        run: |
+          # Anything tracked, except .app-commit itself and the lockfile (whose
+          # integrity hashes are not commit SHAs).
+          offenders="$(git ls-files \
+            | grep -v -e '^\.app-commit$' -e '^package-lock\.json$' \
+            | xargs grep -l -E '\b[0-9a-f]{40}\b' 2>/dev/null || true)"
+          if [ -n "${offenders}" ]; then
+            echo "ERROR: a 40-character SHA is hard-coded outside .app-commit:" >&2
+            echo "${offenders}" >&2
+            echo "Read the pin from .app-commit instead." >&2
+            exit 1
+          fi
+          echo "No hard-coded SHAs outside .app-commit."
 
   test:
     name: Run Playwright tests
-    needs: static
+    needs: [static, pin]
     runs-on: ubuntu-latest
     timeout-minutes: 20
     # Required by peaceiris/actions-gh-pages when publishing the Allure report.
@@ -53,6 +99,9 @@ jobs:
       # ── Checkout ─────────────────────────────────────────────────────────────
       - name: Checkout test repository
         uses: actions/checkout@v4
+
+      - name: Resolve the pinned application commit
+        run: echo "APP_COMMIT=$(tr -d '[:space:]' < .app-commit)" >> "$GITHUB_ENV"
 
       # ── App setup ─────────────────────────────────────────────────────────────
       - name: Checkout cypress-example-kitchensink (app under test)
@@ -65,7 +114,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
           cache-dependency-path: package-lock.json
 
@@ -189,17 +238,22 @@ jobs:
   # through docker compose exactly as a reviewer would.
   docker:
     name: Build image and run suite in Docker
-    needs: static
+    needs: [static, pin]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
 
+      - name: Resolve the pinned application commit
+        run: echo "APP_COMMIT=$(tr -d '[:space:]' < .app-commit)" >> "$GITHUB_ENV"
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      # No --build-arg: the Dockerfile reads .app-commit itself, so building by
+      # hand and building here cannot disagree about the app revision.
       - name: Build the combined app + tests image
-        run: docker build --build-arg APP_COMMIT="${APP_COMMIT}" -t todo-suite:ci .
+        run: docker build -t todo-suite:ci .
 
       # This is the assignment deliverable: one image that holds the application,
       # the tests and their dependencies. Running it also exercises

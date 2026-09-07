@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { defineConfig, devices } from '@playwright/test';
 
 /**
@@ -10,11 +12,30 @@ const BASE_URL = process.env.TODO_BASE_URL ?? 'http://localhost:8080';
 const REPO_URL = 'https://github.com/darkonaumovski/senior-qa-automation-playwright';
 
 /**
- * Commit of the application under test. CI and the Dockerfiles pin this, so
- * recording it in the report makes a result attributable to a specific app
- * revision rather than to whatever master happened to be that day.
+ * Commit of the application under test, recorded in the report so a result is
+ * attributable to a specific app revision rather than to whatever master
+ * happened to be that day.
+ *
+ * Read from .app-commit, the single place the SHA is written down. An explicit
+ * APP_COMMIT wins so a one-off run against another revision labels itself
+ * correctly. The file is only missing if the config is run from outside the
+ * repository, which is worth saying in the report rather than guessing.
  */
-const APP_COMMIT = process.env.APP_COMMIT ?? 'unpinned (local run)';
+function resolveAppCommit(): string {
+  const fromEnv = process.env.APP_COMMIT?.trim();
+  if (fromEnv) {
+    return fromEnv;
+  }
+  try {
+    // Resolved against this file rather than the working directory, so the
+    // value does not depend on where the run was invoked from.
+    return readFileSync(join(__dirname, '.app-commit'), 'utf8').trim();
+  } catch {
+    return 'unknown (.app-commit not readable)';
+  }
+}
+
+const APP_COMMIT = resolveAppCommit();
 
 /**
  * Firefox launch options.

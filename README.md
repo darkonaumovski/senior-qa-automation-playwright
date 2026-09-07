@@ -17,7 +17,10 @@ End-to-end Playwright test suite for the **TodoMVC** application served by
 | `Dockerfile` | Combined image: app + test runner |
 | `Dockerfile.app` | App-only image (used by docker-compose) |
 | `docker-compose.yml` | Two-service compose setup |
-| `.github/workflows/playwright.yml` | CI workflow (test → Allure → GitHub Pages) |
+| `.app-commit` | The commit of the application under test — the only place this SHA is written down |
+| `eslint.config.mjs` | Lint rules, including the type-aware ones that catch a missing `await` |
+| `.github/workflows/playwright.yml` | CI workflow (static checks → pin check → test → Docker → Allure → GitHub Pages) |
+| `.github/workflows/flake-detection.yml` | Nightly repeat run with retries disabled |
 | `TEST_APPROACH.md` | Test priorities, scope, decisions |
 | `FINDINGS.md` | Documented defects and observations |
 
@@ -25,7 +28,9 @@ End-to-end Playwright test suite for the **TodoMVC** application served by
 
 ## Prerequisites
 
-- **Node.js 20+**
+- **Node.js 22+** — the application under test declares `engines.node` as
+  `^22.22.2 || ^24.15.0 || >=26.0.0`. npm only warns rather than fails by default, so
+  older versions appear to work, but `npm install` refuses under `engine-strict`.
 - **npm 10+**
 - **Docker + Docker Compose** (for containerised execution)
 - **Java 17+** (only for generating the Allure HTML report locally – not needed to run tests)
@@ -40,8 +45,9 @@ End-to-end Playwright test suite for the **TodoMVC** application served by
 git clone https://github.com/cypress-io/cypress-example-kitchensink
 cd cypress-example-kitchensink
 # Pin to the same commit CI and the Docker images use, so local results are
-# comparable with CI results. See APP_COMMIT in .github/workflows/playwright.yml.
-git checkout a89cccc91045a0a36ce559cd716aebc31fa302a8
+# comparable with CI results. The SHA lives in .app-commit in this repository
+# and nowhere else, so read it from there rather than copying it around.
+git checkout "$(cat ../senior-qa-automation-playwright/.app-commit)"
 npm install
 npm start
 # Application available at http://localhost:8080/todo
@@ -60,6 +66,8 @@ npx playwright install --with-deps chromium firefox
 ```bash
 npm test                        # run all tests headlessly (parallel)
 npm run typecheck               # check TypeScript without emitting files
+npm run lint                    # ESLint, including type-aware rules; warnings fail
+npm run lint:fix                # apply the autofixable subset
 npm run test:headed             # run with browser visible (single worker – see note below)
 npm run test:debug              # open Playwright Inspector
 npm run test:ui                 # open Playwright UI mode
@@ -124,10 +132,17 @@ npm run report:generate && npm run report:open
 
 ## CI / GitHub Actions
 
-The workflow at `.github/workflows/playwright.yml` runs on every push to `main` and on pull requests, as three jobs.
+The workflow at `.github/workflows/playwright.yml` runs on every push to `main` and on pull requests, as four jobs.
 
-**`static`** — `tsc --noEmit`. Runs first and gates the other two, so a compile
-error costs seconds rather than a full browser run.
+**`static`** — `tsc --noEmit` and `eslint . --max-warnings=0`. Runs first and
+gates the rest, so a compile error or a missing `await` costs seconds rather
+than a full browser run.
+
+**`pin`** — checks that the application pin is genuinely single-source: that
+`.app-commit` holds one valid 40-character SHA, that the commit is still
+fetchable upstream, and that the SHA is not hard-coded anywhere else in the
+repository. Without this job `.app-commit` would be a convention rather than a
+rule, and a copy-pasted SHA could quietly reappear.
 
 **`test`** — the suite itself:
 1. Checkout this repo, and `cypress-example-kitchensink` at the pinned `APP_COMMIT`
@@ -142,11 +157,13 @@ error costs seconds rather than a full browser run.
 reviewed. This is what catches the failure mode where the image builds but the
 suite cannot actually run inside it.
 
-The application under test is pinned by commit in three places that must stay in
-step: `APP_COMMIT` in this workflow, and the `APP_COMMIT` build args in
-`Dockerfile` and `Dockerfile.app`. Without a pin the suite tests whatever
-upstream `master` happens to be, and a red build cannot be attributed to either
-side.
+The application under test is pinned by commit, because without a pin the suite
+tests whatever upstream `master` happens to be and a red build cannot be
+attributed to either side. That SHA lives in **`.app-commit` and nowhere else**:
+the workflows read it into `APP_COMMIT`, both Dockerfiles read it at build time,
+the compose stack passes it through empty, and `playwright.config.ts` reads it
+for the Allure environment panel. To test against a different revision, either
+edit `.app-commit` or export `APP_COMMIT` for a one-off run.
 
 ### Flake detection
 
@@ -165,10 +182,11 @@ npm run test:repeat             # the same idea locally
 2. Set Source to **Deploy from a branch**, branch `gh-pages`, folder `/ (root)`
 3. The report URL will be: `https://<owner>.github.io/<repo>/allure-report/`
 
-**Artifacts** are retained for 30 days and include:
-- `allure-results-<run>` – raw JSON results for re-generating the report
-- `allure-report-<run>` – the pre-generated HTML report
-- `playwright-traces-<run>` – traces and videos (only on failure)
+**Artifacts** and their retention:
+- `allure-results-<run>` – raw JSON results for re-generating the report (30 days)
+- `allure-report-<run>` – the pre-generated HTML report (30 days)
+- `playwright-traces-<run>` – traces and videos, only on failure (14 days, because
+  they are much larger and are only useful while the failure is still being chased)
 
 ---
 

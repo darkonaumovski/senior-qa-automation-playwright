@@ -22,13 +22,12 @@ test.describe('Todo page lifecycle', () => {
     await page.evaluate(() => localStorage.setItem('unrelated-setting', 'keep'));
 
     await todoPage.goto();
-    await todoPage.goto();
 
     await todoPage.expectTodoCount(0);
     await todoPage.expectFooterHidden();
     expect(await page.evaluate(() => localStorage.getItem('unrelated-setting'))).toBe('keep');
     await todoPage.addTodo('Fresh todo');
-    await expect(todoPage.destroyButton(0)).not.toBeVisible();
+    await expect(todoPage.destroyButton(0)).toBeHidden();
   });
 
   test('should clear todos hidden by an empty filtered view', async ({ todoPage }) => {
@@ -36,7 +35,6 @@ test.describe('Todo page lifecycle', () => {
     await todoPage.filterByCompleted();
     await todoPage.expectTodoCount(0);
 
-    await todoPage.clearTodos();
     await todoPage.clearTodos();
 
     await todoPage.expectTodoCount(0);
