@@ -19,9 +19,10 @@ services:
       context: .
       dockerfile: Dockerfile.app
       args:
-        # Falls back to the pin baked into the Dockerfiles. Override by
-        # exporting APP_COMMIT to test against a different app revision.
-        APP_COMMIT: ${APP_COMMIT:-a89cccc91045a0a36ce559cd716aebc31fa302a8}
+        # Left empty on purpose: the Dockerfile resolves the pin from
+        # .app-commit, so the SHA is written down in exactly one place. Export
+        # APP_COMMIT to test against a different app revision.
+        APP_COMMIT: ${APP_COMMIT:-}
     ports:
       - "8080:8080"
     healthcheck:
@@ -36,14 +37,16 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        APP_COMMIT: ${APP_COMMIT:-a89cccc91045a0a36ce559cd716aebc31fa302a8}
+        APP_COMMIT: ${APP_COMMIT:-}
     depends_on:
       app:
         condition: service_healthy
     environment:
       - TODO_BASE_URL=http://app:8080
       - CI=true
-      - APP_COMMIT=${APP_COMMIT:-a89cccc91045a0a36ce559cd716aebc31fa302a8}
+      # Reported in the Allure environment panel. Empty means the Playwright
+      # config reads .app-commit itself.
+      - APP_COMMIT=${APP_COMMIT:-}
     volumes:
       - ./allure-results:/workspace/allure-results
       - ./test-results:/workspace/test-results

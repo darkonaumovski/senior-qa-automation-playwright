@@ -1,7 +1,7 @@
 # Lightweight image that serves the cypress-example-kitchensink application.
 # Used by docker-compose for the app service when the combined Dockerfile
 # is not required.
-FROM node:20-slim
+FROM node:22-slim
 
 # ca-certificates is required: node:*-slim ships without a CA bundle, so an
 # https clone fails with "server certificate verification failed".
@@ -12,10 +12,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Pinned for the same reason as in Dockerfile: an unpinned application under
-# test makes build-to-build results incomparable. Keep the three pins (here,
-# Dockerfile, and the workflow) in step.
-ARG APP_COMMIT=a89cccc91045a0a36ce559cd716aebc31fa302a8
-RUN git init /app \
+# test makes build-to-build results incomparable. Resolved from .app-commit,
+# which is the only place the SHA is written down.
+COPY .app-commit /tmp/.app-commit
+ARG APP_COMMIT=""
+RUN APP_COMMIT="${APP_COMMIT:-$(tr -d '[:space:]' < /tmp/.app-commit)}" \
+    && echo "Building against application commit ${APP_COMMIT}" \
+    && git init /app \
     && cd /app \
     && git remote add origin https://github.com/cypress-io/cypress-example-kitchensink \
     && if git fetch --depth 1 origin "${APP_COMMIT}"; then \

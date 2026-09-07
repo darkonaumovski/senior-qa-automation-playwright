@@ -115,7 +115,7 @@ test.describe('Filter todos', () => {
 
     await test.step('Navigate to All and verify URL', async () => {
       await todoPage.filterByAll();
-      await expect(page).toHaveURL(/#\/$|\/todo$/);
+      await expect(page).toHaveURL(/#\/$/);
     });
   });
 

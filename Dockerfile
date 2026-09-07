@@ -1,7 +1,7 @@
 # ──────────────────────────────────────────────────────────────────────────────
 # Stage 1 – App: clone and install the cypress-example-kitchensink application
 # ──────────────────────────────────────────────────────────────────────────────
-FROM node:20-slim AS app-builder
+FROM node:22-slim AS app-builder
 
 # ca-certificates is required: node:*-slim ships without a CA bundle, so an
 # https clone fails with "server certificate verification failed".
@@ -12,13 +12,21 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Pinned so the image is reproducible. An unpinned clone means the application
 # under test can change between builds, which makes a failure impossible to
-# attribute to either the tests or the app. Keep in step with APP_COMMIT in
-# .github/workflows/playwright.yml.
-ARG APP_COMMIT=a89cccc91045a0a36ce559cd716aebc31fa302a8
+# attribute to either the tests or the app.
+#
+# The SHA lives in .app-commit and nowhere else. It used to be copy-pasted into
+# seven places kept in step by comment alone, which is a divergence waiting to
+# happen: the compose stack could build one app revision while CI tested
+# another, and nothing would report it. Pass --build-arg APP_COMMIT=<sha> to
+# override for a one-off build.
+COPY .app-commit /tmp/.app-commit
+ARG APP_COMMIT=""
 # Shallow fetch of the exact commit where the server allows it, falling back to
-# a full fetch. The fallback checks out APP_COMMIT explicitly rather than
+# a full fetch. The fallback checks out the resolved SHA explicitly rather than
 # FETCH_HEAD, so a fallback can never quietly pin a different revision.
-RUN git init /opt/kitchensink \
+RUN APP_COMMIT="${APP_COMMIT:-$(tr -d '[:space:]' < /tmp/.app-commit)}" \
+    && echo "Building against application commit ${APP_COMMIT}" \
+    && git init /opt/kitchensink \
     && cd /opt/kitchensink \
     && git remote add origin https://github.com/cypress-io/cypress-example-kitchensink \
     && if git fetch --depth 1 origin "${APP_COMMIT}"; then \

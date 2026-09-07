@@ -61,8 +61,43 @@ export class TodoPage {
     await this.waitUntilReady();
   }
 
+  /**
+   * Wait until the rendered list agrees with stored data.
+   *
+   * `page.goto` resolves on the `load` event, but the app seeds its sample
+   * todos from its own `window.load` listener and renders them afterwards, and
+   * `.new-todo` is in the static markup. Input visibility therefore says
+   * nothing about whether the list has settled. That matters because
+   * clearTodos() sizes its delete loop from a single count(): a count read too
+   * early leaves a dirty list for every test sharing this fixture, not just one.
+   *
+   * Waiting for a non-empty list is safe on every load, including one that
+   * follows clearTodos(): the app reseeds two samples whenever stored data is
+   * empty (app/assets/js/todo/app.js), which is the behaviour issue #4 reports.
+   * Store also initialises a missing key to [] before that reseed runs, so
+   * "storage exists" and "rendered count matches storage" are both true for a
+   * moment before the samples appear — hence the non-empty requirement rather
+   * than a bare comparison. If the app ever stopped reseeding, this would time
+   * out loudly instead of silently starting tests from a dirty list.
+   */
   private async waitUntilReady(): Promise<void> {
     await this.newTodoInput.waitFor({ state: 'visible' });
+    await this.page.waitForFunction((key) => {
+      const raw = window.localStorage.getItem(key);
+      if (raw === null) {
+        return false;
+      }
+      try {
+        const stored: unknown = JSON.parse(raw);
+        return (
+          Array.isArray(stored) &&
+          stored.length > 0 &&
+          document.querySelectorAll('.todo-list li').length === stored.length
+        );
+      } catch {
+        return false;
+      }
+    }, TODO_STORAGE_KEY);
   }
 
   /**
@@ -111,6 +146,10 @@ export class TodoPage {
       await this.deleteTodo(0);
       await this.expectTodoCount(count - 1);
     }
+    // Sizing the loop above from one snapshot means an undercount would end it
+    // early and hand the next test a dirty list. waitUntilReady() is what
+    // prevents that; this asserts it rather than trusting it.
+    await this.expectTodoCount(0);
     // Leave newly added items unhovered for visibility assertions.
     await this.page.mouse.move(0, 0);
   }

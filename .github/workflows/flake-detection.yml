@@ -23,9 +23,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  # Keep in step with the pin in playwright.yml and the Dockerfiles.
-  APP_COMMIT: a89cccc91045a0a36ce559cd716aebc31fa302a8
+# APP_COMMIT is read from .app-commit per job rather than declared here, so the
+# SHA is written down in exactly one place. See the `pin` job in playwright.yml,
+# which fails the build if it reappears elsewhere.
 
 jobs:
   repeat:
@@ -40,6 +40,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Resolve the pinned application commit
+        run: echo "APP_COMMIT=$(tr -d '[:space:]' < .app-commit)" >> "$GITHUB_ENV"
+
       - name: Checkout cypress-example-kitchensink (app under test)
         uses: actions/checkout@v4
         with:
@@ -49,7 +52,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
           cache-dependency-path: package-lock.json
 
