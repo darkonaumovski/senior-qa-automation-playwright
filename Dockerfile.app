@@ -3,10 +3,26 @@
 # is not required.
 FROM node:20-slim
 
-RUN apt-get update && apt-get install -y git wget --no-install-recommends \
+# ca-certificates is required: node:*-slim ships without a CA bundle, so an
+# https clone fails with "server certificate verification failed".
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    wget \
+    ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone --depth 1 https://github.com/cypress-io/cypress-example-kitchensink /app
+# Pinned for the same reason as in Dockerfile: an unpinned application under
+# test makes build-to-build results incomparable. Keep the three pins (here,
+# Dockerfile, and the workflow) in step.
+ARG APP_COMMIT=a89cccc91045a0a36ce559cd716aebc31fa302a8
+RUN git init /app \
+    && cd /app \
+    && git remote add origin https://github.com/cypress-io/cypress-example-kitchensink \
+    && if git fetch --depth 1 origin "${APP_COMMIT}"; then \
+         git checkout FETCH_HEAD; \
+       else \
+         git fetch origin && git checkout "${APP_COMMIT}"; \
+       fi
 
 WORKDIR /app
 # --ignore-scripts avoids the husky post-install hook in the kitchensink repo

@@ -17,9 +17,32 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  # Commit of cypress-example-kitchensink to test against. Pinned so a failure
+  # is attributable to this suite rather than to an upstream change landing
+  # mid-run. Keep in step with the APP_COMMIT build args in Dockerfile and
+  # Dockerfile.app. Bump deliberately, in its own commit.
+  APP_COMMIT: a89cccc91045a0a36ce559cd716aebc31fa302a8
+
 jobs:
+  # Fast feedback: compile the suite before spending runner time on browsers.
+  static:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+      - run: npm ci --ignore-scripts
+      - run: npm run typecheck
+
   test:
     name: Run Playwright tests
+    needs: static
     runs-on: ubuntu-latest
     timeout-minutes: 20
     # Required by peaceiris/actions-gh-pages when publishing the Allure report.
@@ -36,6 +59,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: cypress-io/cypress-example-kitchensink
+          ref: ${{ env.APP_COMMIT }}
           path: kitchensink
 
       - name: Set up Node.js
@@ -105,6 +129,7 @@ jobs:
         env:
           TODO_BASE_URL: ${{ github.event.inputs.todo_base_url || 'http://localhost:8080' }}
           CI: 'true'
+          APP_COMMIT: ${{ env.APP_COMMIT }}
         run: npm test
         # Always collect results even if tests fail
         continue-on-error: true
@@ -157,3 +182,51 @@ jobs:
       - name: Fail workflow if tests failed
         if: steps.playwright.outcome == 'failure'
         run: exit 1
+
+  # -- Docker deliverable ------------------------------------------------------
+  # The assignment asks for an image containing the application and the tests.
+  # Reviewing the Dockerfile proves nothing, so build it and run the suite
+  # through docker compose exactly as a reviewer would.
+  docker:
+    name: Build image and run suite in Docker
+    needs: static
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build the combined app + tests image
+        run: docker build --build-arg APP_COMMIT="${APP_COMMIT}" -t todo-suite:ci .
+
+      # This is the assignment deliverable: one image that holds the application,
+      # the tests and their dependencies. Running it also exercises
+      # docker-entrypoint.sh, which starts the app, waits for it, and has to
+      # propagate the suite's exit code rather than the app shutdown's.
+      - name: Run the suite inside the image
+        run: |
+          docker run --rm \
+            -e CI=true \
+            -e APP_COMMIT="${APP_COMMIT}" \
+            -v "${PWD}/allure-results:/workspace/allure-results" \
+            todo-suite:ci
+
+      # The compose stack is the split app/tests topology. Building it verifies
+      # Dockerfile.app and the service definitions without paying for a second
+      # full suite run.
+      - name: Build the compose stack
+        run: docker compose build
+
+      - name: Upload Allure results from the Docker run
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-results-docker-${{ github.run_number }}
+          path: allure-results/
+          retention-days: 14
+
+      - name: Compose logs on failure
+        if: failure()
+        run: docker compose logs --no-color

@@ -9,14 +9,14 @@
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
     "test:ui": "playwright test --ui",
-    "test:docker": "TODO_BASE_URL=http://localhost:8080 playwright test",
+    "test:repeat": "playwright test --repeat-each=3",
+    "test:docker": "docker compose up --build --abort-on-container-exit --exit-code-from tests",
     "report:generate": "allure generate allure-results --clean -o allure-report",
     "report:open": "allure open allure-report",
-    "report": "npm run report:generate && npm run report:open",
-    "app:start": "cd /opt/kitchensink && npm start"
+    "report": "npm run report:generate && npm run report:open"
   },
   "devDependencies": {
-    "@playwright/test": "^1.47.0",
+    "@playwright/test": "1.62.1",
     "@types/node": "^22.0.0",
     "allure-playwright": "^3.0.0",
     "allure-commandline": "^2.30.0",

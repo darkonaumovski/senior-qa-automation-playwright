@@ -80,12 +80,17 @@ Editing is the most interaction-heavy feature and historically the most fragile 
 - Cross-browser: Chromium and Firefox (configured in `playwright.config.ts`)
 - Parallel execution per browser project
 
-**Out of scope**
-- All other pages of the kitchensink application (they are Cypress demo pages, not the product under evaluation)
-- Performance / load testing
-- Visual regression / pixel comparison
-- Accessibility (WCAG audit) – worth adding with more time
-- Mobile viewport tests – the TodoMVC CSS is desktop-only by design
+**Out of scope**, with the risk each exclusion accepts. An exclusion without a
+stated consequence is a gap dressed up as a decision.
+
+| Excluded | Why | Residual risk accepted |
+|---|---|---|
+| All other pages of the kitchensink application | They are Cypress demo pages, not the product under evaluation | None for this assignment. If the suite were ever repurposed as the repo's regression net, everything outside `/todo` would be uncovered. |
+| Performance / load testing | Single-user client-side app with no backend; there is no contention to measure | A change that makes rendering slow with several hundred todos would ship unnoticed. The suite asserts correctness, never duration. |
+| Visual regression / pixel comparison | Needs a baseline store and a review workflow to be worth anything; without one it produces noise | CSS breakage that leaves the DOM intact passes every test here. The toggle-all chevron and the hover-revealed destroy button are the realistic candidates, since both are styling-dependent affordances the tests reach via the DOM. |
+| Accessibility (WCAG audit) | Deliberately deferred rather than done badly; a real audit needs `axe` plus manual keyboard and screen-reader passes | Unknown. This is the largest untested risk area, and the one I would close first: the app has custom checkbox and inline-edit interactions, exactly where a11y defects concentrate. |
+| Mobile viewport tests | The TodoMVC CSS is desktop-only by design | Layout defects below the CSS breakpoint are invisible to the suite. Low product impact given the app's intent, but it is an assumption about intent rather than a verified fact. |
+| WebKit | Roughly 50% more CI time for an app with no browser-specific behaviour | A WebKit-only rendering or storage defect would not be caught. Judged unlikely because the app uses no vendor-prefixed or recent APIs; the judgement, not the coverage, is what protects us. |
 
 ---
 
@@ -101,7 +106,7 @@ Editing is the most interaction-heavy feature and historically the most fragile 
 
 - All test data is **generated inline** within each test (no external fixtures or seed files needed because `localStorage` is trivially writable).
 - **Preconditions are seeded, behaviour is driven through the UI.** `todoPage.seedTodos()` writes stored todos directly and reloads, so a test that needs "three todos with two completed" gets there in one step instead of five clicks. Interactions that are the subject of a test — adding, toggling, editing, deleting — are always performed through the UI.
-- The shared fixture starts each test from an empty list, without changing unrelated storage keys or installing persistent initialization scripts. Describes whose tests all seed opt out with `test.use({ todoStart: 'as-is' })`, since the cleanup would be discarded a moment later.
+- The shared fixture starts each test from an empty list, without changing unrelated storage keys or installing persistent initialization scripts. Specs that seed all of their own data opt out with `test.use({ todoStart: 'as-is' })`, since the cleanup would be discarded a moment later.
 - **The application cannot be made to start empty.** It reseeds two sample todos whenever stored data is empty (`app/assets/js/todo/app.js`), and its `Store` initialises a missing key to `[]`. Seeding at least one item is what suppresses the samples; a genuinely empty list still requires deleting through the UI. `seedTodos([])` throws rather than appearing to work. See [issue #4](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/4).
 - Persistence tests deliberately keep adding through the UI and call `reload()`, because seeding would reduce them to asserting that `localStorage` survives a reload.
 - No shared state between tests: every test is self-contained and order-independent.
@@ -120,7 +125,13 @@ Editing is the most interaction-heavy feature and historically the most fragile 
 | Trends over time | Built-in graphs: pass rate, duration, failure rate per run |
 | Available from CI | Report is deployed to **GitHub Pages** on every push to `main` |
 
-The report URL will be: `https://<owner>.github.io/<repo>/allure-report/`
+Published report: https://darkonaumovski.github.io/senior-qa-automation-playwright/allure-report/
+
+Allure `issue()` ids are linked to this repository's issue tracker via
+`links.issue.urlTemplate` in `playwright.config.ts`, so a test that pins a known
+defect links straight to it from the report. Each run also records the pinned
+`APP_COMMIT` in its environment panel, so a historical result can be attributed
+to a specific revision of the application under test.
 
 The `allure-results/categories.json` file categorises failures into:
 - **Infrastructure problems** – timeouts / network errors (likely flaky tests)
@@ -135,6 +146,6 @@ The `allure-results/categories.json` file categorises failures into:
 2. **Accessibility audit** – integrate `axe-playwright` and add a dedicated `a11y.spec.ts`.
 3. **Visual regression** – add `@playwright/test` snapshot tests or Chromatic/Percy for CSS drift detection.
 4. **Negative-path API tests** – if the app ever adds a backend, test malformed requests.
-5. **Allure GitHub Pages history URL** – link the badge in the README once the first CI run completes.
-6. **Parallel sharding** – split tests into shards using Playwright's `--shard` flag for large suites in CI.
-7. **Contract tests** – verify that `localStorage` schema changes don't silently break persistence.
+5. **Parallel sharding** – split tests into shards using Playwright's `--shard` flag for large suites in CI.
+6. **Contract tests** – verify that `localStorage` schema changes don't silently break persistence.
+7. **Chase down the Firefox-on-Windows instability properly** – it is currently worked around and documented as an environment problem, on the evidence that isolated re-runs pass consistently and Linux CI has never reproduced it. That is a reasonable inference, not a diagnosis, and the honest next step is to confirm it rather than keep the workaround indefinitely.

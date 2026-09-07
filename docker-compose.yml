@@ -18,6 +18,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.app
+      args:
+        # Falls back to the pin baked into the Dockerfiles. Override by
+        # exporting APP_COMMIT to test against a different app revision.
+        APP_COMMIT: ${APP_COMMIT:-a89cccc91045a0a36ce559cd716aebc31fa302a8}
     ports:
       - "8080:8080"
     healthcheck:
@@ -31,12 +35,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        APP_COMMIT: ${APP_COMMIT:-a89cccc91045a0a36ce559cd716aebc31fa302a8}
     depends_on:
       app:
         condition: service_healthy
     environment:
       - TODO_BASE_URL=http://app:8080
       - CI=true
+      - APP_COMMIT=${APP_COMMIT:-a89cccc91045a0a36ce559cd716aebc31fa302a8}
     volumes:
       - ./allure-results:/workspace/allure-results
       - ./test-results:/workspace/test-results

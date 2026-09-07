@@ -1,0 +1,102 @@
+name: Flake detection
+
+# A suite that passes once is not evidence that it is deterministic. This runs
+# every test three times with retries disabled, so a test that only usually
+# passes fails the job instead of being silently rescued.
+#
+# Kept separate from the main workflow because it is slower and is not a gate
+# on a pull request: it answers "is the suite trustworthy" rather than "does
+# this change work".
+
+on:
+  schedule:
+    # 03:17 UTC daily. Off the hour to avoid the scheduler's busiest minute.
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+    inputs:
+      repeat_each:
+        description: 'How many times to run each test'
+        required: false
+        default: '3'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Keep in step with the pin in playwright.yml and the Dockerfiles.
+  APP_COMMIT: a89cccc91045a0a36ce559cd716aebc31fa302a8
+
+jobs:
+  repeat:
+    name: Repeat suite on ${{ matrix.project }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [chromium, firefox]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Checkout cypress-example-kitchensink (app under test)
+        uses: actions/checkout@v4
+        with:
+          repository: cypress-io/cypress-example-kitchensink
+          ref: ${{ env.APP_COMMIT }}
+          path: kitchensink
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Install app dependencies
+        working-directory: kitchensink
+        run: npm install --ignore-scripts --omit=dev
+
+      - name: Start ToDo application in background
+        working-directory: kitchensink
+        run: |
+          npm start &
+          echo "APP_PID=$!" >> "$GITHUB_ENV"
+
+      - name: Wait for application to be ready
+        run: |
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:8080/todo -o /dev/null; then
+              echo "Application is ready after ${i}s."
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "ERROR: Application did not start within 30s." >&2
+          exit 1
+
+      - name: Install test dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps ${{ matrix.project }}
+
+      # --retries=0 is the point of the job: retries mask exactly the
+      # instability this run exists to surface.
+      - name: Repeat the suite
+        env:
+          CI: 'true'
+          APP_COMMIT: ${{ env.APP_COMMIT }}
+        run: |
+          npx playwright test \
+            --project=${{ matrix.project }} \
+            --repeat-each=${{ github.event.inputs.repeat_each || '3' }} \
+            --retries=0
+
+      - name: Upload traces on failure
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: flake-traces-${{ matrix.project }}-${{ github.run_number }}
+          path: test-results/
+          retention-days: 14

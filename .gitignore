@@ -8,6 +8,18 @@ playwright-report/
 # Allure output (results are committed; generated report is not)
 allure-report/
 
+# Snapshots of a single local run. CI artifacts and the published report on
+# gh-pages are the evidence of record; committing these only guarantees they go
+# stale and disagree with the live results.
+allure-latest-report/
+allure-latest-results/
+
+# The application under test is cloned by CI and by the Dockerfiles at a pinned
+# commit. It is deliberately not a submodule: a gitlink without .gitmodules
+# leaves an unresolvable empty directory on clone.
+cypress-example-kitchensink/
+kitchensink/
+
 # Allure result files (generated per run – not committed except categories.json)
 allure-results/*.json
 allure-results/*.xml

@@ -8,11 +8,9 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "outDir": "dist",
-    "baseUrl": ".",
-    "paths": {
-      "@pages/*": ["pages/*"],
-      "@fixtures/*": ["tests/fixtures/*"]
-    }
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
     "tests/**/*.ts",

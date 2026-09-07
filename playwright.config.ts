@@ -6,6 +6,16 @@ import { defineConfig, devices } from '@playwright/test';
  */
 const BASE_URL = process.env.TODO_BASE_URL ?? 'http://localhost:8080';
 
+/** Used to turn Allure `issue()` ids into links, and to label the report. */
+const REPO_URL = 'https://github.com/darkonaumovski/senior-qa-automation-playwright';
+
+/**
+ * Commit of the application under test. CI and the Dockerfiles pin this, so
+ * recording it in the report makes a result attributable to a specific app
+ * revision rather than to whatever master happened to be that day.
+ */
+const APP_COMMIT = process.env.APP_COMMIT ?? 'unpinned (local run)';
+
 /**
  * Firefox launch options.
  *
@@ -60,9 +70,12 @@ export default defineConfig({
           BASE_URL,
           NODE_VERSION: process.version,
           OS: process.platform,
+          APP_COMMIT,
         },
-        // links.issue.urlTemplate should be set to your repo's issues URL once
-        // the repo is created, e.g. 'https://github.com/owner/repo/issues/%s'
+        links: {
+          issue: { urlTemplate: `${REPO_URL}/issues/%s` },
+          tms: { urlTemplate: `${REPO_URL}/blob/main/TEST_APPROACH.md#%s` },
+        },
       },
     ],
   ],
