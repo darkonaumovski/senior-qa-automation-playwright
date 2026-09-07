@@ -14,7 +14,9 @@ Application under test: [cypress-example-kitchensink](https://github.com/cypress
 **Severity**: Low
 **Type**: Architecture observation and testability concern
 **Affected feature**: Persistence
-**Status**: Open (product side) — filed as [issue #4](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/4); full write-up in `GITHUB_ISSUE_1.md`. PR #5 shipped the harness-side mitigation (`seedTodos()`) and its `Closes #4` reference auto-closed the issue on merge, which was wrong: the request is for the *application* to support setting and clearing state, and that is unresolved. The issue has been reopened so the tracker agrees with this document.
+**Status**: Open (product side) — filed as [issue #4](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/4); full write-up in `GITHUB_ISSUE_1.md`. PR #5 shipped the harness-side mitigation (`seedTodos()`) and its closing reference to the issue auto-closed it on merge, which was wrong: the request is for the *application* to support setting and clearing state, and that is unresolved. The issue has been reopened so the tracker agrees with this document.
+
+Note on wording: this paragraph deliberately does **not** reproduce the closing keyword itself. GitHub parses closing keywords out of commit messages and pull request bodies without regard for quoting, so an earlier commit that quoted the keyword while explaining this very problem closed the issue a second time on merge. Describing the reference rather than repeating it is what stops that recurring.
 
 ### Description
 
