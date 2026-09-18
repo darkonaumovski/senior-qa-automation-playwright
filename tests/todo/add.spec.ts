@@ -4,7 +4,7 @@ import { allure } from 'allure-playwright';
 test.describe('Add todo', () => {
   test.use({ todoFeature: 'Add Todo' });
 
-  test('should add a single todo item', async ({ todoPage }) => {
+  test('should add a single todo item', { tag: '@smoke' }, async ({ todoPage }) => {
     await allure.story('Single todo');
 
     await test.step('Add a todo', async () => {
@@ -21,7 +21,7 @@ test.describe('Add todo', () => {
     });
   });
 
-  test('should add multiple todo items', async ({ todoPage }) => {
+  test('should add multiple todo items', { tag: '@smoke' }, async ({ todoPage }) => {
     await allure.story('Multiple todos');
 
     const items = ['Buy groceries', 'Walk the dog', 'Read a book'];

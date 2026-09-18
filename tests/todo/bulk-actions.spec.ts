@@ -28,6 +28,26 @@ test.describe('Bulk actions', () => {
     });
   });
 
+  test('should recolor the toggle-all chevron when all todos become complete', async ({ todoPage }) => {
+    await allure.story('Toggle-all chevron styling');
+
+    await test.step('Seed active todos', async () => {
+      await todoPage.seedTodos(['Task 1', 'Task 2']);
+    });
+
+    await test.step('Verify the chevron starts unchecked-colored', async () => {
+      await todoPage.expectToggleAllChevronColor('rgb(230, 230, 230)');
+    });
+
+    await test.step('Click toggle-all', async () => {
+      await todoPage.toggleAll();
+    });
+
+    await test.step('Verify the chevron recolors to the checked state', async () => {
+      await todoPage.expectToggleAllChevronColor('rgb(115, 115, 115)');
+    });
+  });
+
   test('should unmark all todos when toggle-all is clicked while all are completed', async ({ todoPage }) => {
     await allure.story('Toggle all to uncomplete');
 
@@ -107,7 +127,7 @@ test.describe('Bulk actions', () => {
     });
   });
 
-  test('should show "Clear completed" only when at least one todo is completed', async ({ todoPage }) => {
+  test('should show "Clear completed" once a todo is completed', async ({ todoPage }) => {
     await allure.story('Clear completed appears on completion');
 
     await test.step('Seed an active todo', async () => {
@@ -123,6 +143,18 @@ test.describe('Bulk actions', () => {
     });
 
     await test.step('Verify Clear completed is now visible', async () => {
+      await expect(todoPage.clearCompletedButton).toBeVisible();
+    });
+  });
+
+  test('should hide "Clear completed" again once all completed todos are cleared', async ({ todoPage }) => {
+    await allure.story('Clear completed hides after clearing');
+
+    await test.step('Seed an already-completed todo', async () => {
+      await todoPage.seedTodos([{ title: 'Task', completed: true }]);
+    });
+
+    await test.step('Verify Clear completed is visible', async () => {
       await expect(todoPage.clearCompletedButton).toBeVisible();
     });
 

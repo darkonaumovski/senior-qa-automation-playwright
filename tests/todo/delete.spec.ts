@@ -6,7 +6,7 @@ test.describe('Delete todo', () => {
   // under test here.
   test.use({ todoFeature: 'Delete Todo', todoStart: 'as-is' });
 
-  test('should delete a todo by clicking the destroy button', async ({ todoPage }) => {
+  test('should delete a todo by clicking the destroy button', { tag: '@smoke' }, async ({ todoPage }) => {
     await allure.story('Delete single todo');
 
     await test.step('Seed a todo', async () => {
@@ -75,6 +75,18 @@ test.describe('Delete todo', () => {
     await test.step('Hover over item and verify button appears', async () => {
       await todoPage.item(0).hover();
       await expect(todoPage.destroyButton(0)).toBeVisible();
+    });
+  });
+
+  test('should recolor the destroy button on hover', async ({ todoPage }) => {
+    await allure.story('Destroy button hover styling');
+
+    await test.step('Seed a todo', async () => {
+      await todoPage.seedTodos(['Hover me']);
+    });
+
+    await test.step('Hover the destroy button and verify it recolors', async () => {
+      await todoPage.expectDestroyButtonHoverColor(0, 'rgb(175, 91, 94)');
     });
   });
 

@@ -6,7 +6,7 @@ test.describe('Filter todos', () => {
   // wasted work: seedTodos() overwrites stored todos regardless.
   test.use({ todoFeature: 'Filter Todos', todoStart: 'as-is' });
 
-  test('should show all todos when the "All" filter is active', async ({ todoPage }) => {
+  test('should show all todos when the "All" filter is active', { tag: '@smoke' }, async ({ todoPage }) => {
     await allure.story('All filter');
 
     await test.step('Seed two todos with the second completed', async () => {
@@ -27,7 +27,7 @@ test.describe('Filter todos', () => {
     });
   });
 
-  test('should show only active (incomplete) todos when "Active" filter is selected', async ({ todoPage }) => {
+  test('should show only active (incomplete) todos when "Active" filter is selected', { tag: '@smoke' }, async ({ todoPage }) => {
     await allure.story('Active filter');
 
     await test.step('Seed three todos with the third completed', async () => {
@@ -49,7 +49,7 @@ test.describe('Filter todos', () => {
     });
   });
 
-  test('should show only completed todos when "Completed" filter is selected', async ({ todoPage }) => {
+  test('should show only completed todos when "Completed" filter is selected', { tag: '@smoke' }, async ({ todoPage }) => {
     await allure.story('Completed filter');
 
     await test.step('Seed three todos with the first two completed', async () => {
@@ -96,7 +96,7 @@ test.describe('Filter todos', () => {
     });
   });
 
-  test('should reflect the selected filter in the URL hash', async ({ todoPage, page }) => {
+  test('should reflect the selected filter in the URL hash', { tag: '@smoke' }, async ({ todoPage, page }) => {
     await allure.story('URL hash routing');
 
     await test.step('Seed a todo', async () => {
