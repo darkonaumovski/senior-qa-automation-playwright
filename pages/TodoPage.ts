@@ -325,4 +325,38 @@ export class TodoPage {
   async expectEditingMode(index: number): Promise<void> {
     await expect(this.item(index)).toHaveClass(/editing/);
   }
+
+  /**
+   * The toggle-all chevron recolors via `.toggle-all:checked + label:before`
+   * (app/assets/css/todo.css), a `::before` pseudo-element `toHaveCSS` cannot
+   * read directly. Named in TEST_APPROACH.md as one of the two realistic
+   * candidates for CSS breakage that would leave the DOM, and therefore every
+   * other assertion in this suite, unaffected.
+   */
+  async expectToggleAllChevronColor(color: string): Promise<void> {
+    await expect(async () => {
+      const actual = await this.toggleAllLabel.evaluate(
+        (el) => getComputedStyle(el, '::before').color,
+      );
+      expect(actual).toBe(color);
+    }).toPass();
+  }
+
+  /**
+   * The destroy button recolors via `.todo-list li .destroy:hover`
+   * (app/assets/css/todo.css). `deleteTodo()` already hovers the item to
+   * reveal the button; this reads the color `:hover` applies once genuinely
+   * hovered, the other realistic candidate TEST_APPROACH.md names.
+   */
+  async expectDestroyButtonHoverColor(index: number, color: string): Promise<void> {
+    // The button is display:none until the item itself is hovered; hovering
+    // it directly while hidden is not a valid action.
+    await this.item(index).hover();
+    await this.destroyButton(index).waitFor({ state: 'visible' });
+    await this.destroyButton(index).hover();
+    await expect(async () => {
+      const actual = await this.destroyButton(index).evaluate((el) => getComputedStyle(el).color);
+      expect(actual).toBe(color);
+    }).toPass();
+  }
 }

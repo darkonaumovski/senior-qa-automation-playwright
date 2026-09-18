@@ -188,6 +188,65 @@ product owner if prioritisation matters to the intended users.
 
 ---
 
+## Finding #5 — Todo checkboxes have no accessible name
+
+**Severity**: Critical (WCAG 4.1.2 Name, Role, Value)
+**Type**: Accessibility defect
+**Affected feature**: Complete / uncomplete
+**Status**: Open (product side) — not yet filed upstream as a GitHub issue.
+
+### Description
+
+Every todo's completion control is `<input class="toggle" type="checkbox">`
+with no wrapping `<label>`, no `aria-label`, and no `aria-labelledby`
+(`app/index.html`, the `.toggle` markup rendered per item). A screen reader
+announces it as an unnamed checkbox, with no indication of which todo it
+toggles or what action it performs.
+
+### How this was confirmed
+
+Run programmatically with `@axe-core/playwright` against the live, pinned
+application (`a89cccc`) in Chromium:
+
+```
+[critical] label: Form elements must have labels (2 node(s))
+target: li[data-id="…"] > .view > .toggle[type="checkbox"]
+Fix any of the following:
+  Element does not have an implicit (wrapped) <label>
+  Element does not have an explicit <label>
+  aria-label attribute does not exist or is empty
+  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty
+```
+
+Both seeded todos' checkboxes were flagged; the violation is per-item, not a
+one-off.
+
+### Suggested improvement
+
+Give `.toggle` an accessible name tied to its item, e.g.
+`aria-label="Toggle ${title}"` set at render time, or wrap it in a
+visually-hidden `<label>` reading the todo's title.
+
+### Automated coverage
+
+`tests/a11y/a11y.spec.ts` runs an axe-core WCAG 2.0A/AA + 2.1AA smoke pass
+against three surfaces named as the top risk in `TEST_APPROACH.md` — the base
+list, the inline-editing state, and the toggle-all control — and explicitly
+excludes the `label` rule with a citation to this finding, so the gate stays
+meaningful for regressions elsewhere instead of permanently red for a known,
+tracked defect. The exclusion is the thing to remove once this is fixed; its
+removal is the regression test.
+
+Two other rules surfaced in the initial, unscoped scan —
+`landmark-one-main` and `region` — are axe-core "best practice"
+recommendations, not WCAG success criteria (confirmed via each rule's own
+`tags`), and are out of scope for this smoke gate for the same reason
+`TEST_APPROACH.md` defers the full audit: a real audit needs axe plus manual
+keyboard and screen-reader passes, and lumping opinionated best-practice
+noise into an automated gate would make it less trustworthy, not more.
+
+---
+
 ## Dependency audit — pinned app server
 
 Running `npm install --ignore-scripts --omit=dev` and `npm audit --omit=dev`

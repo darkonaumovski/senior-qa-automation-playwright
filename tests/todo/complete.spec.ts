@@ -6,7 +6,7 @@ test.describe('Complete todo', () => {
   // behaviour under test here, not a precondition.
   test.use({ todoFeature: 'Complete Todo', todoStart: 'as-is' });
 
-  test('should mark a todo as complete by clicking its checkbox', async ({ todoPage }) => {
+  test('should mark a todo as complete by clicking its checkbox', { tag: '@smoke' }, async ({ todoPage }) => {
     await allure.story('Mark complete');
 
     await test.step('Seed a todo', async () => {
@@ -26,7 +26,7 @@ test.describe('Complete todo', () => {
     });
   });
 
-  test('should unmark a completed todo as active', async ({ todoPage }) => {
+  test('should unmark a completed todo as active', { tag: '@smoke' }, async ({ todoPage }) => {
     await allure.story('Unmark complete');
 
     await test.step('Seed an already completed todo', async () => {

@@ -10,6 +10,7 @@ End-to-end Playwright test suite for the **TodoMVC** application served by
 | Path | Purpose |
 |------|---------|
 | `tests/todo/` | Playwright specs (add, complete, delete, edit, filter, bulk, persistence) |
+| `tests/a11y/` | Accessibility smoke pass (axe-core, WCAG 2.0A/AA + 2.1AA) on the base view, inline-editing state, and toggle-all control |
 | `pages/TodoPage.ts` | Page Object Model |
 | `tests/fixtures/todoFixtures.ts` | Shared page lifecycle and Allure metadata fixtures |
 | `ARCHITECTURE.md` | How the suite is put together and why |
@@ -65,6 +66,7 @@ npx playwright install --with-deps chromium firefox
 
 ```bash
 npm test                        # run all tests headlessly (parallel)
+npm run test:smoke              # run only the @smoke-tagged Priority 1/2 subset, for fast feedback
 npm run typecheck               # check TypeScript without emitting files
 npm run lint                    # ESLint, including type-aware rules; warnings fail
 npm run lint:fix                # apply the autofixable subset
@@ -132,7 +134,7 @@ npm run report:generate && npm run report:open
 
 ## CI / GitHub Actions
 
-The workflow at `.github/workflows/playwright.yml` runs on every push to `main` and on pull requests, as four jobs.
+The workflow at `.github/workflows/playwright.yml` runs on every push to `main` and on pull requests, as five jobs.
 
 **`static`** — `tsc --noEmit` and `eslint . --max-warnings=0`. Runs first and
 gates the rest, so a compile error or a missing `await` costs seconds rather
@@ -144,18 +146,15 @@ fetchable upstream, and that the SHA is not hard-coded anywhere else in the
 repository. Without this job `.app-commit` would be a convention rather than a
 rule, and a copy-pasted SHA could quietly reappear.
 
-**`test`** — the suite itself:
+**`test`** — the suite itself, as a 2-way `--shard` matrix (each shard runs Chromium + Firefox + WebKit, 4 parallel workers, 2 retries):
 1. Checkout this repo, and `cypress-example-kitchensink` at the pinned `APP_COMMIT`
 2. Start the app in the background and wait for `/todo` to respond
-3. Run Playwright tests (Chromium + Firefox, 4 parallel workers, 2 retries)
-4. Generate an Allure HTML report (with trend history from the previous run)
-5. Upload report and raw results as CI artifacts
-6. Deploy the Allure report to **GitHub Pages** (branch `gh-pages`, path `allure-report/`)
+3. Run this shard's slice of the Playwright suite
+4. Upload this shard's raw Allure results and, on failure, traces/videos
 
-**`docker`** — builds the combined image and runs the suite through
-`docker compose`, so the Docker deliverable is exercised rather than merely
-reviewed. This is what catches the failure mode where the image builds but the
-suite cannot actually run inside it.
+**`report`** — runs once `test`'s shards finish, downloads and merges both shards' raw Allure results, generates the Allure HTML report (with trend history from the previous run), uploads report and raw results as CI artifacts, and deploys the report to **GitHub Pages** (branch `gh-pages`, path `allure-report/`).
+
+**`docker`** — builds the combined image and runs an `@smoke`-tagged, Chromium-only subset through it, so the Docker deliverable is exercised rather than merely reviewed. This catches the failure mode where the image builds but the suite cannot actually run inside it, without re-running the full suite a second time on top of the native `test` job. `docker compose build` (not run) covers the split app/tests topology separately.
 
 The application under test is pinned by commit, because without a pin the suite
 tests whatever upstream `master` happens to be and a red build cannot be
@@ -183,9 +182,10 @@ npm run test:repeat             # the same idea locally
 3. The report URL will be: `https://<owner>.github.io/<repo>/allure-report/`
 
 **Artifacts** and their retention:
-- `allure-results-<run>` – raw JSON results for re-generating the report (30 days)
+- `allure-results-shard-<1|2>-<run>` – each shard's raw results, staged for the `report` job to merge (1 day)
+- `allure-results-<run>` – the merged raw JSON results for re-generating the report (30 days)
 - `allure-report-<run>` – the pre-generated HTML report (30 days)
-- `playwright-traces-<run>` – traces and videos, only on failure (14 days, because
+- `playwright-traces-shard-<1|2>-<run>` – traces and videos, only on failure (14 days, because
   they are much larger and are only useful while the failure is still being chased)
 
 ---
@@ -220,19 +220,21 @@ Failure categories (`allure-results/categories.json`):
 
 ```
 tests/
-└── todo/
-    ├── add.spec.ts          – Adding todos
-    ├── complete.spec.ts     – Completing / uncompleting
-    ├── delete.spec.ts       – Deleting todos
-    ├── edit.spec.ts         – Inline editing
-    ├── filter.spec.ts       – Filtering views
-    ├── bulk-actions.spec.ts – Toggle-all & clear-completed
-    ├── persistence.spec.ts  – localStorage persistence
-    └── lifecycle.spec.ts    – Page Object seeding/cleanup contracts
+├── todo/
+│   ├── add.spec.ts          – Adding todos
+│   ├── complete.spec.ts     – Completing / uncompleting
+│   ├── delete.spec.ts       – Deleting todos
+│   ├── edit.spec.ts         – Inline editing
+│   ├── filter.spec.ts       – Filtering views
+│   ├── bulk-actions.spec.ts – Toggle-all & clear-completed
+│   ├── persistence.spec.ts  – localStorage persistence
+│   └── lifecycle.spec.ts    – Page Object seeding/cleanup contracts
+└── a11y/
+    └── a11y.spec.ts         – axe-core WCAG smoke pass (base view, editing state, toggle-all)
 ```
 
-Every spec runs against both browser projects, so the executed total is twice
-the test count. Counts are deliberately not written down here: they drift the
+Every spec runs against all three browser projects, so the executed total is
+three times the test count. Counts are deliberately not written down here: they drift the
 moment a test is added, and a stale number in a README is worse than no number.
 Run `npx playwright test --list` for the current figure, or read it off the
 [published report](https://darkonaumovski.github.io/senior-qa-automation-playwright/allure-report/).
@@ -267,8 +269,7 @@ they were noticed.
 
 | Limitation | Detail |
 |---|---|
-| Firefox instability on Windows hosts | Under full parallelism on a managed Windows host, individual Firefox tests fail intermittently with graphics errors, varying between runs and passing consistently in isolation. `playwright.config.ts` documents and works around the environment cause. Linux CI has not reproduced it. If you see it locally, run Firefox with `--workers=1`. |
-| Coverage is UI-level only | No API, accessibility, visual-regression or performance coverage. See the exclusions in [TEST_APPROACH.md](TEST_APPROACH.md), which state the residual risk each exclusion leaves. |
-| Two browser projects | Chromium and Firefox. WebKit is not run; it would roughly add 50% to CI time for an application with no browser-specific behaviour. |
+| Firefox instability on Windows hosts | Under full parallelism on a managed Windows host, individual Firefox tests have failed intermittently with graphics errors in the past. `playwright.config.ts` documents and works around the suspected environment cause. A 171-execution repro attempt across three full-parallelism runs on a Windows host did not reproduce it (see item 7 in [TEST_APPROACH.md](TEST_APPROACH.md)) — evidence the workaround isn't currently masking a live problem, not proof the original host-specific cause is gone. Linux CI has never reproduced it. If you see it locally, run Firefox with `--workers=1`. |
+| Coverage is UI-level, with a targeted accessibility and CSS-state smoke pass | No API, full accessibility audit, pixel-level visual-regression, or performance coverage. `tests/a11y/` closes the top-named a11y risk with an automated WCAG smoke pass (and found a real defect — see Finding #5 in `FINDINGS.md`); the toggle-all chevron and destroy-button hover colors are covered via computed-style assertions instead of pixel snapshots (no Linux environment was available to generate a CI-trustworthy screenshot baseline). See the exclusions in [TEST_APPROACH.md](TEST_APPROACH.md), which state the residual risk each remaining exclusion leaves. |
 | The app cannot start empty | It reseeds two sample todos whenever stored data is empty, so `seedTodos([])` throws rather than pretending to work. See [issue #4](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/4). |
 | Allure needs a JVM | `allure-commandline` requires Java 17+ to generate the HTML report locally. Running the tests does not. |

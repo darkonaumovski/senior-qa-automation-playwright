@@ -122,5 +122,9 @@ export default defineConfig({
         launchOptions: firefoxLaunchOptions(),
       },
     },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
   ],
 });

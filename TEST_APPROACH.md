@@ -87,10 +87,16 @@ stated consequence is a gap dressed up as a decision.
 |---|---|---|
 | All other pages of the kitchensink application | They are Cypress demo pages, not the product under evaluation | None for this assignment. If the suite were ever repurposed as the repo's regression net, everything outside `/todo` would be uncovered. |
 | Performance / load testing | Single-user client-side app with no backend; there is no contention to measure | A change that makes rendering slow with several hundred todos would ship unnoticed. The suite asserts correctness, never duration. |
-| Visual regression / pixel comparison | Needs a baseline store and a review workflow to be worth anything; without one it produces noise | CSS breakage that leaves the DOM intact passes every test here. The toggle-all chevron and the hover-revealed destroy button are the realistic candidates, since both are styling-dependent affordances the tests reach via the DOM. |
-| Accessibility (WCAG audit) | Deliberately deferred rather than done badly; a real audit needs `axe` plus manual keyboard and screen-reader passes | Unknown. This is the largest untested risk area, and the one I would close first: the app has custom checkbox and inline-edit interactions, exactly where a11y defects concentrate. |
+| Pixel-level visual regression | Needs a baseline captured and reviewed in the same OS/font environment CI runs in to be trustworthy; a baseline generated on a developer's machine and checked against `ubuntu-latest` produces noise, not signal, and there was no Linux environment available to generate one honestly. | Purely cosmetic drift (spacing, non-semantic color) that leaves computed values on the specific named affordances unchanged would ship unnoticed. Mitigated, not eliminated, by the targeted `toHaveCSS`-style assertions below. |
 | Mobile viewport tests | The TodoMVC CSS is desktop-only by design | Layout defects below the CSS breakpoint are invisible to the suite. Low product impact given the app's intent, but it is an assumption about intent rather than a verified fact. |
-| WebKit | Roughly 50% more CI time for an app with no browser-specific behaviour | A WebKit-only rendering or storage defect would not be caught. Judged unlikely because the app uses no vendor-prefixed or recent APIs; the judgement, not the coverage, is what protects us. |
+
+### Partially closed since the initial assessment
+
+| Area | What was added | What remains deferred |
+|---|---|---|
+| Accessibility | `tests/a11y/a11y.spec.ts` runs an axe-core WCAG 2.0A/AA + 2.1AA smoke pass on the base list, the inline-editing state, and the toggle-all control — the three surfaces this document named as the top risk. It found a real defect: `.toggle` checkboxes have no accessible name (WCAG 4.1.2, critical — see Finding #5 in `FINDINGS.md`), which the gate excludes by name so it stays meaningful instead of permanently red. | The full audit: manual keyboard-only and screen-reader passes, and axe-core's "best practice" rules beyond WCAG conformance (e.g. `landmark-one-main`, `region`), which surfaced in the initial unscoped scan but are recommendations, not success criteria. |
+| Visual regression | The two affordances this document names as the realistic candidates — the toggle-all chevron's `:checked` recolor and the destroy button's `:hover` recolor — are now asserted via computed-style checks (`TodoPage.expectToggleAllChevronColor()`, `expectDestroyButtonHoverColor()`), deterministic and OS-independent since they read exact CSS values rather than pixels. | Everything else CSS can break: spacing, layout, non-covered colors. Closing that gap for real needs pixel comparison generated and maintained in CI's own Linux environment, not asserted piecemeal forever. |
+| WebKit | Added as a third `playwright.config.ts` project; the CI time cost is accepted since the assignment's actual value is broader browser confidence, not narrower CI minutes. | Nothing — this one is just done. |
 
 ---
 
@@ -142,13 +148,13 @@ The `allure-results/categories.json` file categorises failures into:
 
 ## What I would improve with more time
 
-1. **Cross-browser matrix** – add WebKit / Safari and test on mobile viewports.
-2. **Accessibility audit** – integrate `axe-playwright` and add a dedicated `a11y.spec.ts`.
-3. **Visual regression** – add `@playwright/test` snapshot tests or Chromatic/Percy for CSS drift detection.
+1. **Mobile viewport tests** – WebKit is now in the matrix; mobile viewports remain deferred (see the scope table above).
+2. **Full accessibility audit** – the smoke pass (`tests/a11y/a11y.spec.ts`) closed the top-named risk; a manual keyboard-only and screen-reader pass is still open.
+3. **Pixel-level visual regression** – the two named affordances are covered by computed-style checks; a real screenshot baseline needs to be captured and maintained inside CI's own Linux environment to be trustworthy, not generated locally.
 4. **Negative-path API tests** – if the app ever adds a backend, test malformed requests.
-5. **Parallel sharding** – split tests into shards using Playwright's `--shard` flag for large suites in CI.
+5. **Parallel sharding** – now wired via a 2-way `--shard` matrix in `playwright.yml`; revisit the shard count as the suite grows.
 6. **Contract tests** – verify that `localStorage` schema changes don't silently break persistence.
-7. **Chase down the Firefox-on-Windows instability properly** – it is currently worked around and documented as an environment problem, on the evidence that isolated re-runs pass consistently and Linux CI has never reproduced it. That is a reasonable inference, not a diagnosis, and the honest next step is to confirm it rather than keep the workaround indefinitely.
+7. **Chase down the Firefox-on-Windows instability properly** – attempted: 171 Firefox test executions across three full-parallelism runs (`--workers=4`, once at `--repeat-each=1` and once at `--repeat-each=2`) on a Windows host in this session, with zero failures and no graphics errors. That is evidence the workaround is not currently masking a live problem here, not proof the original failure mode is gone — this session's host may not share the exact GPU/driver stack of the "managed Windows host" the instability was first observed on, so it cannot rule out a host-specific cause. The honest status is downgraded from "unconfirmed hypothesis" to "hypothesis with a clean repro attempt that didn't reproduce it," not to "diagnosed." The workaround (`MOZ_DISABLE_CONTENT_SANDBOX`/`MOZ_DISABLE_GMP_SANDBOX` in `playwright.config.ts`) stays in place since removing it on the strength of one session's clean run would be trading a working mitigation for an unverified guess.
 8. **Add a regression test with the fix for [issue #7](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/7)** – the invalid-hash defect is reported but not automated, because a failing test in a green suite obscures a defect rather than documenting it. The test belongs in `filter.spec.ts`, which currently exercises only the three valid hashes.
 9. **Broaden the routing and bulk-action coverage** – adding a todo while a filter is active, the toggle-all checkbox's own checked state, and unknown hash routes are all untested. The first two are ordinary gaps; the third is what hid issue #7.
 10. **Decouple `seedTodos()` from the storage schema** – it hard-codes the `todos-vanillajs` key and the record shape, which is exactly the coupling [issue #4](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/4) asks the application to remove. If the app ever exposes a test hook, this helper should move behind it.

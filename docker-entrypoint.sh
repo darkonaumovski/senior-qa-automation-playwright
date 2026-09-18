@@ -28,14 +28,30 @@ echo "==> Application is ready (waited ${waited}s)."
 
 export TODO_BASE_URL="http://localhost:8080"
 
-echo "==> Running Playwright tests ..."
 cd /workspace
 # `set -e` would abort here on a non-zero exit, so capture the code explicitly
 # instead of reading $? on the following line.
-if npm test; then
-  TEST_RC=0
+#
+# Extra args (the image's CMD) are forwarded to `playwright test` rather than
+# always running the full `npm test`. This is what lets CI run a scoped
+# subset here to prove the image and this script actually work end to end,
+# without paying for the full cross-browser suite a second time on top of the
+# native run — the image itself still defaults to the full suite when run
+# with no args, matching the documented `docker run --rm todo-playwright`.
+if [ "$#" -gt 0 ]; then
+  echo "==> Running Playwright tests (scoped: $*) ..."
+  if npx playwright test "$@"; then
+    TEST_RC=0
+  else
+    TEST_RC=$?
+  fi
 else
-  TEST_RC=$?
+  echo "==> Running Playwright tests ..."
+  if npm test; then
+    TEST_RC=0
+  else
+    TEST_RC=$?
+  fi
 fi
 
 echo "==> Tests finished with exit code ${TEST_RC}."
