@@ -212,6 +212,20 @@ jobs:
           path: allure-results
           merge-multiple: true
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      # This job runs on its own runner, separate from `test`'s, so it needs
+      # its own node_modules to resolve `allure` locally. Without this,
+      # `npx allure` below has no local binary to find and fails outright —
+      # the exact way this job failed the first time this workflow ran.
+      - name: Install allure-commandline
+        run: npm ci --ignore-scripts
+
       - name: Set up Java (required by allure-commandline)
         uses: actions/setup-java@v4
         with:
