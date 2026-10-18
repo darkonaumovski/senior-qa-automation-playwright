@@ -146,7 +146,7 @@ fetchable upstream, and that the SHA is not hard-coded anywhere else in the
 repository. Without this job `.app-commit` would be a convention rather than a
 rule, and a copy-pasted SHA could quietly reappear.
 
-**`test`** — the suite itself, as a 2-way `--shard` matrix (each shard runs Chromium + Firefox + WebKit, 4 parallel workers, 2 retries):
+**`test`** — the suite itself, as a 2-way `--shard` matrix (each shard runs Chromium + Firefox + WebKit, 1 worker, 2 retries):
 1. Checkout this repo, and `cypress-example-kitchensink` at the pinned `APP_COMMIT`
 2. Start the app in the background and wait for `/todo` to respond
 3. Run this shard's slice of the Playwright suite
@@ -171,6 +171,12 @@ every test three times per browser with `--retries=0`, because the main
 workflow's retries are there to keep pull requests usable and will happily
 conceal a test that only usually passes. A green pull request says the change
 works; this job is what says the suite is trustworthy.
+
+Each CI runner uses one worker, following [Playwright's CI guidance](https://playwright.dev/docs/ci#workers).
+The browser matrix and main workflow's shards still run in parallel across
+runners. This avoids concurrent browser startup and accessibility scans
+competing for resources on the same runner. See [the WebKit investigation](CI_FLAKE_ANALYSIS.md)
+for the observed failure and the limits of the diagnosis.
 
 ```bash
 npm run test:repeat             # the same idea locally
@@ -212,7 +218,7 @@ Failure categories (`allure-results/categories.json`):
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `TODO_BASE_URL` | `http://localhost:8080` | Base URL of the application under test |
-| `CI` | *(unset)* | When set, enables retries (2) and limits parallel workers (4) |
+| `CI` | *(unset)* | When set, enables retries (2) and limits workers to 1; repeat runs override retries to 0 |
 
 ---
 

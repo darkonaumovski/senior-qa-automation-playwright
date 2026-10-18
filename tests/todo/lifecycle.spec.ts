@@ -44,6 +44,25 @@ test.describe('Todo page lifecycle', () => {
     await todoPage.expectTodoText(0, 'Only new item');
   });
 
+  test('should clear the All view without clicking its already selected filter', async ({ todoPage }) => {
+    await todoPage.seedTodos(['Active task', { title: 'Done task', completed: true }]);
+    await todoPage.expectActiveFilterLink('all');
+    await todoPage.filterAll.evaluate((link) => {
+      link.addEventListener('click', () => link.setAttribute('data-cleanup-clicked', 'true'));
+    });
+
+    await todoPage.clearTodos();
+    // Cleanup must also be safe when the empty list has hidden the footer.
+    await todoPage.clearTodos();
+
+    await expect(todoPage.filterAll).not.toHaveAttribute('data-cleanup-clicked', 'true');
+    await todoPage.expectTodoCount(0);
+    await todoPage.expectFooterHidden();
+    expect(await todoPage.storedTitles()).toEqual([]);
+    await todoPage.addTodo('Fresh task');
+    await todoPage.expectTodoText(0, 'Fresh task');
+  });
+
   test('should start from seeded data instead of the application sample todos', async ({ todoPage }) => {
     await todoPage.seedTodos(['Seeded active', { title: 'Seeded done', completed: true }]);
 

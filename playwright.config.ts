@@ -72,7 +72,10 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 4 : undefined,
+  // Give each browser the runner's resources. WebKit intermittently stalled
+  // at startup with four workers; avoid contention while CI still scales
+  // across shard/browser matrix jobs. Local worker selection stays automatic.
+  workers: process.env.CI ? 1 : undefined,
   timeout: 30_000,
   expect: {
     timeout: 10_000,

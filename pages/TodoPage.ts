@@ -142,7 +142,13 @@ export class TodoPage {
   async clearTodos(): Promise<void> {
     // Opening the All view makes cleanup independent of the current filter.
     if (await this.filterAll.isVisible()) {
-      await this.filterByAll();
+      // A fresh page is already on All. Avoid an unnecessary pointer action
+      // during fixture setup (the WebKit flake in runs #32 and #42 stalled
+      // in this click's stability check before the test even started).
+      const selected = (await this.filterAll.getAttribute('class'))?.split(/\s+/).includes('selected');
+      if (!selected) {
+        await this.filterByAll();
+      }
       await this.expectActiveFilterLink('all');
     }
     for (let count = await this.todoItems.count(); count > 0; count--) {
