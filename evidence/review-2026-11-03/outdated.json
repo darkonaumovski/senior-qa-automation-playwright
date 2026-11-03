@@ -1,0 +1,65 @@
+{
+  "@axe-core/playwright": {
+    "current": "4.13.0",
+    "wanted": "4.14.0",
+    "latest": "4.14.0",
+    "dependent": "senior-qa-automation-playwright",
+    "location": "E:\\Automation Testing\\senior-qa-automation-playwright\\node_modules\\@axe-core\\playwright"
+  },
+  "@playwright/test": {
+    "current": "1.62.1",
+    "wanted": "1.62.1",
+    "latest": "1.64.1",
+    "dependent": "senior-qa-automation-playwright",
+    "location": "E:\\Automation Testing\\senior-qa-automation-playwright\\node_modules\\@playwright\\test"
+  },
+  "@types/node": {
+    "current": "22.20.1",
+    "wanted": "22.20.5",
+    "latest": "26.6.6",
+    "dependent": "senior-qa-automation-playwright",
+    "location": "E:\\Automation Testing\\senior-qa-automation-playwright\\node_modules\\@types\\node"
+  },
+  "allure-commandline": {
+    "current": "2.43.0",
+    "wanted": "2.46.1",
+    "latest": "2.46.1",
+    "dependent": "senior-qa-automation-playwright",
+    "location": "E:\\Automation Testing\\senior-qa-automation-playwright\\node_modules\\allure-commandline"
+  },
+  "allure-playwright": {
+    "current": "3.11.1",
+    "wanted": "3.14.0",
+    "latest": "3.14.0",
+    "dependent": "senior-qa-automation-playwright",
+    "location": "E:\\Automation Testing\\senior-qa-automation-playwright\\node_modules\\allure-playwright"
+  },
+  "eslint": {
+    "current": "10.10.0",
+    "wanted": "10.14.0",
+    "latest": "10.14.0",
+    "dependent": "senior-qa-automation-playwright",
+    "location": "E:\\Automation Testing\\senior-qa-automation-playwright\\node_modules\\eslint"
+  },
+  "eslint-plugin-playwright": {
+    "current": "2.11.0",
+    "wanted": "2.12.2",
+    "latest": "2.12.2",
+    "dependent": "senior-qa-automation-playwright",
+    "location": "E:\\Automation Testing\\senior-qa-automation-playwright\\node_modules\\eslint-plugin-playwright"
+  },
+  "typescript": {
+    "current": "5.9.3",
+    "wanted": "5.9.3",
+    "latest": "7.0.2",
+    "dependent": "senior-qa-automation-playwright",
+    "location": "E:\\Automation Testing\\senior-qa-automation-playwright\\node_modules\\typescript"
+  },
+  "typescript-eslint": {
+    "current": "8.69.0",
+    "wanted": "8.72.1",
+    "latest": "8.72.1",
+    "dependent": "senior-qa-automation-playwright",
+    "location": "E:\\Automation Testing\\senior-qa-automation-playwright\\node_modules\\typescript-eslint"
+  }
+}

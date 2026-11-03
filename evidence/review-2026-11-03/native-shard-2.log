@@ -1,0 +1,240 @@
+
+Running 102 tests using 1 worker, shard 2 of 2
+
+
+(node:42724) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/102] [firefox] › tests\todo\delete.spec.ts:81:7 › Delete todo › should recolor the destroy button on hover
+[2/102] [firefox] › tests\todo\delete.spec.ts:93:7 › Delete todo › should delete all todos one by one and empty the list
+[3/102] [firefox] › tests\todo\edit.spec.ts:9:7 › Edit todo › should enter edit mode when double-clicking a todo label
+[4/102] [firefox] › tests\todo\edit.spec.ts:30:7 › Edit todo › should save edited text when pressing Enter
+[5/102] [firefox] › tests\todo\edit.spec.ts:50:7 › Edit todo › should save edited text when focus leaves the input (blur)
+[6/102] [firefox] › tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape
+[7/102] [firefox] › tests\todo\edit.spec.ts:89:7 › Edit todo › should delete a todo when its edited text is cleared and Enter is pressed
+[8/102] [firefox] › tests\todo\edit.spec.ts:106:7 › Edit todo › should trim whitespace when saving an edited todo
+[9/102] [firefox] › tests\todo\filter.spec.ts:6:5 › known product defect: unknown hash must fall back to All without losing writes
+  1) [firefox] › tests\todo\filter.spec.ts:6:5 › known product defect: unknown hash must fall back to All without losing writes 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 5
+
+    - Array []
+    + Array [
+    +   "this[(\"show\" + (intermediate value))] is not a function",
+    +   "this[(\"show\" + (intermediate value))] is not a function",
+    +   "this[(\"show\" + (intermediate value))] is not a function",
+    + ]
+
+      23 |   };
+      24 |   expect(await page.evaluate((key) => JSON.parse(localStorage.getItem(key)!) as unknown, TODO_STORAGE_KEY)).toEqual(saved);
+    > 25 |   expect(errors.filter((message) => !/this\[.*activeRoute.*\] is not a function/.test(message))).toEqual([]);
+         |                                                                                                  ^
+      26 |   await testInfo.attach('unknown-route-evidence', { body: JSON.stringify({ before, after, saved, errors }, null, 2), contentType: 'application/json' });
+      27 |   await allure.issue('7', 'https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/7');
+      28 |   test.fail(hasReviewedDefects(testInfo.config.metadata.appCommit), 'Upstream #7: fallback to All must render writes and avoid the route exception');
+        at E:\Automation Testing\senior-qa-automation-playwright\tests\todo\filter.spec.ts:25:98
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\native-shard-2-artifacts\todo-filter-known-product--ed0de-o-All-without-losing-writes-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\native-shard-2-artifacts\todo-filter-known-product--ed0de-o-All-without-losing-writes-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\native-shard-2-artifacts\todo-filter-known-product--ed0de-o-All-without-losing-writes-firefox\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\native-shard-2-artifacts\todo-filter-known-product--ed0de-o-All-without-losing-writes-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\native-shard-2-artifacts\todo-filter-known-product--ed0de-o-All-without-losing-writes-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:19844) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[10/102] [firefox] › tests\todo\filter.spec.ts:42:9 › Filter todos › should add an active todo while the active filter is selected
+[11/102] [firefox] › tests\todo\filter.spec.ts:42:9 › Filter todos › should add an active todo while the completed filter is selected
+[12/102] [firefox] › tests\todo\filter.spec.ts:57:7 › Filter todos › should show all todos when the "All" filter is active @smoke
+[13/102] [firefox] › tests\todo\filter.spec.ts:78:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke
+[14/102] [firefox] › tests\todo\filter.spec.ts:100:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke
+[15/102] [firefox] › tests\todo\filter.spec.ts:126:7 › Filter todos › should update the Active view in real-time when a visible todo is completed
+[16/102] [firefox] › tests\todo\filter.spec.ts:147:7 › Filter todos › should reflect the selected filter in the URL hash @smoke
+[17/102] [firefox] › tests\todo\filter.spec.ts:170:7 › Filter todos › should show zero todos in Active filter when all are completed
+[18/102] [firefox] › tests\todo\filter.spec.ts:189:7 › Filter todos › should show zero todos in Completed filter when none are completed
+[19/102] [firefox] › tests\todo\lifecycle.spec.ts:7:7 › Todo page lifecycle › should preserve todos on navigation when cleanup is disabled
+[20/102] [firefox] › tests\todo\lifecycle.spec.ts:20:7 › Todo page lifecycle › should reset existing todos without clearing unrelated storage
+[21/102] [firefox] › tests\todo\lifecycle.spec.ts:33:7 › Todo page lifecycle › should clear todos hidden by an empty filtered view
+[22/102] [firefox] › tests\todo\lifecycle.spec.ts:50:7 › Todo page lifecycle › Seeded lifecycle preconditions › should clear the All view without clicking its already selected filter
+[23/102] [firefox] › tests\todo\lifecycle.spec.ts:69:7 › Todo page lifecycle › Seeded lifecycle preconditions › should start from seeded data instead of the application sample todos
+[24/102] [firefox] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding
+[25/102] [firefox] › tests\todo\lifecycle.spec.ts:90:9 › Todo page lifecycle › Seeded lifecycle preconditions › should reload mixed todos in the active view
+[26/102] [firefox] › tests\todo\lifecycle.spec.ts:90:9 › Todo page lifecycle › Seeded lifecycle preconditions › should reload mixed todos in the completed view
+[27/102] [firefox] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos
+[28/102] [firefox] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items
+[29/102] [firefox] › tests\todo\lifecycle.spec.ts:125:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reject seeding an empty list, which the application cannot hold
+[30/102] [firefox] › tests\todo\lifecycle.spec.ts:132:7 › Todo page lifecycle › should allow normal application seeding after storage is removed
+[31/102] [firefox] › tests\todo\persistence.spec.ts:8:7 › Persistence › should preserve record identity when editing and deleting duplicate titles
+  2) [firefox] › tests\todo\persistence.spec.ts:8:7 › Persistence › should preserve record identity when editing and deleting duplicate titles 
+
+    TimeoutError: locator.getAttribute: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('.todo-list li').nth(1)
+
+
+      10 |     await todoPage.addTodos('Same title', 'Same title');
+      11 |     const survivorId = await todoPage.item(0).getAttribute('data-id');
+    > 12 |     const removedId = await todoPage.item(1).getAttribute('data-id');
+         |                                              ^
+      13 |     await expect(todoPage.item(0)).not.toHaveAttribute('data-id', removedId!);
+      14 |     await todoPage.toggleTodo(0);
+      15 |     await todoPage.editTodo(0, 'Edited survivor');
+        at E:\Automation Testing\senior-qa-automation-playwright\tests\todo\persistence.spec.ts:12:46
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\native-shard-2-artifacts\todo-persistence-Persisten-eff31-d-deleting-duplicate-titles-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\native-shard-2-artifacts\todo-persistence-Persisten-eff31-d-deleting-duplicate-titles-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\native-shard-2-artifacts\todo-persistence-Persisten-eff31-d-deleting-duplicate-titles-firefox\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\native-shard-2-artifacts\todo-persistence-Persisten-eff31-d-deleting-duplicate-titles-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\native-shard-2-artifacts\todo-persistence-Persisten-eff31-d-deleting-duplicate-titles-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:19688) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[32/102] [firefox] › tests\todo\persistence.spec.ts:26:7 › Persistence › should persist todos across a page reload
+[33/102] [firefox] › tests\todo\persistence.spec.ts:45:7 › Persistence › should persist the completed state of todos across a page reload
+[34/102] [firefox] › tests\todo\persistence.spec.ts:67:7 › Persistence › should persist the active filter selection across a page reload
+
+(node:50232) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[35/102] [webkit] › tests\a11y\a11y.spec.ts:42:7 › Accessibility › base todo list view has no unexpected WCAG violations @smoke
+[36/102] [webkit] › tests\a11y\a11y.spec.ts:47:7 › Accessibility › known product defect: inline editor needs an accessible name
+[37/102] [webkit] › tests\a11y\a11y.spec.ts:60:7 › Accessibility › accessibility gate rejects an additional unnamed input
+[38/102] [webkit] › tests\a11y\a11y.spec.ts:73:7 › Accessibility › accessibility gate flags a repaired checkbox exception as obsolete
+[39/102] [webkit] › tests\a11y\a11y.spec.ts:82:7 › Accessibility › toggle-all control has no detectable WCAG violations
+[40/102] [webkit] › tests\a11y\keyboard.spec.ts:17:7 › Keyboard interaction › keyboard journey adds, completes and filters a todo with visible link focus
+  3) [webkit] › tests\a11y\keyboard.spec.ts:17:7 › Keyboard interaction › keyboard journey adds, completes and filters a todo with visible link focus 
+
+    Error: Keyboard could not reach .filters a[href="#/active"] in 40 Tabs
+
+       9 |     await page.keyboard.press('Tab');
+      10 |   }
+    > 11 |   throw new Error('Keyboard could not reach ' + selector + ' in 40 Tabs');
+         |         ^
+      12 | }
+      13 |
+      14 | test.describe('Keyboard interaction', () => {
+        at tabTo (E:\Automation Testing\senior-qa-automation-playwright\tests\a11y\keyboard.spec.ts:11:9)
+        at E:\Automation Testing\senior-qa-automation-playwright\tests\a11y\keyboard.spec.ts:25:5
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\native-shard-2-artifacts\a11y-keyboard-Keyboard-int-b0699-odo-with-visible-link-focus-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\native-shard-2-artifacts\a11y-keyboard-Keyboard-int-b0699-odo-with-visible-link-focus-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\native-shard-2-artifacts\a11y-keyboard-Keyboard-int-b0699-odo-with-visible-link-focus-webkit\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\native-shard-2-artifacts\a11y-keyboard-Keyboard-int-b0699-odo-with-visible-link-focus-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\native-shard-2-artifacts\a11y-keyboard-Keyboard-int-b0699-odo-with-visible-link-focus-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:54552) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[41/102] [webkit] › tests\a11y\keyboard.spec.ts:37:7 › Keyboard interaction › known product defect: input and checkbox need visible keyboard focus
+[42/102] [webkit] › tests\a11y\keyboard.spec.ts:56:7 › Keyboard interaction › known product defect: row edit and delete controls need keyboard access
+[43/102] [webkit] › tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke
+[44/102] [webkit] › tests\todo\add.spec.ts:24:7 › Add todo › should add multiple todo items @smoke
+[45/102] [webkit] › tests\todo\add.spec.ts:45:7 › Add todo › should not add an empty todo when Enter is pressed on blank input
+[46/102] [webkit] › tests\todo\add.spec.ts:58:7 › Add todo › should not add a todo containing only whitespace
+[47/102] [webkit] › tests\todo\add.spec.ts:71:7 › Add todo › should trim leading and trailing whitespace from todo text
+[48/102] [webkit] › tests\todo\add.spec.ts:87:7 › Add todo › should handle special characters in todo text
+[49/102] [webkit] › tests\todo\add.spec.ts:102:7 › Add todo › should clear input field after adding a todo
+[50/102] [webkit] › tests\todo\bulk-actions.spec.ts:9:7 › Bulk actions › should mark all todos as complete using toggle-all
+[51/102] [webkit] › tests\todo\bulk-actions.spec.ts:31:7 › Bulk actions › should recolor the toggle-all chevron when all todos become complete
+[52/102] [webkit] › tests\todo\bulk-actions.spec.ts:51:7 › Bulk actions › should unmark all todos when toggle-all is clicked while all are completed
+[53/102] [webkit] › tests\todo\bulk-actions.spec.ts:75:7 › Bulk actions › should complete remaining active todos when toggle-all is used with mixed state
+[54/102] [webkit] › tests\todo\bulk-actions.spec.ts:97:7 › Bulk actions › should remove all completed todos via "Clear completed"
+[55/102] [webkit] › tests\todo\bulk-actions.spec.ts:118:7 › Bulk actions › should not show "Clear completed" button when no todos are completed
+[56/102] [webkit] › tests\todo\bulk-actions.spec.ts:130:7 › Bulk actions › should show "Clear completed" once a todo is completed
+[57/102] [webkit] › tests\todo\bulk-actions.spec.ts:150:7 › Bulk actions › should hide "Clear completed" again once all completed todos are cleared
+[58/102] [webkit] › tests\todo\bulk-actions.spec.ts:170:7 › Bulk actions › should update item count correctly after clearing completed todos
+[59/102] [webkit] › tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke
+[60/102] [webkit] › tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke
+[61/102] [webkit] › tests\todo\complete.spec.ts:49:7 › Complete todo › should update item count when todos are completed
+[62/102] [webkit] › tests\todo\complete.spec.ts:66:7 › Complete todo › should visually distinguish completed todos from active ones
+[63/102] [webkit] › tests\todo\complete.spec.ts:87:7 › Complete todo › should show 0 items left when all todos are completed
+[64/102] [webkit] › tests\todo\complete.spec.ts:104:7 › Complete todo › should synchronize the bulk checkbox after individual toggles
+[65/102] [webkit] › tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke
+[66/102] [webkit] › tests\todo\delete.spec.ts:29:7 › Delete todo › should delete one todo from a list of many
+[67/102] [webkit] › tests\todo\delete.spec.ts:47:7 › Delete todo › should delete a completed todo
+[68/102] [webkit] › tests\todo\delete.spec.ts:63:7 › Delete todo › should show destroy button only on hover
+[69/102] [webkit] › tests\todo\delete.spec.ts:81:7 › Delete todo › should recolor the destroy button on hover
+[70/102] [webkit] › tests\todo\delete.spec.ts:93:7 › Delete todo › should delete all todos one by one and empty the list
+[71/102] [webkit] › tests\todo\edit.spec.ts:9:7 › Edit todo › should enter edit mode when double-clicking a todo label
+[72/102] [webkit] › tests\todo\edit.spec.ts:30:7 › Edit todo › should save edited text when pressing Enter
+[73/102] [webkit] › tests\todo\edit.spec.ts:50:7 › Edit todo › should save edited text when focus leaves the input (blur)
+[74/102] [webkit] › tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape
+[75/102] [webkit] › tests\todo\edit.spec.ts:89:7 › Edit todo › should delete a todo when its edited text is cleared and Enter is pressed
+[76/102] [webkit] › tests\todo\edit.spec.ts:106:7 › Edit todo › should trim whitespace when saving an edited todo
+[77/102] [webkit] › tests\todo\filter.spec.ts:6:5 › known product defect: unknown hash must fall back to All without losing writes
+[78/102] [webkit] › tests\todo\filter.spec.ts:42:9 › Filter todos › should add an active todo while the active filter is selected
+[79/102] [webkit] › tests\todo\filter.spec.ts:42:9 › Filter todos › should add an active todo while the completed filter is selected
+[80/102] [webkit] › tests\todo\filter.spec.ts:57:7 › Filter todos › should show all todos when the "All" filter is active @smoke
+[81/102] [webkit] › tests\todo\filter.spec.ts:78:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke
+[82/102] [webkit] › tests\todo\filter.spec.ts:100:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke
+[83/102] [webkit] › tests\todo\filter.spec.ts:126:7 › Filter todos › should update the Active view in real-time when a visible todo is completed
+[84/102] [webkit] › tests\todo\filter.spec.ts:147:7 › Filter todos › should reflect the selected filter in the URL hash @smoke
+[85/102] [webkit] › tests\todo\filter.spec.ts:170:7 › Filter todos › should show zero todos in Active filter when all are completed
+[86/102] [webkit] › tests\todo\filter.spec.ts:189:7 › Filter todos › should show zero todos in Completed filter when none are completed
+[87/102] [webkit] › tests\todo\lifecycle.spec.ts:7:7 › Todo page lifecycle › should preserve todos on navigation when cleanup is disabled
+[88/102] [webkit] › tests\todo\lifecycle.spec.ts:20:7 › Todo page lifecycle › should reset existing todos without clearing unrelated storage
+[89/102] [webkit] › tests\todo\lifecycle.spec.ts:33:7 › Todo page lifecycle › should clear todos hidden by an empty filtered view
+[90/102] [webkit] › tests\todo\lifecycle.spec.ts:50:7 › Todo page lifecycle › Seeded lifecycle preconditions › should clear the All view without clicking its already selected filter
+[91/102] [webkit] › tests\todo\lifecycle.spec.ts:69:7 › Todo page lifecycle › Seeded lifecycle preconditions › should start from seeded data instead of the application sample todos
+[92/102] [webkit] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding
+[93/102] [webkit] › tests\todo\lifecycle.spec.ts:90:9 › Todo page lifecycle › Seeded lifecycle preconditions › should reload mixed todos in the active view
+[94/102] [webkit] › tests\todo\lifecycle.spec.ts:90:9 › Todo page lifecycle › Seeded lifecycle preconditions › should reload mixed todos in the completed view
+[95/102] [webkit] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos
+[96/102] [webkit] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items
+[97/102] [webkit] › tests\todo\lifecycle.spec.ts:125:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reject seeding an empty list, which the application cannot hold
+[98/102] [webkit] › tests\todo\lifecycle.spec.ts:132:7 › Todo page lifecycle › should allow normal application seeding after storage is removed
+[99/102] [webkit] › tests\todo\persistence.spec.ts:8:7 › Persistence › should preserve record identity when editing and deleting duplicate titles
+[100/102] [webkit] › tests\todo\persistence.spec.ts:26:7 › Persistence › should persist todos across a page reload
+[101/102] [webkit] › tests\todo\persistence.spec.ts:45:7 › Persistence › should persist the completed state of todos across a page reload
+[102/102] [webkit] › tests\todo\persistence.spec.ts:67:7 › Persistence › should persist the active filter selection across a page reload
+  3 failed
+    [firefox] › tests\todo\filter.spec.ts:6:5 › known product defect: unknown hash must fall back to All without losing writes 
+    [firefox] › tests\todo\persistence.spec.ts:8:7 › Persistence › should preserve record identity when editing and deleting duplicate titles 
+    [webkit] › tests\a11y\keyboard.spec.ts:17:7 › Keyboard interaction › keyboard journey adds, completes and filters a todo with visible link focus 
+  99 passed (4.3m)

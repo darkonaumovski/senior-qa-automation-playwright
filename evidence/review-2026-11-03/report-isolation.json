@@ -1,0 +1,12 @@
+{
+  "fullReport": ".runs/full-report-608c3a64-56e6-44f5-a391-85f6991e6d6c",
+  "smokeReportTotal": 30,
+  "smokeRawCount": 30,
+  "smokeReportCaseFiles": 30,
+  "fullTotal": 207,
+  "allSmokeTagged": true,
+  "smokeResults": ".runs/acceptance-smoke-9ca9632d-515f-4134-ac43-6579265ce125/allure-results",
+  "isolationPassed": true,
+  "fullResults": ".runs/native-matrix-8f427a07-e2eb-4c29-8ea2-63a0d102e627-complete",
+  "matchesCurrentSmokeInventory": true
+}

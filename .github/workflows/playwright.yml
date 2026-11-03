@@ -1,34 +1,20 @@
 name: Playwright Tests – ToDo Suite
-
 on:
   push:
-    branches: [main, 'cursor/**']
+    branches: [main, 'cursor/**', 'codex/**']
   pull_request:
     branches: [main]
-  # Allow manual triggers with optional custom base-URL
   workflow_dispatch:
     inputs:
       todo_base_url:
-        description: 'Base URL of the ToDo application (leave blank for localhost)'
+        description: 'External target URL (revision reported as unknown)'
         required: false
         default: ''
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-
-# The commit of cypress-example-kitchensink to test against is not declared
-# here: it lives in .app-commit and is read into APP_COMMIT per job. Pinning it
-# keeps a failure attributable to this suite rather than to an upstream change
-# landing mid-run, and keeping it in one file stops the workflow, the two
-# Dockerfiles and the compose stack from drifting apart. The `pin` job below
-# fails the build if the SHA is written down anywhere else again.
-
 jobs:
-  # Fast feedback: compile and lint the suite before spending runner time on
-  # browsers.
   static:
-    name: Static checks
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -36,58 +22,29 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
+          cache: npm
       - run: npm ci --ignore-scripts
       - run: npm run typecheck
       - run: npm run lint
-
-  # Guards the single source of truth. Without this, .app-commit is just a
-  # convention and a copy-pasted SHA can quietly reappear.
+      - run: npm run test:harness
   pin:
-    name: Check the app pin is single-source
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-
-      - name: Validate the .app-commit format
+      - name: Validate and fetch the application pin
         run: |
           pin="$(tr -d '[:space:]' < .app-commit)"
-          if ! printf '%s' "$pin" | grep -Eq '^[0-9a-f]{40}$'; then
-            echo "ERROR: .app-commit must hold one full 40-character commit SHA, got '${pin}'." >&2
-            exit 1
-          fi
-          echo "Pinned application commit: ${pin}"
-
-      - name: Confirm the commit exists upstream
-        run: |
-          pin="$(tr -d '[:space:]' < .app-commit)"
+          [[ "$pin" =~ ^[0-9a-f]{40}$ ]] || exit 1
           git init upstream-check
-          cd upstream-check
-          git remote add origin https://github.com/cypress-io/cypress-example-kitchensink
-          if ! git fetch --depth 1 origin "${pin}"; then
-            echo "ERROR: ${pin} is not fetchable from cypress-example-kitchensink." >&2
+          git -C upstream-check remote add origin https://github.com/cypress-io/cypress-example-kitchensink
+          git -C upstream-check fetch --depth 1 origin "$pin"
+          # Evidence documents may quote SHAs; runtime configuration must read the pin.
+          if git grep -nE '\b[0-9a-f]{40}\b' -- Dockerfile Dockerfile.app docker-compose.yml docker-entrypoint.sh playwright.config.ts scripts .github; then
+            echo "Read the pin from .app-commit in runtime configuration." >&2
             exit 1
           fi
-
-      - name: Fail if a 40-character SHA is hard-coded anywhere else
-        run: |
-          # Anything tracked, except .app-commit itself and the lockfile (whose
-          # integrity hashes are not commit SHAs).
-          offenders="$(git ls-files \
-            | grep -v -e '^\.app-commit$' -e '^package-lock\.json$' \
-            | xargs grep -l -E '\b[0-9a-f]{40}\b' 2>/dev/null || true)"
-          if [ -n "${offenders}" ]; then
-            echo "ERROR: a 40-character SHA is hard-coded outside .app-commit:" >&2
-            echo "${offenders}" >&2
-            echo "Read the pin from .app-commit instead." >&2
-            exit 1
-          fi
-          echo "No hard-coded SHAs outside .app-commit."
-
   test:
-    name: Run Playwright tests (shard ${{ matrix.shard }}/2)
     needs: [static, pin]
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -95,254 +52,182 @@ jobs:
       fail-fast: false
       matrix:
         shard: [1, 2]
-
     steps:
-      # ── Checkout ─────────────────────────────────────────────────────────────
-      - name: Checkout test repository
-        uses: actions/checkout@v4
-
-      - name: Resolve the pinned application commit
+      - uses: actions/checkout@v4
+      - name: Read app pin
         run: echo "APP_COMMIT=$(tr -d '[:space:]' < .app-commit)" >> "$GITHUB_ENV"
-
-      # ── App setup ─────────────────────────────────────────────────────────────
-      - name: Checkout cypress-example-kitchensink (app under test)
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           repository: cypress-io/cypress-example-kitchensink
           ref: ${{ env.APP_COMMIT }}
           path: kitchensink
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
-
-      - name: Install app dependencies
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm ci --ignore-scripts --omit=dev
         working-directory: kitchensink
-        # --ignore-scripts skips the husky post-install hook in the kitchensink repo
-        run: npm install --ignore-scripts --omit=dev
-
-      - name: Start ToDo application in background
+      - name: Start app
         working-directory: kitchensink
+        run: npm start > /tmp/todo-app.log 2>&1 &
+      - name: Wait for health
         run: |
-          npm start &
-          echo "APP_PID=$!" >> "$GITHUB_ENV"
-
-      - name: Wait for application to be ready
-        run: |
-          echo "Waiting for http://localhost:8080/todo ..."
           for i in $(seq 1 30); do
-            if curl -sf http://localhost:8080/todo -o /dev/null; then
-              echo "Application is ready after ${i}s."
-              exit 0
-            fi
+            if curl -fsS http://localhost:8080/todo -o /dev/null; then exit 0; fi
             sleep 1
           done
-          echo "ERROR: Application did not start within 30s." >&2
+          cat /tmp/todo-app.log
           exit 1
-
-      # ── Test setup ────────────────────────────────────────────────────────────
-      - name: Install test dependencies
-        run: npm ci --ignore-scripts
-
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium firefox webkit
-
-      # ── Run tests ────────────────────────────────────────────────────────────
-      # Two shards split the suite across matrix jobs instead of relying on
-      # in-job worker count alone to scale; --shard divides by test, not by
-      # project, so each shard still covers all three browsers.
-      - name: Run Playwright tests
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - name: Run shard
+        id: playwright
+        continue-on-error: true
         env:
           TODO_BASE_URL: ${{ github.event.inputs.todo_base_url || 'http://localhost:8080' }}
+          APP_SOURCE_DIR: kitchensink
           CI: 'true'
-          APP_COMMIT: ${{ env.APP_COMMIT }}
         run: npx playwright test --shard=${{ matrix.shard }}/2
-        # Always collect results even if tests fail
-        continue-on-error: true
-        id: playwright
-
-      - name: Upload Allure results (raw, this shard)
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: allure-results-shard-${{ matrix.shard }}-${{ github.run_number }}
-          path: allure-results/
-          retention-days: 1
-
-      - name: Upload Playwright traces and videos on failure
-        uses: actions/upload-artifact@v4
-        if: failure() || steps.playwright.outcome == 'failure'
+          name: allure-results-shard-${{ matrix.shard }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .runs/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: playwright-traces-shard-${{ matrix.shard }}-${{ github.run_number }}
+          name: playwright-evidence-shard-${{ matrix.shard }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
             test-results/
             playwright-report/
           retention-days: 14
-
-      # ── Final status ─────────────────────────────────────────────────────────
-      - name: Fail job if tests failed
-        if: steps.playwright.outcome == 'failure'
+      - if: steps.playwright.outcome != 'success'
         run: exit 1
-
-  # Merges both shards' raw results into the one report a reviewer actually
-  # looks at. Separated from `test` because a matrix job's steps run once per
-  # shard; report generation and the GitHub Pages deploy must run exactly
-  # once, against the combined results, not once per shard.
   report:
-    name: Merge shards and publish Allure report
     needs: [test]
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    # Required by peaceiris/actions-gh-pages when publishing the Allure report.
     permissions:
       contents: write
-
     steps:
-      - name: Checkout test repository
-        uses: actions/checkout@v4
-
-      - name: Download all shards' raw Allure results
-        uses: actions/download-artifact@v4
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
         with:
-          pattern: allure-results-shard-*-${{ github.run_number }}
-          path: allure-results
-          merge-multiple: true
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+          pattern: allure-results-shard-*-${{ github.run_id }}-${{ github.run_attempt }}
+          path: downloaded-shards
+          merge-multiple: false
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
-
-      # This job runs on its own runner, separate from `test`'s, so it needs
-      # its own node_modules to resolve `allure` locally. Without this,
-      # `npx allure` below has no local binary to find and fails outright —
-      # the exact way this job failed the first time this workflow ran.
-      - name: Install allure-commandline
-        run: npm ci --ignore-scripts
-
-      - name: Set up Java (required by allure-commandline)
-        uses: actions/setup-java@v4
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Expected inventory from this checkout
+        env:
+          INVENTORY_FILE: inventory.json
+        run: npx playwright test --list --reporter=./scripts/inventory-reporter.ts
+      - name: Verify both shards before any publication
+        id: completeness
+        run: node scripts/merge-shards.mjs downloaded-shards inventory.json .runs/merged
+      - name: Surface incomplete evidence
+        if: failure() && steps.completeness.outcome != 'success'
+        run: echo "## Incomplete run — previous complete report retained" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
-
-      # ── Allure history (download previous report for trend data) ──────────────
-      - name: Download previous Allure history
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           ref: gh-pages
           path: gh-pages
-        continue-on-error: true  # branch may not exist on first run
-
-      - name: Restore Allure history from previous run
+        continue-on-error: true
+      - name: Restore complete report history
         run: |
           if [ -d gh-pages/allure-report/history ]; then
-            echo "Restoring Allure history for trend graphs ..."
-            mkdir -p allure-results
-            cp -r gh-pages/allure-report/history allure-results/history
-          else
-            echo "No previous history found – this appears to be the first run."
+            cp -r gh-pages/allure-report/history .runs/merged/history
           fi
-        continue-on-error: true
-
-      - name: Generate Allure report
-        run: |
-          npx allure generate allure-results --clean -o allure-report
-          echo "Allure report generated at allure-report/"
-
-      - name: Upload Allure results (raw, merged)
-        uses: actions/upload-artifact@v4
+      - name: Generate complete report even when test assertions failed
+        run: npx allure generate .runs/merged --clean -o allure-report
+      - uses: actions/upload-artifact@v4
         with:
-          name: allure-results-${{ github.run_number }}
-          path: allure-results/
-          retention-days: 30
-
-      - name: Upload Allure report (HTML)
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-report-${{ github.run_number }}
+          name: allure-report-${{ github.run_id }}-${{ github.run_attempt }}
           path: allure-report/
           retention-days: 30
-
-      # ── Deploy Allure report to GitHub Pages ──────────────────────────────────
-      - name: Deploy Allure report to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .runs/merged/
+          retention-days: 30
+      - uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main' && steps.completeness.outcome == 'success'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: allure-report
           destination_dir: allure-report
-          keep_files: true   # preserve previous reports for history navigation
-
-      # ── Final status ─────────────────────────────────────────────────────────
-      # needs.test.result reflects every shard: 'failure' if any shard's own
-      # "Fail job if tests failed" step ran.
-      - name: Fail workflow if any shard failed
-        if: needs.test.result == 'failure'
+          keep_files: true
+      - if: needs.test.result != 'success'
         run: exit 1
-
-  # -- Docker deliverable ------------------------------------------------------
-  # The assignment asks for an image containing the application and the tests.
-  # Reviewing the Dockerfile proves nothing, so build it and run the suite
-  # through docker compose exactly as a reviewer would.
   docker:
-    name: Build image and run suite in Docker
     needs: [static, pin]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-
-      - name: Resolve the pinned application commit
-        run: echo "APP_COMMIT=$(tr -d '[:space:]' < .app-commit)" >> "$GITHUB_ENV"
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      # No --build-arg: the Dockerfile reads .app-commit itself, so building by
-      # hand and building here cannot disagree about the app revision.
-      - name: Build the combined app + tests image
-        run: docker build -t todo-suite:ci .
-
-      # This is the assignment deliverable: one image that holds the application,
-      # the tests and their dependencies. Running it also exercises
-      # docker-entrypoint.sh, which starts the app, waits for it, and has to
-      # propagate the suite's exit code rather than the app shutdown's.
-      #
-      # Scoped to @smoke: this job's purpose is proving the image and
-      # entrypoint work end to end, not re-proving full coverage the `test`
-      # job already ran natively. Running the whole suite a second time here
-      # doubled CI time for zero extra signal; `docker run` with no args (as
-      # documented in README.md) still runs the full suite for anyone
-      # validating the image standalone.
-      - name: Run the suite inside the image
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: docker/setup-buildx-action@v3
+      - run: docker build -t todo-suite:ci .
+      - name: Combined image smoke and baked revision
         run: |
-          docker run --rm \
-            -e CI=true \
-            -e APP_COMMIT="${APP_COMMIT}" \
-            -v "${PWD}/allure-results:/workspace/allure-results" \
-            todo-suite:ci --grep @smoke --project=chromium
-
-      # The compose stack is the split app/tests topology. Building it verifies
-      # Dockerfile.app and the service definitions without paying for a second
-      # full suite run.
-      - name: Build the compose stack
-        run: docker compose build
-
-      - name: Upload Allure results from the Docker run
-        uses: actions/upload-artifact@v4
+          docker run --rm -e CI=true -v "${PWD}/.runs:/workspace/.runs" todo-suite:ci --grep @smoke --project=chromium --retries=0
+          docker run --rm --entrypoint cat todo-suite:ci /opt/kitchensink/.qa-revision | diff - .app-commit
+      - name: Build and run separate Compose service
+        run: |
+          docker compose build
+          docker compose up -d --wait app
+          docker compose exec -T app wget -qO- http://localhost:8080/todo > /dev/null
+          docker compose run --rm tests --project=chromium --grep @smoke --retries=0
+          node scripts/check-revisions.mjs "$(tr -d '[:space:]' < .app-commit)"
+      - name: Prove a failing browser assertion propagates exit code 1
+        run: |
+          cat > ci-failure.spec.ts <<'EOF'
+          import { test, expect } from '@playwright/test';
+          test('deliberate delivery probe', async ({ page }) => {
+            await page.goto('/todo');
+            await expect(page.locator('.new-todo')).toHaveAttribute('data-delivery-probe', 'deliberate failure', { timeout: 1000 });
+          });
+          EOF
+          set +e
+          docker compose run --rm -v "${PWD}/ci-failure.spec.ts:/workspace/tests/ci-failure.spec.ts:ro" tests ci-failure.spec.ts --project=chromium --retries=0
+          result=$?
+          set -e
+          test "$result" -eq 1
+      - name: Build override provenance
+        run: |
+          # A second valid pin is supplied explicitly to both independent builds.
+          override="$(git ls-remote https://github.com/cypress-io/cypress-example-kitchensink HEAD | cut -f1)"
+          docker build --build-arg APP_COMMIT="$override" -t todo-suite:override .
+          docker run --rm --entrypoint cat todo-suite:override /opt/kitchensink/.qa-revision | grep -Fx "$override"
+          docker run --rm -e CI=true -v "${PWD}/.runs:/workspace/.runs" todo-suite:override --project=chromium tests/todo/add.spec.ts --grep 'single todo' --retries=0
+          APP_COMMIT="$override" docker compose build app
+          docker compose up -d --wait --force-recreate app
+          docker compose run --rm tests --project=chromium tests/todo/add.spec.ts --grep 'single todo' --retries=0
+          node scripts/check-revisions.mjs "$override"
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: allure-results-docker-${{ github.run_number }}
-          path: allure-results/
+          name: docker-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            .runs/
+            test-results/
+            playwright-report/
+          include-hidden-files: true
           retention-days: 14
-
-      - name: Compose logs on failure
-        if: failure()
+      - if: always()
         run: docker compose logs --no-color
+      - if: always()
+        run: docker compose down --volumes

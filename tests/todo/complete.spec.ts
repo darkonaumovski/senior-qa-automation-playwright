@@ -1,4 +1,4 @@
-import { test } from '../fixtures/todoFixtures';
+import { test, expect } from '../fixtures/todoFixtures';
 import { allure } from 'allure-playwright';
 
 test.describe('Complete todo', () => {
@@ -77,6 +77,10 @@ test.describe('Complete todo', () => {
     await test.step('Verify first is completed, second is not', async () => {
       await todoPage.expectTodoCompleted(0);
       await todoPage.expectTodoNotCompleted(1);
+      await expect(todoPage.label(0)).toHaveCSS('text-decoration-line', 'line-through');
+      await expect(todoPage.label(0)).toHaveCSS('color', 'rgb(205, 205, 205)');
+      await expect(todoPage.label(1)).toHaveCSS('text-decoration-line', 'none');
+      await expect(todoPage.label(1)).toHaveCSS('color', 'rgb(77, 77, 77)');
     });
   });
 
@@ -95,5 +99,16 @@ test.describe('Complete todo', () => {
     await test.step('Verify counter shows 0 items left', async () => {
       await todoPage.expectItemCountText('0 items left');
     });
+  });
+
+  test('should synchronize the bulk checkbox after individual toggles', async ({ todoPage }) => {
+    await todoPage.seedTodos(['First', 'Second']);
+    await expect(todoPage.toggleAllCheckbox).not.toBeChecked();
+    await todoPage.toggleTodo(0);
+    await expect(todoPage.toggleAllCheckbox).not.toBeChecked();
+    await todoPage.toggleTodo(1);
+    await expect(todoPage.toggleAllCheckbox).toBeChecked();
+    await todoPage.toggleTodo(0);
+    await expect(todoPage.toggleAllCheckbox).not.toBeChecked();
   });
 });

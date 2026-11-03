@@ -1,9 +1,31 @@
-import { test } from '../fixtures/todoFixtures';
+import { test, expect } from '../fixtures/todoFixtures';
 import { allure } from 'allure-playwright';
 
 // Fixture setup runs once; explicit reloads preserve state within each test.
 test.describe('Persistence', () => {
   test.use({ todoFeature: 'Persistence' });
+
+  test('should preserve record identity when editing and deleting duplicate titles', async ({ todoPage, page }) => {
+    // UI writes are intentional: this protects the actual add/edit/delete path.
+    // Firefox's change-event handling can swallow consecutive identical Enter
+    // submissions (recorded separately). Establish duplicates through real UI edits.
+    await todoPage.addTodos('Same title', 'Temporary title');
+    await todoPage.editTodo(1, 'Same title');
+    await expect(todoPage.todoItems.locator('label')).toHaveText(['Same title', 'Same title']);
+    const survivorId = await todoPage.item(0).getAttribute('data-id');
+    const removedId = await todoPage.item(1).getAttribute('data-id');
+    await expect(todoPage.item(0)).not.toHaveAttribute('data-id', removedId!);
+    await todoPage.toggleTodo(0);
+    await todoPage.editTodo(0, 'Edited survivor');
+    await todoPage.deleteTodo(1);
+    await todoPage.reload();
+    await todoPage.expectTodoCount(1);
+    await todoPage.expectTodoText(0, 'Edited survivor');
+    await todoPage.expectTodoCompleted(0);
+    await expect(todoPage.item(0)).toHaveAttribute('data-id', survivorId!);
+    expect(await page.evaluate(() => JSON.parse(localStorage.getItem('todos-vanillajs')!) as unknown))
+      .toEqual([{ id: Number(survivorId), title: 'Edited survivor', completed: true }]);
+  });
 
   test('should persist todos across a page reload', async ({ todoPage }) => {
     await allure.story('Todos persist after reload');

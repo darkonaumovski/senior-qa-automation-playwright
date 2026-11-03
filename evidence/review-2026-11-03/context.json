@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-03",
+  "suiteCommit": "92ada59a109ed96fc3e4cbce7b30b9bdffaaeeba",
+  "appPin": "a89cccc91045a0a36ce559cd716aebc31fa302a8",
+  "servedCheckout": "a89cccc91045a0a36ce559cd716aebc31fa302a8",
+  "unusedCheckout": "7790b145b6920ec1e55b6a952d2000cbfe1a6b9a",
+  "candidateUpstream": "cd24a0a16a428b645b561f9d4128cbc10211d6c0",
+  "node": "v24.20.0",
+  "npm": "11.19.0",
+  "playwright": "1.62.1",
+  "allurePlaywright": "3.11.1",
+  "changedBeforeWork": [
+    "allure-results/environment.properties",
+    "QA_AUTOMATION_REVIEW.md (untracked)"
+  ],
+  "metadataSnapshotStage": "Baseline setup; initial discovery had already used the old reporter, so pre-discovery values were not captured"
+}

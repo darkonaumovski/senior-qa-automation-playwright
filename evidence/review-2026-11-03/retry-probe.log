@@ -1,0 +1,43 @@
+
+Running 1 test using 1 worker
+
+
+(node:42824) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/1] [chromium] › .runs\retry-probe\retry.spec.ts:2:5 › intentional retry visibility control
+(node:54656) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/1] (retries) [chromium] › .runs\retry-probe\retry.spec.ts:2:5 › intentional retry visibility control (retry #1)
+  1) [chromium] › .runs\retry-probe\retry.spec.ts:2:5 › intentional retry visibility control ───────
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1
+    Received: 0
+
+      1 | import { test, expect } from '../../tests/fixtures/todoFixtures';
+      2 | test('intentional retry visibility control', async ({}, testInfo) => {
+    > 3 |   expect(testInfo.retry).toBe(1);
+        |                          ^
+      4 | });
+      5 |
+        at E:\Automation Testing\senior-qa-automation-playwright\.runs\retry-probe\retry.spec.ts:3:26
+
+    Error Context: evidence\review-2026-11-03\retry-probe-artifacts\retry-intentional-retry-visibility-control-chromium\error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\retry-probe-artifacts\retry-intentional-retry-visibility-control-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\retry-probe-artifacts\retry-intentional-retry-visibility-control-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+RETRY RECOVERY:  > chromium > retry.spec.ts > intentional retry visibility control (attempt 2)
+::warning title=Passed only on retry:: > chromium > retry.spec.ts > intentional retry visibility control
+  1 flaky
+    [chromium] › .runs\retry-probe\retry.spec.ts:2:5 › intentional retry visibility control ────────

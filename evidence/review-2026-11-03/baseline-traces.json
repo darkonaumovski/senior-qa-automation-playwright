@@ -1,0 +1,1015 @@
+[
+  {
+    "trace": "E:\\Automation Testing\\senior-qa-automation-playwright\\evidence\\review-2026-11-03\\baseline-frozen-artifacts\\a11y-a11y-Accessibility-ba-0d754--detectable-WCAG-violations-webkit\\trace.zip",
+    "hoverCount": 0,
+    "actions": [
+      {
+        "entry": "test.trace",
+        "method": "hook",
+        "apiName": null,
+        "title": "Before Hooks",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"browser\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Launch browser",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create context",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create page",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Navigate to \"/todo\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo"
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for function",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Reload",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo"
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for function",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create page",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "hook",
+        "apiName": null,
+        "title": "After Hooks",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoStart\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Close page",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Close context",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoFeature\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"navigationTimeout\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"actionTimeout\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"error-context\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"baseURL\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"userAgent\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"viewport\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"isMobile\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"hasTouch\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"deviceScaleFactor\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "hook",
+        "apiName": null,
+        "title": "Worker Cleanup",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"video\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"browser\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"defaultBrowserType\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"screenshot\"",
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "newPage",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "goto",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo"
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "waitForFunction",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "reload",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo"
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "waitForFunction",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "newPage",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      }
+    ]
+  },
+  {
+    "trace": "E:\\Automation Testing\\senior-qa-automation-playwright\\evidence\\review-2026-11-03\\baseline-frozen-artifacts\\a11y-a11y-Accessibility-in-55250--detectable-WCAG-violations-webkit\\trace.zip",
+    "hoverCount": 0,
+    "actions": [
+      {
+        "entry": "test.trace",
+        "method": "hook",
+        "apiName": null,
+        "title": "Before Hooks",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"browser\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Launch browser",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create context",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create page",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Navigate to \"/todo\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo"
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for function",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Reload",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo"
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for function",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Double click locator('.todo-list li').first().locator('label')",
+        "selector": ".todo-list li >> nth=0 >> label"
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.todo-list li').first().locator('.edit')",
+        "selector": ".todo-list li >> nth=0 >> .edit"
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create page",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "hook",
+        "apiName": null,
+        "title": "After Hooks",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoStart\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Close page",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Close context",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoFeature\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"navigationTimeout\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"actionTimeout\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"screenshot\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"error-context\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"baseURL\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"userAgent\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"viewport\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"isMobile\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"hasTouch\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"deviceScaleFactor\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "hook",
+        "apiName": null,
+        "title": "Worker Cleanup",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"video\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"browser\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"defaultBrowserType\"",
+        "selector": null
+      },
+      {
+        "entry": "test.trace",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"screenshot\"",
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "newPage",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "goto",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo"
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "waitForFunction",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "reload",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo"
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "waitForFunction",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "dblclick",
+        "apiName": null,
+        "title": null,
+        "selector": ".todo-list li >> nth=0 >> label"
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".todo-list li >> nth=0 >> .edit"
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "method": "newPage",
+        "apiName": null,
+        "title": null,
+        "selector": null
+      }
+    ]
+  }
+]

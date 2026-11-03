@@ -1,281 +1,85 @@
-# ToDo Application – Playwright Test Suite
+# Desktop TodoMVC Playwright suite
 
-End-to-end Playwright test suite for the **TodoMVC** application served by
-[cypress-io/cypress-example-kitchensink](https://github.com/cypress-io/cypress-example-kitchensink).
+Tests the desktop `/todo` application from [cypress-example-kitchensink](https://github.com/cypress-io/cypress-example-kitchensink) in Chromium, Firefox and WebKit. The application revision lives in `.app-commit`; the suite dependencies are locked separately.
 
----
+## Local setup
 
-## Contents
-
-| Path | Purpose |
-|------|---------|
-| `tests/todo/` | Playwright specs (add, complete, delete, edit, filter, bulk, persistence) |
-| `tests/a11y/` | Accessibility smoke pass (axe-core, WCAG 2.0A/AA + 2.1AA) on the base view, inline-editing state, and toggle-all control |
-| `pages/TodoPage.ts` | Page Object Model |
-| `tests/fixtures/todoFixtures.ts` | Shared page lifecycle and Allure metadata fixtures |
-| `ARCHITECTURE.md` | How the suite is put together and why |
-| `playwright.config.ts` | Project config (browsers, reporter, timeouts) |
-| `Dockerfile` | Combined image: app + test runner |
-| `Dockerfile.app` | App-only image (used by docker-compose) |
-| `docker-compose.yml` | Two-service compose setup |
-| `.app-commit` | The commit of the application under test — the only place this SHA is written down |
-| `eslint.config.mjs` | Lint rules, including the type-aware ones that catch a missing `await` |
-| `.github/workflows/playwright.yml` | CI workflow (static checks → pin check → test → Docker → Allure → GitHub Pages) |
-| `.github/workflows/flake-detection.yml` | Nightly repeat run with retries disabled |
-| `TEST_APPROACH.md` | Test priorities, scope, decisions |
-| `FINDINGS.md` | Documented defects and observations |
-
----
-
-## Prerequisites
-
-- **Node.js 22+** — the application under test declares `engines.node` as
-  `^22.22.2 || ^24.15.0 || >=26.0.0`. npm only warns rather than fails by default, so
-  older versions appear to work, but `npm install` refuses under `engine-strict`.
-- **npm 10+**
-- **Docker + Docker Compose** (for containerised execution)
-- **Java 17+** (only for generating the Allure HTML report locally – not needed to run tests)
-
----
-
-## Quick start – local
-
-### 1. Start the application under test
+Use Node 22.22.2+ (or Node 24.15+), npm, and a JVM for HTML report generation (CI uses Java 17).
 
 ```bash
-git clone https://github.com/cypress-io/cypress-example-kitchensink
-cd cypress-example-kitchensink
-# Pin to the same commit CI and the Docker images use, so local results are
-# comparable with CI results. The SHA lives in .app-commit in this repository
-# and nowhere else, so read it from there rather than copying it around.
-git checkout "$(cat ../senior-qa-automation-playwright/.app-commit)"
-npm install
+npm ci --ignore-scripts
+npx playwright install --with-deps chromium firefox webkit
+git clone https://github.com/cypress-io/cypress-example-kitchensink kitchensink
+cd kitchensink
+git checkout "$(cat ../.app-commit)"
+npm ci --ignore-scripts --omit=dev
 npm start
-# Application available at http://localhost:8080/todo
 ```
 
-### 2. Install test dependencies
+In another terminal at the suite root:
 
 ```bash
-# In this repository's root:
-npm install
-npx playwright install --with-deps chromium firefox
+APP_SOURCE_DIR=kitchensink npm test
+npm run report:generate
+npm run report:open
 ```
 
-### 3. Run the tests
+PowerShell: `$env:APP_SOURCE_DIR='kitchensink'; npm test`. If using a dedicated app port, set `TODO_BASE_URL` as well. Only declare `APP_SOURCE_DIR` when that clean checkout actually serves the local target.
 
-```bash
-npm test                        # run all tests headlessly (parallel)
-npm run test:smoke              # run only the @smoke-tagged Priority 1/2 subset, for fast feedback
-npm run typecheck               # check TypeScript without emitting files
-npm run lint                    # ESLint, including type-aware rules; warnings fail
-npm run lint:fix                # apply the autofixable subset
-npm run test:headed             # run with browser visible (single worker – see note below)
-npm run test:debug              # open Playwright Inspector
-npm run test:ui                 # open Playwright UI mode
-```
+Commands:
 
-> **Headed mode note**: in headed mode multiple workers share the same virtual display cursor.
-> Run with `--workers=1` to avoid hover-state conflicts between parallel tests:
-> ```bash
-> TODO_BASE_URL=http://localhost:8080 npx playwright test --headed --workers=1
-> ```
-
-### 4. Generate and open the Allure report
-
-```bash
-npm run report                  # generate + open in browser
-# or separately:
-npm run report:generate         # writes to ./allure-report/
-npm run report:open             # opens the generated report
-```
-
-> **Note**: `allure-commandline` requires Java 17+. Install via `sdk install java 17-tem` (SDKMAN) or your OS package manager.
-
----
-
-## Docker – combined image
-
-A single Docker image containing both the application and the test runner.
-
-```bash
-# Build
-docker build -t todo-playwright .
-
-# Run (starts app internally, runs tests, exits with test exit code)
-docker run --rm todo-playwright
-
-# Extract the Allure results for local report generation
-docker run --rm -v "$(pwd)/allure-results:/workspace/allure-results" todo-playwright
-```
-
----
-
-## Docker Compose – two-service setup
-
-```bash
-docker compose up --build --abort-on-container-exit --exit-code-from tests
-```
-
-This will:
-1. Build and start the `app` service (kitchensink on port 8080)
-2. Wait until the app passes its health check
-3. Build and run the `tests` service against `http://app:8080`
-4. Write `allure-results/` to your working directory
-5. Exit with the test suite's exit code
-
-To generate the report after compose finishes:
-
-```bash
-npm run report:generate && npm run report:open
-```
-
----
-
-## CI / GitHub Actions
-
-The workflow at `.github/workflows/playwright.yml` runs on every push to `main` and on pull requests, as five jobs.
-
-**`static`** — `tsc --noEmit` and `eslint . --max-warnings=0`. Runs first and
-gates the rest, so a compile error or a missing `await` costs seconds rather
-than a full browser run.
-
-**`pin`** — checks that the application pin is genuinely single-source: that
-`.app-commit` holds one valid 40-character SHA, that the commit is still
-fetchable upstream, and that the SHA is not hard-coded anywhere else in the
-repository. Without this job `.app-commit` would be a convention rather than a
-rule, and a copy-pasted SHA could quietly reappear.
-
-**`test`** — the suite itself, as a 2-way `--shard` matrix (each shard runs Chromium + Firefox + WebKit, 1 worker, 2 retries):
-1. Checkout this repo, and `cypress-example-kitchensink` at the pinned `APP_COMMIT`
-2. Start the app in the background and wait for `/todo` to respond
-3. Run this shard's slice of the Playwright suite
-4. Upload this shard's raw Allure results and, on failure, traces/videos
-
-**`report`** — runs once `test`'s shards finish, downloads and merges both shards' raw Allure results, generates the Allure HTML report (with trend history from the previous run), uploads report and raw results as CI artifacts, and deploys the report to **GitHub Pages** (branch `gh-pages`, path `allure-report/`).
-
-**`docker`** — builds the combined image and runs an `@smoke`-tagged, Chromium-only subset through it, so the Docker deliverable is exercised rather than merely reviewed. This catches the failure mode where the image builds but the suite cannot actually run inside it, without re-running the full suite a second time on top of the native `test` job. `docker compose build` (not run) covers the split app/tests topology separately.
-
-The application under test is pinned by commit, because without a pin the suite
-tests whatever upstream `master` happens to be and a red build cannot be
-attributed to either side. That SHA lives in **`.app-commit` and nowhere else**:
-the workflows read it into `APP_COMMIT`, both Dockerfiles read it at build time,
-the compose stack passes it through empty, and `playwright.config.ts` reads it
-for the Allure environment panel. To test against a different revision, either
-edit `.app-commit` or export `APP_COMMIT` for a one-off run.
-
-### Flake detection
-
-`.github/workflows/flake-detection.yml` runs nightly and on demand. It executes
-every test three times per browser with `--retries=0`, because the main
-workflow's retries are there to keep pull requests usable and will happily
-conceal a test that only usually passes. A green pull request says the change
-works; this job is what says the suite is trustworthy.
-
-Each CI runner uses one worker, following [Playwright's CI guidance](https://playwright.dev/docs/ci#workers).
-The browser matrix and main workflow's shards still run in parallel across
-runners. This avoids concurrent browser startup and accessibility scans
-competing for resources on the same runner. See [the WebKit investigation](CI_FLAKE_ANALYSIS.md)
-for the observed failure and the limits of the diagnosis.
-
-```bash
-npm run test:repeat             # the same idea locally
-```
-
-**Enable GitHub Pages** (one-time setup):
-1. Go to `Settings → Pages`
-2. Set Source to **Deploy from a branch**, branch `gh-pages`, folder `/ (root)`
-3. The report URL will be: `https://<owner>.github.io/<repo>/allure-report/`
-
-**Artifacts** and their retention:
-- `allure-results-shard-<1|2>-<run>` – each shard's raw results, staged for the `report` job to merge (1 day)
-- `allure-results-<run>` – the merged raw JSON results for re-generating the report (30 days)
-- `allure-report-<run>` – the pre-generated HTML report (30 days)
-- `playwright-traces-shard-<1|2>-<run>` – traces and videos, only on failure (14 days, because
-  they are much larger and are only useful while the failure is still being chased)
-
----
-
-## Reporting solution
-
-**Allure** was chosen for the following reasons:
-
-- Step-level breakdown (`test.step()` is natively picked up)
-- Screenshots and videos are attached inline to the failure step
-- Built-in **trend graphs** across runs (pass/fail rate, duration, flakiness)
-- **Execution history** preserved via the `allure-results/history/` folder copied between CI runs
-- Well-supported in the Playwright ecosystem via `allure-playwright`
-
-Failure categories (`allure-results/categories.json`):
-- **Infrastructure problems** – network / timeout errors (likely environment flakiness)
-- **Product defects** – assertion failures (app behaviour mismatch)
-- **Test defects** – all other failures (test code issues)
-
----
-
-## Environment variables
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `TODO_BASE_URL` | `http://localhost:8080` | Base URL of the application under test |
-| `CI` | *(unset)* | When set, enables retries (2) and limits workers to 1; repeat runs override retries to 0 |
-
----
-
-## Test structure
-
-```
-tests/
-├── todo/
-│   ├── add.spec.ts          – Adding todos
-│   ├── complete.spec.ts     – Completing / uncompleting
-│   ├── delete.spec.ts       – Deleting todos
-│   ├── edit.spec.ts         – Inline editing
-│   ├── filter.spec.ts       – Filtering views
-│   ├── bulk-actions.spec.ts – Toggle-all & clear-completed
-│   ├── persistence.spec.ts  – localStorage persistence
-│   └── lifecycle.spec.ts    – Page Object seeding/cleanup contracts
-└── a11y/
-    └── a11y.spec.ts         – axe-core WCAG smoke pass (base view, editing state, toggle-all)
-```
-
-Every spec runs against all three browser projects, so the executed total is
-three times the test count. Counts are deliberately not written down here: they drift the
-moment a test is added, and a stale number in a README is worse than no number.
-Run `npx playwright test --list` for the current figure, or read it off the
-[published report](https://darkonaumovski.github.io/senior-qa-automation-playwright/allure-report/).
-
----
-
-## Architecture decisions
-
-| Decision | Rationale |
-|----------|-----------|
-| Page Object Model | Centralises selectors; tests read as business-level descriptions |
-| Custom `todoPage` fixture | Supplies a clean page in a fresh browser context; removes sample todos through the UI |
-| `seedTodos()` for preconditions | Writes stored todos and reloads, so setup costs one step instead of several clicks and does not depend on the add, toggle or destroy affordances. Behaviour under test is still driven through the UI. Cannot produce an empty list — see [issue #4](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/4) |
-| `todoStart: 'as-is'` opt-out | Lets a spec that seeds all of its own data skip the fixture's UI cleanup, which `seedTodos()` would overwrite a moment later anyway |
-| Persistence tests share fixture | Setup runs once per test; `todoPage.reload()` preserves storage and the URL hash |
-| Allure option fixtures | Specs declare `todoFeature`; shared setup applies reporting labels |
-| `test.step()` for steps | Works with both Playwright's built-in trace viewer and Allure |
-| `allure-playwright` reporter | Satisfies reporting requirements with zero extra tooling except Java |
-| Multi-stage Dockerfile | Separates app build from test runner; keeps final image lean |
-| `docker-compose.yml` separate services | More realistic for CI pipelines; tests and app can scale independently |
-
-See [ARCHITECTURE.md](ARCHITECTURE.md) for the structure and lifecycle contracts.
-`goto()` resets the todo list by default; `goto({ clearData: false })` only
-navigates. The application reseeds sample todos when an empty list is reloaded.
-
----
-
-## Known limitations
-
-Stated plainly, because a reviewer will otherwise find them and wonder whether
-they were noticed.
-
-| Limitation | Detail |
+| Command | Behavior |
 |---|---|
-| Firefox instability on Windows hosts | Under full parallelism on a managed Windows host, individual Firefox tests have failed intermittently with graphics errors in the past. `playwright.config.ts` documents and works around the suspected environment cause. A 171-execution repro attempt across three full-parallelism runs on a Windows host did not reproduce it (see item 7 in [TEST_APPROACH.md](TEST_APPROACH.md)) — evidence the workaround isn't currently masking a live problem, not proof the original host-specific cause is gone. Linux CI has never reproduced it. If you see it locally, run Firefox with `--workers=1`. |
-| Coverage is UI-level, with a targeted accessibility and CSS-state smoke pass | No API, full accessibility audit, pixel-level visual-regression, or performance coverage. `tests/a11y/` closes the top-named a11y risk with an automated WCAG smoke pass (and found a real defect — see Finding #5 in `FINDINGS.md`); the toggle-all chevron and destroy-button hover colors are covered via computed-style assertions instead of pixel snapshots (no Linux environment was available to generate a CI-trustworthy screenshot baseline). See the exclusions in [TEST_APPROACH.md](TEST_APPROACH.md), which state the residual risk each remaining exclusion leaves. |
-| The app cannot start empty | It reseeds two sample todos whenever stored data is empty, so `seedTodos([])` throws rather than pretending to work. See [issue #4](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/4). |
-| Allure needs a JVM | `allure-commandline` requires Java 17+ to generate the HTML report locally. Running the tests does not. |
+| `npm test` | All three engines, automatic local worker selection, no local retries |
+| `npm run test:smoke` | Current `@smoke` subset in all three engines |
+| `npm run test:headed` | Headed, explicitly one worker |
+| `npm run test:repeat` | Three repeats, zero retries |
+| `npm run typecheck` / `npm run lint` | Static gates |
+| `npm run test:harness` | Repeat-input, reporting and provenance contracts |
+| `npx playwright test --list` | Current execution inventory |
+
+CI uses one worker per shard and two retries for PR diagnostics. Every retry recovery is listed in the Actions step summary; first-attempt failure traces are retained. The nightly matrix repeats each engine independently with **zero retries**. Manual repeat input accepts only integers 1–10.
+
+## Run evidence and reports
+
+Every invocation gets `.runs/<unique-id>/allure-results/`, a fresh environment panel, static categories from `reporting/categories.json`, and a `run-manifest.json`. `npm run report:generate` generates only the most recent manifested run; optionally select a run with `node scripts/generate-report.mjs <raw-results-directory>`. The selected manifest is validated before generation; incomplete recorded executions are rejected. Explicit paths let you select a particular run. Existing `allure-results/` files are legacy data and are never read by these commands.
+
+Category names are **triage hints**, not diagnoses. Assertion failures can arise from product, test or environment causes.
+
+CI validates both shard identities, attempted executions, raw result counts and their union against this checkout's full browser inventory before generating or publishing. Complete failing runs still publish. Missing or interrupted shards fail the report job, surface an incomplete-run summary, and leave the previous complete Pages report intact. Historical reports: [GitHub Pages](https://darkonaumovski.github.io/senior-qa-automation-playwright/allure-report/).
+
+| Variable | Meaning |
+|---|---|
+| `TODO_BASE_URL` | Target URL; default `http://localhost:8080` |
+| `APP_SOURCE_DIR` | Operator identifies the clean app checkout serving the local URL; checked with Git |
+| `APP_REVISION_FILE` | Verified revision evidence written by the controlled image/service entrypoint |
+| `APP_COMMIT` | Build override; **does not prove the revision of an arbitrary remote target** |
+| `FIREFOX_WINDOWS_SANDBOX_WORKAROUND=1` | Explicit Windows-only opt-in; preserves the rest of the browser environment |
+| `CI` | Enables two diagnostic retries and one worker; `--retries=0` overrides retries |
+
+Unverified remote URLs report revision **unknown**. Combined images read the actual baked checkout SHA. Compose reads the SHA from the independently built app service, including build overrides.
+
+## Docker delivery
+
+```bash
+docker build -t todo-suite .
+docker run --rm -e CI=true -v "${PWD}/.runs:/workspace/.runs" todo-suite --project=chromium --grep @smoke --retries=0
+docker compose build
+docker compose up -d --wait app
+docker compose run --rm tests --project=chromium --grep @smoke --retries=0
+docker compose down
+```
+
+No arguments to the image or Compose tests service runs the full suite. A one-shot full-stack invocation also propagates the tests service's result: `docker compose up --build --abort-on-container-exit --exit-code-from tests`. Both local app checkouts are excluded from the build context. Compose waits for app health and targets `http://app:8080`; browser artifacts are bind-mounted.
+
+These are the implemented CI delivery commands. This Windows review host has no Docker CLI; see [QA_AUTOMATION_REVIEW.md](QA_AUTOMATION_REVIEW.md) for the distinction between verified local evidence and CI checks awaiting execution.
+
+## Test design and known product defects
+
+A fresh browser context isolates every test. `todoPage` normally removes sample records through the UI. Seeded scenarios use `todoStart: 'as-is'` to avoid unrelated cleanup. Persistence tests create and mutate records through the UI.
+
+The pinned app reseeds two sample todos on an empty reload. `seedTodos([])` therefore rejects empty input. Readiness checks stored data against the selected filter, allowing zero visible rows with nonempty storage, and reports which precondition is unmet.
+
+Accessibility keeps axe's `label` rule enabled. Only the affected revision's individual visible todo checkboxes are excepted; fixed exceptions fail as obsolete. The unnamed editor, unknown-route fallback, missing focus indicators and unreachable row edit/delete controls have separate known-defect checks. The expected-failure marker is applied after unrelated assertions and only on the reviewed revision; an unexpected pass flags an obsolete defect. These checks are visible evidence of upstream defects, not fixes to the application. On the reviewed Windows WebKit build, Tab and Option-Tab skip filter links; that host limitation has a narrowly scoped expected failure after the unrelated journey assertions. Firefox also drops consecutive identical Enter submissions; the identity scenario establishes duplicate titles by editing a second UI-created record. Both observations and their reproductions are recorded in FINDINGS.md.
+
+See [TEST_APPROACH.md](TEST_APPROACH.md), [ARCHITECTURE.md](ARCHITECTURE.md), [DEPENDENCY_AUDIT.md](DEPENDENCY_AUDIT.md), and the [review and evidence](QA_AUTOMATION_REVIEW.md).

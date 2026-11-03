@@ -1,0 +1,37 @@
+
+Running 9 tests using 2 workers
+
+
+(node:47628) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+(node:50108) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/9] [webkit] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos
+[2/9] [webkit] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding
+[3/9] [webkit] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items
+
+(node:55228) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[4/9] [webkit] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding
+
+(node:29928) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[5/9] [webkit] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos
+[6/9] [webkit] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items
+
+(node:15720) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:30104) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[7/9] [webkit] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding
+[8/9] [webkit] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos
+[9/9] [webkit] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items
+  9 passed (27.2s)

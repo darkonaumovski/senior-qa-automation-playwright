@@ -1,0 +1,31 @@
+
+Running 15 tests using 1 worker
+
+
+(node:45280) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/15] [chromium] › tests\a11y\keyboard.spec.ts:43:7 › Keyboard interaction › keyboard journey adds, completes and filters a todo with visible link focus
+[2/15] [chromium] › tests\a11y\keyboard.spec.ts:61:7 › Keyboard interaction › known product defect: input and checkbox need visible keyboard focus
+[3/15] [chromium] › tests\a11y\keyboard.spec.ts:80:7 › Keyboard interaction › known product defect: row edit and delete controls need keyboard access
+[4/15] [chromium] › tests\todo\filter.spec.ts:12:5 › known product defect: unknown hash must fall back to All without losing writes
+[5/15] [chromium] › tests\todo\persistence.spec.ts:8:7 › Persistence › should preserve record identity when editing and deleting duplicate titles
+(node:55852) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[6/15] [firefox] › tests\a11y\keyboard.spec.ts:43:7 › Keyboard interaction › keyboard journey adds, completes and filters a todo with visible link focus
+[7/15] [firefox] › tests\a11y\keyboard.spec.ts:61:7 › Keyboard interaction › known product defect: input and checkbox need visible keyboard focus
+[8/15] [firefox] › tests\a11y\keyboard.spec.ts:80:7 › Keyboard interaction › known product defect: row edit and delete controls need keyboard access
+[9/15] [firefox] › tests\todo\filter.spec.ts:12:5 › known product defect: unknown hash must fall back to All without losing writes
+[10/15] [firefox] › tests\todo\persistence.spec.ts:8:7 › Persistence › should preserve record identity when editing and deleting duplicate titles
+
+(node:54132) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[11/15] [webkit] › tests\a11y\keyboard.spec.ts:43:7 › Keyboard interaction › keyboard journey adds, completes and filters a todo with visible link focus
+[12/15] [webkit] › tests\a11y\keyboard.spec.ts:61:7 › Keyboard interaction › known product defect: input and checkbox need visible keyboard focus
+[13/15] [webkit] › tests\a11y\keyboard.spec.ts:80:7 › Keyboard interaction › known product defect: row edit and delete controls need keyboard access
+[14/15] [webkit] › tests\todo\filter.spec.ts:12:5 › known product defect: unknown hash must fall back to All without losing writes
+[15/15] [webkit] › tests\todo\persistence.spec.ts:8:7 › Persistence › should preserve record identity when editing and deleting duplicate titles
+  15 passed (54.9s)

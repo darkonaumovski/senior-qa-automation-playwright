@@ -1,0 +1,46 @@
+
+Running 30 tests using 1 worker
+
+(node:19688) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/30] [chromium] › tests\a11y\a11y.spec.ts:42:7 › Accessibility › base todo list view has no unexpected WCAG violations @smoke
+[2/30] [chromium] › tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke
+[3/30] [chromium] › tests\todo\add.spec.ts:24:7 › Add todo › should add multiple todo items @smoke
+[4/30] [chromium] › tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke
+[5/30] [chromium] › tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke
+[6/30] [chromium] › tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke
+[7/30] [chromium] › tests\todo\filter.spec.ts:64:7 › Filter todos › should show all todos when the "All" filter is active @smoke
+[8/30] [chromium] › tests\todo\filter.spec.ts:85:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke
+[9/30] [chromium] › tests\todo\filter.spec.ts:107:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke
+[10/30] [chromium] › tests\todo\filter.spec.ts:154:7 › Filter todos › should reflect the selected filter in the URL hash @smoke
+
+(node:51896) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[11/30] [firefox] › tests\a11y\a11y.spec.ts:42:7 › Accessibility › base todo list view has no unexpected WCAG violations @smoke
+[12/30] [firefox] › tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke
+[13/30] [firefox] › tests\todo\add.spec.ts:24:7 › Add todo › should add multiple todo items @smoke
+[14/30] [firefox] › tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke
+[15/30] [firefox] › tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke
+[16/30] [firefox] › tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke
+[17/30] [firefox] › tests\todo\filter.spec.ts:64:7 › Filter todos › should show all todos when the "All" filter is active @smoke
+[18/30] [firefox] › tests\todo\filter.spec.ts:85:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke
+[19/30] [firefox] › tests\todo\filter.spec.ts:107:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke
+[20/30] [firefox] › tests\todo\filter.spec.ts:154:7 › Filter todos › should reflect the selected filter in the URL hash @smoke
+
+(node:37564) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[21/30] [webkit] › tests\a11y\a11y.spec.ts:42:7 › Accessibility › base todo list view has no unexpected WCAG violations @smoke
+[22/30] [webkit] › tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke
+[23/30] [webkit] › tests\todo\add.spec.ts:24:7 › Add todo › should add multiple todo items @smoke
+[24/30] [webkit] › tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke
+[25/30] [webkit] › tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke
+[26/30] [webkit] › tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke
+[27/30] [webkit] › tests\todo\filter.spec.ts:64:7 › Filter todos › should show all todos when the "All" filter is active @smoke
+[28/30] [webkit] › tests\todo\filter.spec.ts:85:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke
+[29/30] [webkit] › tests\todo\filter.spec.ts:107:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke
+[30/30] [webkit] › tests\todo\filter.spec.ts:154:7 › Filter todos › should reflect the selected filter in the URL hash @smoke
+  30 passed (1.2m)

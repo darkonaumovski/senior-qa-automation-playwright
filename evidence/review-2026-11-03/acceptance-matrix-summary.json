@@ -1,0 +1,271 @@
+{
+  "paths": {
+    "merged": ".runs/native-matrix-8f427a07-e2eb-4c29-8ea2-63a0d102e627-complete",
+    "root": ".runs/native-matrix-8f427a07-e2eb-4c29-8ea2-63a0d102e627",
+    "attempts": [
+      {
+        "shard": 1,
+        "exitCode": 0,
+        "seconds": 199.6617565,
+        "workers": 1,
+        "retries": 0
+      },
+      {
+        "shard": 2,
+        "exitCode": 0,
+        "seconds": 193.9369987,
+        "workers": 1,
+        "retries": 0
+      }
+    ]
+  },
+  "status": "passed",
+  "total": 207,
+  "retries": 0,
+  "browsers": {
+    "chromium": {
+      "total": 69,
+      "normalPasses": 65,
+      "expectedFailures": 4,
+      "unexpected": 0,
+      "attemptDuration": 87696
+    },
+    "firefox": {
+      "total": 69,
+      "normalPasses": 64,
+      "expectedFailures": 5,
+      "unexpected": 0,
+      "attemptDuration": 140613
+    },
+    "webkit": {
+      "total": 69,
+      "normalPasses": 64,
+      "expectedFailures": 5,
+      "unexpected": 0,
+      "attemptDuration": 133267
+    }
+  },
+  "expectedKnownFailures": [
+    {
+      "title": [
+        "",
+        "chromium",
+        "a11y\\a11y.spec.ts",
+        "Accessibility",
+        "known product defect: inline editor needs an accessible name"
+      ],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "duration": 2892
+        }
+      ]
+    },
+    {
+      "title": [
+        "",
+        "chromium",
+        "a11y\\keyboard.spec.ts",
+        "Keyboard interaction",
+        "known product defect: input and checkbox need visible keyboard focus"
+      ],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "duration": 927
+        }
+      ]
+    },
+    {
+      "title": [
+        "",
+        "chromium",
+        "a11y\\keyboard.spec.ts",
+        "Keyboard interaction",
+        "known product defect: row edit and delete controls need keyboard access"
+      ],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "duration": 2104
+        }
+      ]
+    },
+    {
+      "title": [
+        "",
+        "chromium",
+        "todo\\filter.spec.ts",
+        "known product defect: unknown hash must fall back to All without losing writes"
+      ],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "duration": 843
+        }
+      ]
+    },
+    {
+      "title": [
+        "",
+        "firefox",
+        "a11y\\a11y.spec.ts",
+        "Accessibility",
+        "known product defect: inline editor needs an accessible name"
+      ],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "duration": 4055
+        }
+      ]
+    },
+    {
+      "title": [
+        "",
+        "firefox",
+        "a11y\\keyboard.spec.ts",
+        "Keyboard interaction",
+        "known product defect: input and checkbox need visible keyboard focus"
+      ],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "duration": 1630
+        }
+      ]
+    },
+    {
+      "title": [
+        "",
+        "firefox",
+        "a11y\\keyboard.spec.ts",
+        "Keyboard interaction",
+        "known product defect: row edit and delete controls need keyboard access"
+      ],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "duration": 3504
+        }
+      ]
+    },
+    {
+      "title": [
+        "",
+        "firefox",
+        "todo\\add.spec.ts",
+        "Add todo",
+        "known product defect: consecutive identical Enter submissions create distinct records"
+      ],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "duration": 2475
+        }
+      ]
+    },
+    {
+      "title": [
+        "",
+        "firefox",
+        "todo\\filter.spec.ts",
+        "known product defect: unknown hash must fall back to All without losing writes"
+      ],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "duration": 1012
+        }
+      ]
+    },
+    {
+      "title": [
+        "",
+        "webkit",
+        "a11y\\a11y.spec.ts",
+        "Accessibility",
+        "known product defect: inline editor needs an accessible name"
+      ],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "duration": 2727
+        }
+      ]
+    },
+    {
+      "title": [
+        "",
+        "webkit",
+        "a11y\\keyboard.spec.ts",
+        "Keyboard interaction",
+        "keyboard journey adds, completes and filters a todo with visible link focus"
+      ],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "duration": 6407
+        }
+      ]
+    },
+    {
+      "title": [
+        "",
+        "webkit",
+        "a11y\\keyboard.spec.ts",
+        "Keyboard interaction",
+        "known product defect: input and checkbox need visible keyboard focus"
+      ],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "duration": 1310
+        }
+      ]
+    },
+    {
+      "title": [
+        "",
+        "webkit",
+        "a11y\\keyboard.spec.ts",
+        "Keyboard interaction",
+        "known product defect: row edit and delete controls need keyboard access"
+      ],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "duration": 3832
+        }
+      ]
+    },
+    {
+      "title": [
+        "",
+        "webkit",
+        "todo\\filter.spec.ts",
+        "known product defect: unknown hash must fall back to All without losing writes"
+      ],
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "failed",
+          "duration": 1267
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "merged": ".runs/native-matrix-8f427a07-e2eb-4c29-8ea2-63a0d102e627-complete",
+  "root": ".runs/native-matrix-8f427a07-e2eb-4c29-8ea2-63a0d102e627",
+  "attempts": [
+    {
+      "shard": 1,
+      "exitCode": 0,
+      "seconds": 199.6617565,
+      "workers": 1,
+      "retries": 0
+    },
+    {
+      "shard": 2,
+      "exitCode": 0,
+      "seconds": 193.9369987,
+      "workers": 1,
+      "retries": 0
+    }
+  ]
+}

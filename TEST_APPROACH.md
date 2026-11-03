@@ -1,160 +1,54 @@
-# Test Approach – ToDo Application
+# Desktop TodoMVC test strategy
 
-## Application under test
+Scope: the desktop `/todo` experience in **Chromium, Firefox and WebKit**. Other kitchensink pages, mobile layouts, load tests, a complete screen-reader audit and general pixel comparisons remain outside this suite.
 
-**URL**: `http://localhost:8080/todo`  
-**Source**: [cypress-io/cypress-example-kitchensink](https://github.com/cypress-io/cypress-example-kitchensink)  
-**Implementation**: Vanilla JavaScript TodoMVC
+## Priorities and assertions
 
----
+CRUD and valid filtering remain core regression coverage. Seed preconditions when data creation is not under test; drive every operation under test through its real UI control. Persistence cases add, toggle, edit and delete through the UI before reloading, so they protect the app's write path rather than the harness's storage seeding. Duplicate titles are established by editing a second distinct UI-created record; this avoids coupling record-identity coverage to the separately reproduced Firefox repeated-Enter defect.
 
-## Analysis summary
+Text trimming uses exact DOM text and stored values because normalized text assertions can hide whitespace defects. Special-character coverage protects its specific literal rendering example; it does not establish general XSS safety.
 
-The application implements the standard TodoMVC feature set:
+| Added or strengthened case | Distinct regression detected |
+|---|---|
+| Unknown hash, fresh page, All fallback | Saved writes become invisible; invalid route errors recur; view or storage changes across reload |
+| Duplicate-title edit/delete/reload | Mutation targets the wrong record, edit is lost, deleted duplicate returns, or completion/identity is lost |
+| Consecutive identical Enter submissions | Firefox drops the second same-title submission; a dedicated known-defect check preserves the failure |
+| Add under Active | New active record fails to enter the active subset |
+| Add under Completed | An active record leaks into completed rows; counter omits hidden active records |
+| Individual toggles update bulk checked state | Bulk control stays checked with an active record, or never becomes checked |
+| Existing “visually distinguish” test | Completed strike-through or completed/active label colors disappear despite correct row classes |
+| Axe gate mutation controls | An unexpected unnamed input is hidden, or a repaired checkbox retains an obsolete exception |
+| Keyboard add/complete/filter journey | Real Tab order, Space/Enter activation, or visible filter-link focus regresses |
+| Known keyboard focus/access checks | Missing input/checkbox focus indicators and unreachable inline edit/delete stop being visible in reports |
 
-| Feature | Notes |
-|---------|-------|
-| Add todo | Pressing Enter on `.new-todo` input |
-| Complete / uncomplete | Toggle checkbox per item |
-| Delete | Destroy button (visible on hover) |
-| Inline editing | Double-click label, confirm with Enter/blur, cancel with Escape |
-| Filter | All / Active / Completed via hash routing (`#/`, `#/active`, `#/completed`) |
-| Toggle all | Marks/unmarks every todo at once |
-| Clear completed | Removes all completed items in one click |
-| Counter | "X item(s) left" in footer |
-| Persistence | `localStorage` – survives page reload |
+Existing valid routes, empty filtered subsets, counters, bulk mutation and basic reload tests are reused rather than duplicated.
 
----
+## Isolation and readiness
 
-## Test priorities
+Each test gets a fresh browser context. The default fixture removes samples through the UI; dedicated lifecycle tests retain coverage of that cleanup and preservation of unrelated storage. Lifecycle cases that replace all records use `todoStart: 'as-is'`.
 
-### Priority 1 – Core CRUD (must pass)
-Every meaningful use of the app depends on being able to create, complete, and delete items. A regression here would be an immediate blocker.
+Readiness models the pinned app: empty stored data is reseeded on load. Nonempty storage may legitimately render zero rows under Active or Completed. Setup errors describe missing storage, unsupported routes, invalid JSON, expected sample initialization or a filtered row-count mismatch. When upstream introduces a valid empty startup signal, revise this contract alongside the dedicated seeding checks. Do not silently assume that static input visibility means startup is complete.
 
-- Add a single todo and verify it appears with correct text
-- Add multiple todos
-- Toggle completion on and off
-- Delete a single item; verify the list contracts correctly
+## Accessibility and product defects
 
-### Priority 2 – Filtering (high value)
-Filtering is used in every non-trivial session. Broken filters hide or show wrong data.
+Axe scans the base, inline editor and toggle-all surfaces with WCAG 2.0 A/AA and 2.1 AA tags. The `label` rule is active everywhere. Exceptions are matched to individual visible `.toggle` nodes on the exact reviewed app revision; unexpected nodes retain their full axe diagnostics. Naming a checkbox makes its exception obsolete. Injecting an unnamed input demonstrably fails the same gate.
 
-- All / Active / Completed views show only the correct subset
-- Switching between filters is reliable
-- URL hash reflects the selected filter (deep-linkability)
-- Counter stays accurate across filter switches
+The editor is a separate upstream naming defect. The keyboard journey uses real key events for input, navigation and activation. Separate checks record that `.new-todo` has no outline, row checkboxes have opacity zero without a focus proxy, edit requires a pointer double-click and destroy is hidden without hover. The keyboard precondition reload retains the app's natural input autofocus. On this Windows WebKit build, both Tab and Option-Tab cycle past filter links. The journey records this host limitation as an expected failure only at its final reachability assertion; all other assertions run before that marker. This is targeted keyboard coverage, not a screen-reader conformance claim. Safari's documented Option-Tab convention is described in [Apple Support](https://support.apple.com/guide/safari/keyboard-shortcuts-and-gestures-cpsh003/mac).
 
-### Priority 3 – Inline editing (medium risk)
-Editing is the most interaction-heavy feature and historically the most fragile in TodoMVC implementations (double-click, keyboard shortcuts, trim on save).
+Unknown routes should fall back to All without exceptions, render the saved row and preserve data after reload. The known defect is tracked as [issue #7](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/7). Fresh-page reproduction bypasses fixture readiness. Known-defect assertions are conditional on the exact affected app revision and are placed after unrelated checks; unexpected errors fail normally and fixed defects produce unexpected passes.
 
-- Double-click enters edit mode
-- Confirm with Enter saves the change
-- Confirm by blur (tab away) saves the change
-- Escape reverts without saving
-- Clearing text while editing deletes the item
+## Reliability and delivery
 
-### Priority 4 – Bulk operations (medium value)
-- Toggle-all completes / untoggles all items
-- Clear completed removes only completed items
-- Counter updates correctly after bulk actions
+Local default: automatic workers, zero retries. Headed script: one worker. PR CI: two shards, one worker each and two diagnostic retries, with retry-only passes surfaced in the step summary and first-attempt traces retained. Nightly: independent three-browser matrix, bounded 1–10 repeats, **zero retries**. Review evidence records the exact workers, retries, durations and outcomes, including failed attempts.
 
-### Priority 5 – Edge cases and data quality (risk mitigation)
-- Empty input is rejected
-- Whitespace-only input is rejected
-- Leading/trailing whitespace is trimmed on add and on edit — asserted exactly, on both the
-  rendered label and the stored record, because `toHaveText` normalizes whitespace and would
-  pass even if the title were persisted padded
-- Special characters are rendered as plain text (XSS-safe)
+The Windows Firefox sandbox workaround is explicit opt-in. Linux and macOS retain normal settings even if that flag is present. Do not increase timeouts without trace evidence that the existing limit is the cause.
 
-### Priority 6 – Persistence (completeness)
-- Todos survive a `page.reload()`
-- Completion state survives a reload
-- Selected filter survives a reload (hash-based, so this is inherent)
+Combined-image and separate Compose smoke jobs check the actual served app revision, health, service networking, artifacts and a failing browser assertion's exit status. Local Docker verification and executed CI evidence must be distinguished from workflow code.
 
----
+## Reporting and maintenance
 
-## Scope
+Allure raw data is unique per run; generating a smoke report after a full run must select only the smoke directory. Static failure categories are triage hints until cause is confirmed.
 
-**In scope**
-- All features of the `/todo` page described above
-- Cross-browser: Chromium and Firefox (configured in `playwright.config.ts`)
-- Parallel execution per browser project
+Before publishing CI reports, validate two shard manifests, the exact full inventory and attempted raw-result counts. Publish complete evidence even when assertions fail. An incomplete shard set cannot replace the previous complete report.
 
-**Out of scope**, with the risk each exclusion accepts. An exclusion without a
-stated consequence is a gap dressed up as a decision.
-
-| Excluded | Why | Residual risk accepted |
-|---|---|---|
-| All other pages of the kitchensink application | They are Cypress demo pages, not the product under evaluation | None for this assignment. If the suite were ever repurposed as the repo's regression net, everything outside `/todo` would be uncovered. |
-| Performance / load testing | Single-user client-side app with no backend; there is no contention to measure | A change that makes rendering slow with several hundred todos would ship unnoticed. The suite asserts correctness, never duration. |
-| Pixel-level visual regression | Needs a baseline captured and reviewed in the same OS/font environment CI runs in to be trustworthy; a baseline generated on a developer's machine and checked against `ubuntu-latest` produces noise, not signal, and there was no Linux environment available to generate one honestly. | Purely cosmetic drift (spacing, non-semantic color) that leaves computed values on the specific named affordances unchanged would ship unnoticed. Mitigated, not eliminated, by the targeted `toHaveCSS`-style assertions below. |
-| Mobile viewport tests | The TodoMVC CSS is desktop-only by design | Layout defects below the CSS breakpoint are invisible to the suite. Low product impact given the app's intent, but it is an assumption about intent rather than a verified fact. |
-
-### Partially closed since the initial assessment
-
-| Area | What was added | What remains deferred |
-|---|---|---|
-| Accessibility | `tests/a11y/a11y.spec.ts` runs an axe-core WCAG 2.0A/AA + 2.1AA smoke pass on the base list, the inline-editing state, and the toggle-all control — the three surfaces this document named as the top risk. It found a real defect: `.toggle` checkboxes have no accessible name (WCAG 4.1.2, critical — see Finding #5 in `FINDINGS.md`), which the gate excludes by name so it stays meaningful instead of permanently red. | The full audit: manual keyboard-only and screen-reader passes, and axe-core's "best practice" rules beyond WCAG conformance (e.g. `landmark-one-main`, `region`), which surfaced in the initial unscoped scan but are recommendations, not success criteria. |
-| Visual regression | The two affordances this document names as the realistic candidates — the toggle-all chevron's `:checked` recolor and the destroy button's `:hover` recolor — are now asserted via computed-style checks (`TodoPage.expectToggleAllChevronColor()`, `expectDestroyButtonHoverColor()`), deterministic and OS-independent since they read exact CSS values rather than pixels. | Everything else CSS can break: spacing, layout, non-covered colors. Closing that gap for real needs pixel comparison generated and maintained in CI's own Linux environment, not asserted piecemeal forever. |
-| WebKit | Added as a third `playwright.config.ts` project; the CI time cost is accepted since the assignment's actual value is broader browser confidence, not narrower CI minutes. | Nothing — this one is just done. |
-
----
-
-## Assumptions
-
-1. The application stores state in `localStorage`. Playwright creates an isolated browser context for each test; the shared fixture navigates and removes the application's sample todos through the UI.
-2. Tests target `http://localhost:8080` by default. The `TODO_BASE_URL` environment variable overrides this for Docker or remote environments.
-3. The filtering mechanism uses URL hashes (`#/`, `#/active`, `#/completed`). This means filter state survives reload without additional persistence logic.
-
----
-
-## Test data strategy
-
-- All test data is **generated inline** within each test (no external fixtures or seed files needed because `localStorage` is trivially writable).
-- **Preconditions are seeded, behaviour is driven through the UI.** `todoPage.seedTodos()` writes stored todos directly and reloads, so a test that needs "three todos with two completed" gets there in one step instead of five clicks. Interactions that are the subject of a test — adding, toggling, editing, deleting — are always performed through the UI.
-- The shared fixture starts each test from an empty list, without changing unrelated storage keys or installing persistent initialization scripts. Specs that seed all of their own data opt out with `test.use({ todoStart: 'as-is' })`, since the cleanup would be discarded a moment later.
-- **The application cannot be made to start empty.** It reseeds two sample todos whenever stored data is empty (`app/assets/js/todo/app.js`), and its `Store` initialises a missing key to `[]`. Seeding at least one item is what suppresses the samples; a genuinely empty list still requires deleting through the UI. `seedTodos([])` throws rather than appearing to work. See [issue #4](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/4).
-- Persistence tests deliberately keep adding through the UI and call `reload()`, because seeding would reduce them to asserting that `localStorage` survives a reload.
-- No shared state between tests: every test is self-contained and order-independent.
-
----
-
-## Reporting decision
-
-**Allure** was chosen over Playwright's built-in HTML reporter for the following reasons:
-
-| Requirement | How Allure addresses it |
-|-------------|------------------------|
-| Test steps easy to understand | `test.step()` calls are rendered as a collapsible tree |
-| Failure evidence | Screenshots and videos are attached inline to the failed step |
-| Execution history | History is preserved across CI runs via the `allure-results/history/` folder |
-| Trends over time | Built-in graphs: pass rate, duration, failure rate per run |
-| Available from CI | Report is deployed to **GitHub Pages** on every push to `main` |
-
-Published report: https://darkonaumovski.github.io/senior-qa-automation-playwright/allure-report/
-
-Allure `issue()` ids are linked to this repository's issue tracker via
-`links.issue.urlTemplate` in `playwright.config.ts`, so a test that pins a known
-defect links straight to it from the report. Each run also records the pinned
-`APP_COMMIT` in its environment panel, so a historical result can be attributed
-to a specific revision of the application under test.
-
-The `allure-results/categories.json` file categorises failures into:
-- **Infrastructure problems** – timeouts / network errors (likely flaky tests)
-- **Product defects** – assertion mismatches (app behaviour differs from expectation)
-- **Test defects** – other failures (test code issues)
-
----
-
-## What I would improve with more time
-
-1. **Mobile viewport tests** – WebKit is now in the matrix; mobile viewports remain deferred (see the scope table above).
-2. **Full accessibility audit** – the smoke pass (`tests/a11y/a11y.spec.ts`) closed the top-named risk; a manual keyboard-only and screen-reader pass is still open.
-3. **Pixel-level visual regression** – the two named affordances are covered by computed-style checks; a real screenshot baseline needs to be captured and maintained inside CI's own Linux environment to be trustworthy, not generated locally.
-4. **Negative-path API tests** – if the app ever adds a backend, test malformed requests.
-5. **Parallel sharding** – now wired via a 2-way `--shard` matrix in `playwright.yml`; revisit the shard count as the suite grows.
-6. **Contract tests** – verify that `localStorage` schema changes don't silently break persistence.
-7. **Chase down the Firefox-on-Windows instability properly** – attempted: 171 Firefox test executions across three full-parallelism runs (`--workers=4`, once at `--repeat-each=1` and once at `--repeat-each=2`) on a Windows host in this session, with zero failures and no graphics errors. That is evidence the workaround is not currently masking a live problem here, not proof the original failure mode is gone — this session's host may not share the exact GPU/driver stack of the "managed Windows host" the instability was first observed on, so it cannot rule out a host-specific cause. The honest status is downgraded from "unconfirmed hypothesis" to "hypothesis with a clean repro attempt that didn't reproduce it," not to "diagnosed." The workaround (`MOZ_DISABLE_CONTENT_SANDBOX`/`MOZ_DISABLE_GMP_SANDBOX` in `playwright.config.ts`) stays in place since removing it on the strength of one session's clean run would be trading a working mitigation for an unverified guess.
-8. **Add a regression test with the fix for [issue #7](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/7)** – the invalid-hash defect is reported but not automated, because a failing test in a green suite obscures a defect rather than documenting it. The test belongs in `filter.spec.ts`, which currently exercises only the three valid hashes.
-9. **Broaden the routing and bulk-action coverage** – adding a todo while a filter is active, the toggle-all checkbox's own checked state, and unknown hash routes are all untested. The first two are ordinary gaps; the third is what hid issue #7.
-10. **Decouple `seedTodos()` from the storage schema** – it hard-codes the `todos-vanillajs` key and the record shape, which is exactly the coupling [issue #4](https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/4) asks the application to remove. If the app ever exposes a test hook, this helper should move behind it.
+Audit the suite lockfile separately from the pinned app's production closure and upstream development tooling. Keep the app pin until a reviewed replacement has audit and complete matrix evidence. Current findings and residual exposure are in [DEPENDENCY_AUDIT.md](DEPENDENCY_AUDIT.md); measurements and score are in [QA_AUTOMATION_REVIEW.md](QA_AUTOMATION_REVIEW.md).

@@ -58,7 +58,7 @@ jobs:
 
       - name: Install app dependencies
         working-directory: kitchensink
-        run: npm install --ignore-scripts --omit=dev
+        run: npm ci --ignore-scripts --omit=dev
 
       - name: Start ToDo application in background
         working-directory: kitchensink
@@ -90,10 +90,13 @@ jobs:
         env:
           CI: 'true'
           APP_COMMIT: ${{ env.APP_COMMIT }}
+          APP_SOURCE_DIR: kitchensink
+          REPEAT_EACH: ${{ github.event.inputs.repeat_each || '3' }}
         run: |
+          node scripts/validate-repeat.mjs
           npx playwright test \
             --project=${{ matrix.project }} \
-            --repeat-each=${{ github.event.inputs.repeat_each || '3' }} \
+            --repeat-each="$REPEAT_EACH" \
             --retries=0
 
       - name: Upload traces on failure
@@ -102,4 +105,13 @@ jobs:
         with:
           name: flake-traces-${{ matrix.project }}-${{ github.run_number }}
           path: test-results/
+          retention-days: 14
+
+      - name: Upload nightly raw evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nightly-results-${{ matrix.project }}-${{ github.run_number }}
+          path: .runs/
+          include-hidden-files: true
           retention-days: 14

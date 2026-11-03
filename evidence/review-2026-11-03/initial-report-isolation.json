@@ -1,0 +1,8 @@
+{
+  "isolationPassed": true,
+  "smokeReportTotal": 30,
+  "smokeRawCount": 30,
+  "fullResults": ".runs/native-matrix-95669c4b-cd65-4553-b874-ea0259b59e89-complete",
+  "smokeResults": ".runs/smoke-isolation-3b465415-d391-4abf-9f19-ecef215f7a96/allure-results",
+  "fullReport": ".runs/full-report-e7b280b8-99b5-49ca-a95a-457aad029097"
+}

@@ -27,10 +27,11 @@ type TodoFixtures = {
 export const test = base.extend<TodoFixtures>({
   todoFeature: ['Todo Management', { option: true }],
   todoStart: ['empty', { option: true }],
-  todoMetadata: [async ({ todoFeature }, use) => {
+  todoMetadata: [async ({ todoFeature }, use, testInfo) => {
     await allure.epic('Todo Management');
     await allure.feature(todoFeature);
     await allure.owner('QA Team');
+    await allure.label('playwright_id', testInfo.testId);
     await use();
   }, { auto: true }],
   todoPage: async ({ page, todoStart }, use) => {

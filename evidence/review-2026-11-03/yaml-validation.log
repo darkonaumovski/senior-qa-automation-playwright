@@ -1,0 +1,5 @@
+.github/workflows/playwright.yml: valid YAML
+.github/workflows/flake-detection.yml: valid YAML
+docker-compose.yml: valid YAML
+docker-entrypoint.sh: bash syntax passed
+scripts/compose-tests.sh: bash syntax passed

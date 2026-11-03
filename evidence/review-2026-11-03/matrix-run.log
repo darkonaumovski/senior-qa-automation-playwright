@@ -1,0 +1,2060 @@
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+Running 204 tests using 1 worker
+
+
+(node:27948) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[1/204] [chromium] › tests\a11y\a11y.spec.ts:42:7 › Accessibility › base todo list view has no unexpected WCAG violations @smoke
+[2/204] [chromium] › tests\a11y\a11y.spec.ts:47:7 › Accessibility › known product defect: inline editor needs an accessible name
+[3/204] [chromium] › tests\a11y\a11y.spec.ts:60:7 › Accessibility › accessibility gate rejects an additional unnamed input
+[4/204] [chromium] › tests\a11y\a11y.spec.ts:73:7 › Accessibility › accessibility gate flags a repaired checkbox exception as obsolete
+[5/204] [chromium] › tests\a11y\a11y.spec.ts:82:7 › Accessibility › toggle-all control has no detectable WCAG violations
+[6/204] [chromium] › tests\a11y\keyboard.spec.ts:17:7 › Keyboard interaction › keyboard journey adds, completes and filters a todo with visible link focus
+[7/204] [chromium] › tests\a11y\keyboard.spec.ts:37:7 › Keyboard interaction › known product defect: input and checkbox need visible keyboard focus
+[8/204] [chromium] › tests\a11y\keyboard.spec.ts:56:7 › Keyboard interaction › known product defect: row edit and delete controls need keyboard access
+[9/204] [chromium] › tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke
+[10/204] [chromium] › tests\todo\add.spec.ts:24:7 › Add todo › should add multiple todo items @smoke
+[11/204] [chromium] › tests\todo\add.spec.ts:45:7 › Add todo › should not add an empty todo when Enter is pressed on blank input
+[12/204] [chromium] › tests\todo\add.spec.ts:58:7 › Add todo › should not add a todo containing only whitespace
+[13/204] [chromium] › tests\todo\add.spec.ts:71:7 › Add todo › should trim leading and trailing whitespace from todo text
+[14/204] [chromium] › tests\todo\add.spec.ts:87:7 › Add todo › should handle special characters in todo text
+[15/204] [chromium] › tests\todo\add.spec.ts:102:7 › Add todo › should clear input field after adding a todo
+[16/204] [chromium] › tests\todo\bulk-actions.spec.ts:9:7 › Bulk actions › should mark all todos as complete using toggle-all
+[17/204] [chromium] › tests\todo\bulk-actions.spec.ts:31:7 › Bulk actions › should recolor the toggle-all chevron when all todos become complete
+[18/204] [chromium] › tests\todo\bulk-actions.spec.ts:51:7 › Bulk actions › should unmark all todos when toggle-all is clicked while all are completed
+[19/204] [chromium] › tests\todo\bulk-actions.spec.ts:75:7 › Bulk actions › should complete remaining active todos when toggle-all is used with mixed state
+[20/204] [chromium] › tests\todo\bulk-actions.spec.ts:97:7 › Bulk actions › should remove all completed todos via "Clear completed"
+[21/204] [chromium] › tests\todo\bulk-actions.spec.ts:118:7 › Bulk actions › should not show "Clear completed" button when no todos are completed
+[22/204] [chromium] › tests\todo\bulk-actions.spec.ts:130:7 › Bulk actions › should show "Clear completed" once a todo is completed
+[23/204] [chromium] › tests\todo\bulk-actions.spec.ts:150:7 › Bulk actions › should hide "Clear completed" again once all completed todos are cleared
+[24/204] [chromium] › tests\todo\bulk-actions.spec.ts:170:7 › Bulk actions › should update item count correctly after clearing completed todos
+[25/204] [chromium] › tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke
+[26/204] [chromium] › tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke
+[27/204] [chromium] › tests\todo\complete.spec.ts:49:7 › Complete todo › should update item count when todos are completed
+[28/204] [chromium] › tests\todo\complete.spec.ts:66:7 › Complete todo › should visually distinguish completed todos from active ones
+[29/204] [chromium] › tests\todo\complete.spec.ts:87:7 › Complete todo › should show 0 items left when all todos are completed
+[30/204] [chromium] › tests\todo\complete.spec.ts:104:7 › Complete todo › should synchronize the bulk checkbox after individual toggles
+[31/204] [chromium] › tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke
+[32/204] [chromium] › tests\todo\delete.spec.ts:29:7 › Delete todo › should delete one todo from a list of many
+[33/204] [chromium] › tests\todo\delete.spec.ts:47:7 › Delete todo › should delete a completed todo
+[34/204] [chromium] › tests\todo\delete.spec.ts:63:7 › Delete todo › should show destroy button only on hover
+[35/204] [chromium] › tests\todo\delete.spec.ts:81:7 › Delete todo › should recolor the destroy button on hover
+[36/204] [chromium] › tests\todo\delete.spec.ts:93:7 › Delete todo › should delete all todos one by one and empty the list
+[37/204] [chromium] › tests\todo\edit.spec.ts:9:7 › Edit todo › should enter edit mode when double-clicking a todo label
+[38/204] [chromium] › tests\todo\edit.spec.ts:30:7 › Edit todo › should save edited text when pressing Enter
+[39/204] [chromium] › tests\todo\edit.spec.ts:50:7 › Edit todo › should save edited text when focus leaves the input (blur)
+[40/204] [chromium] › tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape
+[41/204] [chromium] › tests\todo\edit.spec.ts:89:7 › Edit todo › should delete a todo when its edited text is cleared and Enter is pressed
+[42/204] [chromium] › tests\todo\edit.spec.ts:106:7 › Edit todo › should trim whitespace when saving an edited todo
+[43/204] [chromium] › tests\todo\filter.spec.ts:6:5 › known product defect: unknown hash must fall back to All without losing writes
+[44/204] [chromium] › tests\todo\filter.spec.ts:42:9 › Filter todos › should add an active todo while the active filter is selected
+[45/204] [chromium] › tests\todo\filter.spec.ts:42:9 › Filter todos › should add an active todo while the completed filter is selected
+[46/204] [chromium] › tests\todo\filter.spec.ts:57:7 › Filter todos › should show all todos when the "All" filter is active @smoke
+[47/204] [chromium] › tests\todo\filter.spec.ts:78:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke
+[48/204] [chromium] › tests\todo\filter.spec.ts:100:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke
+[49/204] [chromium] › tests\todo\filter.spec.ts:126:7 › Filter todos › should update the Active view in real-time when a visible todo is completed
+[50/204] [chromium] › tests\todo\filter.spec.ts:147:7 › Filter todos › should reflect the selected filter in the URL hash @smoke
+[51/204] [chromium] › tests\todo\filter.spec.ts:170:7 › Filter todos › should show zero todos in Active filter when all are completed
+[52/204] [chromium] › tests\todo\filter.spec.ts:189:7 › Filter todos › should show zero todos in Completed filter when none are completed
+[53/204] [chromium] › tests\todo\lifecycle.spec.ts:7:7 › Todo page lifecycle › should preserve todos on navigation when cleanup is disabled
+[54/204] [chromium] › tests\todo\lifecycle.spec.ts:20:7 › Todo page lifecycle › should reset existing todos without clearing unrelated storage
+[55/204] [chromium] › tests\todo\lifecycle.spec.ts:33:7 › Todo page lifecycle › should clear todos hidden by an empty filtered view
+[56/204] [chromium] › tests\todo\lifecycle.spec.ts:50:7 › Todo page lifecycle › Seeded lifecycle preconditions › should clear the All view without clicking its already selected filter
+[57/204] [chromium] › tests\todo\lifecycle.spec.ts:69:7 › Todo page lifecycle › Seeded lifecycle preconditions › should start from seeded data instead of the application sample todos
+[58/204] [chromium] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding
+[59/204] [chromium] › tests\todo\lifecycle.spec.ts:90:9 › Todo page lifecycle › Seeded lifecycle preconditions › should reload mixed todos in the active view
+[60/204] [chromium] › tests\todo\lifecycle.spec.ts:90:9 › Todo page lifecycle › Seeded lifecycle preconditions › should reload mixed todos in the completed view
+[61/204] [chromium] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos
+[62/204] [chromium] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items
+[63/204] [chromium] › tests\todo\lifecycle.spec.ts:125:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reject seeding an empty list, which the application cannot hold
+[64/204] [chromium] › tests\todo\lifecycle.spec.ts:132:7 › Todo page lifecycle › should allow normal application seeding after storage is removed
+[65/204] [chromium] › tests\todo\persistence.spec.ts:8:7 › Persistence › should preserve record identity when editing and deleting duplicate titles
+[66/204] [chromium] › tests\todo\persistence.spec.ts:26:7 › Persistence › should persist todos across a page reload
+[67/204] [chromium] › tests\todo\persistence.spec.ts:45:7 › Persistence › should persist the completed state of todos across a page reload
+[68/204] [chromium] › tests\todo\persistence.spec.ts:67:7 › Persistence › should persist the active filter selection across a page reload
+(node:11256) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[69/204] [firefox] › tests\a11y\a11y.spec.ts:42:7 › Accessibility › base todo list view has no unexpected WCAG violations @smoke
+  1) [firefox] › tests\a11y\a11y.spec.ts:42:7 › Accessibility › base todo list view has no unexpected WCAG violations @smoke 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-ba-8242d--unexpected-WCAG-violations-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-ba-8242d--unexpected-WCAG-violations-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-ba-8242d--unexpected-WCAG-violations-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-ba-8242d--unexpected-WCAG-violations-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:46796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[70/204] [firefox] › tests\a11y\a11y.spec.ts:47:7 › Accessibility › known product defect: inline editor needs an accessible name
+  2) [firefox] › tests\a11y\a11y.spec.ts:47:7 › Accessibility › known product defect: inline editor needs an accessible name 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-kn-e33a1-or-needs-an-accessible-name-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-kn-e33a1-or-needs-an-accessible-name-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-kn-e33a1-or-needs-an-accessible-name-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-kn-e33a1-or-needs-an-accessible-name-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:53592) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[71/204] [firefox] › tests\a11y\a11y.spec.ts:60:7 › Accessibility › accessibility gate rejects an additional unnamed input
+  3) [firefox] › tests\a11y\a11y.spec.ts:60:7 › Accessibility › accessibility gate rejects an additional unnamed input 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-ac-38fa6-an-additional-unnamed-input-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-ac-38fa6-an-additional-unnamed-input-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-ac-38fa6-an-additional-unnamed-input-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-ac-38fa6-an-additional-unnamed-input-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:54672) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[72/204] [firefox] › tests\a11y\a11y.spec.ts:73:7 › Accessibility › accessibility gate flags a repaired checkbox exception as obsolete
+  4) [firefox] › tests\a11y\a11y.spec.ts:73:7 › Accessibility › accessibility gate flags a repaired checkbox exception as obsolete 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-ac-e9ff7-ckbox-exception-as-obsolete-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-ac-e9ff7-ckbox-exception-as-obsolete-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-ac-e9ff7-ckbox-exception-as-obsolete-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-ac-e9ff7-ckbox-exception-as-obsolete-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:39604) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[73/204] [firefox] › tests\a11y\a11y.spec.ts:82:7 › Accessibility › toggle-all control has no detectable WCAG violations
+  5) [firefox] › tests\a11y\a11y.spec.ts:82:7 › Accessibility › toggle-all control has no detectable WCAG violations 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-to-a6c97--detectable-WCAG-violations-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-to-a6c97--detectable-WCAG-violations-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-to-a6c97--detectable-WCAG-violations-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-to-a6c97--detectable-WCAG-violations-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:55688) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[74/204] [firefox] › tests\a11y\keyboard.spec.ts:17:7 › Keyboard interaction › keyboard journey adds, completes and filters a todo with visible link focus
+  6) [firefox] › tests\a11y\keyboard.spec.ts:17:7 › Keyboard interaction › keyboard journey adds, completes and filters a todo with visible link focus 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-keyboard-Keyboard-int-b0699-odo-with-visible-link-focus-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\a11y-keyboard-Keyboard-int-b0699-odo-with-visible-link-focus-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-keyboard-Keyboard-int-b0699-odo-with-visible-link-focus-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\a11y-keyboard-Keyboard-int-b0699-odo-with-visible-link-focus-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:54372) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[75/204] [firefox] › tests\a11y\keyboard.spec.ts:37:7 › Keyboard interaction › known product defect: input and checkbox need visible keyboard focus
+  7) [firefox] › tests\a11y\keyboard.spec.ts:37:7 › Keyboard interaction › known product defect: input and checkbox need visible keyboard focus 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-keyboard-Keyboard-int-ae4bd-need-visible-keyboard-focus-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\a11y-keyboard-Keyboard-int-ae4bd-need-visible-keyboard-focus-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-keyboard-Keyboard-int-ae4bd-need-visible-keyboard-focus-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\a11y-keyboard-Keyboard-int-ae4bd-need-visible-keyboard-focus-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:6212) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[76/204] [firefox] › tests\a11y\keyboard.spec.ts:56:7 › Keyboard interaction › known product defect: row edit and delete controls need keyboard access
+  8) [firefox] › tests\a11y\keyboard.spec.ts:56:7 › Keyboard interaction › known product defect: row edit and delete controls need keyboard access 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-keyboard-Keyboard-int-e89d1-ntrols-need-keyboard-access-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\a11y-keyboard-Keyboard-int-e89d1-ntrols-need-keyboard-access-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-keyboard-Keyboard-int-e89d1-ntrols-need-keyboard-access-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\a11y-keyboard-Keyboard-int-e89d1-ntrols-need-keyboard-access-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:54036) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[77/204] [firefox] › tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke
+  9) [firefox] › tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke ──────
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-add-a-single-todo-item-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-add-a-single-todo-item-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-add-a-single-todo-item-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-add-a-single-todo-item-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:49628) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[78/204] [firefox] › tests\todo\add.spec.ts:24:7 › Add todo › should add multiple todo items @smoke
+  10) [firefox] › tests\todo\add.spec.ts:24:7 › Add todo › should add multiple todo items @smoke ───
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-add-multiple-todo-items-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-add-multiple-todo-items-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-add-multiple-todo-items-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-add-multiple-todo-items-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:5516) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[79/204] [firefox] › tests\todo\add.spec.ts:45:7 › Add todo › should not add an empty todo when Enter is pressed on blank input
+  11) [firefox] › tests\todo\add.spec.ts:45:7 › Add todo › should not add an empty todo when Enter is pressed on blank input 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-n-106cf-r-is-pressed-on-blank-input-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-n-106cf-r-is-pressed-on-blank-input-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-n-106cf-r-is-pressed-on-blank-input-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-n-106cf-r-is-pressed-on-blank-input-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:52320) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[80/204] [firefox] › tests\todo\add.spec.ts:58:7 › Add todo › should not add a todo containing only whitespace
+  12) [firefox] › tests\todo\add.spec.ts:58:7 › Add todo › should not add a todo containing only whitespace 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-n-cfd34--containing-only-whitespace-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-n-cfd34--containing-only-whitespace-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-n-cfd34--containing-only-whitespace-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-n-cfd34--containing-only-whitespace-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:55624) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[81/204] [firefox] › tests\todo\add.spec.ts:71:7 › Add todo › should trim leading and trailing whitespace from todo text
+  13) [firefox] › tests\todo\add.spec.ts:71:7 › Add todo › should trim leading and trailing whitespace from todo text 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-t-218b5-g-whitespace-from-todo-text-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-t-218b5-g-whitespace-from-todo-text-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-t-218b5-g-whitespace-from-todo-text-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-t-218b5-g-whitespace-from-todo-text-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:54116) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[82/204] [firefox] › tests\todo\add.spec.ts:87:7 › Add todo › should handle special characters in todo text
+  14) [firefox] › tests\todo\add.spec.ts:87:7 › Add todo › should handle special characters in todo text 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-h-bfcb7-ial-characters-in-todo-text-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-h-bfcb7-ial-characters-in-todo-text-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-h-bfcb7-ial-characters-in-todo-text-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-h-bfcb7-ial-characters-in-todo-text-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:53640) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[83/204] [firefox] › tests\todo\add.spec.ts:102:7 › Add todo › should clear input field after adding a todo
+  15) [firefox] › tests\todo\add.spec.ts:102:7 › Add todo › should clear input field after adding a todo 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-c-75cda-t-field-after-adding-a-todo-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-c-75cda-t-field-after-adding-a-todo-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-c-75cda-t-field-after-adding-a-todo-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-add-Add-todo-should-c-75cda-t-field-after-adding-a-todo-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:54068) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[84/204] [firefox] › tests\todo\bulk-actions.spec.ts:9:7 › Bulk actions › should mark all todos as complete using toggle-all
+  16) [firefox] › tests\todo\bulk-actions.spec.ts:9:7 › Bulk actions › should mark all todos as complete using toggle-all 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-f4a3c-s-complete-using-toggle-all-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-f4a3c-s-complete-using-toggle-all-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-f4a3c-s-complete-using-toggle-all-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-f4a3c-s-complete-using-toggle-all-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:52396) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[85/204] [firefox] › tests\todo\bulk-actions.spec.ts:31:7 › Bulk actions › should recolor the toggle-all chevron when all todos become complete
+  17) [firefox] › tests\todo\bulk-actions.spec.ts:31:7 › Bulk actions › should recolor the toggle-all chevron when all todos become complete 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-292a4-n-all-todos-become-complete-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-292a4-n-all-todos-become-complete-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-292a4-n-all-todos-become-complete-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-292a4-n-all-todos-become-complete-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:5168) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[86/204] [firefox] › tests\todo\bulk-actions.spec.ts:51:7 › Bulk actions › should unmark all todos when toggle-all is clicked while all are completed
+  18) [firefox] › tests\todo\bulk-actions.spec.ts:51:7 › Bulk actions › should unmark all todos when toggle-all is clicked while all are completed 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-20cff-ked-while-all-are-completed-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-20cff-ked-while-all-are-completed-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-20cff-ked-while-all-are-completed-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-20cff-ked-while-all-are-completed-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:54684) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[87/204] [firefox] › tests\todo\bulk-actions.spec.ts:75:7 › Bulk actions › should complete remaining active todos when toggle-all is used with mixed state
+  19) [firefox] › tests\todo\bulk-actions.spec.ts:75:7 › Bulk actions › should complete remaining active todos when toggle-all is used with mixed state 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-06d5c-ll-is-used-with-mixed-state-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-06d5c-ll-is-used-with-mixed-state-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-06d5c-ll-is-used-with-mixed-state-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-06d5c-ll-is-used-with-mixed-state-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:55652) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[88/204] [firefox] › tests\todo\bulk-actions.spec.ts:97:7 › Bulk actions › should remove all completed todos via "Clear completed"
+  20) [firefox] › tests\todo\bulk-actions.spec.ts:97:7 › Bulk actions › should remove all completed todos via "Clear completed" 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-90c10--todos-via-Clear-completed--firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-90c10--todos-via-Clear-completed--firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-90c10--todos-via-Clear-completed--firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-90c10--todos-via-Clear-completed--firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:42148) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[89/204] [firefox] › tests\todo\bulk-actions.spec.ts:118:7 › Bulk actions › should not show "Clear completed" button when no todos are completed
+  21) [firefox] › tests\todo\bulk-actions.spec.ts:118:7 › Bulk actions › should not show "Clear completed" button when no todos are completed 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-bbbd3-when-no-todos-are-completed-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-bbbd3-when-no-todos-are-completed-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-bbbd3-when-no-todos-are-completed-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-bbbd3-when-no-todos-are-completed-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:39064) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[90/204] [firefox] › tests\todo\bulk-actions.spec.ts:130:7 › Bulk actions › should show "Clear completed" once a todo is completed
+  22) [firefox] › tests\todo\bulk-actions.spec.ts:130:7 › Bulk actions › should show "Clear completed" once a todo is completed 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-c41a8-ed-once-a-todo-is-completed-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-c41a8-ed-once-a-todo-is-completed-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-c41a8-ed-once-a-todo-is-completed-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-c41a8-ed-once-a-todo-is-completed-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:36428) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[91/204] [firefox] › tests\todo\bulk-actions.spec.ts:150:7 › Bulk actions › should hide "Clear completed" again once all completed todos are cleared
+  23) [firefox] › tests\todo\bulk-actions.spec.ts:150:7 › Bulk actions › should hide "Clear completed" again once all completed todos are cleared 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-1d5c1-completed-todos-are-cleared-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-1d5c1-completed-todos-are-cleared-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-1d5c1-completed-todos-are-cleared-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-1d5c1-completed-todos-are-cleared-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:54132) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[92/204] [firefox] › tests\todo\bulk-actions.spec.ts:170:7 › Bulk actions › should update item count correctly after clearing completed todos
+  24) [firefox] › tests\todo\bulk-actions.spec.ts:170:7 › Bulk actions › should update item count correctly after clearing completed todos 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-851e4-er-clearing-completed-todos-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-851e4-er-clearing-completed-todos-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-851e4-er-clearing-completed-todos-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-bulk-actions-Bulk-act-851e4-er-clearing-completed-todos-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:51252) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[93/204] [firefox] › tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke
+  25) [firefox] › tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-a5093-te-by-clicking-its-checkbox-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-a5093-te-by-clicking-its-checkbox-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-a5093-te-by-clicking-its-checkbox-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-a5093-te-by-clicking-its-checkbox-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:13784) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[94/204] [firefox] › tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke
+  26) [firefox] › tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-a806b--a-completed-todo-as-active-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-a806b--a-completed-todo-as-active-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-a806b--a-completed-todo-as-active-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-a806b--a-completed-todo-as-active-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:54040) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[95/204] [firefox] › tests\todo\complete.spec.ts:49:7 › Complete todo › should update item count when todos are completed
+  27) [firefox] › tests\todo\complete.spec.ts:49:7 › Complete todo › should update item count when todos are completed 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-4b1a6-nt-when-todos-are-completed-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-4b1a6-nt-when-todos-are-completed-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-4b1a6-nt-when-todos-are-completed-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-4b1a6-nt-when-todos-are-completed-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:32672) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[96/204] [firefox] › tests\todo\complete.spec.ts:66:7 › Complete todo › should visually distinguish completed todos from active ones
+  28) [firefox] › tests\todo\complete.spec.ts:66:7 › Complete todo › should visually distinguish completed todos from active ones 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-28ae4-eted-todos-from-active-ones-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-28ae4-eted-todos-from-active-ones-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-28ae4-eted-todos-from-active-ones-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-28ae4-eted-todos-from-active-ones-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:54068) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[97/204] [firefox] › tests\todo\complete.spec.ts:87:7 › Complete todo › should show 0 items left when all todos are completed
+  29) [firefox] › tests\todo\complete.spec.ts:87:7 › Complete todo › should show 0 items left when all todos are completed 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-448bd-hen-all-todos-are-completed-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-448bd-hen-all-todos-are-completed-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-448bd-hen-all-todos-are-completed-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-448bd-hen-all-todos-are-completed-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:49792) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[98/204] [firefox] › tests\todo\complete.spec.ts:104:7 › Complete todo › should synchronize the bulk checkbox after individual toggles
+  30) [firefox] › tests\todo\complete.spec.ts:104:7 › Complete todo › should synchronize the bulk checkbox after individual toggles 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-81f6b-ox-after-individual-toggles-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-81f6b-ox-after-individual-toggles-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-81f6b-ox-after-individual-toggles-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-complete-Complete-tod-81f6b-ox-after-individual-toggles-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:54228) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[99/204] [firefox] › tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke
+  31) [firefox] › tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-2ce6f-clicking-the-destroy-button-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-2ce6f-clicking-the-destroy-button-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-2ce6f-clicking-the-destroy-button-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-2ce6f-clicking-the-destroy-button-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:34576) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[100/204] [firefox] › tests\todo\delete.spec.ts:29:7 › Delete todo › should delete one todo from a list of many
+  32) [firefox] › tests\todo\delete.spec.ts:29:7 › Delete todo › should delete one todo from a list of many 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-7315e-ne-todo-from-a-list-of-many-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-7315e-ne-todo-from-a-list-of-many-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-7315e-ne-todo-from-a-list-of-many-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-7315e-ne-todo-from-a-list-of-many-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:56068) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[101/204] [firefox] › tests\todo\delete.spec.ts:47:7 › Delete todo › should delete a completed todo
+  33) [firefox] › tests\todo\delete.spec.ts:47:7 › Delete todo › should delete a completed todo ────
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-should-delete-a-completed-todo-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-should-delete-a-completed-todo-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-should-delete-a-completed-todo-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-should-delete-a-completed-todo-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:46500) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[102/204] [firefox] › tests\todo\delete.spec.ts:63:7 › Delete todo › should show destroy button only on hover
+  34) [firefox] › tests\todo\delete.spec.ts:63:7 › Delete todo › should show destroy button only on hover 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-48817-estroy-button-only-on-hover-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-48817-estroy-button-only-on-hover-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-48817-estroy-button-only-on-hover-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-48817-estroy-button-only-on-hover-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:22340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[103/204] [firefox] › tests\todo\delete.spec.ts:81:7 › Delete todo › should recolor the destroy button on hover
+  35) [firefox] › tests\todo\delete.spec.ts:81:7 › Delete todo › should recolor the destroy button on hover 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-5f8f3-the-destroy-button-on-hover-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-5f8f3-the-destroy-button-on-hover-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-5f8f3-the-destroy-button-on-hover-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-5f8f3-the-destroy-button-on-hover-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:54696) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[104/204] [firefox] › tests\todo\delete.spec.ts:93:7 › Delete todo › should delete all todos one by one and empty the list
+  36) [firefox] › tests\todo\delete.spec.ts:93:7 › Delete todo › should delete all todos one by one and empty the list 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-db897-e-by-one-and-empty-the-list-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-db897-e-by-one-and-empty-the-list-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-db897-e-by-one-and-empty-the-list-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-delete-Delete-todo-sh-db897-e-by-one-and-empty-the-list-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:34072) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[105/204] [firefox] › tests\todo\edit.spec.ts:9:7 › Edit todo › should enter edit mode when double-clicking a todo label
+  37) [firefox] › tests\todo\edit.spec.ts:9:7 › Edit todo › should enter edit mode when double-clicking a todo label 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-b376a-ouble-clicking-a-todo-label-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-b376a-ouble-clicking-a-todo-label-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-b376a-ouble-clicking-a-todo-label-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-b376a-ouble-clicking-a-todo-label-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:29360) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[106/204] [firefox] › tests\todo\edit.spec.ts:30:7 › Edit todo › should save edited text when pressing Enter
+  38) [firefox] › tests\todo\edit.spec.ts:30:7 › Edit todo › should save edited text when pressing Enter 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-a8ad5-ed-text-when-pressing-Enter-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-a8ad5-ed-text-when-pressing-Enter-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-a8ad5-ed-text-when-pressing-Enter-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-a8ad5-ed-text-when-pressing-Enter-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:39032) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[107/204] [firefox] › tests\todo\edit.spec.ts:50:7 › Edit todo › should save edited text when focus leaves the input (blur)
+  39) [firefox] › tests\todo\edit.spec.ts:50:7 › Edit todo › should save edited text when focus leaves the input (blur) 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-b7369-ocus-leaves-the-input-blur--firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-b7369-ocus-leaves-the-input-blur--firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-b7369-ocus-leaves-the-input-blur--firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-b7369-ocus-leaves-the-input-blur--firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:41868) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[108/204] [firefox] › tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape
+  40) [firefox] › tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-f5f31-l-text-when-pressing-Escape-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-f5f31-l-text-when-pressing-Escape-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-f5f31-l-text-when-pressing-Escape-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-f5f31-l-text-when-pressing-Escape-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:55884) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[109/204] [firefox] › tests\todo\edit.spec.ts:89:7 › Edit todo › should delete a todo when its edited text is cleared and Enter is pressed
+  41) [firefox] › tests\todo\edit.spec.ts:89:7 › Edit todo › should delete a todo when its edited text is cleared and Enter is pressed 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-6d203-leared-and-Enter-is-pressed-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-6d203-leared-and-Enter-is-pressed-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-6d203-leared-and-Enter-is-pressed-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-6d203-leared-and-Enter-is-pressed-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:54172) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[110/204] [firefox] › tests\todo\edit.spec.ts:106:7 › Edit todo › should trim whitespace when saving an edited todo
+  42) [firefox] › tests\todo\edit.spec.ts:106:7 › Edit todo › should trim whitespace when saving an edited todo 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-04d04--when-saving-an-edited-todo-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-04d04--when-saving-an-edited-todo-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-04d04--when-saving-an-edited-todo-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-edit-Edit-todo-should-04d04--when-saving-an-edited-todo-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:14056) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[111/204] [firefox] › tests\todo\filter.spec.ts:6:5 › known product defect: unknown hash must fall back to All without losing writes
+  43) [firefox] › tests\todo\filter.spec.ts:6:5 › known product defect: unknown hash must fall back to All without losing writes 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-known-product--ed0de-o-All-without-losing-writes-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-filter-known-product--ed0de-o-All-without-losing-writes-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-known-product--ed0de-o-All-without-losing-writes-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-filter-known-product--ed0de-o-All-without-losing-writes-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:10364) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[112/204] [firefox] › tests\todo\filter.spec.ts:42:9 › Filter todos › should add an active todo while the active filter is selected
+  44) [firefox] › tests\todo\filter.spec.ts:42:9 › Filter todos › should add an active todo while the active filter is selected 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-fa9e8-e-active-filter-is-selected-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-fa9e8-e-active-filter-is-selected-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-fa9e8-e-active-filter-is-selected-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-fa9e8-e-active-filter-is-selected-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51124) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[113/204] [firefox] › tests\todo\filter.spec.ts:42:9 › Filter todos › should add an active todo while the completed filter is selected
+  45) [firefox] › tests\todo\filter.spec.ts:42:9 › Filter todos › should add an active todo while the completed filter is selected 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-f4a97-ompleted-filter-is-selected-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-f4a97-ompleted-filter-is-selected-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-f4a97-ompleted-filter-is-selected-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-f4a97-ompleted-filter-is-selected-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:17124) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[114/204] [firefox] › tests\todo\filter.spec.ts:57:7 › Filter todos › should show all todos when the "All" filter is active @smoke
+  46) [firefox] › tests\todo\filter.spec.ts:57:7 › Filter todos › should show all todos when the "All" filter is active @smoke 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-61c0b-en-the-All-filter-is-active-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-61c0b-en-the-All-filter-is-active-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-61c0b-en-the-All-filter-is-active-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-61c0b-en-the-All-filter-is-active-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:16656) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[115/204] [firefox] › tests\todo\filter.spec.ts:78:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke
+  47) [firefox] › tests\todo\filter.spec.ts:78:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-c5adb-n-Active-filter-is-selected-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-c5adb-n-Active-filter-is-selected-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-c5adb-n-Active-filter-is-selected-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-c5adb-n-Active-filter-is-selected-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:55440) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[116/204] [firefox] › tests\todo\filter.spec.ts:100:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke
+  48) [firefox] › tests\todo\filter.spec.ts:100:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-564f5-ompleted-filter-is-selected-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-564f5-ompleted-filter-is-selected-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-564f5-ompleted-filter-is-selected-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-564f5-ompleted-filter-is-selected-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:31804) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[117/204] [firefox] › tests\todo\filter.spec.ts:126:7 › Filter todos › should update the Active view in real-time when a visible todo is completed
+  49) [firefox] › tests\todo\filter.spec.ts:126:7 › Filter todos › should update the Active view in real-time when a visible todo is completed 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-e5c12-a-visible-todo-is-completed-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-e5c12-a-visible-todo-is-completed-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-e5c12-a-visible-todo-is-completed-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-e5c12-a-visible-todo-is-completed-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:55388) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[118/204] [firefox] › tests\todo\filter.spec.ts:147:7 › Filter todos › should reflect the selected filter in the URL hash @smoke
+  50) [firefox] › tests\todo\filter.spec.ts:147:7 › Filter todos › should reflect the selected filter in the URL hash @smoke 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-c07f3-cted-filter-in-the-URL-hash-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-c07f3-cted-filter-in-the-URL-hash-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-c07f3-cted-filter-in-the-URL-hash-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-c07f3-cted-filter-in-the-URL-hash-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+(node:53704) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[119/204] [firefox] › tests\todo\filter.spec.ts:170:7 › Filter todos › should show zero todos in Active filter when all are completed
+  51) [firefox] › tests\todo\filter.spec.ts:170:7 › Filter todos › should show zero todos in Active filter when all are completed 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-c0f62-lter-when-all-are-completed-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-c0f62-lter-when-all-are-completed-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-c0f62-lter-when-all-are-completed-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-c0f62-lter-when-all-are-completed-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+(node:45116) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[120/204] [firefox] › tests\todo\filter.spec.ts:189:7 › Filter todos › should show zero todos in Completed filter when none are completed
+  52) [firefox] › tests\todo\filter.spec.ts:189:7 › Filter todos › should show zero todos in Completed filter when none are completed 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-a6fee-ter-when-none-are-completed-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-a6fee-ter-when-none-are-completed-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-a6fee-ter-when-none-are-completed-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-filter-Filter-todos-s-a6fee-ter-when-none-are-completed-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:45980) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[121/204] [firefox] › tests\todo\lifecycle.spec.ts:7:7 › Todo page lifecycle › should preserve todos on navigation when cleanup is disabled
+  53) [firefox] › tests\todo\lifecycle.spec.ts:7:7 › Todo page lifecycle › should preserve todos on navigation when cleanup is disabled 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-d67e1-on-when-cleanup-is-disabled-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-d67e1-on-when-cleanup-is-disabled-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-d67e1-on-when-cleanup-is-disabled-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-d67e1-on-when-cleanup-is-disabled-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:47332) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[122/204] [firefox] › tests\todo\lifecycle.spec.ts:20:7 › Todo page lifecycle › should reset existing todos without clearing unrelated storage
+  54) [firefox] › tests\todo\lifecycle.spec.ts:20:7 › Todo page lifecycle › should reset existing todos without clearing unrelated storage 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-cd1c3--clearing-unrelated-storage-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-cd1c3--clearing-unrelated-storage-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-cd1c3--clearing-unrelated-storage-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-cd1c3--clearing-unrelated-storage-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:53292) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[123/204] [firefox] › tests\todo\lifecycle.spec.ts:33:7 › Todo page lifecycle › should clear todos hidden by an empty filtered view
+  55) [firefox] › tests\todo\lifecycle.spec.ts:33:7 › Todo page lifecycle › should clear todos hidden by an empty filtered view 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-ab70b-n-by-an-empty-filtered-view-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-ab70b-n-by-an-empty-filtered-view-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-ab70b-n-by-an-empty-filtered-view-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-ab70b-n-by-an-empty-filtered-view-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:53684) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[124/204] [firefox] › tests\todo\lifecycle.spec.ts:50:7 › Todo page lifecycle › Seeded lifecycle preconditions › should clear the All view without clicking its already selected filter
+  56) [firefox] › tests\todo\lifecycle.spec.ts:50:7 › Todo page lifecycle › Seeded lifecycle preconditions › should clear the All view without clicking its already selected filter 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-f511e-its-already-selected-filter-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-f511e-its-already-selected-filter-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-f511e-its-already-selected-filter-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-f511e-its-already-selected-filter-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:39152) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[125/204] [firefox] › tests\todo\lifecycle.spec.ts:69:7 › Todo page lifecycle › Seeded lifecycle preconditions › should start from seeded data instead of the application sample todos
+  57) [firefox] › tests\todo\lifecycle.spec.ts:69:7 › Todo page lifecycle › Seeded lifecycle preconditions › should start from seeded data instead of the application sample todos 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-7aefb-he-application-sample-todos-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-7aefb-he-application-sample-todos-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-7aefb-he-application-sample-todos-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-7aefb-he-application-sample-todos-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:16300) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[126/204] [firefox] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding
+  58) [firefox] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-17daa-rage-untouched-when-seeding-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-17daa-rage-untouched-when-seeding-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-17daa-rage-untouched-when-seeding-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-17daa-rage-untouched-when-seeding-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:19480) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[127/204] [firefox] › tests\todo\lifecycle.spec.ts:90:9 › Todo page lifecycle › Seeded lifecycle preconditions › should reload mixed todos in the active view
+  59) [firefox] › tests\todo\lifecycle.spec.ts:90:9 › Todo page lifecycle › Seeded lifecycle preconditions › should reload mixed todos in the active view 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-0c361-ed-todos-in-the-active-view-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-0c361-ed-todos-in-the-active-view-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-0c361-ed-todos-in-the-active-view-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-0c361-ed-todos-in-the-active-view-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:50092) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[128/204] [firefox] › tests\todo\lifecycle.spec.ts:90:9 › Todo page lifecycle › Seeded lifecycle preconditions › should reload mixed todos in the completed view
+  60) [firefox] › tests\todo\lifecycle.spec.ts:90:9 › Todo page lifecycle › Seeded lifecycle preconditions › should reload mixed todos in the completed view 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-654b2-todos-in-the-completed-view-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-654b2-todos-in-the-completed-view-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-654b2-todos-in-the-completed-view-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-654b2-todos-in-the-completed-view-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:55464) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[129/204] [firefox] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos
+  61) [firefox] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-0ef13-ered-view-with-stored-todos-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-0ef13-ered-view-with-stored-todos-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-0ef13-ered-view-with-stored-todos-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-0ef13-ered-view-with-stored-todos-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:42344) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[130/204] [firefox] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items
+  62) [firefox] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:53744) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[131/204] [firefox] › tests\todo\lifecycle.spec.ts:125:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reject seeding an empty list, which the application cannot hold
+  63) [firefox] › tests\todo\lifecycle.spec.ts:125:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reject seeding an empty list, which the application cannot hold 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-c470d-the-application-cannot-hold-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-c470d-the-application-cannot-hold-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-c470d-the-application-cannot-hold-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-c470d-the-application-cannot-hold-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:32996) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[132/204] [firefox] › tests\todo\lifecycle.spec.ts:132:7 › Todo page lifecycle › should allow normal application seeding after storage is removed
+  64) [firefox] › tests\todo\lifecycle.spec.ts:132:7 › Todo page lifecycle › should allow normal application seeding after storage is removed 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-31a5b-ng-after-storage-is-removed-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-31a5b-ng-after-storage-is-removed-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-31a5b-ng-after-storage-is-removed-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-lifecycle-Todo-page-l-31a5b-ng-after-storage-is-removed-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:53628) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[133/204] [firefox] › tests\todo\persistence.spec.ts:8:7 › Persistence › should preserve record identity when editing and deleting duplicate titles
+  65) [firefox] › tests\todo\persistence.spec.ts:8:7 › Persistence › should preserve record identity when editing and deleting duplicate titles 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-persistence-Persisten-eff31-d-deleting-duplicate-titles-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-persistence-Persisten-eff31-d-deleting-duplicate-titles-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-persistence-Persisten-eff31-d-deleting-duplicate-titles-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-persistence-Persisten-eff31-d-deleting-duplicate-titles-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:10600) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[134/204] [firefox] › tests\todo\persistence.spec.ts:26:7 › Persistence › should persist todos across a page reload
+  66) [firefox] › tests\todo\persistence.spec.ts:26:7 › Persistence › should persist todos across a page reload 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-persistence-Persisten-f1e12--todos-across-a-page-reload-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-persistence-Persisten-f1e12--todos-across-a-page-reload-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-persistence-Persisten-f1e12--todos-across-a-page-reload-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-persistence-Persisten-f1e12--todos-across-a-page-reload-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:41896) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[135/204] [firefox] › tests\todo\persistence.spec.ts:45:7 › Persistence › should persist the completed state of todos across a page reload
+  67) [firefox] › tests\todo\persistence.spec.ts:45:7 › Persistence › should persist the completed state of todos across a page reload 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-persistence-Persisten-ebeaa--todos-across-a-page-reload-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-persistence-Persisten-ebeaa--todos-across-a-page-reload-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-persistence-Persisten-ebeaa--todos-across-a-page-reload-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-persistence-Persisten-ebeaa--todos-across-a-page-reload-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:49360) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[136/204] [firefox] › tests\todo\persistence.spec.ts:67:7 › Persistence › should persist the active filter selection across a page reload
+  68) [firefox] › tests\todo\persistence.spec.ts:67:7 › Persistence › should persist the active filter selection across a page reload 
+
+    TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-persistence-Persisten-2b4ee-ection-across-a-page-reload-firefox\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\todo-persistence-Persisten-2b4ee-ection-across-a-page-reload-firefox\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\todo-persistence-Persisten-2b4ee-ection-across-a-page-reload-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\todo-persistence-Persisten-2b4ee-ection-across-a-page-reload-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:43076) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[137/204] [webkit] › tests\a11y\a11y.spec.ts:42:7 › Accessibility › base todo list view has no unexpected WCAG violations @smoke
+[138/204] [webkit] › tests\a11y\a11y.spec.ts:47:7 › Accessibility › known product defect: inline editor needs an accessible name
+  69) [webkit] › tests\a11y\a11y.spec.ts:47:7 › Accessibility › known product defect: inline editor needs an accessible name 
+
+    Test timeout of 30000ms exceeded.
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-kn-e33a1-or-needs-an-accessible-name-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-kn-e33a1-or-needs-an-accessible-name-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-kn-e33a1-or-needs-an-accessible-name-webkit\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-kn-e33a1-or-needs-an-accessible-name-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\a11y-a11y-Accessibility-kn-e33a1-or-needs-an-accessible-name-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+(node:21576) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+[139/204] [webkit] › tests\a11y\a11y.spec.ts:60:7 › Accessibility › accessibility gate rejects an additional unnamed input
+[140/204] [webkit] › tests\a11y\a11y.spec.ts:73:7 › Accessibility › accessibility gate flags a repaired checkbox exception as obsolete
+[141/204] [webkit] › tests\a11y\a11y.spec.ts:82:7 › Accessibility › toggle-all control has no detectable WCAG violations
+[142/204] [webkit] › tests\a11y\keyboard.spec.ts:17:7 › Keyboard interaction › keyboard journey adds, completes and filters a todo with visible link focus
+  70) [webkit] › tests\a11y\keyboard.spec.ts:17:7 › Keyboard interaction › keyboard journey adds, completes and filters a todo with visible link focus 
+
+    Error: Keyboard could not reach .filters a[href="#/active"] in 40 Tabs
+
+       9 |     await page.keyboard.press('Tab');
+      10 |   }
+    > 11 |   throw new Error('Keyboard could not reach ' + selector + ' in 40 Tabs');
+         |         ^
+      12 | }
+      13 |
+      14 | test.describe('Keyboard interaction', () => {
+        at tabTo (E:\Automation Testing\senior-qa-automation-playwright\tests\a11y\keyboard.spec.ts:11:9)
+        at E:\Automation Testing\senior-qa-automation-playwright\tests\a11y\keyboard.spec.ts:25:5
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-keyboard-Keyboard-int-b0699-odo-with-visible-link-focus-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-keyboard-Keyboard-int-b0699-odo-with-visible-link-focus-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\matrix-artifacts\a11y-keyboard-Keyboard-int-b0699-odo-with-visible-link-focus-webkit\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\matrix-artifacts\a11y-keyboard-Keyboard-int-b0699-odo-with-visible-link-focus-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\matrix-artifacts\a11y-keyboard-Keyboard-int-b0699-odo-with-visible-link-focus-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+(node:9704) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[143/204] [webkit] › tests\a11y\keyboard.spec.ts:37:7 › Keyboard interaction › known product defect: input and checkbox need visible keyboard focus
+[144/204] [webkit] › tests\a11y\keyboard.spec.ts:56:7 › Keyboard interaction › known product defect: row edit and delete controls need keyboard access
+[145/204] [webkit] › tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke
+[146/204] [webkit] › tests\todo\add.spec.ts:24:7 › Add todo › should add multiple todo items @smoke
+[147/204] [webkit] › tests\todo\add.spec.ts:45:7 › Add todo › should not add an empty todo when Enter is pressed on blank input
+[148/204] [webkit] › tests\todo\add.spec.ts:58:7 › Add todo › should not add a todo containing only whitespace
+[149/204] [webkit] › tests\todo\add.spec.ts:71:7 › Add todo › should trim leading and trailing whitespace from todo text
+[150/204] [webkit] › tests\todo\add.spec.ts:87:7 › Add todo › should handle special characters in todo text
+[151/204] [webkit] › tests\todo\add.spec.ts:102:7 › Add todo › should clear input field after adding a todo
+[152/204] [webkit] › tests\todo\bulk-actions.spec.ts:9:7 › Bulk actions › should mark all todos as complete using toggle-all
+[153/204] [webkit] › tests\todo\bulk-actions.spec.ts:31:7 › Bulk actions › should recolor the toggle-all chevron when all todos become complete
+[154/204] [webkit] › tests\todo\bulk-actions.spec.ts:51:7 › Bulk actions › should unmark all todos when toggle-all is clicked while all are completed
+[155/204] [webkit] › tests\todo\bulk-actions.spec.ts:75:7 › Bulk actions › should complete remaining active todos when toggle-all is used with mixed state
+[156/204] [webkit] › tests\todo\bulk-actions.spec.ts:97:7 › Bulk actions › should remove all completed todos via "Clear completed"
+[157/204] [webkit] › tests\todo\bulk-actions.spec.ts:118:7 › Bulk actions › should not show "Clear completed" button when no todos are completed
+[158/204] [webkit] › tests\todo\bulk-actions.spec.ts:130:7 › Bulk actions › should show "Clear completed" once a todo is completed
+[159/204] [webkit] › tests\todo\bulk-actions.spec.ts:150:7 › Bulk actions › should hide "Clear completed" again once all completed todos are cleared
+[160/204] [webkit] › tests\todo\bulk-actions.spec.ts:170:7 › Bulk actions › should update item count correctly after clearing completed todos
+[161/204] [webkit] › tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke
+[162/204] [webkit] › tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke
+[163/204] [webkit] › tests\todo\complete.spec.ts:49:7 › Complete todo › should update item count when todos are completed
+[164/204] [webkit] › tests\todo\complete.spec.ts:66:7 › Complete todo › should visually distinguish completed todos from active ones
+[165/204] [webkit] › tests\todo\complete.spec.ts:87:7 › Complete todo › should show 0 items left when all todos are completed
+[166/204] [webkit] › tests\todo\complete.spec.ts:104:7 › Complete todo › should synchronize the bulk checkbox after individual toggles
+[167/204] [webkit] › tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke
+[168/204] [webkit] › tests\todo\delete.spec.ts:29:7 › Delete todo › should delete one todo from a list of many
+[169/204] [webkit] › tests\todo\delete.spec.ts:47:7 › Delete todo › should delete a completed todo
+[170/204] [webkit] › tests\todo\delete.spec.ts:63:7 › Delete todo › should show destroy button only on hover
+[171/204] [webkit] › tests\todo\delete.spec.ts:81:7 › Delete todo › should recolor the destroy button on hover
+[172/204] [webkit] › tests\todo\delete.spec.ts:93:7 › Delete todo › should delete all todos one by one and empty the list
+[173/204] [webkit] › tests\todo\edit.spec.ts:9:7 › Edit todo › should enter edit mode when double-clicking a todo label
+[174/204] [webkit] › tests\todo\edit.spec.ts:30:7 › Edit todo › should save edited text when pressing Enter
+[175/204] [webkit] › tests\todo\edit.spec.ts:50:7 › Edit todo › should save edited text when focus leaves the input (blur)
+[176/204] [webkit] › tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape
+[177/204] [webkit] › tests\todo\edit.spec.ts:89:7 › Edit todo › should delete a todo when its edited text is cleared and Enter is pressed
+[178/204] [webkit] › tests\todo\edit.spec.ts:106:7 › Edit todo › should trim whitespace when saving an edited todo
+[179/204] [webkit] › tests\todo\filter.spec.ts:6:5 › known product defect: unknown hash must fall back to All without losing writes
+[180/204] [webkit] › tests\todo\filter.spec.ts:42:9 › Filter todos › should add an active todo while the active filter is selected
+[181/204] [webkit] › tests\todo\filter.spec.ts:42:9 › Filter todos › should add an active todo while the completed filter is selected
+[182/204] [webkit] › tests\todo\filter.spec.ts:57:7 › Filter todos › should show all todos when the "All" filter is active @smoke
+[183/204] [webkit] › tests\todo\filter.spec.ts:78:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke
+[184/204] [webkit] › tests\todo\filter.spec.ts:100:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke
+[185/204] [webkit] › tests\todo\filter.spec.ts:126:7 › Filter todos › should update the Active view in real-time when a visible todo is completed
+[186/204] [webkit] › tests\todo\filter.spec.ts:147:7 › Filter todos › should reflect the selected filter in the URL hash @smoke
+[187/204] [webkit] › tests\todo\filter.spec.ts:170:7 › Filter todos › should show zero todos in Active filter when all are completed
+[188/204] [webkit] › tests\todo\filter.spec.ts:189:7 › Filter todos › should show zero todos in Completed filter when none are completed
+[189/204] [webkit] › tests\todo\lifecycle.spec.ts:7:7 › Todo page lifecycle › should preserve todos on navigation when cleanup is disabled
+[190/204] [webkit] › tests\todo\lifecycle.spec.ts:20:7 › Todo page lifecycle › should reset existing todos without clearing unrelated storage
+[191/204] [webkit] › tests\todo\lifecycle.spec.ts:33:7 › Todo page lifecycle › should clear todos hidden by an empty filtered view
+[192/204] [webkit] › tests\todo\lifecycle.spec.ts:50:7 › Todo page lifecycle › Seeded lifecycle preconditions › should clear the All view without clicking its already selected filter
+[193/204] [webkit] › tests\todo\lifecycle.spec.ts:69:7 › Todo page lifecycle › Seeded lifecycle preconditions › should start from seeded data instead of the application sample todos
+[194/204] [webkit] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding
+[195/204] [webkit] › tests\todo\lifecycle.spec.ts:90:9 › Todo page lifecycle › Seeded lifecycle preconditions › should reload mixed todos in the active view
+[196/204] [webkit] › tests\todo\lifecycle.spec.ts:90:9 › Todo page lifecycle › Seeded lifecycle preconditions › should reload mixed todos in the completed view
+[197/204] [webkit] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos
+[198/204] [webkit] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items
+[199/204] [webkit] › tests\todo\lifecycle.spec.ts:125:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reject seeding an empty list, which the application cannot hold
+[200/204] [webkit] › tests\todo\lifecycle.spec.ts:132:7 › Todo page lifecycle › should allow normal application seeding after storage is removed
+[201/204] [webkit] › tests\todo\persistence.spec.ts:8:7 › Persistence › should preserve record identity when editing and deleting duplicate titles
+[202/204] [webkit] › tests\todo\persistence.spec.ts:26:7 › Persistence › should persist todos across a page reload
+[203/204] [webkit] › tests\todo\persistence.spec.ts:45:7 › Persistence › should persist the completed state of todos across a page reload
+[204/204] [webkit] › tests\todo\persistence.spec.ts:67:7 › Persistence › should persist the active filter selection across a page reload
+  70 failed
+    [firefox] › tests\a11y\a11y.spec.ts:42:7 › Accessibility › base todo list view has no unexpected WCAG violations @smoke 
+    [firefox] › tests\a11y\a11y.spec.ts:47:7 › Accessibility › known product defect: inline editor needs an accessible name 
+    [firefox] › tests\a11y\a11y.spec.ts:60:7 › Accessibility › accessibility gate rejects an additional unnamed input 
+    [firefox] › tests\a11y\a11y.spec.ts:73:7 › Accessibility › accessibility gate flags a repaired checkbox exception as obsolete 
+    [firefox] › tests\a11y\a11y.spec.ts:82:7 › Accessibility › toggle-all control has no detectable WCAG violations 
+    [firefox] › tests\a11y\keyboard.spec.ts:17:7 › Keyboard interaction › keyboard journey adds, completes and filters a todo with visible link focus 
+    [firefox] › tests\a11y\keyboard.spec.ts:37:7 › Keyboard interaction › known product defect: input and checkbox need visible keyboard focus 
+    [firefox] › tests\a11y\keyboard.spec.ts:56:7 › Keyboard interaction › known product defect: row edit and delete controls need keyboard access 
+    [firefox] › tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke ───────
+    [firefox] › tests\todo\add.spec.ts:24:7 › Add todo › should add multiple todo items @smoke ─────
+    [firefox] › tests\todo\add.spec.ts:45:7 › Add todo › should not add an empty todo when Enter is pressed on blank input 
+    [firefox] › tests\todo\add.spec.ts:58:7 › Add todo › should not add a todo containing only whitespace 
+    [firefox] › tests\todo\add.spec.ts:71:7 › Add todo › should trim leading and trailing whitespace from todo text 
+    [firefox] › tests\todo\add.spec.ts:87:7 › Add todo › should handle special characters in todo text 
+    [firefox] › tests\todo\add.spec.ts:102:7 › Add todo › should clear input field after adding a todo 
+    [firefox] › tests\todo\bulk-actions.spec.ts:9:7 › Bulk actions › should mark all todos as complete using toggle-all 
+    [firefox] › tests\todo\bulk-actions.spec.ts:31:7 › Bulk actions › should recolor the toggle-all chevron when all todos become complete 
+    [firefox] › tests\todo\bulk-actions.spec.ts:51:7 › Bulk actions › should unmark all todos when toggle-all is clicked while all are completed 
+    [firefox] › tests\todo\bulk-actions.spec.ts:75:7 › Bulk actions › should complete remaining active todos when toggle-all is used with mixed state 
+    [firefox] › tests\todo\bulk-actions.spec.ts:97:7 › Bulk actions › should remove all completed todos via "Clear completed" 
+    [firefox] › tests\todo\bulk-actions.spec.ts:118:7 › Bulk actions › should not show "Clear completed" button when no todos are completed 
+    [firefox] › tests\todo\bulk-actions.spec.ts:130:7 › Bulk actions › should show "Clear completed" once a todo is completed 
+    [firefox] › tests\todo\bulk-actions.spec.ts:150:7 › Bulk actions › should hide "Clear completed" again once all completed todos are cleared 
+    [firefox] › tests\todo\bulk-actions.spec.ts:170:7 › Bulk actions › should update item count correctly after clearing completed todos 
+    [firefox] › tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke 
+    [firefox] › tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke 
+    [firefox] › tests\todo\complete.spec.ts:49:7 › Complete todo › should update item count when todos are completed 
+    [firefox] › tests\todo\complete.spec.ts:66:7 › Complete todo › should visually distinguish completed todos from active ones 
+    [firefox] › tests\todo\complete.spec.ts:87:7 › Complete todo › should show 0 items left when all todos are completed 
+    [firefox] › tests\todo\complete.spec.ts:104:7 › Complete todo › should synchronize the bulk checkbox after individual toggles 
+    [firefox] › tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke 
+    [firefox] › tests\todo\delete.spec.ts:29:7 › Delete todo › should delete one todo from a list of many 
+    [firefox] › tests\todo\delete.spec.ts:47:7 › Delete todo › should delete a completed todo ──────
+    [firefox] › tests\todo\delete.spec.ts:63:7 › Delete todo › should show destroy button only on hover 
+    [firefox] › tests\todo\delete.spec.ts:81:7 › Delete todo › should recolor the destroy button on hover 
+    [firefox] › tests\todo\delete.spec.ts:93:7 › Delete todo › should delete all todos one by one and empty the list 
+    [firefox] › tests\todo\edit.spec.ts:9:7 › Edit todo › should enter edit mode when double-clicking a todo label 
+    [firefox] › tests\todo\edit.spec.ts:30:7 › Edit todo › should save edited text when pressing Enter 
+    [firefox] › tests\todo\edit.spec.ts:50:7 › Edit todo › should save edited text when focus leaves the input (blur) 
+    [firefox] › tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape 
+    [firefox] › tests\todo\edit.spec.ts:89:7 › Edit todo › should delete a todo when its edited text is cleared and Enter is pressed 
+    [firefox] › tests\todo\edit.spec.ts:106:7 › Edit todo › should trim whitespace when saving an edited todo 
+    [firefox] › tests\todo\filter.spec.ts:6:5 › known product defect: unknown hash must fall back to All without losing writes 
+    [firefox] › tests\todo\filter.spec.ts:42:9 › Filter todos › should add an active todo while the active filter is selected 
+    [firefox] › tests\todo\filter.spec.ts:42:9 › Filter todos › should add an active todo while the completed filter is selected 
+    [firefox] › tests\todo\filter.spec.ts:57:7 › Filter todos › should show all todos when the "All" filter is active @smoke 
+    [firefox] › tests\todo\filter.spec.ts:78:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke 
+    [firefox] › tests\todo\filter.spec.ts:100:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke 
+    [firefox] › tests\todo\filter.spec.ts:126:7 › Filter todos › should update the Active view in real-time when a visible todo is completed 
+    [firefox] › tests\todo\filter.spec.ts:147:7 › Filter todos › should reflect the selected filter in the URL hash @smoke 
+    [firefox] › tests\todo\filter.spec.ts:170:7 › Filter todos › should show zero todos in Active filter when all are completed 
+    [firefox] › tests\todo\filter.spec.ts:189:7 › Filter todos › should show zero todos in Completed filter when none are completed 
+    [firefox] › tests\todo\lifecycle.spec.ts:7:7 › Todo page lifecycle › should preserve todos on navigation when cleanup is disabled 
+    [firefox] › tests\todo\lifecycle.spec.ts:20:7 › Todo page lifecycle › should reset existing todos without clearing unrelated storage 
+    [firefox] › tests\todo\lifecycle.spec.ts:33:7 › Todo page lifecycle › should clear todos hidden by an empty filtered view 
+    [firefox] › tests\todo\lifecycle.spec.ts:50:7 › Todo page lifecycle › Seeded lifecycle preconditions › should clear the All view without clicking its already selected filter 
+    [firefox] › tests\todo\lifecycle.spec.ts:69:7 › Todo page lifecycle › Seeded lifecycle preconditions › should start from seeded data instead of the application sample todos 
+    [firefox] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding 
+    [firefox] › tests\todo\lifecycle.spec.ts:90:9 › Todo page lifecycle › Seeded lifecycle preconditions › should reload mixed todos in the active view 
+    [firefox] › tests\todo\lifecycle.spec.ts:90:9 › Todo page lifecycle › Seeded lifecycle preconditions › should reload mixed todos in the completed view 
+    [firefox] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos 
+    [firefox] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items 
+    [firefox] › tests\todo\lifecycle.spec.ts:125:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reject seeding an empty list, which the application cannot hold 
+    [firefox] › tests\todo\lifecycle.spec.ts:132:7 › Todo page lifecycle › should allow normal application seeding after storage is removed 
+    [firefox] › tests\todo\persistence.spec.ts:8:7 › Persistence › should preserve record identity when editing and deleting duplicate titles 
+    [firefox] › tests\todo\persistence.spec.ts:26:7 › Persistence › should persist todos across a page reload 
+    [firefox] › tests\todo\persistence.spec.ts:45:7 › Persistence › should persist the completed state of todos across a page reload 
+    [firefox] › tests\todo\persistence.spec.ts:67:7 › Persistence › should persist the active filter selection across a page reload 
+    [webkit] › tests\a11y\a11y.spec.ts:47:7 › Accessibility › known product defect: inline editor needs an accessible name 
+    [webkit] › tests\a11y\keyboard.spec.ts:17:7 › Keyboard interaction › keyboard journey adds, completes and filters a todo with visible link focus 
+  134 passed (13.9m)

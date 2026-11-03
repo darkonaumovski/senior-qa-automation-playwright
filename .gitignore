@@ -1,11 +1,17 @@
 node_modules/
+.runs/
+.cache/
+evidence/**/*.zip
+evidence/**/*.webm
+evidence/**/*.png
+evidence/**/*-artifacts/
 dist/
 
 # Playwright output
 test-results/
 playwright-report/
 
-# Allure output (results are committed; generated report is not)
+# Legacy Allure output. New runs are isolated under .runs/.
 allure-report/
 
 # Snapshots of a single local run. CI artifacts and the published report on
@@ -20,7 +26,7 @@ allure-latest-results/
 cypress-example-kitchensink/
 kitchensink/
 
-# Allure result files (generated per run – not committed except categories.json)
+# Legacy generated results; static categories now live under reporting/.
 allure-results/*.json
 allure-results/*.xml
 allure-results/*.webm
@@ -29,7 +35,6 @@ allure-results/*.zip
 allure-results/*.md
 allure-results/attachments/
 allure-results/history/
-!allure-results/categories.json
 
 # Editor / OS
 .DS_Store

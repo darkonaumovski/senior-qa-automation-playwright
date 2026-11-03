@@ -1,0 +1,114 @@
+
+Running 102 tests using 1 worker, shard 1 of 2
+
+
+(node:48968) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/102] [chromium] › tests\a11y\a11y.spec.ts:42:7 › Accessibility › base todo list view has no unexpected WCAG violations @smoke
+[2/102] [chromium] › tests\a11y\a11y.spec.ts:47:7 › Accessibility › known product defect: inline editor needs an accessible name
+[3/102] [chromium] › tests\a11y\a11y.spec.ts:60:7 › Accessibility › accessibility gate rejects an additional unnamed input
+[4/102] [chromium] › tests\a11y\a11y.spec.ts:73:7 › Accessibility › accessibility gate flags a repaired checkbox exception as obsolete
+[5/102] [chromium] › tests\a11y\a11y.spec.ts:82:7 › Accessibility › toggle-all control has no detectable WCAG violations
+[6/102] [chromium] › tests\a11y\keyboard.spec.ts:43:7 › Keyboard interaction › keyboard journey adds, completes and filters a todo with visible link focus
+[7/102] [chromium] › tests\a11y\keyboard.spec.ts:61:7 › Keyboard interaction › known product defect: input and checkbox need visible keyboard focus
+[8/102] [chromium] › tests\a11y\keyboard.spec.ts:80:7 › Keyboard interaction › known product defect: row edit and delete controls need keyboard access
+[9/102] [chromium] › tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke
+[10/102] [chromium] › tests\todo\add.spec.ts:24:7 › Add todo › should add multiple todo items @smoke
+[11/102] [chromium] › tests\todo\add.spec.ts:45:7 › Add todo › should not add an empty todo when Enter is pressed on blank input
+[12/102] [chromium] › tests\todo\add.spec.ts:58:7 › Add todo › should not add a todo containing only whitespace
+[13/102] [chromium] › tests\todo\add.spec.ts:71:7 › Add todo › should trim leading and trailing whitespace from todo text
+[14/102] [chromium] › tests\todo\add.spec.ts:87:7 › Add todo › should handle special characters in todo text
+[15/102] [chromium] › tests\todo\add.spec.ts:102:7 › Add todo › should clear input field after adding a todo
+[16/102] [chromium] › tests\todo\bulk-actions.spec.ts:9:7 › Bulk actions › should mark all todos as complete using toggle-all
+[17/102] [chromium] › tests\todo\bulk-actions.spec.ts:31:7 › Bulk actions › should recolor the toggle-all chevron when all todos become complete
+[18/102] [chromium] › tests\todo\bulk-actions.spec.ts:51:7 › Bulk actions › should unmark all todos when toggle-all is clicked while all are completed
+[19/102] [chromium] › tests\todo\bulk-actions.spec.ts:75:7 › Bulk actions › should complete remaining active todos when toggle-all is used with mixed state
+[20/102] [chromium] › tests\todo\bulk-actions.spec.ts:97:7 › Bulk actions › should remove all completed todos via "Clear completed"
+[21/102] [chromium] › tests\todo\bulk-actions.spec.ts:118:7 › Bulk actions › should not show "Clear completed" button when no todos are completed
+[22/102] [chromium] › tests\todo\bulk-actions.spec.ts:130:7 › Bulk actions › should show "Clear completed" once a todo is completed
+[23/102] [chromium] › tests\todo\bulk-actions.spec.ts:150:7 › Bulk actions › should hide "Clear completed" again once all completed todos are cleared
+[24/102] [chromium] › tests\todo\bulk-actions.spec.ts:170:7 › Bulk actions › should update item count correctly after clearing completed todos
+[25/102] [chromium] › tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke
+[26/102] [chromium] › tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke
+[27/102] [chromium] › tests\todo\complete.spec.ts:49:7 › Complete todo › should update item count when todos are completed
+[28/102] [chromium] › tests\todo\complete.spec.ts:66:7 › Complete todo › should visually distinguish completed todos from active ones
+[29/102] [chromium] › tests\todo\complete.spec.ts:87:7 › Complete todo › should show 0 items left when all todos are completed
+[30/102] [chromium] › tests\todo\complete.spec.ts:104:7 › Complete todo › should synchronize the bulk checkbox after individual toggles
+[31/102] [chromium] › tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke
+[32/102] [chromium] › tests\todo\delete.spec.ts:29:7 › Delete todo › should delete one todo from a list of many
+[33/102] [chromium] › tests\todo\delete.spec.ts:47:7 › Delete todo › should delete a completed todo
+[34/102] [chromium] › tests\todo\delete.spec.ts:63:7 › Delete todo › should show destroy button only on hover
+[35/102] [chromium] › tests\todo\delete.spec.ts:81:7 › Delete todo › should recolor the destroy button on hover
+[36/102] [chromium] › tests\todo\delete.spec.ts:93:7 › Delete todo › should delete all todos one by one and empty the list
+[37/102] [chromium] › tests\todo\edit.spec.ts:9:7 › Edit todo › should enter edit mode when double-clicking a todo label
+[38/102] [chromium] › tests\todo\edit.spec.ts:30:7 › Edit todo › should save edited text when pressing Enter
+[39/102] [chromium] › tests\todo\edit.spec.ts:50:7 › Edit todo › should save edited text when focus leaves the input (blur)
+[40/102] [chromium] › tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape
+[41/102] [chromium] › tests\todo\edit.spec.ts:89:7 › Edit todo › should delete a todo when its edited text is cleared and Enter is pressed
+[42/102] [chromium] › tests\todo\edit.spec.ts:106:7 › Edit todo › should trim whitespace when saving an edited todo
+[43/102] [chromium] › tests\todo\filter.spec.ts:12:5 › known product defect: unknown hash must fall back to All without losing writes
+[44/102] [chromium] › tests\todo\filter.spec.ts:49:9 › Filter todos › should add an active todo while the active filter is selected
+[45/102] [chromium] › tests\todo\filter.spec.ts:49:9 › Filter todos › should add an active todo while the completed filter is selected
+[46/102] [chromium] › tests\todo\filter.spec.ts:64:7 › Filter todos › should show all todos when the "All" filter is active @smoke
+[47/102] [chromium] › tests\todo\filter.spec.ts:85:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke
+[48/102] [chromium] › tests\todo\filter.spec.ts:107:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke
+[49/102] [chromium] › tests\todo\filter.spec.ts:133:7 › Filter todos › should update the Active view in real-time when a visible todo is completed
+[50/102] [chromium] › tests\todo\filter.spec.ts:154:7 › Filter todos › should reflect the selected filter in the URL hash @smoke
+[51/102] [chromium] › tests\todo\filter.spec.ts:177:7 › Filter todos › should show zero todos in Active filter when all are completed
+[52/102] [chromium] › tests\todo\filter.spec.ts:196:7 › Filter todos › should show zero todos in Completed filter when none are completed
+[53/102] [chromium] › tests\todo\lifecycle.spec.ts:7:7 › Todo page lifecycle › should preserve todos on navigation when cleanup is disabled
+[54/102] [chromium] › tests\todo\lifecycle.spec.ts:20:7 › Todo page lifecycle › should reset existing todos without clearing unrelated storage
+[55/102] [chromium] › tests\todo\lifecycle.spec.ts:33:7 › Todo page lifecycle › should clear todos hidden by an empty filtered view
+[56/102] [chromium] › tests\todo\lifecycle.spec.ts:50:7 › Todo page lifecycle › Seeded lifecycle preconditions › should clear the All view without clicking its already selected filter
+[57/102] [chromium] › tests\todo\lifecycle.spec.ts:69:7 › Todo page lifecycle › Seeded lifecycle preconditions › should start from seeded data instead of the application sample todos
+[58/102] [chromium] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding
+[59/102] [chromium] › tests\todo\lifecycle.spec.ts:90:9 › Todo page lifecycle › Seeded lifecycle preconditions › should reload mixed todos in the active view
+[60/102] [chromium] › tests\todo\lifecycle.spec.ts:90:9 › Todo page lifecycle › Seeded lifecycle preconditions › should reload mixed todos in the completed view
+[61/102] [chromium] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos
+[62/102] [chromium] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items
+[63/102] [chromium] › tests\todo\lifecycle.spec.ts:125:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reject seeding an empty list, which the application cannot hold
+[64/102] [chromium] › tests\todo\lifecycle.spec.ts:132:7 › Todo page lifecycle › should allow normal application seeding after storage is removed
+[65/102] [chromium] › tests\todo\persistence.spec.ts:8:7 › Persistence › should preserve record identity when editing and deleting duplicate titles
+[66/102] [chromium] › tests\todo\persistence.spec.ts:30:7 › Persistence › should persist todos across a page reload
+[67/102] [chromium] › tests\todo\persistence.spec.ts:49:7 › Persistence › should persist the completed state of todos across a page reload
+[68/102] [chromium] › tests\todo\persistence.spec.ts:71:7 › Persistence › should persist the active filter selection across a page reload
+
+(node:42968) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[69/102] [firefox] › tests\a11y\a11y.spec.ts:42:7 › Accessibility › base todo list view has no unexpected WCAG violations @smoke
+[70/102] [firefox] › tests\a11y\a11y.spec.ts:47:7 › Accessibility › known product defect: inline editor needs an accessible name
+[71/102] [firefox] › tests\a11y\a11y.spec.ts:60:7 › Accessibility › accessibility gate rejects an additional unnamed input
+[72/102] [firefox] › tests\a11y\a11y.spec.ts:73:7 › Accessibility › accessibility gate flags a repaired checkbox exception as obsolete
+[73/102] [firefox] › tests\a11y\a11y.spec.ts:82:7 › Accessibility › toggle-all control has no detectable WCAG violations
+[74/102] [firefox] › tests\a11y\keyboard.spec.ts:43:7 › Keyboard interaction › keyboard journey adds, completes and filters a todo with visible link focus
+[75/102] [firefox] › tests\a11y\keyboard.spec.ts:61:7 › Keyboard interaction › known product defect: input and checkbox need visible keyboard focus
+[76/102] [firefox] › tests\a11y\keyboard.spec.ts:80:7 › Keyboard interaction › known product defect: row edit and delete controls need keyboard access
+[77/102] [firefox] › tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke
+[78/102] [firefox] › tests\todo\add.spec.ts:24:7 › Add todo › should add multiple todo items @smoke
+[79/102] [firefox] › tests\todo\add.spec.ts:45:7 › Add todo › should not add an empty todo when Enter is pressed on blank input
+[80/102] [firefox] › tests\todo\add.spec.ts:58:7 › Add todo › should not add a todo containing only whitespace
+[81/102] [firefox] › tests\todo\add.spec.ts:71:7 › Add todo › should trim leading and trailing whitespace from todo text
+[82/102] [firefox] › tests\todo\add.spec.ts:87:7 › Add todo › should handle special characters in todo text
+[83/102] [firefox] › tests\todo\add.spec.ts:102:7 › Add todo › should clear input field after adding a todo
+[84/102] [firefox] › tests\todo\bulk-actions.spec.ts:9:7 › Bulk actions › should mark all todos as complete using toggle-all
+[85/102] [firefox] › tests\todo\bulk-actions.spec.ts:31:7 › Bulk actions › should recolor the toggle-all chevron when all todos become complete
+[86/102] [firefox] › tests\todo\bulk-actions.spec.ts:51:7 › Bulk actions › should unmark all todos when toggle-all is clicked while all are completed
+[87/102] [firefox] › tests\todo\bulk-actions.spec.ts:75:7 › Bulk actions › should complete remaining active todos when toggle-all is used with mixed state
+[88/102] [firefox] › tests\todo\bulk-actions.spec.ts:97:7 › Bulk actions › should remove all completed todos via "Clear completed"
+[89/102] [firefox] › tests\todo\bulk-actions.spec.ts:118:7 › Bulk actions › should not show "Clear completed" button when no todos are completed
+[90/102] [firefox] › tests\todo\bulk-actions.spec.ts:130:7 › Bulk actions › should show "Clear completed" once a todo is completed
+[91/102] [firefox] › tests\todo\bulk-actions.spec.ts:150:7 › Bulk actions › should hide "Clear completed" again once all completed todos are cleared
+[92/102] [firefox] › tests\todo\bulk-actions.spec.ts:170:7 › Bulk actions › should update item count correctly after clearing completed todos
+[93/102] [firefox] › tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke
+[94/102] [firefox] › tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke
+[95/102] [firefox] › tests\todo\complete.spec.ts:49:7 › Complete todo › should update item count when todos are completed
+[96/102] [firefox] › tests\todo\complete.spec.ts:66:7 › Complete todo › should visually distinguish completed todos from active ones
+[97/102] [firefox] › tests\todo\complete.spec.ts:87:7 › Complete todo › should show 0 items left when all todos are completed
+[98/102] [firefox] › tests\todo\complete.spec.ts:104:7 › Complete todo › should synchronize the bulk checkbox after individual toggles
+[99/102] [firefox] › tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke
+[100/102] [firefox] › tests\todo\delete.spec.ts:29:7 › Delete todo › should delete one todo from a list of many
+[101/102] [firefox] › tests\todo\delete.spec.ts:47:7 › Delete todo › should delete a completed todo
+[102/102] [firefox] › tests\todo\delete.spec.ts:63:7 › Delete todo › should show destroy button only on hover
+  102 passed (3.2m)

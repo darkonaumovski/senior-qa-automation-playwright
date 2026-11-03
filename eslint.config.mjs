@@ -23,6 +23,9 @@ export default tseslint.config(
       'test-results/**',
       'kitchensink/**',
       'cypress-example-kitchensink/**',
+      '.runs/**',
+      '.cache/**',
+      'evidence/**',
     ],
   },
 
@@ -66,7 +69,7 @@ export default tseslint.config(
   // The config is loaded by Playwright's own loader, not compiled by tsc, and
   // reads .app-commit from disk at startup.
   {
-    files: ['eslint.config.mjs'],
+    files: ['eslint.config.mjs', 'scripts/*.mjs'],
     ...tseslint.configs.disableTypeChecked,
   },
 );

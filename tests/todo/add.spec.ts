@@ -1,5 +1,7 @@
 import { test, expect } from '../fixtures/todoFixtures';
 import { allure } from 'allure-playwright';
+import { TODO_STORAGE_KEY } from '../../pages/TodoPage';
+import { hasReviewedDefects } from '../fixtures/knownDefects';
 
 test.describe('Add todo', () => {
   test.use({ todoFeature: 'Add Todo' });
@@ -109,5 +111,27 @@ test.describe('Add todo', () => {
     await test.step('Verify input is empty', async () => {
       await expect(todoPage.newTodoInput).toHaveValue('');
     });
+  });
+
+  test('known product defect: consecutive identical Enter submissions create distinct records', async ({ todoPage, page, browserName }, testInfo) => {
+    const title = 'Repeated title';
+    await todoPage.newTodoInput.pressSequentially(title);
+    await todoPage.newTodoInput.press('Enter');
+    await todoPage.expectTodoCount(1);
+    await todoPage.expectTodoText(0, title);
+    await expect(todoPage.newTodoInput).toHaveValue('');
+    await todoPage.newTodoInput.pressSequentially(title);
+    await todoPage.newTodoInput.press('Enter');
+    const rendered = await todoPage.todoItems.locator('label').allTextContents();
+    const saved = await page.evaluate((key) => JSON.parse(localStorage.getItem(key)!) as Array<{ id: number; title: string; completed: boolean }>, TODO_STORAGE_KEY);
+    // Inconsistent rendering, colliding IDs and unexpected completion fail normally.
+    expect(saved.map((todo) => todo.title)).toEqual(rendered);
+    expect(new Set(saved.map((todo) => todo.id)).size).toBe(saved.length);
+    expect(saved.every((todo) => !todo.completed)).toBe(true);
+    const input = await todoPage.newTodoInput.inputValue();
+    await testInfo.attach('repeated-enter-evidence', { body: JSON.stringify({ rendered, saved, input }, null, 2), contentType: 'application/json' });
+    test.fail(browserName === 'firefox' && hasReviewedDefects(testInfo.config.metadata.appCommit),
+      'UPSTREAM-FIREFOX-REPEATED-ENTER: the change handler does not create the second identical submission');
+    expect({ rendered, input }).toEqual({ rendered: [title, title], input: '' });
   });
 });

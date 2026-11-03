@@ -1,0 +1,6464 @@
+[
+  {
+    "trace": "E:\\Automation Testing\\senior-qa-automation-playwright\\evidence\\review-2026-11-03\\webkit-final-w2-artifacts\\todo-lifecycle-Todo-page-l-0ef13-ered-view-with-stored-todos-webkit\\trace.zip",
+    "hoverCount": 0,
+    "assertions": [
+      {
+        "entry": "test.trace",
+        "callId": "expect@43",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@45",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@49",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@51",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@55",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@57",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@58",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@59",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@61",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ],
+    "actions": [
+      {
+        "entry": "test.trace",
+        "callId": "hook@1",
+        "method": "hook",
+        "apiName": null,
+        "title": "Before Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@25",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@26",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@27",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@28",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@29",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@32",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"browser\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@33",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Launch browser",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@36",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@37",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@38",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@39",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create page",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@40",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@41",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Navigate to \"/todo\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@42",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@43",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@44",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@45",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@46",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@47",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Reload",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@48",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@49",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@50",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@51",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@52",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Click locator('.filters a[href=\"#/completed\"]')",
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@53",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Reload",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@54",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@55",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@56",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@57",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@58",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@59",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@60",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@61",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "hook@62",
+        "method": "hook",
+        "apiName": null,
+        "title": "After Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@63",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@64",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoStart\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@65",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@66",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@67",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Close context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@69",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@70",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoFeature\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@73",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"navigationTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@74",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"actionTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@78",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"baseURL\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@79",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"userAgent\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@81",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"viewport\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@88",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"isMobile\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@92",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"hasTouch\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@94",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"deviceScaleFactor\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@6",
+        "method": "newPage",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@8",
+        "method": "goto",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@10",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@12",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@14",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@16",
+        "method": "reload",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@18",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@20",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@22",
+        "method": "click",
+        "apiName": null,
+        "title": null,
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@24",
+        "method": "reload",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@26",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@28",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@30",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@32",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": ".todo-list li",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@34",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "trace": "E:\\Automation Testing\\senior-qa-automation-playwright\\evidence\\review-2026-11-03\\webkit-final-w2-artifacts\\todo-lifecycle-Todo-page-l-0ef13-ered-view-with-stored-todos-webkit-repeat1\\trace.zip",
+    "hoverCount": 0,
+    "assertions": [
+      {
+        "entry": "test.trace",
+        "callId": "expect@43",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@45",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@49",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@51",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@55",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@57",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@58",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@59",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@61",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ],
+    "actions": [
+      {
+        "entry": "test.trace",
+        "callId": "hook@1",
+        "method": "hook",
+        "apiName": null,
+        "title": "Before Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@25",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@26",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@27",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@28",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@29",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@32",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"browser\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@33",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Launch browser",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@36",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@37",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@38",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@39",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create page",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@40",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@41",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Navigate to \"/todo\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@42",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@43",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@44",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@45",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@46",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@47",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Reload",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@48",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@49",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@50",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@51",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@52",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Click locator('.filters a[href=\"#/completed\"]')",
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@53",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Reload",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@54",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@55",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@56",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@57",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@58",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@59",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@60",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@61",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "hook@62",
+        "method": "hook",
+        "apiName": null,
+        "title": "After Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@63",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@64",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoStart\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@65",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@66",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@67",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Close context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@69",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@70",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoFeature\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@73",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"navigationTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@74",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"actionTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@78",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"baseURL\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@79",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"userAgent\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@81",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"viewport\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@88",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"isMobile\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@92",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"hasTouch\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@94",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"deviceScaleFactor\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@6",
+        "method": "newPage",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@8",
+        "method": "goto",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@10",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@12",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@14",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@16",
+        "method": "reload",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@18",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@20",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@22",
+        "method": "click",
+        "apiName": null,
+        "title": null,
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@24",
+        "method": "reload",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@26",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@28",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@30",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@32",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": ".todo-list li",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@34",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "trace": "E:\\Automation Testing\\senior-qa-automation-playwright\\evidence\\review-2026-11-03\\webkit-final-w2-artifacts\\todo-lifecycle-Todo-page-l-0ef13-ered-view-with-stored-todos-webkit-repeat2\\trace.zip",
+    "hoverCount": 0,
+    "assertions": [
+      {
+        "entry": "test.trace",
+        "callId": "expect@43",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@45",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@49",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@51",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@55",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@57",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@58",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@59",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@61",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ],
+    "actions": [
+      {
+        "entry": "test.trace",
+        "callId": "hook@1",
+        "method": "hook",
+        "apiName": null,
+        "title": "Before Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@25",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@26",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@27",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@28",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@29",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@32",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"browser\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@33",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Launch browser",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@36",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@37",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@38",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@39",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create page",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@40",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@41",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Navigate to \"/todo\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@42",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@43",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@44",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@45",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@46",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@47",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Reload",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@48",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@49",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@50",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@51",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@52",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Click locator('.filters a[href=\"#/completed\"]')",
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@53",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Reload",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@54",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@55",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@56",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@57",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@58",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@59",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@60",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@61",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "hook@62",
+        "method": "hook",
+        "apiName": null,
+        "title": "After Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@63",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@64",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoStart\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@65",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@66",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@67",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Close context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@69",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@70",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoFeature\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@73",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"navigationTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@74",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"actionTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@78",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"baseURL\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@79",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"userAgent\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@81",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"viewport\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@88",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"isMobile\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@92",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"hasTouch\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@94",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"deviceScaleFactor\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@6",
+        "method": "newPage",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@8",
+        "method": "goto",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@10",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@12",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@14",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@16",
+        "method": "reload",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@18",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@20",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@22",
+        "method": "click",
+        "apiName": null,
+        "title": null,
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@24",
+        "method": "reload",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@26",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@28",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@30",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@32",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": ".todo-list li",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@34",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "trace": "E:\\Automation Testing\\senior-qa-automation-playwright\\evidence\\review-2026-11-03\\webkit-final-w2-artifacts\\todo-lifecycle-Todo-page-l-17daa-rage-untouched-when-seeding-webkit\\trace.zip",
+    "hoverCount": 0,
+    "assertions": [
+      {
+        "entry": "test.trace",
+        "callId": "expect@43",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@45",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@50",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@52",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@54",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toBe\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@56",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ],
+    "actions": [
+      {
+        "entry": "test.trace",
+        "callId": "hook@1",
+        "method": "hook",
+        "apiName": null,
+        "title": "Before Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@25",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@26",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@27",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@28",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@29",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@32",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"browser\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@33",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Launch browser",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@36",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@37",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@38",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@39",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create page",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@40",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@41",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Navigate to \"/todo\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@42",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@43",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@44",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@45",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@46",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@47",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@48",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Reload",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@49",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@50",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@51",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@52",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@53",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@54",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toBe\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@55",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@56",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "hook@57",
+        "method": "hook",
+        "apiName": null,
+        "title": "After Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@58",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@59",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoStart\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@60",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@61",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@62",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Close context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@64",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@65",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoFeature\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@68",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"navigationTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@69",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"actionTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@73",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"baseURL\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@74",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"userAgent\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@76",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"viewport\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@83",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"isMobile\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@87",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"hasTouch\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@89",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"deviceScaleFactor\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@6",
+        "method": "newPage",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@8",
+        "method": "goto",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@10",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@12",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@14",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@16",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@18",
+        "method": "reload",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@20",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@22",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@24",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@26",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "trace": "E:\\Automation Testing\\senior-qa-automation-playwright\\evidence\\review-2026-11-03\\webkit-final-w2-artifacts\\todo-lifecycle-Todo-page-l-17daa-rage-untouched-when-seeding-webkit-repeat1\\trace.zip",
+    "hoverCount": 0,
+    "assertions": [
+      {
+        "entry": "test.trace",
+        "callId": "expect@43",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@45",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@50",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@52",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@54",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toBe\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@56",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ],
+    "actions": [
+      {
+        "entry": "test.trace",
+        "callId": "hook@1",
+        "method": "hook",
+        "apiName": null,
+        "title": "Before Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@25",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@26",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@27",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@28",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@29",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@32",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"browser\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@33",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Launch browser",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@36",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@37",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@38",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@39",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create page",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@40",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@41",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Navigate to \"/todo\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@42",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@43",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@44",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@45",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@46",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@47",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@48",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Reload",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@49",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@50",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@51",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@52",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@53",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@54",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toBe\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@55",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@56",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "hook@57",
+        "method": "hook",
+        "apiName": null,
+        "title": "After Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@58",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@59",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoStart\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@60",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@61",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@62",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Close context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@64",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@65",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoFeature\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@68",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"navigationTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@69",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"actionTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@73",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"baseURL\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@74",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"userAgent\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@76",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"viewport\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@83",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"isMobile\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@87",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"hasTouch\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@89",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"deviceScaleFactor\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@6",
+        "method": "newPage",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@8",
+        "method": "goto",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@10",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@12",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@14",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@16",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@18",
+        "method": "reload",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@20",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@22",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@24",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@26",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "trace": "E:\\Automation Testing\\senior-qa-automation-playwright\\evidence\\review-2026-11-03\\webkit-final-w2-artifacts\\todo-lifecycle-Todo-page-l-17daa-rage-untouched-when-seeding-webkit-repeat2\\trace.zip",
+    "hoverCount": 0,
+    "assertions": [
+      {
+        "entry": "test.trace",
+        "callId": "expect@43",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@45",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@50",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@52",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@54",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toBe\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@56",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ],
+    "actions": [
+      {
+        "entry": "test.trace",
+        "callId": "hook@1",
+        "method": "hook",
+        "apiName": null,
+        "title": "Before Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@25",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@26",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@27",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@28",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@29",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@32",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"browser\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@33",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Launch browser",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@36",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@37",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@38",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@39",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create page",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@40",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@41",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Navigate to \"/todo\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@42",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@43",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@44",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@45",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@46",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@47",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@48",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Reload",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@49",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@50",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@51",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@52",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@53",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@54",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toBe\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@55",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@56",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "hook@57",
+        "method": "hook",
+        "apiName": null,
+        "title": "After Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@58",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@59",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoStart\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@60",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@61",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@62",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Close context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@64",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@65",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoFeature\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@68",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"navigationTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@69",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"actionTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@73",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"baseURL\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@74",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"userAgent\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@76",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"viewport\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@83",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"isMobile\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@87",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"hasTouch\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@89",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"deviceScaleFactor\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@6",
+        "method": "newPage",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@8",
+        "method": "goto",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@10",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@12",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@14",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@16",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@18",
+        "method": "reload",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@20",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@22",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@24",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@26",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "trace": "E:\\Automation Testing\\senior-qa-automation-playwright\\evidence\\review-2026-11-03\\webkit-final-w2-artifacts\\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit\\trace.zip",
+    "hoverCount": 0,
+    "assertions": [
+      {
+        "entry": "test.trace",
+        "callId": "expect@34",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@36",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@40",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@42",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@47",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@49",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@50",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@51",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@52",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveText\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@54",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ],
+    "actions": [
+      {
+        "entry": "test.trace",
+        "callId": "hook@1",
+        "method": "hook",
+        "apiName": null,
+        "title": "Before Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@21",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@22",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@23",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@24",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@25",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@27",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@28",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@29",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@30",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create page",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@31",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@32",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Navigate to \"/todo\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@33",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@34",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@35",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@36",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@37",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@38",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Reload",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@39",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@40",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@41",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@42",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@43",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Click locator('.filters a[href=\"#/completed\"]')",
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@44",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@45",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Reload",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@46",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@47",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@48",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@49",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@50",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@51",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@52",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveText\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@53",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@54",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "hook@55",
+        "method": "hook",
+        "apiName": null,
+        "title": "After Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@56",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@57",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoStart\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@58",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@59",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@60",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Close context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@62",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@63",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoFeature\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@66",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"navigationTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@67",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"actionTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@71",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"baseURL\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@72",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"userAgent\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@74",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"viewport\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@81",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"isMobile\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@85",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"hasTouch\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@87",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"deviceScaleFactor\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@37",
+        "method": "newPage",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@39",
+        "method": "goto",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@41",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@43",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@45",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@47",
+        "method": "reload",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@49",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@51",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@53",
+        "method": "click",
+        "apiName": null,
+        "title": null,
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@55",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@57",
+        "method": "reload",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@59",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@61",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@63",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@65",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": ".todo-list li",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@67",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveText\"",
+        "selector": ".todo-list li >> nth=0 >> label",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@69",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "trace": "E:\\Automation Testing\\senior-qa-automation-playwright\\evidence\\review-2026-11-03\\webkit-final-w2-artifacts\\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit-repeat1\\trace.zip",
+    "hoverCount": 0,
+    "assertions": [
+      {
+        "entry": "test.trace",
+        "callId": "expect@34",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@36",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@40",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@42",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@47",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@49",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@50",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@51",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@52",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveText\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@54",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ],
+    "actions": [
+      {
+        "entry": "test.trace",
+        "callId": "hook@1",
+        "method": "hook",
+        "apiName": null,
+        "title": "Before Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@21",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@22",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@23",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@24",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@25",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@27",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@28",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@29",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@30",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create page",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@31",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@32",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Navigate to \"/todo\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@33",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@34",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@35",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@36",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@37",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@38",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Reload",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@39",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@40",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@41",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@42",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@43",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Click locator('.filters a[href=\"#/completed\"]')",
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@44",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@45",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Reload",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@46",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@47",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@48",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@49",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@50",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@51",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@52",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveText\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@53",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@54",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "hook@55",
+        "method": "hook",
+        "apiName": null,
+        "title": "After Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@56",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@57",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoStart\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@58",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@59",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@60",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Close context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@62",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@63",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoFeature\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@66",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"navigationTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@67",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"actionTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@71",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"baseURL\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@72",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"userAgent\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@74",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"viewport\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@81",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"isMobile\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@85",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"hasTouch\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@87",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"deviceScaleFactor\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@37",
+        "method": "newPage",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@39",
+        "method": "goto",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@41",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@43",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@45",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@47",
+        "method": "reload",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@49",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@51",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@53",
+        "method": "click",
+        "apiName": null,
+        "title": null,
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@55",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@57",
+        "method": "reload",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@59",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@61",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@63",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@65",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": ".todo-list li",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@67",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveText\"",
+        "selector": ".todo-list li >> nth=0 >> label",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@69",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ]
+  },
+  {
+    "trace": "E:\\Automation Testing\\senior-qa-automation-playwright\\evidence\\review-2026-11-03\\webkit-final-w2-artifacts\\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit-repeat2\\trace.zip",
+    "hoverCount": 0,
+    "assertions": [
+      {
+        "entry": "test.trace",
+        "callId": "expect@34",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@36",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@40",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@42",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@47",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@49",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@50",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@51",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@52",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveText\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@54",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ],
+    "actions": [
+      {
+        "entry": "test.trace",
+        "callId": "hook@1",
+        "method": "hook",
+        "apiName": null,
+        "title": "Before Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@21",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@22",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@23",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@24",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "test.attach@25",
+        "method": "test.attach",
+        "apiName": null,
+        "title": "Attach \"Allure Metadata (metadata)\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@27",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@28",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@29",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@30",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Create page",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@31",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@32",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Navigate to \"/todo\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@33",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@34",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@35",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@36",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@37",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@38",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Reload",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@39",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@40",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@41",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@42",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@43",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Click locator('.filters a[href=\"#/completed\"]')",
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@44",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@45",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Reload",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@46",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Wait for selector locator('.new-todo')",
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@47",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@48",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@49",
+        "method": "expect",
+        "apiName": null,
+        "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@50",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@51",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@52",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveText\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@53",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Evaluate",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "expect@54",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toEqual\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "hook@55",
+        "method": "hook",
+        "apiName": null,
+        "title": "After Hooks",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@56",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoPage\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@57",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoStart\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@58",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"page\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@59",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"context\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "pw:api@60",
+        "method": "pw:api",
+        "apiName": null,
+        "title": "Close context",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@62",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoMetadata\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@63",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"todoFeature\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@66",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"navigationTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@67",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"actionTimeout\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@71",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"baseURL\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@72",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"userAgent\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@74",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"viewport\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@81",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"isMobile\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@85",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"hasTouch\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "test.trace",
+        "callId": "fixture@87",
+        "method": "fixture",
+        "apiName": null,
+        "title": "Fixture \"deviceScaleFactor\"",
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@37",
+        "method": "newPage",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@39",
+        "method": "goto",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@41",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@43",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@45",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@47",
+        "method": "reload",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@49",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@51",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@53",
+        "method": "click",
+        "apiName": null,
+        "title": null,
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@55",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@57",
+        "method": "reload",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@59",
+        "method": "waitForSelector",
+        "apiName": null,
+        "title": null,
+        "selector": ".new-todo",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@61",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@63",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveClass\"",
+        "selector": ".filters a[href=\"#/completed\"]",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@65",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveCount\"",
+        "selector": ".todo-list li",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@67",
+        "method": "expect",
+        "apiName": null,
+        "title": "Expect \"toHaveText\"",
+        "selector": ".todo-list li >> nth=0 >> label",
+        "completed": true,
+        "error": null
+      },
+      {
+        "entry": "0-trace.trace",
+        "callId": "call@69",
+        "method": "evaluateExpression",
+        "apiName": null,
+        "title": null,
+        "selector": null,
+        "completed": true,
+        "error": null
+      }
+    ]
+  }
+]

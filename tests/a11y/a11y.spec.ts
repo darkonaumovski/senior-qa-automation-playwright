@@ -1,82 +1,88 @@
 import AxeBuilder from '@axe-core/playwright';
 import type { Result } from 'axe-core';
+import type { Page } from '@playwright/test';
 import { test, expect } from '../fixtures/todoFixtures';
-import { allure } from 'allure-playwright';
+import { hasReviewedDefects } from '../fixtures/knownDefects';
 
-/**
- * Closes the top risk TEST_APPROACH.md names and defers: the app has custom
- * checkbox and inline-edit interactions, exactly where a11y defects
- * concentrate. This is a smoke pass on the three surfaces named there, not
- * the full WCAG audit (keyboard-only and screen-reader passes) that document
- * still defers.
- *
- * Scoped to `wcag2a`/`wcag2aa`/`wcag21aa`: axe-core's "best practice" rules
- * (e.g. `landmark-one-main`, `region`) are opinionated recommendations beyond
- * WCAG conformance, not success criteria, so they belong to that deferred
- * full audit rather than this gate.
- *
- * `label` is disabled with cause, not swept under the rug: every `.toggle`
- * checkbox has no accessible name (WCAG 4.1.2, critical — confirmed via
- * axe-core against the live app; the failing nodes are the per-item
- * checkboxes, not the page shell). This is a real, product-side defect,
- * recorded as Finding #5 in FINDINGS.md, not yet filed upstream as a GitHub
- * issue. Excluding it here keeps this gate meaningful for regressions in
- * everything else instead of red for a known, tracked issue — the same
- * reasoning `filter.spec.ts` uses for issue #7. Remove the exclusion once the
- * app grows an accessible name for `.toggle`; its disappearance is the
- * regression test for that fix.
- */
 const WCAG_TAGS = ['wcag2a', 'wcag2aa', 'wcag21aa'];
-const KNOWN_DEFECTS = ['label']; // Finding #5 — .toggle checkboxes have no accessible name.
+
+/** Match individual visible checkbox nodes, never the whole label rule.
+ * Preserve unexpected nodes' HTML and failureSummary. Flag repaired exceptions.
+ */
+async function scan(page: Page, revision: string) {
+  const exceptions = hasReviewedDefects(revision)
+    ? await page.locator('.todo-list li > .view > input.toggle[type="checkbox"]:first-child:visible').evaluateAll(
+      (inputs) => inputs.map((input) => '.todo-list li[data-id="' + input.closest('li')!.getAttribute('data-id') + '"] > .view > input.toggle[type="checkbox"]:first-child'),
+    ) : [];
+  const results = await new AxeBuilder({ page }).withTags(WCAG_TAGS).analyze();
+  const remaining = new Set(exceptions);
+  const unexpected: Result[] = [];
+  for (const violation of results.violations) {
+    const nodes = [];
+    for (const node of violation.nodes) {
+      const selector = node.target.length === 1 && typeof node.target[0] === 'string' ? node.target[0] : '';
+      const match = violation.id === 'label' && selector
+        ? await page.locator(selector).evaluate((element, allowed) => allowed.find((s) => element.matches(s)), exceptions)
+        : undefined;
+      if (match) remaining.delete(match);
+      else nodes.push(node);
+    }
+    if (nodes.length) unexpected.push({ ...violation, nodes });
+  }
+  return { unexpected, obsoleteExceptions: [...remaining] };
+}
+
+function expectClean(result: { unexpected: Result[]; obsoleteExceptions: string[] }) {
+  expect(result).toEqual({ unexpected: [], obsoleteExceptions: [] });
+}
 
 test.describe('Accessibility', () => {
   test.use({ todoFeature: 'Accessibility', todoStart: 'as-is' });
 
-  test('base todo list view has no detectable WCAG violations', { tag: '@smoke' }, async ({ todoPage, page }) => {
-    await allure.story('Base view');
-
+  test('base todo list view has no unexpected WCAG violations', { tag: '@smoke' }, async ({ todoPage, page }, testInfo) => {
     await todoPage.seedTodos(['Buy groceries', { title: 'Walk the dog', completed: true }]);
-
-    const results = await new AxeBuilder({ page })
-      .withTags(WCAG_TAGS)
-      .disableRules(KNOWN_DEFECTS)
-      .analyze();
-
-    expect(results.violations, describe(results.violations)).toEqual([]);
+    expectClean(await scan(page, String(testInfo.config.metadata.appCommit)));
   });
 
-  test('inline-editing state has no detectable WCAG violations', async ({ todoPage, page }) => {
-    await allure.story('Editing state');
-
+  test('known product defect: inline editor needs an accessible name', async ({ todoPage, page }, testInfo) => {
     await todoPage.seedTodos(['Buy groceries']);
     await todoPage.startEditing(0);
+    const result = await scan(page, String(testInfo.config.metadata.appCommit));
+    const editorNodes = result.unexpected.filter((v) => v.id === 'label')
+      .flatMap((v) => v.nodes).filter((node) => node.target.includes('.edit'));
+    // Unexpected nodes fail normally, before the narrowly scoped expected failure.
+    expect(result.unexpected.flatMap((v) => v.nodes).filter((node) => !editorNodes.includes(node))).toEqual([]);
+    expect(result.obsoleteExceptions).toEqual([]);
+    test.fail(hasReviewedDefects(testInfo.config.metadata.appCommit), 'UPSTREAM-A11Y-EDIT: visible .edit has no accessible name');
+    expect(editorNodes, JSON.stringify(result.unexpected, null, 2)).toEqual([]);
+  });
 
-    const results = await new AxeBuilder({ page })
-      .withTags(WCAG_TAGS)
-      .disableRules(KNOWN_DEFECTS)
-      .analyze();
+  test('accessibility gate rejects an additional unnamed input', async ({ todoPage, page }, testInfo) => {
+    await todoPage.seedTodos(['Gate control']);
+    await page.locator('.todoapp').evaluate((app) => {
+      const input = document.createElement('input');
+      input.id = 'unexpected-unnamed';
+      app.append(input);
+    });
+    const result = await scan(page, String(testInfo.config.metadata.appCommit));
+    expect(result.unexpected.find((v) => v.id === 'label')?.nodes.map((node) => node.target)).toContainEqual(['#unexpected-unnamed']);
+    expect(result.obsoleteExceptions).toEqual([]);
+    expect(() => expectClean(result)).toThrow('unexpected-unnamed');
+  });
 
-    expect(results.violations, describe(results.violations)).toEqual([]);
+  test('accessibility gate flags a repaired checkbox exception as obsolete', async ({ todoPage, page }, testInfo) => {
+    await todoPage.seedTodos(['Repaired checkbox']);
+    await todoPage.toggle(0).evaluate((input) => input.setAttribute('aria-label', 'Complete Repaired checkbox'));
+    const result = await scan(page, String(testInfo.config.metadata.appCommit));
+    expect(result.unexpected).toEqual([]);
+    expect(result.obsoleteExceptions).toHaveLength(1);
+    expect(() => expectClean(result)).toThrow('obsoleteExceptions');
   });
 
   test('toggle-all control has no detectable WCAG violations', async ({ todoPage, page }) => {
-    await allure.story('Toggle-all control');
-
     await todoPage.seedTodos(['Buy groceries', 'Walk the dog']);
-
-    const results = await new AxeBuilder({ page })
-      .include('.toggle-all')
-      .include('label[for="toggle-all"]')
-      .withTags(WCAG_TAGS)
-      .analyze();
-
-    expect(results.violations, describe(results.violations)).toEqual([]);
+    const results = await new AxeBuilder({ page }).include('.toggle-all')
+      .include('label[for="toggle-all"]').withTags(WCAG_TAGS).analyze();
+    expect(results.violations).toEqual([]);
   });
 });
-
-/** Renders violations as a readable failure message instead of a raw axe-core dump. */
-function describe(violations: Result[]): string {
-  return violations
-    .map((v) => `[${v.impact}] ${v.id}: ${v.help} (${v.nodes.length} node(s)) — ${v.helpUrl}`)
-    .join('\n');
-}

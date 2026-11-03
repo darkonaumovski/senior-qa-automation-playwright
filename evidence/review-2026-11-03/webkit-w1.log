@@ -1,0 +1,276 @@
+
+Running 9 tests using 1 worker
+
+
+(node:47144) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/9] [webkit] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding
+[2/9] [webkit] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos
+[3/9] [webkit] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items
+
+(node:54708) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[4/9] [webkit] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding
+  1) [webkit] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:8088/todo", waiting until "load"
+
+
+       at ..\pages\TodoPage.ts:51
+
+      49 |   /** Navigate and reset the list unless the caller explicitly preserves data. */
+      50 |   async goto({ clearData = true }: { clearData?: boolean } = {}): Promise<void> {
+    > 51 |     await this.page.goto('/todo');
+         |                     ^
+      52 |     await this.waitUntilReady();
+      53 |     if (clearData) {
+      54 |       await this.clearTodos();
+        at TodoPage.goto (E:\Automation Testing\senior-qa-automation-playwright\pages\TodoPage.ts:51:21)
+        at Object.todoPage (E:\Automation Testing\senior-qa-automation-playwright\tests\fixtures\todoFixtures.ts:39:20)
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-17daa-rage-untouched-when-seeding-webkit-repeat1\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-17daa-rage-untouched-when-seeding-webkit-repeat1\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-17daa-rage-untouched-when-seeding-webkit-repeat1\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-17daa-rage-untouched-when-seeding-webkit-repeat1\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-17daa-rage-untouched-when-seeding-webkit-repeat1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:41544) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[5/9] [webkit] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos
+  2) [webkit] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:8088/todo", waiting until "load"
+
+
+       at ..\pages\TodoPage.ts:51
+
+      49 |   /** Navigate and reset the list unless the caller explicitly preserves data. */
+      50 |   async goto({ clearData = true }: { clearData?: boolean } = {}): Promise<void> {
+    > 51 |     await this.page.goto('/todo');
+         |                     ^
+      52 |     await this.waitUntilReady();
+      53 |     if (clearData) {
+      54 |       await this.clearTodos();
+        at TodoPage.goto (E:\Automation Testing\senior-qa-automation-playwright\pages\TodoPage.ts:51:21)
+        at Object.todoPage (E:\Automation Testing\senior-qa-automation-playwright\tests\fixtures\todoFixtures.ts:39:20)
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-0ef13-ered-view-with-stored-todos-webkit-repeat1\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-0ef13-ered-view-with-stored-todos-webkit-repeat1\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-0ef13-ered-view-with-stored-todos-webkit-repeat1\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-0ef13-ered-view-with-stored-todos-webkit-repeat1\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-0ef13-ered-view-with-stored-todos-webkit-repeat1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:55392) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[6/9] [webkit] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items
+  3) [webkit] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:8088/todo", waiting until "load"
+
+
+       at ..\pages\TodoPage.ts:51
+
+      49 |   /** Navigate and reset the list unless the caller explicitly preserves data. */
+      50 |   async goto({ clearData = true }: { clearData?: boolean } = {}): Promise<void> {
+    > 51 |     await this.page.goto('/todo');
+         |                     ^
+      52 |     await this.waitUntilReady();
+      53 |     if (clearData) {
+      54 |       await this.clearTodos();
+        at TodoPage.goto (E:\Automation Testing\senior-qa-automation-playwright\pages\TodoPage.ts:51:21)
+        at Object.todoPage (E:\Automation Testing\senior-qa-automation-playwright\tests\fixtures\todoFixtures.ts:39:20)
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit-repeat1\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit-repeat1\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit-repeat1\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit-repeat1\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit-repeat1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+(node:27504) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[7/9] [webkit] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding
+  4) [webkit] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:8088/todo", waiting until "load"
+
+
+       at ..\pages\TodoPage.ts:51
+
+      49 |   /** Navigate and reset the list unless the caller explicitly preserves data. */
+      50 |   async goto({ clearData = true }: { clearData?: boolean } = {}): Promise<void> {
+    > 51 |     await this.page.goto('/todo');
+         |                     ^
+      52 |     await this.waitUntilReady();
+      53 |     if (clearData) {
+      54 |       await this.clearTodos();
+        at TodoPage.goto (E:\Automation Testing\senior-qa-automation-playwright\pages\TodoPage.ts:51:21)
+        at Object.todoPage (E:\Automation Testing\senior-qa-automation-playwright\tests\fixtures\todoFixtures.ts:39:20)
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-17daa-rage-untouched-when-seeding-webkit-repeat2\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-17daa-rage-untouched-when-seeding-webkit-repeat2\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-17daa-rage-untouched-when-seeding-webkit-repeat2\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-17daa-rage-untouched-when-seeding-webkit-repeat2\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-17daa-rage-untouched-when-seeding-webkit-repeat2\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:47704) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[8/9] [webkit] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos
+  5) [webkit] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:8088/todo", waiting until "load"
+
+
+       at ..\pages\TodoPage.ts:51
+
+      49 |   /** Navigate and reset the list unless the caller explicitly preserves data. */
+      50 |   async goto({ clearData = true }: { clearData?: boolean } = {}): Promise<void> {
+    > 51 |     await this.page.goto('/todo');
+         |                     ^
+      52 |     await this.waitUntilReady();
+      53 |     if (clearData) {
+      54 |       await this.clearTodos();
+        at TodoPage.goto (E:\Automation Testing\senior-qa-automation-playwright\pages\TodoPage.ts:51:21)
+        at Object.todoPage (E:\Automation Testing\senior-qa-automation-playwright\tests\fixtures\todoFixtures.ts:39:20)
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-0ef13-ered-view-with-stored-todos-webkit-repeat2\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-0ef13-ered-view-with-stored-todos-webkit-repeat2\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-0ef13-ered-view-with-stored-todos-webkit-repeat2\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-0ef13-ered-view-with-stored-todos-webkit-repeat2\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-0ef13-ered-view-with-stored-todos-webkit-repeat2\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:21304) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[9/9] [webkit] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items
+  6) [webkit] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items 
+
+    Error: page.goto: Could not connect to server
+    Call log:
+      - navigating to "http://localhost:8088/todo", waiting until "load"
+
+
+       at ..\pages\TodoPage.ts:51
+
+      49 |   /** Navigate and reset the list unless the caller explicitly preserves data. */
+      50 |   async goto({ clearData = true }: { clearData?: boolean } = {}): Promise<void> {
+    > 51 |     await this.page.goto('/todo');
+         |                     ^
+      52 |     await this.waitUntilReady();
+      53 |     if (clearData) {
+      54 |       await this.clearTodos();
+        at TodoPage.goto (E:\Automation Testing\senior-qa-automation-playwright\pages\TodoPage.ts:51:21)
+        at Object.todoPage (E:\Automation Testing\senior-qa-automation-playwright\tests\fixtures\todoFixtures.ts:39:20)
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit-repeat2\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit-repeat2\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit-repeat2\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit-repeat2\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\webkit-w1-artifacts\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit-repeat2\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  6 failed
+    [webkit] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding 
+    [webkit] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos 
+    [webkit] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items 
+    [webkit] › tests\todo\lifecycle.spec.ts:80:7 › Todo page lifecycle › Seeded lifecycle preconditions › should leave unrelated storage untouched when seeding 
+    [webkit] › tests\todo\lifecycle.spec.ts:102:7 › Todo page lifecycle › Seeded lifecycle preconditions › should reload an empty filtered view with stored todos 
+    [webkit] › tests\todo\lifecycle.spec.ts:113:7 › Todo page lifecycle › Seeded lifecycle preconditions › should seed todos while preserving a filter that hides some items 
+  3 passed (39.2s)

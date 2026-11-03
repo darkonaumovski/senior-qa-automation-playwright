@@ -1,11 +1,27 @@
 # Quality Findings – ToDo Application
 
-Every finding below was verified twice: against the application source and against an
-executed assertion. Where a finding was withdrawn, the withdrawal is recorded rather than
-deleted, so reviewers can see what was checked.
+Current product findings distinguish source-confirmed behavior from host observations.
+Verification evidence and unresolved causes are stated explicitly. Historical findings
+and withdrawals are retained so reviewers can see what was checked.
 
 Application under test: [cypress-example-kitchensink](https://github.com/cypress-io/cypress-example-kitchensink),
 `app/assets/js/todo/`.
+
+---
+
+## Current verification — 3 November 2026
+
+The historical findings below are retained. Current dependency counts and remediation scope are in [DEPENDENCY_AUDIT.md](DEPENDENCY_AUDIT.md); execution outcomes and score are in [QA_AUTOMATION_REVIEW.md](QA_AUTOMATION_REVIEW.md).
+
+- **UPSTREAM-A11Y-EDIT:** the visible inline editor has no accessible name. It is independent of the unnamed per-row checkboxes. Axe's label rule now remains active; only individual checkbox nodes on the affected revision are excepted. Injected unnamed inputs fail the same gate, and repaired exceptions are flagged obsolete.
+- **UPSTREAM-KEYBOARD-FOCUS:** the new-todo field removes its outline. Focused per-row checkboxes are transparent and have no visible label focus proxy. Reproductions use actual Tab events and inspect the focused control's outline/opacity and proxy outline.
+- **UPSTREAM-KEYBOARD-ACCESS:** row edit needs a pointer double-click. The destroy button remains display:none without hover and does not enter the Tab order. A bounded traversal records the actual focused elements; this check does not force focus or hover.
+- **Upstream route issue #7:** a fresh /todo#/unknown load can throw before sample initialization; adding writes one stored record without rendering it. All is the specified fallback. The check verifies saved data and unexpected errors separately before the narrowly scoped known-defect assertion, then records view/rows/errors before and after reload.
+
+- **WINDOWS-WEBKIT-KEYBOARD:** on this Windows WebKit build, both Tab and Option-Tab cycle through input controls and skip filter links. This is recorded as a host/engine limitation, separate from TodoMVC product defects. The journey adds and completes a record before probing navigation; unrelated assertions run before the final expected failure. Focus-order probes are retained under evidence/review-2026-11-03/. Safari on Mac documents Option-Tab for links; this Windows observation is not a claim about Safari on macOS.
+- **UPSTREAM-FIREFOX-REPEATED-ENTER:** two consecutive identical titles typed with real keyboard events and committed with Enter produced one record on Firefox. The app binds new-todo creation to change, not keydown. An intervening blur did not resolve the reproduced case. The persistence scenario creates two distinct titles through the UI, edits the second into a duplicate, then performs the identity-sensitive edit/delete/reload assertions. This preserves the intended write-path coverage; a dedicated Firefox- and revision-scoped known-defect test now retains the submission defect, using real keyboard typing and recording DOM, storage and input value.
+
+Known-defect markers apply only to the exact reviewed revision. They flag an unexpected pass when a fix makes the expectation obsolete. The suite does not claim to fix the external application.
 
 ---
 

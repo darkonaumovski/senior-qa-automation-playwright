@@ -1,0 +1,56 @@
+{
+  "stats": {
+    "startTime": "2026-11-03T18:20:15.417Z",
+    "duration": 677105.231,
+    "expected": 172,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  },
+  "browsers": {
+    "chromium": {
+      "expected": 58,
+      "unexpected": 0,
+      "skipped": 0,
+      "flaky": 0
+    },
+    "firefox": {
+      "expected": 58,
+      "unexpected": 0,
+      "skipped": 0,
+      "flaky": 0
+    },
+    "webkit": {
+      "expected": 56,
+      "unexpected": 2,
+      "skipped": 0,
+      "flaky": 0
+    }
+  },
+  "failures": [
+    {
+      "title": "base todo list view has no detectable WCAG violations",
+      "browser": "webkit",
+      "status": "unexpected",
+      "attempts": [
+        {
+          "status": "timedOut",
+          "duration": 38086,
+          "error": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+        }
+      ]
+    },
+    {
+      "title": "inline-editing state has no detectable WCAG violations",
+      "browser": "webkit",
+      "status": "unexpected",
+      "attempts": [
+        {
+          "status": "timedOut",
+          "duration": 38342,
+          "error": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+        }
+      ]
+    }
+  ]
+}

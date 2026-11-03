@@ -27,6 +27,7 @@ done
 echo "==> Application is ready (waited ${waited}s)."
 
 export TODO_BASE_URL="http://localhost:8080"
+export APP_REVISION_FILE="${APP_DIR}/.qa-revision"
 
 cd /workspace
 # `set -e` would abort here on a non-zero exit, so capture the code explicitly

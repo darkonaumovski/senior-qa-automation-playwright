@@ -20,9 +20,9 @@ a second page arrives; it is not a claim that layering is wrong in general.
 
 ## The page object
 
-`pages/TodoPage.ts` owns every selector. Specs never touch the DOM, so a markup
-change has one place to be fixed, and a spec reads as a description of behaviour
-rather than a sequence of clicks.
+`pages/TodoPage.ts` centralizes reusable UI selectors and operations. Focused
+accessibility, storage and route-reproduction checks inspect the DOM directly
+when that is the behavior or diagnostic evidence under test.
 
 It exposes three kinds of member, and the distinction matters more than it
 looks:
@@ -90,102 +90,28 @@ applies the shared labels. Feature names are per-spec configuration; the
 reporting lifecycle is shared, so it lives in one place instead of being
 repeated as hooks in every spec file.
 
-## Accessibility and CSS-state coverage
+## Accessibility and CSS state
 
-`tests/a11y/a11y.spec.ts` runs `@axe-core/playwright` against the three
-surfaces `TEST_APPROACH.md` names as the top untested risk: the base list, the
-inline-editing state, and the toggle-all control. It's scoped to
-`wcag2a`/`wcag2aa`/`wcag21aa` rather than axe's full default rule set, because
-axe's "best practice" rules (`landmark-one-main`, `region`) are opinionated
-recommendations beyond WCAG conformance, and folding them into an automated
-gate would make a failure mean "doesn't match axe's house style" as often as
-"violates a standard" — noise that erodes trust in the gate over time.
+Axe scans the base list, inline editor and toggle-all surfaces with the label rule active. Only individual visible todo checkbox nodes on the exact affected revision are excepted. Unexpected nodes retain full diagnostics; a repaired checkbox flags an obsolete exception. The unnamed editor has its own narrowly scoped expected-failure assertion. Keyboard checks cover real Tab/Space/Enter interaction and visible filter-link focus; separate known-defect checks retain missing focus and unreachable edit/delete evidence.
 
-The scan found a real defect: every `.toggle` checkbox has no accessible name
-(WCAG 4.1.2, critical — Finding #5 in `FINDINGS.md`). The `label` rule is
-excluded by name with a comment pointing at that finding, the same reasoning
-`filter.spec.ts` already uses for issue #7: a failing test in an otherwise
-green suite obscures a known defect rather than documenting it. The exclusion
-is deliberately the thing to delete once the app is fixed — its removal is the
-regression test.
-
-Two more affordances are covered without pixel screenshots. `TodoPage`'s
-`expectToggleAllChevronColor()` and `expectDestroyButtonHoverColor()` read
-computed CSS color values — the `::before` pseudo-element's `:checked` state
-and the destroy button's `:hover` state — because these are the two
-"realistic candidates" `TEST_APPROACH.md` names for CSS breakage that would
-leave the DOM, and every other assertion in this suite, unaffected. A
-computed-style comparison catches exactly that regression and is
-OS-independent, unlike a pixel diff. True screenshot-based visual regression
-was considered and rejected for now: Playwright's own guidance is that a
-snapshot baseline needs to be captured in the same environment it's verified
-in, and there was no Linux environment available here to generate one that
-would actually match `ubuntu-latest` CI rather than fail on first run.
+Computed CSS assertions cover the toggle-all chevron, destroy-button hover, and completed versus active label decoration and color. General pixel comparisons remain deferred.
 
 ## Reliability
 
-`fullyParallel` with a fresh context per test. CI runs 4 workers with 2 retries;
-retries exist to keep pull requests usable, which is also why they cannot be the
-only evidence of stability — `.github/workflows/flake-detection.yml` repeats
-every test three times with `--retries=0` on a schedule, where a merely-usually-
-passing test fails instead of being rescued.
+Playwright uses fresh contexts and fully parallel scenarios. CI runs one worker per shard with two diagnostic retries. The reporter lists retry recoveries and retains first-attempt failure artifacts. Nightly execution is retry-free, with validated 1–10 repeats. Headed local execution explicitly uses one worker.
 
-Firefox on Windows needs `MOZ_DISABLE_CONTENT_SANDBOX` and
-`MOZ_DISABLE_GMP_SANDBOX`. The subtlety is that `launchOptions.env` *replaces*
-the browser environment rather than extending it, so passing only those two
-variables strips `SystemRoot`, `TEMP` and `APPDATA` and produces graphics
-failures that look like flake. `playwright.config.ts` spreads `process.env` back
-in and scopes the whole workaround to `win32`: weakening sandboxing on Linux CI
-would buy nothing. A 171-execution repro attempt at full parallelism on a
-Windows host (see item 7 in `TEST_APPROACH.md`) did not reproduce the original
-graphics failure, which is evidence the workaround isn't currently masking a
-live problem, not proof the host-specific cause is gone — the workaround stays.
+The Windows Firefox sandbox workaround requires FIREFOX_WINDOWS_SANDBOX_WORKAROUND=1. It preserves the host environment and never applies to Linux or macOS. A past graphics failure is not proof that sandbox disabling fixes that host problem. Review runs use normal settings and record outcomes honestly.
 
-The application under test is pinned by commit in the workflow and both
-Dockerfiles. Testing an unpinned upstream means a red build cannot be attributed
-to either the suite or the application.
+The app pin lives in .app-commit. Runtime provenance is checked separately: a local operator identifies the clean checkout actually serving the URL, the combined entrypoint reads its baked revision, and Compose fetches the independent service's revision. Unverified remote targets report unknown.
 
-WebKit is a third `playwright.config.ts` project alongside Chromium and
-Firefox. This suite previously judged it low-value (roughly 50% more CI time
-for an app with no known WebKit-specific behavior) and deferred it; the
-judgment on value hasn't changed, but broader browser confidence was decided
-to be worth the CI minutes.
+## CI and reporting
 
-## CI structure
+Two native browser shards upload separate artifact trees. Their manifests include expected Playwright IDs and every attempt; raw Allure results carry the same IDs. The report job validates both shard identities and the exact inventory before merging or publishing. Complete failing runs publish. Missing, interrupted, skipped or contaminated evidence blocks publication and retains the previous complete report.
 
-`.github/workflows/playwright.yml`'s `test` job runs as a 2-way `--shard`
-matrix rather than one job, so wall-clock time scales with runner count
-instead of purely with in-job worker count. Report generation and the
-GitHub Pages deploy moved to a separate `report` job that downloads both
-shards' raw Allure results (`actions/download-artifact` with
-`merge-multiple: true`) and generates one report from the combined set —
-matrix steps run once per shard, but a report and a deploy each need to run
-exactly once, against everything.
+Every test invocation gets a unique .runs/<id>/allure-results directory. Static category configuration lives in reporting/ and category names describe triage hints. The report generator selects one validated run. It never reads legacy allure-results files.
 
-The `docker` job runs `docker-entrypoint.sh` with `--grep @smoke
---project=chromium` instead of the full suite. Its job is to prove the image
-and entrypoint work end to end — the app starts inside the container, the
-script waits for it, and the suite's exit code propagates correctly — not to
-re-prove cross-browser coverage the `test` job already ran natively;
-running the whole suite a second time here was pure doubled CI cost for no
-additional signal. `docker-entrypoint.sh` forwards any args it's given to
-`playwright test` and only falls back to the full `npm test` when called with
-none, so `docker run --rm todo-playwright` (as `README.md` documents for
-standalone use) is unaffected.
-
-`@smoke` tags the Priority 1/2 tests from `TEST_APPROACH.md` (core CRUD and
-filtering) via Playwright's `test(..., { tag: '@smoke' }, ...)`. `npm run
-test:smoke` runs just that subset for fast local feedback, and it's the same
-tag the `docker` job filters on.
+The Docker job runs Chromium smoke through both the combined image and separate Compose service, checks health/networking and artifact mounts, deliberately fails a browser assertion to prove exit-code propagation, and checks default and overridden revision attribution. Actual execution evidence and remaining host limitations are recorded in QA_AUTOMATION_REVIEW.md.
 
 ## Validation
 
-```bash
-npm run typecheck
-npm test                    # app running at TODO_BASE_URL, default :8080
-npm run test:repeat         # each test three times, retries disabled
-npm run test:docker         # build the image and run the suite inside it
-```
-
-CI enforces the first, second and fourth of these on every pull request; the
-third runs nightly.
+Run npm run typecheck, npm run lint, npm run test:harness, then the browser matrix with the actual app running. Use npm run test:repeat for retries-disabled repetition and npm run test:docker for the separate service topology. See README.md for exact setup and container commands.

@@ -1,0 +1,39 @@
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+
+Running 28 tests using 1 worker
+
+
+(node:54152) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+warning: unable to access 'C:\Users\Darko i Zarko/.config/git/ignore': Permission denied
+[1/28] [chromium] › tests\a11y\a11y.spec.ts:37:7 › Accessibility › base todo list view has no unexpected WCAG violations @smoke
+[2/28] [chromium] › tests\a11y\a11y.spec.ts:42:7 › Accessibility › known product defect: inline editor needs an accessible name
+[3/28] [chromium] › tests\a11y\a11y.spec.ts:55:7 › Accessibility › accessibility gate rejects an additional unnamed input
+[4/28] [chromium] › tests\a11y\a11y.spec.ts:67:7 › Accessibility › accessibility gate flags a repaired checkbox exception as obsolete
+[5/28] [chromium] › tests\a11y\a11y.spec.ts:75:7 › Accessibility › toggle-all control has no detectable WCAG violations
+[6/28] [chromium] › tests\a11y\keyboard.spec.ts:16:7 › Keyboard interaction › keyboard journey adds, completes and filters a todo with visible link focus
+[7/28] [chromium] › tests\a11y\keyboard.spec.ts:36:7 › Keyboard interaction › known product defect: input and checkbox need visible keyboard focus
+[8/28] [chromium] › tests\a11y\keyboard.spec.ts:50:7 › Keyboard interaction › known product defect: row edit and delete controls need keyboard access
+[9/28] [chromium] › tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke
+[10/28] [chromium] › tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke
+[11/28] [chromium] › tests\todo\complete.spec.ts:49:7 › Complete todo › should update item count when todos are completed
+[12/28] [chromium] › tests\todo\complete.spec.ts:66:7 › Complete todo › should visually distinguish completed todos from active ones
+[13/28] [chromium] › tests\todo\complete.spec.ts:87:7 › Complete todo › should show 0 items left when all todos are completed
+[14/28] [chromium] › tests\todo\complete.spec.ts:104:7 › Complete todo › should synchronize the bulk checkbox after individual toggles
+[15/28] [chromium] › tests\todo\filter.spec.ts:5:5 › known product defect: unknown hash must fall back to All without losing writes
+[16/28] [chromium] › tests\todo\filter.spec.ts:41:9 › Filter todos › should add an active todo while the active filter is selected
+[17/28] [chromium] › tests\todo\filter.spec.ts:41:9 › Filter todos › should add an active todo while the completed filter is selected
+[18/28] [chromium] › tests\todo\filter.spec.ts:56:7 › Filter todos › should show all todos when the "All" filter is active @smoke
+[19/28] [chromium] › tests\todo\filter.spec.ts:77:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke
+[20/28] [chromium] › tests\todo\filter.spec.ts:99:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke
+[21/28] [chromium] › tests\todo\filter.spec.ts:125:7 › Filter todos › should update the Active view in real-time when a visible todo is completed
+[22/28] [chromium] › tests\todo\filter.spec.ts:146:7 › Filter todos › should reflect the selected filter in the URL hash @smoke
+[23/28] [chromium] › tests\todo\filter.spec.ts:169:7 › Filter todos › should show zero todos in Active filter when all are completed
+[24/28] [chromium] › tests\todo\filter.spec.ts:188:7 › Filter todos › should show zero todos in Completed filter when none are completed
+[25/28] [chromium] › tests\todo\persistence.spec.ts:8:7 › Persistence › should preserve record identity when editing and deleting duplicate titles
+[26/28] [chromium] › tests\todo\persistence.spec.ts:26:7 › Persistence › should persist todos across a page reload
+[27/28] [chromium] › tests\todo\persistence.spec.ts:45:7 › Persistence › should persist the completed state of todos across a page reload
+[28/28] [chromium] › tests\todo\persistence.spec.ts:67:7 › Persistence › should persist the active filter selection across a page reload
+  28 passed (2.0m)

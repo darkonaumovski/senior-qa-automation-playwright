@@ -1,0 +1,11 @@
+{
+  "source": "serve process stderr, exec session 44383",
+  "error": {
+    "code": "EMFILE",
+    "errno": -4066,
+    "syscall": "open",
+    "path": "kitchensink/app/assets/js/todo/app.js"
+  },
+  "effect": "Process exited 1 during WebKit repetitions; subsequent page.goto calls could not connect",
+  "attribution": "Observed serving-process failure after extended local execution; no advisory exploit or underlying handle-leak cause established"
+}

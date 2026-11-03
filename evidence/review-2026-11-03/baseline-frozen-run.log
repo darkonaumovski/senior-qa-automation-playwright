@@ -1,0 +1,275 @@
+
+Running 174 tests using 2 workers
+
+
+
+(node:54212) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+(node:28000) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/174] [chromium] › .runs\baseline-checkout\tests\a11y\a11y.spec.ts:35:7 › Accessibility › base todo list view has no detectable WCAG violations @smoke
+[2/174] [chromium] › .runs\baseline-checkout\tests\a11y\a11y.spec.ts:48:7 › Accessibility › inline-editing state has no detectable WCAG violations
+[3/174] [chromium] › .runs\baseline-checkout\tests\a11y\a11y.spec.ts:62:7 › Accessibility › toggle-all control has no detectable WCAG violations
+[4/174] [chromium] › .runs\baseline-checkout\tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke
+[5/174] [chromium] › .runs\baseline-checkout\tests\todo\add.spec.ts:24:7 › Add todo › should add multiple todo items @smoke
+[6/174] [chromium] › .runs\baseline-checkout\tests\todo\add.spec.ts:45:7 › Add todo › should not add an empty todo when Enter is pressed on blank input
+[7/174] [chromium] › .runs\baseline-checkout\tests\todo\add.spec.ts:58:7 › Add todo › should not add a todo containing only whitespace
+[8/174] [chromium] › .runs\baseline-checkout\tests\todo\add.spec.ts:71:7 › Add todo › should trim leading and trailing whitespace from todo text
+[9/174] [chromium] › .runs\baseline-checkout\tests\todo\add.spec.ts:87:7 › Add todo › should handle special characters in todo text
+[10/174] [chromium] › .runs\baseline-checkout\tests\todo\add.spec.ts:102:7 › Add todo › should clear input field after adding a todo
+[11/174] [chromium] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:9:7 › Bulk actions › should mark all todos as complete using toggle-all
+[12/174] [chromium] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:31:7 › Bulk actions › should recolor the toggle-all chevron when all todos become complete
+[13/174] [chromium] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:51:7 › Bulk actions › should unmark all todos when toggle-all is clicked while all are completed
+[14/174] [chromium] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:75:7 › Bulk actions › should complete remaining active todos when toggle-all is used with mixed state
+[15/174] [chromium] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:97:7 › Bulk actions › should remove all completed todos via "Clear completed"
+[16/174] [chromium] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:118:7 › Bulk actions › should not show "Clear completed" button when no todos are completed
+[17/174] [chromium] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:130:7 › Bulk actions › should show "Clear completed" once a todo is completed
+[18/174] [chromium] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:150:7 › Bulk actions › should hide "Clear completed" again once all completed todos are cleared
+[19/174] [chromium] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:170:7 › Bulk actions › should update item count correctly after clearing completed todos
+[20/174] [chromium] › .runs\baseline-checkout\tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke
+[21/174] [chromium] › .runs\baseline-checkout\tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke
+[22/174] [chromium] › .runs\baseline-checkout\tests\todo\complete.spec.ts:49:7 › Complete todo › should update item count when todos are completed
+[23/174] [chromium] › .runs\baseline-checkout\tests\todo\complete.spec.ts:66:7 › Complete todo › should visually distinguish completed todos from active ones
+[24/174] [chromium] › .runs\baseline-checkout\tests\todo\complete.spec.ts:83:7 › Complete todo › should show 0 items left when all todos are completed
+[25/174] [chromium] › .runs\baseline-checkout\tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke
+[26/174] [chromium] › .runs\baseline-checkout\tests\todo\delete.spec.ts:29:7 › Delete todo › should delete one todo from a list of many
+[27/174] [chromium] › .runs\baseline-checkout\tests\todo\delete.spec.ts:47:7 › Delete todo › should delete a completed todo
+[28/174] [chromium] › .runs\baseline-checkout\tests\todo\delete.spec.ts:63:7 › Delete todo › should show destroy button only on hover
+[29/174] [chromium] › .runs\baseline-checkout\tests\todo\delete.spec.ts:81:7 › Delete todo › should recolor the destroy button on hover
+[30/174] [chromium] › .runs\baseline-checkout\tests\todo\delete.spec.ts:93:7 › Delete todo › should delete all todos one by one and empty the list
+[31/174] [chromium] › .runs\baseline-checkout\tests\todo\edit.spec.ts:9:7 › Edit todo › should enter edit mode when double-clicking a todo label
+[32/174] [chromium] › .runs\baseline-checkout\tests\todo\edit.spec.ts:30:7 › Edit todo › should save edited text when pressing Enter
+[33/174] [chromium] › .runs\baseline-checkout\tests\todo\edit.spec.ts:50:7 › Edit todo › should save edited text when focus leaves the input (blur)
+[34/174] [chromium] › .runs\baseline-checkout\tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape
+[35/174] [chromium] › .runs\baseline-checkout\tests\todo\edit.spec.ts:89:7 › Edit todo › should delete a todo when its edited text is cleared and Enter is pressed
+[36/174] [chromium] › .runs\baseline-checkout\tests\todo\edit.spec.ts:106:7 › Edit todo › should trim whitespace when saving an edited todo
+[37/174] [chromium] › .runs\baseline-checkout\tests\todo\filter.spec.ts:9:7 › Filter todos › should show all todos when the "All" filter is active @smoke
+[38/174] [chromium] › .runs\baseline-checkout\tests\todo\filter.spec.ts:30:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke
+[39/174] [chromium] › .runs\baseline-checkout\tests\todo\filter.spec.ts:52:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke
+[40/174] [chromium] › .runs\baseline-checkout\tests\todo\filter.spec.ts:78:7 › Filter todos › should update the Active view in real-time when a visible todo is completed
+[41/174] [chromium] › .runs\baseline-checkout\tests\todo\filter.spec.ts:99:7 › Filter todos › should reflect the selected filter in the URL hash @smoke
+[42/174] [chromium] › .runs\baseline-checkout\tests\todo\filter.spec.ts:122:7 › Filter todos › should show zero todos in Active filter when all are completed
+[43/174] [chromium] › .runs\baseline-checkout\tests\todo\filter.spec.ts:141:7 › Filter todos › should show zero todos in Completed filter when none are completed
+[44/174] [chromium] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:7:7 › Todo page lifecycle › should preserve todos on navigation when cleanup is disabled
+[45/174] [chromium] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:20:7 › Todo page lifecycle › should reset existing todos without clearing unrelated storage
+[46/174] [chromium] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:33:7 › Todo page lifecycle › should clear todos hidden by an empty filtered view
+[47/174] [chromium] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:47:7 › Todo page lifecycle › should clear the All view without clicking its already selected filter
+[48/174] [chromium] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:66:7 › Todo page lifecycle › should start from seeded data instead of the application sample todos
+[49/174] [chromium] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:77:7 › Todo page lifecycle › should leave unrelated storage untouched when seeding
+[50/174] [chromium] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:87:9 › Todo page lifecycle › should reload mixed todos in the active view
+[51/174] [chromium] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:87:9 › Todo page lifecycle › should reload mixed todos in the completed view
+[52/174] [chromium] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:99:7 › Todo page lifecycle › should reload an empty filtered view with stored todos
+[53/174] [chromium] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:110:7 › Todo page lifecycle › should seed todos while preserving a filter that hides some items
+[54/174] [chromium] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:122:7 › Todo page lifecycle › should reject seeding an empty list, which the application cannot hold
+[55/174] [chromium] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:128:7 › Todo page lifecycle › should allow normal application seeding after storage is removed
+[56/174] [chromium] › .runs\baseline-checkout\tests\todo\persistence.spec.ts:8:7 › Persistence › should persist todos across a page reload
+[57/174] [chromium] › .runs\baseline-checkout\tests\todo\persistence.spec.ts:27:7 › Persistence › should persist the completed state of todos across a page reload
+[58/174] [chromium] › .runs\baseline-checkout\tests\todo\persistence.spec.ts:49:7 › Persistence › should persist the active filter selection across a page reload
+
+
+(node:53516) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+(node:55412) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[59/174] [firefox] › .runs\baseline-checkout\tests\a11y\a11y.spec.ts:35:7 › Accessibility › base todo list view has no detectable WCAG violations @smoke
+[60/174] [firefox] › .runs\baseline-checkout\tests\a11y\a11y.spec.ts:48:7 › Accessibility › inline-editing state has no detectable WCAG violations
+[61/174] [firefox] › .runs\baseline-checkout\tests\a11y\a11y.spec.ts:62:7 › Accessibility › toggle-all control has no detectable WCAG violations
+[62/174] [firefox] › .runs\baseline-checkout\tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke
+[63/174] [firefox] › .runs\baseline-checkout\tests\todo\add.spec.ts:24:7 › Add todo › should add multiple todo items @smoke
+[64/174] [firefox] › .runs\baseline-checkout\tests\todo\add.spec.ts:45:7 › Add todo › should not add an empty todo when Enter is pressed on blank input
+[65/174] [firefox] › .runs\baseline-checkout\tests\todo\add.spec.ts:58:7 › Add todo › should not add a todo containing only whitespace
+[66/174] [firefox] › .runs\baseline-checkout\tests\todo\add.spec.ts:71:7 › Add todo › should trim leading and trailing whitespace from todo text
+[67/174] [firefox] › .runs\baseline-checkout\tests\todo\add.spec.ts:87:7 › Add todo › should handle special characters in todo text
+[68/174] [firefox] › .runs\baseline-checkout\tests\todo\add.spec.ts:102:7 › Add todo › should clear input field after adding a todo
+[69/174] [firefox] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:9:7 › Bulk actions › should mark all todos as complete using toggle-all
+[70/174] [firefox] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:31:7 › Bulk actions › should recolor the toggle-all chevron when all todos become complete
+[71/174] [firefox] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:51:7 › Bulk actions › should unmark all todos when toggle-all is clicked while all are completed
+[72/174] [firefox] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:75:7 › Bulk actions › should complete remaining active todos when toggle-all is used with mixed state
+[73/174] [firefox] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:97:7 › Bulk actions › should remove all completed todos via "Clear completed"
+[74/174] [firefox] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:118:7 › Bulk actions › should not show "Clear completed" button when no todos are completed
+[75/174] [firefox] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:130:7 › Bulk actions › should show "Clear completed" once a todo is completed
+[76/174] [firefox] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:150:7 › Bulk actions › should hide "Clear completed" again once all completed todos are cleared
+[77/174] [firefox] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:170:7 › Bulk actions › should update item count correctly after clearing completed todos
+[78/174] [firefox] › .runs\baseline-checkout\tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke
+[79/174] [firefox] › .runs\baseline-checkout\tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke
+[80/174] [firefox] › .runs\baseline-checkout\tests\todo\complete.spec.ts:49:7 › Complete todo › should update item count when todos are completed
+[81/174] [firefox] › .runs\baseline-checkout\tests\todo\complete.spec.ts:66:7 › Complete todo › should visually distinguish completed todos from active ones
+[82/174] [firefox] › .runs\baseline-checkout\tests\todo\complete.spec.ts:83:7 › Complete todo › should show 0 items left when all todos are completed
+[83/174] [firefox] › .runs\baseline-checkout\tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke
+[84/174] [firefox] › .runs\baseline-checkout\tests\todo\delete.spec.ts:29:7 › Delete todo › should delete one todo from a list of many
+[85/174] [firefox] › .runs\baseline-checkout\tests\todo\delete.spec.ts:47:7 › Delete todo › should delete a completed todo
+[86/174] [firefox] › .runs\baseline-checkout\tests\todo\delete.spec.ts:63:7 › Delete todo › should show destroy button only on hover
+[87/174] [firefox] › .runs\baseline-checkout\tests\todo\delete.spec.ts:81:7 › Delete todo › should recolor the destroy button on hover
+[88/174] [firefox] › .runs\baseline-checkout\tests\todo\delete.spec.ts:93:7 › Delete todo › should delete all todos one by one and empty the list
+[89/174] [firefox] › .runs\baseline-checkout\tests\todo\edit.spec.ts:9:7 › Edit todo › should enter edit mode when double-clicking a todo label
+[90/174] [firefox] › .runs\baseline-checkout\tests\todo\edit.spec.ts:30:7 › Edit todo › should save edited text when pressing Enter
+[91/174] [firefox] › .runs\baseline-checkout\tests\todo\edit.spec.ts:50:7 › Edit todo › should save edited text when focus leaves the input (blur)
+[92/174] [firefox] › .runs\baseline-checkout\tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape
+[93/174] [firefox] › .runs\baseline-checkout\tests\todo\edit.spec.ts:89:7 › Edit todo › should delete a todo when its edited text is cleared and Enter is pressed
+[94/174] [firefox] › .runs\baseline-checkout\tests\todo\edit.spec.ts:106:7 › Edit todo › should trim whitespace when saving an edited todo
+[95/174] [firefox] › .runs\baseline-checkout\tests\todo\filter.spec.ts:9:7 › Filter todos › should show all todos when the "All" filter is active @smoke
+[96/174] [firefox] › .runs\baseline-checkout\tests\todo\filter.spec.ts:30:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke
+[97/174] [firefox] › .runs\baseline-checkout\tests\todo\filter.spec.ts:52:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke
+[98/174] [firefox] › .runs\baseline-checkout\tests\todo\filter.spec.ts:78:7 › Filter todos › should update the Active view in real-time when a visible todo is completed
+[99/174] [firefox] › .runs\baseline-checkout\tests\todo\filter.spec.ts:99:7 › Filter todos › should reflect the selected filter in the URL hash @smoke
+[100/174] [firefox] › .runs\baseline-checkout\tests\todo\filter.spec.ts:122:7 › Filter todos › should show zero todos in Active filter when all are completed
+[101/174] [firefox] › .runs\baseline-checkout\tests\todo\filter.spec.ts:141:7 › Filter todos › should show zero todos in Completed filter when none are completed
+[102/174] [firefox] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:7:7 › Todo page lifecycle › should preserve todos on navigation when cleanup is disabled
+[103/174] [firefox] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:20:7 › Todo page lifecycle › should reset existing todos without clearing unrelated storage
+[104/174] [firefox] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:33:7 › Todo page lifecycle › should clear todos hidden by an empty filtered view
+[105/174] [firefox] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:47:7 › Todo page lifecycle › should clear the All view without clicking its already selected filter
+[106/174] [firefox] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:66:7 › Todo page lifecycle › should start from seeded data instead of the application sample todos
+[107/174] [firefox] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:77:7 › Todo page lifecycle › should leave unrelated storage untouched when seeding
+[108/174] [firefox] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:87:9 › Todo page lifecycle › should reload mixed todos in the active view
+[109/174] [firefox] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:87:9 › Todo page lifecycle › should reload mixed todos in the completed view
+[110/174] [firefox] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:99:7 › Todo page lifecycle › should reload an empty filtered view with stored todos
+[111/174] [firefox] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:110:7 › Todo page lifecycle › should seed todos while preserving a filter that hides some items
+[112/174] [firefox] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:122:7 › Todo page lifecycle › should reject seeding an empty list, which the application cannot hold
+[113/174] [firefox] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:128:7 › Todo page lifecycle › should allow normal application seeding after storage is removed
+[114/174] [firefox] › .runs\baseline-checkout\tests\todo\persistence.spec.ts:8:7 › Persistence › should persist todos across a page reload
+[115/174] [firefox] › .runs\baseline-checkout\tests\todo\persistence.spec.ts:27:7 › Persistence › should persist the completed state of todos across a page reload
+[116/174] [firefox] › .runs\baseline-checkout\tests\todo\persistence.spec.ts:49:7 › Persistence › should persist the active filter selection across a page reload
+
+
+(node:55260) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[117/174] [webkit] › .runs\baseline-checkout\tests\a11y\a11y.spec.ts:35:7 › Accessibility › base todo list view has no detectable WCAG violations @smoke
+(node:35620) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[118/174] [webkit] › .runs\baseline-checkout\tests\a11y\a11y.spec.ts:48:7 › Accessibility › inline-editing state has no detectable WCAG violations
+  1) [webkit] › .runs\baseline-checkout\tests\a11y\a11y.spec.ts:35:7 › Accessibility › base todo list view has no detectable WCAG violations @smoke 
+
+    Test timeout of 30000ms exceeded.
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-frozen-artifacts\a11y-a11y-Accessibility-ba-0d754--detectable-WCAG-violations-webkit\test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-frozen-artifacts\a11y-a11y-Accessibility-ba-0d754--detectable-WCAG-violations-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #7: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-frozen-artifacts\a11y-a11y-Accessibility-ba-0d754--detectable-WCAG-violations-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #8: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-frozen-artifacts\a11y-a11y-Accessibility-ba-0d754--detectable-WCAG-violations-webkit\video-1.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\baseline-frozen-artifacts\a11y-a11y-Accessibility-ba-0d754--detectable-WCAG-violations-webkit\error-context.md
+
+    attachment #10: trace (application/zip) ────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-frozen-artifacts\a11y-a11y-Accessibility-ba-0d754--detectable-WCAG-violations-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\baseline-frozen-artifacts\a11y-a11y-Accessibility-ba-0d754--detectable-WCAG-violations-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  2) [webkit] › .runs\baseline-checkout\tests\a11y\a11y.spec.ts:48:7 › Accessibility › inline-editing state has no detectable WCAG violations 
+
+    Test timeout of 30000ms exceeded.
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-frozen-artifacts\a11y-a11y-Accessibility-in-55250--detectable-WCAG-violations-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-frozen-artifacts\a11y-a11y-Accessibility-in-55250--detectable-WCAG-violations-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #7: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-frozen-artifacts\a11y-a11y-Accessibility-in-55250--detectable-WCAG-violations-webkit\video-1.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #8: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-frozen-artifacts\a11y-a11y-Accessibility-in-55250--detectable-WCAG-violations-webkit\test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\baseline-frozen-artifacts\a11y-a11y-Accessibility-in-55250--detectable-WCAG-violations-webkit\error-context.md
+
+    attachment #10: trace (application/zip) ────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-frozen-artifacts\a11y-a11y-Accessibility-in-55250--detectable-WCAG-violations-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\baseline-frozen-artifacts\a11y-a11y-Accessibility-in-55250--detectable-WCAG-violations-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+(node:42620) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[119/174] [webkit] › .runs\baseline-checkout\tests\a11y\a11y.spec.ts:62:7 › Accessibility › toggle-all control has no detectable WCAG violations
+
+(node:42060) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[120/174] [webkit] › .runs\baseline-checkout\tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke
+[121/174] [webkit] › .runs\baseline-checkout\tests\todo\add.spec.ts:24:7 › Add todo › should add multiple todo items @smoke
+[122/174] [webkit] › .runs\baseline-checkout\tests\todo\add.spec.ts:45:7 › Add todo › should not add an empty todo when Enter is pressed on blank input
+[123/174] [webkit] › .runs\baseline-checkout\tests\todo\add.spec.ts:58:7 › Add todo › should not add a todo containing only whitespace
+[124/174] [webkit] › .runs\baseline-checkout\tests\todo\add.spec.ts:71:7 › Add todo › should trim leading and trailing whitespace from todo text
+[125/174] [webkit] › .runs\baseline-checkout\tests\todo\add.spec.ts:87:7 › Add todo › should handle special characters in todo text
+[126/174] [webkit] › .runs\baseline-checkout\tests\todo\add.spec.ts:102:7 › Add todo › should clear input field after adding a todo
+[127/174] [webkit] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:9:7 › Bulk actions › should mark all todos as complete using toggle-all
+[128/174] [webkit] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:31:7 › Bulk actions › should recolor the toggle-all chevron when all todos become complete
+[129/174] [webkit] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:51:7 › Bulk actions › should unmark all todos when toggle-all is clicked while all are completed
+[130/174] [webkit] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:75:7 › Bulk actions › should complete remaining active todos when toggle-all is used with mixed state
+[131/174] [webkit] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:97:7 › Bulk actions › should remove all completed todos via "Clear completed"
+[132/174] [webkit] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:118:7 › Bulk actions › should not show "Clear completed" button when no todos are completed
+[133/174] [webkit] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:130:7 › Bulk actions › should show "Clear completed" once a todo is completed
+[134/174] [webkit] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:150:7 › Bulk actions › should hide "Clear completed" again once all completed todos are cleared
+[135/174] [webkit] › .runs\baseline-checkout\tests\todo\bulk-actions.spec.ts:170:7 › Bulk actions › should update item count correctly after clearing completed todos
+[136/174] [webkit] › .runs\baseline-checkout\tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke
+[137/174] [webkit] › .runs\baseline-checkout\tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke
+[138/174] [webkit] › .runs\baseline-checkout\tests\todo\complete.spec.ts:49:7 › Complete todo › should update item count when todos are completed
+[139/174] [webkit] › .runs\baseline-checkout\tests\todo\complete.spec.ts:66:7 › Complete todo › should visually distinguish completed todos from active ones
+[140/174] [webkit] › .runs\baseline-checkout\tests\todo\complete.spec.ts:83:7 › Complete todo › should show 0 items left when all todos are completed
+[141/174] [webkit] › .runs\baseline-checkout\tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke
+[142/174] [webkit] › .runs\baseline-checkout\tests\todo\delete.spec.ts:29:7 › Delete todo › should delete one todo from a list of many
+[143/174] [webkit] › .runs\baseline-checkout\tests\todo\delete.spec.ts:47:7 › Delete todo › should delete a completed todo
+[144/174] [webkit] › .runs\baseline-checkout\tests\todo\delete.spec.ts:63:7 › Delete todo › should show destroy button only on hover
+[145/174] [webkit] › .runs\baseline-checkout\tests\todo\delete.spec.ts:81:7 › Delete todo › should recolor the destroy button on hover
+[146/174] [webkit] › .runs\baseline-checkout\tests\todo\delete.spec.ts:93:7 › Delete todo › should delete all todos one by one and empty the list
+[147/174] [webkit] › .runs\baseline-checkout\tests\todo\edit.spec.ts:9:7 › Edit todo › should enter edit mode when double-clicking a todo label
+[148/174] [webkit] › .runs\baseline-checkout\tests\todo\edit.spec.ts:30:7 › Edit todo › should save edited text when pressing Enter
+[149/174] [webkit] › .runs\baseline-checkout\tests\todo\edit.spec.ts:50:7 › Edit todo › should save edited text when focus leaves the input (blur)
+[150/174] [webkit] › .runs\baseline-checkout\tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape
+[151/174] [webkit] › .runs\baseline-checkout\tests\todo\edit.spec.ts:89:7 › Edit todo › should delete a todo when its edited text is cleared and Enter is pressed
+[152/174] [webkit] › .runs\baseline-checkout\tests\todo\edit.spec.ts:106:7 › Edit todo › should trim whitespace when saving an edited todo
+[153/174] [webkit] › .runs\baseline-checkout\tests\todo\filter.spec.ts:9:7 › Filter todos › should show all todos when the "All" filter is active @smoke
+[154/174] [webkit] › .runs\baseline-checkout\tests\todo\filter.spec.ts:30:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke
+[155/174] [webkit] › .runs\baseline-checkout\tests\todo\filter.spec.ts:52:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke
+[156/174] [webkit] › .runs\baseline-checkout\tests\todo\filter.spec.ts:78:7 › Filter todos › should update the Active view in real-time when a visible todo is completed
+[157/174] [webkit] › .runs\baseline-checkout\tests\todo\filter.spec.ts:99:7 › Filter todos › should reflect the selected filter in the URL hash @smoke
+[158/174] [webkit] › .runs\baseline-checkout\tests\todo\filter.spec.ts:122:7 › Filter todos › should show zero todos in Active filter when all are completed
+[159/174] [webkit] › .runs\baseline-checkout\tests\todo\filter.spec.ts:141:7 › Filter todos › should show zero todos in Completed filter when none are completed
+[160/174] [webkit] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:7:7 › Todo page lifecycle › should preserve todos on navigation when cleanup is disabled
+[161/174] [webkit] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:20:7 › Todo page lifecycle › should reset existing todos without clearing unrelated storage
+[162/174] [webkit] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:33:7 › Todo page lifecycle › should clear todos hidden by an empty filtered view
+[163/174] [webkit] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:47:7 › Todo page lifecycle › should clear the All view without clicking its already selected filter
+[164/174] [webkit] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:66:7 › Todo page lifecycle › should start from seeded data instead of the application sample todos
+[165/174] [webkit] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:77:7 › Todo page lifecycle › should leave unrelated storage untouched when seeding
+[166/174] [webkit] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:87:9 › Todo page lifecycle › should reload mixed todos in the active view
+[167/174] [webkit] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:87:9 › Todo page lifecycle › should reload mixed todos in the completed view
+[168/174] [webkit] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:99:7 › Todo page lifecycle › should reload an empty filtered view with stored todos
+[169/174] [webkit] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:110:7 › Todo page lifecycle › should seed todos while preserving a filter that hides some items
+[170/174] [webkit] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:122:7 › Todo page lifecycle › should reject seeding an empty list, which the application cannot hold
+[171/174] [webkit] › .runs\baseline-checkout\tests\todo\lifecycle.spec.ts:128:7 › Todo page lifecycle › should allow normal application seeding after storage is removed
+[172/174] [webkit] › .runs\baseline-checkout\tests\todo\persistence.spec.ts:8:7 › Persistence › should persist todos across a page reload
+[173/174] [webkit] › .runs\baseline-checkout\tests\todo\persistence.spec.ts:27:7 › Persistence › should persist the completed state of todos across a page reload
+[174/174] [webkit] › .runs\baseline-checkout\tests\todo\persistence.spec.ts:49:7 › Persistence › should persist the active filter selection across a page reload
+  2 failed
+    [webkit] › .runs\baseline-checkout\tests\a11y\a11y.spec.ts:35:7 › Accessibility › base todo list view has no detectable WCAG violations @smoke 
+    [webkit] › .runs\baseline-checkout\tests\a11y\a11y.spec.ts:48:7 › Accessibility › inline-editing state has no detectable WCAG violations 
+  172 passed (11.3m)

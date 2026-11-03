@@ -82,26 +82,30 @@ export class TodoPage {
    */
   private async waitUntilReady(): Promise<void> {
     await this.newTodoInput.waitFor({ state: 'visible' });
-    await this.page.waitForFunction((key) => {
+    await expect.poll(async () => this.page.evaluate((key) => {
       const raw = window.localStorage.getItem(key);
       if (raw === null) {
-        return false;
+        return 'storage key missing';
       }
       try {
         const stored: unknown = JSON.parse(raw);
         if (!Array.isArray(stored) || stored.length === 0) {
-          return false;
+          return 'expected nonempty records after pinned app sample initialization';
         }
         const route = window.location.hash.split('/')[1];
+        if (route && !['active', 'completed'].includes(route)) return 'unsupported route: ' + route;
         const todos = stored as Array<{ completed: boolean }>;
         const filtered = todos.filter((todo) =>
           route === 'active' ? !todo.completed : route === 'completed' ? todo.completed : true,
         );
-        return document.querySelectorAll('.todo-list li').length === filtered.length;
+        const count = document.querySelectorAll('.todo-list li').length;
+        return count === filtered.length ? 'ready' : `rendered ${count} rows; expected ${filtered.length} for route ${route ?? 'all'}`;
       } catch {
-        return false;
+        return 'invalid stored JSON';
       }
-    }, TODO_STORAGE_KEY);
+    }, TODO_STORAGE_KEY), {
+      message: 'Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows',
+    }).toBe('ready');
   }
 
   /**
@@ -237,7 +241,7 @@ export class TodoPage {
   async editTodoByBlur(index: number, newText: string): Promise<void> {
     const input = await this.startEditing(index);
     await input.fill(newText);
-    await input.blur();
+    await input.press('Tab');
   }
 
   /**

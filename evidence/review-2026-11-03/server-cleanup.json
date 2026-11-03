@@ -1,0 +1,18 @@
+{
+  "terminationResults": [
+    {
+      "pid": 41532,
+      "returnValue": 0
+    },
+    {
+      "pid": 46628,
+      "returnValue": 0
+    }
+  ],
+  "initialStopProcessReportedError": true,
+  "attemptedPids": [
+    41532,
+    46628
+  ],
+  "remainingProcesses": []
+}

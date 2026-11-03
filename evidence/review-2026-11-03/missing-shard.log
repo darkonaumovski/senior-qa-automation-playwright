@@ -1,0 +1,13 @@
+file:///E:/Automation%20Testing/senior-qa-automation-playwright/scripts/report-tools.mjs:48
+  if (directories.length !== 2) throw new Error('Incomplete run: exactly two shard manifests required');
+                                      ^
+
+Error: Incomplete run: exactly two shard manifests required
+    at mergeShards (file:///E:/Automation%20Testing/senior-qa-automation-playwright/scripts/report-tools.mjs:48:39)
+    at file:///E:/Automation%20Testing/senior-qa-automation-playwright/scripts/merge-shards.mjs:4:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.20.0

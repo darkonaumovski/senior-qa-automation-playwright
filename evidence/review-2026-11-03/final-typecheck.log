@@ -1,0 +1,4 @@
+
+> todo-playwright-tests@1.0.0 typecheck
+> tsc --noEmit
+

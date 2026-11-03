@@ -1,0 +1,6 @@
+[
+  { "name": "Skipped checks", "matchedStatuses": ["skipped"] },
+  { "name": "Triage hint: timeout or connectivity", "matchedStatuses": ["failed", "broken"], "messageRegex": ".*(timeout|TimeoutError|net::ERR|ECONNREFUSED).*" },
+  { "name": "Triage hint: assertion mismatch", "matchedStatuses": ["failed"], "messageRegex": ".*expect.*" },
+  { "name": "Triage hint: unclassified failure", "matchedStatuses": ["failed", "broken"] }
+]

@@ -44,6 +44,9 @@ test.describe('Todo page lifecycle', () => {
     await todoPage.expectTodoText(0, 'Only new item');
   });
 
+  test.describe('Seeded lifecycle preconditions', () => {
+  test.use({ todoStart: 'as-is' });
+
   test('should clear the All view without clicking its already selected filter', async ({ todoPage }) => {
     await todoPage.seedTodos(['Active task', { title: 'Done task', completed: true }]);
     await todoPage.expectActiveFilterLink('all');
@@ -123,6 +126,7 @@ test.describe('Todo page lifecycle', () => {
     // Documents the constraint behind issue #4: storage set to an empty array
     // makes the app reseed its samples, so emptiness needs clearTodos().
     await expect(todoPage.seedTodos([])).rejects.toThrow(/cannot produce an empty list/);
+  });
   });
 
   test('should allow normal application seeding after storage is removed', async ({ todoPage, page }) => {

@@ -1,0 +1,20 @@
+[
+  {
+    "workers": 1,
+    "seconds": 32.7512835,
+    "exitCode": 0,
+    "repetitions": 3,
+    "resultsDir": ".runs/webkit-final-w1-d073e902-f403-4467-8f1a-af6b9b5b41f0/allure-results",
+    "retries": 0,
+    "executions": 9
+  },
+  {
+    "workers": 2,
+    "seconds": 30.9959251,
+    "exitCode": 0,
+    "repetitions": 3,
+    "resultsDir": ".runs/webkit-final-w2-4378e2c5-5bae-4443-ad3b-a8ea2e2620c7/allure-results",
+    "retries": 0,
+    "executions": 9
+  }
+]

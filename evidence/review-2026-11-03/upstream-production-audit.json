@@ -1,0 +1,133 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "compression": {
+      "name": "compression",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1241221,
+          "name": "compression",
+          "dependency": "compression",
+          "title": "compression vulnerable to Denial of Service via memory leak on premature response close",
+          "url": "https://github.com/advisories/GHSA-vc2v-76pw-4v95",
+          "severity": "high",
+          "cwe": [
+            "CWE-401",
+            "CWE-459"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<1.8.2"
+        }
+      ],
+      "effects": [
+        "serve"
+      ],
+      "range": "<1.8.2",
+      "nodes": [
+        "node_modules/compression"
+      ],
+      "fixAvailable": {
+        "name": "serve",
+        "version": "10.0.2",
+        "isSemVerMajor": true
+      }
+    },
+    "minimatch": {
+      "name": "minimatch",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1244012,
+          "name": "minimatch",
+          "dependency": "minimatch",
+          "title": "minimatch has potential denial of service via globparts amplification",
+          "url": "https://github.com/advisories/GHSA-g3hv-75wg-m249",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-405"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<11.0.1"
+        }
+      ],
+      "effects": [
+        "serve-handler"
+      ],
+      "range": "<11.0.1",
+      "nodes": [
+        "node_modules/serve-handler/node_modules/minimatch"
+      ],
+      "fixAvailable": {
+        "name": "serve",
+        "version": "10.0.2",
+        "isSemVerMajor": true
+      }
+    },
+    "serve": {
+      "name": "serve",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "compression",
+        "serve-handler"
+      ],
+      "effects": [],
+      "range": ">=7.0.0",
+      "nodes": [
+        "node_modules/serve"
+      ],
+      "fixAvailable": {
+        "name": "serve",
+        "version": "10.0.2",
+        "isSemVerMajor": true
+      }
+    },
+    "serve-handler": {
+      "name": "serve-handler",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "minimatch"
+      ],
+      "effects": [
+        "serve"
+      ],
+      "range": ">=1.1.0",
+      "nodes": [
+        "node_modules/serve-handler"
+      ],
+      "fixAvailable": {
+        "name": "serve",
+        "version": "10.0.2",
+        "isSemVerMajor": true
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 2,
+      "high": 2,
+      "critical": 0,
+      "total": 4
+    },
+    "dependencies": {
+      "prod": 100,
+      "dev": 279,
+      "optional": 1,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 378
+    }
+  }
+}

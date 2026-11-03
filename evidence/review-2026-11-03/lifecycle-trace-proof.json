@@ -1,0 +1,338 @@
+{
+  "traces": 18,
+  "hoverActions": 0,
+  "targetTraces": 6,
+  "targetAssertionsCompleted": true,
+  "targets": [
+    {
+      "trace": "E:\\Automation Testing\\senior-qa-automation-playwright\\evidence\\review-2026-11-03\\webkit-final-w1-artifacts\\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit\\trace.zip",
+      "assertions": [
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveClass\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveCount\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveText\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toEqual\"",
+          "completed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "trace": "E:\\Automation Testing\\senior-qa-automation-playwright\\evidence\\review-2026-11-03\\webkit-final-w1-artifacts\\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit-repeat1\\trace.zip",
+      "assertions": [
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveClass\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveCount\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveText\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toEqual\"",
+          "completed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "trace": "E:\\Automation Testing\\senior-qa-automation-playwright\\evidence\\review-2026-11-03\\webkit-final-w1-artifacts\\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit-repeat2\\trace.zip",
+      "assertions": [
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveClass\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveCount\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveText\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toEqual\"",
+          "completed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "trace": "E:\\Automation Testing\\senior-qa-automation-playwright\\evidence\\review-2026-11-03\\webkit-final-w2-artifacts\\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit\\trace.zip",
+      "assertions": [
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveClass\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveCount\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveText\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toEqual\"",
+          "completed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "trace": "E:\\Automation Testing\\senior-qa-automation-playwright\\evidence\\review-2026-11-03\\webkit-final-w2-artifacts\\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit-repeat1\\trace.zip",
+      "assertions": [
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveClass\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveCount\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveText\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toEqual\"",
+          "completed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "trace": "E:\\Automation Testing\\senior-qa-automation-playwright\\evidence\\review-2026-11-03\\webkit-final-w2-artifacts\\todo-lifecycle-Todo-page-l-27927-ilter-that-hides-some-items-webkit-repeat2\\trace.zip",
+      "assertions": [
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Todo readiness requires nonempty stored records (pinned app reseeds empty startup), a supported route, and matching filtered rows",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveClass\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveCount\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toHaveText\"",
+          "completed": true,
+          "error": null
+        },
+        {
+          "title": "Expect \"toEqual\"",
+          "completed": true,
+          "error": null
+        }
+      ]
+    }
+  ]
+}

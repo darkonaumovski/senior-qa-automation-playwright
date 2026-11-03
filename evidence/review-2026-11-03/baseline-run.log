@@ -1,0 +1,912 @@
+
+Running 174 tests using 2 workers
+
+
+
+(node:49284) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15720) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/174] [chromium] › tests\a11y\a11y.spec.ts:48:7 › Accessibility › inline-editing state has no detectable WCAG violations
+[2/174] [chromium] › tests\a11y\a11y.spec.ts:35:7 › Accessibility › base todo list view has no detectable WCAG violations @smoke
+[3/174] [chromium] › tests\a11y\a11y.spec.ts:62:7 › Accessibility › toggle-all control has no detectable WCAG violations
+[4/174] [chromium] › tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke
+[5/174] [chromium] › tests\todo\add.spec.ts:24:7 › Add todo › should add multiple todo items @smoke
+[6/174] [chromium] › tests\todo\add.spec.ts:45:7 › Add todo › should not add an empty todo when Enter is pressed on blank input
+[7/174] [chromium] › tests\todo\add.spec.ts:58:7 › Add todo › should not add a todo containing only whitespace
+[8/174] [chromium] › tests\todo\add.spec.ts:71:7 › Add todo › should trim leading and trailing whitespace from todo text
+[9/174] [chromium] › tests\todo\add.spec.ts:87:7 › Add todo › should handle special characters in todo text
+[10/174] [chromium] › tests\todo\add.spec.ts:102:7 › Add todo › should clear input field after adding a todo
+[11/174] [chromium] › tests\todo\bulk-actions.spec.ts:9:7 › Bulk actions › should mark all todos as complete using toggle-all
+[12/174] [chromium] › tests\todo\bulk-actions.spec.ts:31:7 › Bulk actions › should recolor the toggle-all chevron when all todos become complete
+[13/174] [chromium] › tests\todo\bulk-actions.spec.ts:51:7 › Bulk actions › should unmark all todos when toggle-all is clicked while all are completed
+[14/174] [chromium] › tests\todo\bulk-actions.spec.ts:75:7 › Bulk actions › should complete remaining active todos when toggle-all is used with mixed state
+[15/174] [chromium] › tests\todo\bulk-actions.spec.ts:97:7 › Bulk actions › should remove all completed todos via "Clear completed"
+[16/174] [chromium] › tests\todo\bulk-actions.spec.ts:118:7 › Bulk actions › should not show "Clear completed" button when no todos are completed
+[17/174] [chromium] › tests\todo\bulk-actions.spec.ts:130:7 › Bulk actions › should show "Clear completed" once a todo is completed
+[18/174] [chromium] › tests\todo\bulk-actions.spec.ts:150:7 › Bulk actions › should hide "Clear completed" again once all completed todos are cleared
+[19/174] [chromium] › tests\todo\bulk-actions.spec.ts:170:7 › Bulk actions › should update item count correctly after clearing completed todos
+[20/174] [chromium] › tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke
+[21/174] [chromium] › tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke
+[22/174] [chromium] › tests\todo\complete.spec.ts:49:7 › Complete todo › should update item count when todos are completed
+[23/174] [chromium] › tests\todo\complete.spec.ts:66:7 › Complete todo › should visually distinguish completed todos from active ones
+[24/174] [chromium] › tests\todo\complete.spec.ts:83:7 › Complete todo › should show 0 items left when all todos are completed
+[25/174] [chromium] › tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke
+[26/174] [chromium] › tests\todo\delete.spec.ts:29:7 › Delete todo › should delete one todo from a list of many
+[27/174] [chromium] › tests\todo\delete.spec.ts:47:7 › Delete todo › should delete a completed todo
+[28/174] [chromium] › tests\todo\delete.spec.ts:63:7 › Delete todo › should show destroy button only on hover
+[29/174] [chromium] › tests\todo\delete.spec.ts:81:7 › Delete todo › should recolor the destroy button on hover
+[30/174] [chromium] › tests\todo\delete.spec.ts:93:7 › Delete todo › should delete all todos one by one and empty the list
+[31/174] [chromium] › tests\todo\edit.spec.ts:9:7 › Edit todo › should enter edit mode when double-clicking a todo label
+[32/174] [chromium] › tests\todo\edit.spec.ts:30:7 › Edit todo › should save edited text when pressing Enter
+[33/174] [chromium] › tests\todo\edit.spec.ts:50:7 › Edit todo › should save edited text when focus leaves the input (blur)
+[34/174] [chromium] › tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape
+[35/174] [chromium] › tests\todo\edit.spec.ts:89:7 › Edit todo › should delete a todo when its edited text is cleared and Enter is pressed
+[36/174] [chromium] › tests\todo\edit.spec.ts:106:7 › Edit todo › should trim whitespace when saving an edited todo
+[37/174] [chromium] › tests\todo\filter.spec.ts:9:7 › Filter todos › should show all todos when the "All" filter is active @smoke
+[38/174] [chromium] › tests\todo\filter.spec.ts:30:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke
+[39/174] [chromium] › tests\todo\filter.spec.ts:52:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke
+[40/174] [chromium] › tests\todo\filter.spec.ts:78:7 › Filter todos › should update the Active view in real-time when a visible todo is completed
+[41/174] [chromium] › tests\todo\filter.spec.ts:99:7 › Filter todos › should reflect the selected filter in the URL hash @smoke
+[42/174] [chromium] › tests\todo\filter.spec.ts:122:7 › Filter todos › should show zero todos in Active filter when all are completed
+[43/174] [chromium] › tests\todo\filter.spec.ts:141:7 › Filter todos › should show zero todos in Completed filter when none are completed
+[44/174] [chromium] › tests\todo\lifecycle.spec.ts:20:7 › Todo page lifecycle › should reset existing todos without clearing unrelated storage
+[45/174] [chromium] › tests\todo\lifecycle.spec.ts:7:7 › Todo page lifecycle › should preserve todos on navigation when cleanup is disabled
+[46/174] [chromium] › tests\todo\lifecycle.spec.ts:33:7 › Todo page lifecycle › should clear todos hidden by an empty filtered view
+[47/174] [chromium] › tests\todo\lifecycle.spec.ts:47:7 › Todo page lifecycle › should clear the All view without clicking its already selected filter
+[48/174] [chromium] › tests\todo\lifecycle.spec.ts:66:7 › Todo page lifecycle › should start from seeded data instead of the application sample todos
+[49/174] [chromium] › tests\todo\lifecycle.spec.ts:77:7 › Todo page lifecycle › should leave unrelated storage untouched when seeding
+[50/174] [chromium] › tests\todo\lifecycle.spec.ts:87:9 › Todo page lifecycle › should reload mixed todos in the active view
+[51/174] [chromium] › tests\todo\lifecycle.spec.ts:87:9 › Todo page lifecycle › should reload mixed todos in the completed view
+[52/174] [chromium] › tests\todo\lifecycle.spec.ts:99:7 › Todo page lifecycle › should reload an empty filtered view with stored todos
+[53/174] [chromium] › tests\todo\lifecycle.spec.ts:110:7 › Todo page lifecycle › should seed todos while preserving a filter that hides some items
+[54/174] [chromium] › tests\todo\lifecycle.spec.ts:122:7 › Todo page lifecycle › should reject seeding an empty list, which the application cannot hold
+[55/174] [chromium] › tests\todo\lifecycle.spec.ts:128:7 › Todo page lifecycle › should allow normal application seeding after storage is removed
+[56/174] [chromium] › tests\todo\persistence.spec.ts:8:7 › Persistence › should persist todos across a page reload
+[57/174] [chromium] › tests\todo\persistence.spec.ts:27:7 › Persistence › should persist the completed state of todos across a page reload
+[58/174] [chromium] › tests\todo\persistence.spec.ts:49:7 › Persistence › should persist the active filter selection across a page reload
+
+
+(node:53884) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+(node:53988) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[59/174] [firefox] › tests\a11y\a11y.spec.ts:48:7 › Accessibility › inline-editing state has no detectable WCAG violations
+[60/174] [firefox] › tests\a11y\a11y.spec.ts:35:7 › Accessibility › base todo list view has no detectable WCAG violations @smoke
+[61/174] [firefox] › tests\a11y\a11y.spec.ts:62:7 › Accessibility › toggle-all control has no detectable WCAG violations
+[62/174] [firefox] › tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke
+[63/174] [firefox] › tests\todo\add.spec.ts:24:7 › Add todo › should add multiple todo items @smoke
+[64/174] [firefox] › tests\todo\add.spec.ts:45:7 › Add todo › should not add an empty todo when Enter is pressed on blank input
+[65/174] [firefox] › tests\todo\add.spec.ts:58:7 › Add todo › should not add a todo containing only whitespace
+[66/174] [firefox] › tests\todo\add.spec.ts:71:7 › Add todo › should trim leading and trailing whitespace from todo text
+[67/174] [firefox] › tests\todo\add.spec.ts:87:7 › Add todo › should handle special characters in todo text
+[68/174] [firefox] › tests\todo\add.spec.ts:102:7 › Add todo › should clear input field after adding a todo
+[69/174] [firefox] › tests\todo\bulk-actions.spec.ts:9:7 › Bulk actions › should mark all todos as complete using toggle-all
+[70/174] [firefox] › tests\todo\bulk-actions.spec.ts:31:7 › Bulk actions › should recolor the toggle-all chevron when all todos become complete
+[71/174] [firefox] › tests\todo\bulk-actions.spec.ts:51:7 › Bulk actions › should unmark all todos when toggle-all is clicked while all are completed
+[72/174] [firefox] › tests\todo\bulk-actions.spec.ts:75:7 › Bulk actions › should complete remaining active todos when toggle-all is used with mixed state
+[73/174] [firefox] › tests\todo\bulk-actions.spec.ts:97:7 › Bulk actions › should remove all completed todos via "Clear completed"
+[74/174] [firefox] › tests\todo\bulk-actions.spec.ts:118:7 › Bulk actions › should not show "Clear completed" button when no todos are completed
+[75/174] [firefox] › tests\todo\bulk-actions.spec.ts:130:7 › Bulk actions › should show "Clear completed" once a todo is completed
+[76/174] [firefox] › tests\todo\bulk-actions.spec.ts:150:7 › Bulk actions › should hide "Clear completed" again once all completed todos are cleared
+[77/174] [firefox] › tests\todo\bulk-actions.spec.ts:170:7 › Bulk actions › should update item count correctly after clearing completed todos
+[78/174] [firefox] › tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke
+[79/174] [firefox] › tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke
+[80/174] [firefox] › tests\todo\complete.spec.ts:49:7 › Complete todo › should update item count when todos are completed
+[81/174] [firefox] › tests\todo\complete.spec.ts:66:7 › Complete todo › should visually distinguish completed todos from active ones
+[82/174] [firefox] › tests\todo\complete.spec.ts:83:7 › Complete todo › should show 0 items left when all todos are completed
+[83/174] [firefox] › tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke
+[84/174] [firefox] › tests\todo\delete.spec.ts:29:7 › Delete todo › should delete one todo from a list of many
+[85/174] [firefox] › tests\todo\delete.spec.ts:47:7 › Delete todo › should delete a completed todo
+[86/174] [firefox] › tests\todo\delete.spec.ts:63:7 › Delete todo › should show destroy button only on hover
+[87/174] [firefox] › tests\todo\delete.spec.ts:81:7 › Delete todo › should recolor the destroy button on hover
+[88/174] [firefox] › tests\todo\delete.spec.ts:93:7 › Delete todo › should delete all todos one by one and empty the list
+[89/174] [firefox] › tests\todo\edit.spec.ts:9:7 › Edit todo › should enter edit mode when double-clicking a todo label
+[90/174] [firefox] › tests\todo\edit.spec.ts:30:7 › Edit todo › should save edited text when pressing Enter
+[91/174] [firefox] › tests\todo\edit.spec.ts:50:7 › Edit todo › should save edited text when focus leaves the input (blur)
+[92/174] [firefox] › tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape
+[93/174] [firefox] › tests\todo\edit.spec.ts:89:7 › Edit todo › should delete a todo when its edited text is cleared and Enter is pressed
+[94/174] [firefox] › tests\todo\edit.spec.ts:106:7 › Edit todo › should trim whitespace when saving an edited todo
+[95/174] [firefox] › tests\todo\filter.spec.ts:9:7 › Filter todos › should show all todos when the "All" filter is active @smoke
+[96/174] [firefox] › tests\todo\filter.spec.ts:30:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke
+[97/174] [firefox] › tests\todo\filter.spec.ts:52:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke
+[98/174] [firefox] › tests\todo\filter.spec.ts:78:7 › Filter todos › should update the Active view in real-time when a visible todo is completed
+[99/174] [firefox] › tests\todo\filter.spec.ts:99:7 › Filter todos › should reflect the selected filter in the URL hash @smoke
+[100/174] [firefox] › tests\todo\filter.spec.ts:122:7 › Filter todos › should show zero todos in Active filter when all are completed
+[101/174] [firefox] › tests\todo\filter.spec.ts:141:7 › Filter todos › should show zero todos in Completed filter when none are completed
+[102/174] [firefox] › tests\todo\lifecycle.spec.ts:7:7 › Todo page lifecycle › should preserve todos on navigation when cleanup is disabled
+[103/174] [firefox] › tests\todo\lifecycle.spec.ts:20:7 › Todo page lifecycle › should reset existing todos without clearing unrelated storage
+[104/174] [firefox] › tests\todo\lifecycle.spec.ts:33:7 › Todo page lifecycle › should clear todos hidden by an empty filtered view
+[105/174] [firefox] › tests\todo\lifecycle.spec.ts:47:7 › Todo page lifecycle › should clear the All view without clicking its already selected filter
+[106/174] [firefox] › tests\todo\lifecycle.spec.ts:66:7 › Todo page lifecycle › should start from seeded data instead of the application sample todos
+[107/174] [firefox] › tests\todo\lifecycle.spec.ts:77:7 › Todo page lifecycle › should leave unrelated storage untouched when seeding
+[108/174] [firefox] › tests\todo\lifecycle.spec.ts:87:9 › Todo page lifecycle › should reload mixed todos in the active view
+[109/174] [firefox] › tests\todo\lifecycle.spec.ts:87:9 › Todo page lifecycle › should reload mixed todos in the completed view
+[110/174] [firefox] › tests\todo\lifecycle.spec.ts:99:7 › Todo page lifecycle › should reload an empty filtered view with stored todos
+  1) [firefox] › tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape 
+
+    Test timeout of 30000ms exceeded while setting up "page".
+
+    Tearing down "context" exceeded the test timeout of 30000ms.
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> C:\Users\Darko i Zarko\AppData\Local\ms-playwright\firefox-1538\firefox\firefox.exe -no-remote -headless -profile C:\Users\DARKOI~1\AppData\Local\Temp\playwright_firefoxdev_profile-vRR3v2 -juggler-pipe -silent
+    <launched> pid=48904
+    [pid=48904][err] *** You are running in headless mode.
+    [pid=48904][err] JavaScript warning: resource://services-settings/Utils.sys.mjs, line 119: unreachable code after return statement
+    [pid=48904][err] JavaScript error: resource:///modules/InstallerPrefs.sys.mjs, line 133: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWindowsRegKey.create]
+    [pid=48904][out] 
+    [pid=48904][out] Juggler listening to the pipe
+    [pid=48904][err] [WARN  rkv::backend::impl_safe::environment] `load_ratio()` is irrelevant for this storage backend.
+    [pid=48904][out] Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=6.84321) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+    [pid=48904][out] console.error: "Error fetching remote settings base url from CDN. Falling back to https://firefox-settings-attachments.cdn.mozilla.net/" (new SyntaxError("XMLHttpRequest.open: '/' is not a valid URL.", (void 0), 126))
+    [pid=48904][out] console.error: [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "<unknown>"  data: no]
+    [pid=48904][out] console.warn: services.settings: #fetchAttachment: Forcing fallbackToDump to false due to Utils.LOAD_DUMPS being false
+    [pid=48904][out] console.error: (new NotFoundError("Could not find fa0fc42c-d91d-fca7-34eb-806ff46062dc in cache or dump", "resource://services-settings/Attachments.sys.mjs", 48))
+    [pid=48904][out] console.warn: "Unable to find the attachment for" "fa0fc42c-d91d-fca7-34eb-806ff46062dc"
+    [pid=48904][out] console.error: services.settings: 
+    [pid=48904][out]   Message: EmptyDatabaseError: "main/nimbus-desktop-experiments" has not been synced yet
+    [pid=48904][out]   Stack:
+    [pid=48904][out]     EmptyDatabaseError@resource://services-settings/Database.sys.mjs:19:5
+    [pid=48904][out] list@resource://services-settings/Database.sys.mjs:96:13
+    [pid=48904][out] 
+    [pid=48904][err] [Parent 48904, IPC I/O Parent] WARNING: Failed to launch utility subprocess @SB::LA::SpawnTarget (Error:0): file ipc\glue\GeckoChildProcessHost.cpp:823
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904][err] JavaScript warning: http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js, line 2: Script terminated by timeout at:
+    [pid=48904][err] n.fn.extend@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:2:1304
+    [pid=48904][err] simulate@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:14851
+    [pid=48904][err] c@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18046
+    [pid=48904][err] EventListener.handleEvent*setup@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18171
+    [pid=48904][err] add@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:9503
+    [pid=48904][err] sa/<@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:8744
+    [pid=48904][err] each@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:2:2881
+    [pid=48904][err] each@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:2:846
+    [pid=48904][err] sa@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:8720
+    [pid=48904][err] on@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18400
+    [pid=48904][err] @http://localhost:8087/assets/js/vendor/bootstrap.min.js:6:3701
+    [pid=48904][err] @http://localhost:8087/assets/js/vendor/bootstrap.min.js:6:3872
+    [pid=48904][err] 
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904][err] JavaScript warning: resource://gre/modules/UpdateService.sys.mjs, line 4029: unreachable code after return statement
+    [pid=48904][out] 1793728991067	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, channelStatus: 2152398861, errorCode: 2, reason: error
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904][err] JavaScript warning: http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js, line 3: Script terminated by timeout at:
+    [pid=48904][err] fix@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:12983
+    [pid=48904][err] c@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18074
+    [pid=48904][err] EventListener.handleEvent*setup@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18171
+    [pid=48904][err] add@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:9503
+    [pid=48904][err] sa/<@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:8744
+    [pid=48904][err] each@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:2:2881
+    [pid=48904][err] each@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:2:846
+    [pid=48904][err] sa@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:8720
+    [pid=48904][err] on@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18400
+    [pid=48904][err] @http://localhost:8087/assets/js/vendor/bootstrap.min.js:6:3701
+    [pid=48904][err] @http://localhost:8087/assets/js/vendor/bootstrap.min.js:6:3872
+    [pid=48904][err] 
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904][err] JavaScript warning: http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js, line 3: Script terminated by timeout at:
+    [pid=48904][err] fix@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:12983
+    [pid=48904][err] c@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18074
+    [pid=48904][err] EventListener.handleEvent*setup@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18171
+    [pid=48904][err] add@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:9503
+    [pid=48904][err] sa/<@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:8744
+    [pid=48904][err] each@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:2:2881
+    [pid=48904][err] each@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:2:846
+    [pid=48904][err] sa@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:8720
+    [pid=48904][err] on@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18400
+    [pid=48904][err] @http://localhost:8087/assets/js/vendor/bootstrap.min.js:6:3701
+    [pid=48904][err] @http://localhost:8087/assets/js/vendor/bootstrap.min.js:6:3872
+    [pid=48904][err] 
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904][err] JavaScript warning: http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js, line 2: Script terminated by timeout at:
+    [pid=48904][err] isWindow@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:2:1982
+    [pid=48904][err] trigger@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:11168
+    [pid=48904][err] simulate@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:14905
+    [pid=48904][err] c@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18046
+    [pid=48904][err] EventListener.handleEvent*setup@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18171
+    [pid=48904][err] add@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:9503
+    [pid=48904][err] sa/<@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:8744
+    [pid=48904][err] each@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:2:2881
+    [pid=48904][err] each@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:2:846
+    [pid=48904][err] sa@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:8720
+    [pid=48904][err] on@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18400
+    [pid=48904][err] @http://localhost:8087/assets/js/vendor/bootstrap.min.js:6:3701
+    [pid=48904][err] @http://localhost:8087/assets/js/vendor/bootstrap.min.js:6:3872
+    [pid=48904][err] 
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904][err] JavaScript warning: http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js, line 3: Script terminated by timeout at:
+    [pid=48904][err] trigger@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:11345
+    [pid=48904][err] simulate@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:14905
+    [pid=48904][err] c@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18046
+    [pid=48904][err] EventListener.handleEvent*setup@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18171
+    [pid=48904][err] add@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:9503
+    [pid=48904][err] sa/<@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:8744
+    [pid=48904][err] each@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:2:2881
+    [pid=48904][err] each@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:2:846
+    [pid=48904][err] sa@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:8720
+    [pid=48904][err] on@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18400
+    [pid=48904][err] @http://localhost:8087/assets/js/vendor/bootstrap.min.js:6:3701
+    [pid=48904][err] @http://localhost:8087/assets/js/vendor/bootstrap.min.js:6:3872
+    [pid=48904][err] 
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904][err] JavaScript warning: http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js, line 2: Script terminated by timeout at:
+    [pid=48904][err] f@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:2:20851
+    [pid=48904][err] fa.select@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:2:22134
+    [pid=48904][err] fa@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:2:7320
+    [pid=48904][err] handlers@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:12825
+    [pid=48904][err] dispatch@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:12057
+    [pid=48904][err] add/r.handle@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:9071
+    [pid=48904][err] trigger@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:11471
+    [pid=48904][err] simulate@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:14905
+    [pid=48904][err] c@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18046
+    [pid=48904][err] EventListener.handleEvent*setup@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18171
+    [pid=48904][err] add@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:9503
+    [pid=48904][err] sa/<@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:8744
+    [pid=48904][err] each@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:2:2881
+    [pid=48904][err] each@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:2:846
+    [pid=48904][err] sa@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:8720
+    [pid=48904][err] on@http://localhost:8087/assets/js/vendor/jquery-1.12.0.min.js:3:18400
+    [pid=48904][err] @http://localhost:8087/assets/js/vendor/bootstrap.min.js:6:3701
+    [pid=48904][err] @http://localhost:8087/assets/js/vendor/bootstrap.min.js:6:3872
+    [pid=48904][err] 
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904][err] JavaScript error: chrome://juggler/content/Helper.js, line 82: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+    [pid=48904] <gracefully close start>
+    [pid=48904] <kill>
+    [pid=48904] <will force kill>
+    [pid=48904] taskkill stderr: ERROR: Access denied
+
+
+
+    Error Context: evidence\review-2026-11-03\baseline-artifacts\todo-edit-Edit-todo-should-f5f31-l-text-when-pressing-Escape-firefox\error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-edit-Edit-todo-should-f5f31-l-text-when-pressing-Escape-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\baseline-artifacts\todo-edit-Edit-todo-should-f5f31-l-text-when-pressing-Escape-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+(node:52880) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[111/174] [firefox] › tests\todo\lifecycle.spec.ts:110:7 › Todo page lifecycle › should seed todos while preserving a filter that hides some items
+[112/174] [firefox] › tests\todo\lifecycle.spec.ts:122:7 › Todo page lifecycle › should reject seeding an empty list, which the application cannot hold
+[113/174] [firefox] › tests\todo\lifecycle.spec.ts:128:7 › Todo page lifecycle › should allow normal application seeding after storage is removed
+[114/174] [firefox] › tests\todo\persistence.spec.ts:8:7 › Persistence › should persist todos across a page reload
+[115/174] [firefox] › tests\todo\persistence.spec.ts:27:7 › Persistence › should persist the completed state of todos across a page reload
+[116/174] [firefox] › tests\todo\persistence.spec.ts:49:7 › Persistence › should persist the active filter selection across a page reload
+
+(node:52444) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[117/174] [webkit] › tests\a11y\a11y.spec.ts:48:7 › Accessibility › inline-editing state has no detectable WCAG violations
+
+(node:54684) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[118/174] [webkit] › tests\a11y\a11y.spec.ts:35:7 › Accessibility › base todo list view has no detectable WCAG violations @smoke
+  2) [webkit] › tests\a11y\a11y.spec.ts:48:7 › Accessibility › inline-editing state has no detectable WCAG violations 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: frame.evaluate: Test timeout of 30000ms exceeded.
+
+      52 |     expect(editorNodes, JSON.stringify(result.unexpected, null, 2)).toEqual([]);
+      53 |   });
+    > 54 |
+         | ^
+      55 |   test('accessibility gate rejects an additional unnamed input', async ({ todoPage, page }, testInfo) => {
+      56 |     await todoPage.seedTodos(['Gate control']);
+      57 |     await page.locator('.todoapp').evaluate((app) => {
+        at AxeBuilder.runPartialRecursive (E:\Automation Testing\senior-qa-automation-playwright\node_modules\@axe-core\playwright\dist\index.js:318:34)
+        at AxeBuilder.analyze (E:\Automation Testing\senior-qa-automation-playwright\node_modules\@axe-core\playwright\dist\index.js:245:28)
+        at E:\Automation Testing\senior-qa-automation-playwright\tests\a11y\a11y.spec.ts:54:21
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\a11y-a11y-Accessibility-in-55250--detectable-WCAG-violations-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\a11y-a11y-Accessibility-in-55250--detectable-WCAG-violations-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\baseline-artifacts\a11y-a11y-Accessibility-in-55250--detectable-WCAG-violations-webkit\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\a11y-a11y-Accessibility-in-55250--detectable-WCAG-violations-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\baseline-artifacts\a11y-a11y-Accessibility-in-55250--detectable-WCAG-violations-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  3) [webkit] › tests\a11y\a11y.spec.ts:35:7 › Accessibility › base todo list view has no detectable WCAG violations @smoke 
+
+    Test timeout of 30000ms exceeded.
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\a11y-a11y-Accessibility-ba-0d754--detectable-WCAG-violations-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\a11y-a11y-Accessibility-ba-0d754--detectable-WCAG-violations-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\baseline-artifacts\a11y-a11y-Accessibility-ba-0d754--detectable-WCAG-violations-webkit\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\a11y-a11y-Accessibility-ba-0d754--detectable-WCAG-violations-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\baseline-artifacts\a11y-a11y-Accessibility-ba-0d754--detectable-WCAG-violations-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:54320) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:14352) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[119/174] [webkit] › tests\a11y\a11y.spec.ts:62:7 › Accessibility › toggle-all control has no detectable WCAG violations
+[120/174] [webkit] › tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke
+  4) [webkit] › tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke ───────
+
+    Test timeout of 30000ms exceeded.
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-add-Add-todo-should-add-a-single-todo-item-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-add-Add-todo-should-add-a-single-todo-item-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\baseline-artifacts\todo-add-Add-todo-should-add-a-single-todo-item-webkit\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-add-Add-todo-should-add-a-single-todo-item-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\baseline-artifacts\todo-add-Add-todo-should-add-a-single-todo-item-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  5) [webkit] › tests\a11y\a11y.spec.ts:62:7 › Accessibility › toggle-all control has no detectable WCAG violations 
+
+    Test timeout of 30000ms exceeded.
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\a11y-a11y-Accessibility-to-a6c97--detectable-WCAG-violations-webkit\test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\a11y-a11y-Accessibility-to-a6c97--detectable-WCAG-violations-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #7: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\a11y-a11y-Accessibility-to-a6c97--detectable-WCAG-violations-webkit\video-1.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #8: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\a11y-a11y-Accessibility-to-a6c97--detectable-WCAG-violations-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\baseline-artifacts\a11y-a11y-Accessibility-to-a6c97--detectable-WCAG-violations-webkit\error-context.md
+
+    attachment #10: trace (application/zip) ────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\a11y-a11y-Accessibility-to-a6c97--detectable-WCAG-violations-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\baseline-artifacts\a11y-a11y-Accessibility-to-a6c97--detectable-WCAG-violations-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:45772) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[121/174] [webkit] › tests\todo\add.spec.ts:24:7 › Add todo › should add multiple todo items @smoke
+
+(node:49128) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[122/174] [webkit] › tests\todo\add.spec.ts:45:7 › Add todo › should not add an empty todo when Enter is pressed on blank input
+[123/174] [webkit] › tests\todo\add.spec.ts:58:7 › Add todo › should not add a todo containing only whitespace
+[124/174] [webkit] › tests\todo\add.spec.ts:71:7 › Add todo › should trim leading and trailing whitespace from todo text
+[125/174] [webkit] › tests\todo\add.spec.ts:87:7 › Add todo › should handle special characters in todo text
+[126/174] [webkit] › tests\todo\add.spec.ts:102:7 › Add todo › should clear input field after adding a todo
+[127/174] [webkit] › tests\todo\bulk-actions.spec.ts:9:7 › Bulk actions › should mark all todos as complete using toggle-all
+[128/174] [webkit] › tests\todo\bulk-actions.spec.ts:31:7 › Bulk actions › should recolor the toggle-all chevron when all todos become complete
+[129/174] [webkit] › tests\todo\bulk-actions.spec.ts:51:7 › Bulk actions › should unmark all todos when toggle-all is clicked while all are completed
+[130/174] [webkit] › tests\todo\bulk-actions.spec.ts:75:7 › Bulk actions › should complete remaining active todos when toggle-all is used with mixed state
+[131/174] [webkit] › tests\todo\bulk-actions.spec.ts:97:7 › Bulk actions › should remove all completed todos via "Clear completed"
+[132/174] [webkit] › tests\todo\bulk-actions.spec.ts:118:7 › Bulk actions › should not show "Clear completed" button when no todos are completed
+[133/174] [webkit] › tests\todo\bulk-actions.spec.ts:130:7 › Bulk actions › should show "Clear completed" once a todo is completed
+[134/174] [webkit] › tests\todo\bulk-actions.spec.ts:150:7 › Bulk actions › should hide "Clear completed" again once all completed todos are cleared
+[135/174] [webkit] › tests\todo\bulk-actions.spec.ts:170:7 › Bulk actions › should update item count correctly after clearing completed todos
+[136/174] [webkit] › tests\todo\complete.spec.ts:9:7 › Complete todo › should mark a todo as complete by clicking its checkbox @smoke
+[137/174] [webkit] › tests\todo\complete.spec.ts:29:7 › Complete todo › should unmark a completed todo as active @smoke
+[138/174] [webkit] › tests\todo\complete.spec.ts:49:7 › Complete todo › should update item count when todos are completed
+[139/174] [webkit] › tests\todo\complete.spec.ts:66:7 › Complete todo › should visually distinguish completed todos from active ones
+  6) [webkit] › tests\todo\complete.spec.ts:49:7 › Complete todo › should update item count when todos are completed 
+
+    Test timeout of 30000ms exceeded while setting up "todoPage".
+
+    attachment #4: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-complete-Complete-tod-4b1a6-nt-when-todos-are-completed-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\baseline-artifacts\todo-complete-Complete-tod-4b1a6-nt-when-todos-are-completed-webkit\error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-complete-Complete-tod-4b1a6-nt-when-todos-are-completed-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\baseline-artifacts\todo-complete-Complete-tod-4b1a6-nt-when-todos-are-completed-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+(node:41500) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[140/174] [webkit] › tests\todo\complete.spec.ts:83:7 › Complete todo › should show 0 items left when all todos are completed
+[141/174] [webkit] › tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke
+[142/174] [webkit] › tests\todo\delete.spec.ts:29:7 › Delete todo › should delete one todo from a list of many
+  7) [webkit] › tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke › Delete the todo 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for locator('.todo-list li').first().locator('.destroy')
+        - locator resolved to <button class="destroy todo-button"></button>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - performing click action
+
+
+       at ..\pages\TodoPage.ts:218
+
+      216 |   async deleteTodo(index: number): Promise<void> {
+      217 |     await this.item(index).hover();
+    > 218 |     // The destroy button only becomes visible on :hover; wait for it, then click.
+          |                                     ^
+      219 |     await this.destroyButton(index).waitFor({ state: 'visible' });
+      220 |     await this.destroyButton(index).click();
+      221 |   }
+        at TodoPage.deleteTodo (E:\Automation Testing\senior-qa-automation-playwright\pages\TodoPage.ts:218:37)
+        at E:\Automation Testing\senior-qa-automation-playwright\tests\todo\delete.spec.ts:17:7
+        at E:\Automation Testing\senior-qa-automation-playwright\tests\todo\delete.spec.ts:16:5
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-delete-Delete-todo-sh-2ce6f-clicking-the-destroy-button-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-delete-Delete-todo-sh-2ce6f-clicking-the-destroy-button-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\baseline-artifacts\todo-delete-Delete-todo-sh-2ce6f-clicking-the-destroy-button-webkit\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-delete-Delete-todo-sh-2ce6f-clicking-the-destroy-button-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\baseline-artifacts\todo-delete-Delete-todo-sh-2ce6f-clicking-the-destroy-button-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:56224) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[143/174] [webkit] › tests\todo\delete.spec.ts:47:7 › Delete todo › should delete a completed todo
+  8) [webkit] › tests\todo\delete.spec.ts:29:7 › Delete todo › should delete one todo from a list of many 
+
+    Test timeout of 30000ms exceeded.
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-delete-Delete-todo-sh-7315e-ne-todo-from-a-list-of-many-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-delete-Delete-todo-sh-7315e-ne-todo-from-a-list-of-many-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\baseline-artifacts\todo-delete-Delete-todo-sh-7315e-ne-todo-from-a-list-of-many-webkit\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-delete-Delete-todo-sh-7315e-ne-todo-from-a-list-of-many-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\baseline-artifacts\todo-delete-Delete-todo-sh-7315e-ne-todo-from-a-list-of-many-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:54304) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[144/174] [webkit] › tests\todo\delete.spec.ts:63:7 › Delete todo › should show destroy button only on hover
+[145/174] [webkit] › tests\todo\delete.spec.ts:81:7 › Delete todo › should recolor the destroy button on hover
+[146/174] [webkit] › tests\todo\delete.spec.ts:93:7 › Delete todo › should delete all todos one by one and empty the list
+[147/174] [webkit] › tests\todo\edit.spec.ts:9:7 › Edit todo › should enter edit mode when double-clicking a todo label
+[148/174] [webkit] › tests\todo\edit.spec.ts:30:7 › Edit todo › should save edited text when pressing Enter
+[149/174] [webkit] › tests\todo\edit.spec.ts:50:7 › Edit todo › should save edited text when focus leaves the input (blur)
+[150/174] [webkit] › tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape
+[151/174] [webkit] › tests\todo\edit.spec.ts:89:7 › Edit todo › should delete a todo when its edited text is cleared and Enter is pressed
+  9) [webkit] › tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.dblclick: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for locator('.todo-list li').first().locator('label')
+        - locator resolved to <label>Original text</label>
+      - attempting dblclick action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - performing dblclick action
+
+
+       at ..\pages\TodoPage.ts:224
+
+      222 |
+      223 |   // ─── Edit ─────────────────────────────────────────────────────────────────────
+    > 224 |
+          | ^
+      225 |   async startEditing(index: number): Promise<Locator> {
+      226 |     await this.label(index).dblclick();
+      227 |     const input = this.editInput(index);
+        at TodoPage.startEditing (E:\Automation Testing\senior-qa-automation-playwright\pages\TodoPage.ts:224:29)
+        at E:\Automation Testing\senior-qa-automation-playwright\tests\todo\edit.spec.ts:74:36
+        at E:\Automation Testing\senior-qa-automation-playwright\tests\todo\edit.spec.ts:73:5
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-edit-Edit-todo-should-f5f31-l-text-when-pressing-Escape-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-edit-Edit-todo-should-f5f31-l-text-when-pressing-Escape-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\baseline-artifacts\todo-edit-Edit-todo-should-f5f31-l-text-when-pressing-Escape-webkit\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-edit-Edit-todo-should-f5f31-l-text-when-pressing-Escape-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\baseline-artifacts\todo-edit-Edit-todo-should-f5f31-l-text-when-pressing-Escape-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+(node:54412) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[152/174] [webkit] › tests\todo\edit.spec.ts:106:7 › Edit todo › should trim whitespace when saving an edited todo
+  10) [webkit] › tests\todo\edit.spec.ts:89:7 › Edit todo › should delete a todo when its edited text is cleared and Enter is pressed › Edit the second todo and clear its text 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.dblclick: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for locator('.todo-list li').nth(1).locator('label')
+        - locator resolved to <label>Delete me</label>
+      - attempting dblclick action
+        - waiting for element to be visible, enabled and stable
+
+
+       at ..\pages\TodoPage.ts:224
+
+      222 |
+      223 |   // ─── Edit ─────────────────────────────────────────────────────────────────────
+    > 224 |
+          | ^
+      225 |   async startEditing(index: number): Promise<Locator> {
+      226 |     await this.label(index).dblclick();
+      227 |     const input = this.editInput(index);
+        at TodoPage.startEditing (E:\Automation Testing\senior-qa-automation-playwright\pages\TodoPage.ts:224:29)
+        at TodoPage.editTodo (E:\Automation Testing\senior-qa-automation-playwright\pages\TodoPage.ts:231:30)
+        at E:\Automation Testing\senior-qa-automation-playwright\tests\todo\edit.spec.ts:97:22
+        at E:\Automation Testing\senior-qa-automation-playwright\tests\todo\edit.spec.ts:96:5
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-edit-Edit-todo-should-6d203-leared-and-Enter-is-pressed-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-edit-Edit-todo-should-6d203-leared-and-Enter-is-pressed-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\baseline-artifacts\todo-edit-Edit-todo-should-6d203-leared-and-Enter-is-pressed-webkit\error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-edit-Edit-todo-should-6d203-leared-and-Enter-is-pressed-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\baseline-artifacts\todo-edit-Edit-todo-should-6d203-leared-and-Enter-is-pressed-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:43844) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[153/174] [webkit] › tests\todo\filter.spec.ts:9:7 › Filter todos › should show all todos when the "All" filter is active @smoke
+[154/174] [webkit] › tests\todo\filter.spec.ts:30:7 › Filter todos › should show only active (incomplete) todos when "Active" filter is selected @smoke
+[155/174] [webkit] › tests\todo\filter.spec.ts:52:7 › Filter todos › should show only completed todos when "Completed" filter is selected @smoke
+[156/174] [webkit] › tests\todo\filter.spec.ts:78:7 › Filter todos › should update the Active view in real-time when a visible todo is completed
+[157/174] [webkit] › tests\todo\filter.spec.ts:99:7 › Filter todos › should reflect the selected filter in the URL hash @smoke
+[158/174] [webkit] › tests\todo\filter.spec.ts:122:7 › Filter todos › should show zero todos in Active filter when all are completed
+[159/174] [webkit] › tests\todo\filter.spec.ts:141:7 › Filter todos › should show zero todos in Completed filter when none are completed
+[160/174] [webkit] › tests\todo\lifecycle.spec.ts:7:7 › Todo page lifecycle › should preserve todos on navigation when cleanup is disabled
+[161/174] [webkit] › tests\todo\lifecycle.spec.ts:20:7 › Todo page lifecycle › should reset existing todos without clearing unrelated storage
+[162/174] [webkit] › tests\todo\lifecycle.spec.ts:33:7 › Todo page lifecycle › should clear todos hidden by an empty filtered view
+[163/174] [webkit] › tests\todo\lifecycle.spec.ts:47:7 › Todo page lifecycle › should clear the All view without clicking its already selected filter
+[164/174] [webkit] › tests\todo\lifecycle.spec.ts:66:7 › Todo page lifecycle › should start from seeded data instead of the application sample todos
+[165/174] [webkit] › tests\todo\lifecycle.spec.ts:77:7 › Todo page lifecycle › should leave unrelated storage untouched when seeding
+[166/174] [webkit] › tests\todo\lifecycle.spec.ts:87:9 › Todo page lifecycle › should reload mixed todos in the active view
+  11) [webkit] › tests\todo\lifecycle.spec.ts:77:7 › Todo page lifecycle › should leave unrelated storage untouched when seeding 
+
+    TimeoutError: locator.hover: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('.todo-list li').first()
+        - locator resolved to <li class="" data-id="1793729846024">…</li>
+      - attempting hover action
+        - waiting for element to be visible and stable
+
+
+       at ..\pages\TodoPage.ts:215
+
+      213 |
+      214 |   // ─── Delete ───────────────────────────────────────────────────────────────────
+    > 215 |
+          | ^
+      216 |   async deleteTodo(index: number): Promise<void> {
+      217 |     await this.item(index).hover();
+      218 |     // The destroy button only becomes visible on :hover; wait for it, then click.
+        at TodoPage.deleteTodo (E:\Automation Testing\senior-qa-automation-playwright\pages\TodoPage.ts:215:28)
+        at TodoPage.clearTodos (E:\Automation Testing\senior-qa-automation-playwright\pages\TodoPage.ts:155:18)
+        at TodoPage.goto (E:\Automation Testing\senior-qa-automation-playwright\pages\TodoPage.ts:54:7)
+        at Object.todoPage (E:\Automation Testing\senior-qa-automation-playwright\tests\fixtures\todoFixtures.ts:38:5)
+
+    attachment #4: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-lifecycle-Todo-page-l-b93a9-rage-untouched-when-seeding-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-lifecycle-Todo-page-l-b93a9-rage-untouched-when-seeding-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\baseline-artifacts\todo-lifecycle-Todo-page-l-b93a9-rage-untouched-when-seeding-webkit\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-lifecycle-Todo-page-l-b93a9-rage-untouched-when-seeding-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\baseline-artifacts\todo-lifecycle-Todo-page-l-b93a9-rage-untouched-when-seeding-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+
+
+node:internal/modules/cjs/loader:1568
+  throw err;
+  ^
+
+Error: Cannot find module 'E:\Automation Testing\senior-qa-automation-playwright\node_modules\playwright\lib\worker\workerProcessEntry.js'
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)
+    at Module._load (node:internal/modules/cjs/loader:1341:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v24.20.0
+[167/174] [webkit] › tests\todo\lifecycle.spec.ts:87:9 › Todo page lifecycle › should reload mixed todos in the completed view
+  12) [webkit] › tests\todo\lifecycle.spec.ts:87:9 › Todo page lifecycle › should reload mixed todos in the completed view 
+
+    Error: worker process exited unexpectedly (code=1, signal=null)
+
+
+[168/174] [webkit] › tests\todo\lifecycle.spec.ts:99:7 › Todo page lifecycle › should reload an empty filtered view with stored todos
+  13) [webkit] › tests\todo\lifecycle.spec.ts:99:7 › Todo page lifecycle › should reload an empty filtered view with stored todos 
+
+    Error: worker process exited unexpectedly (code=1, signal=null)
+
+
+node:internal/modules/cjs/loader:1568
+  throw err;
+  ^
+
+Error: Cannot find module 'E:\Automation Testing\senior-qa-automation-playwright\node_modules\playwright\lib\worker\workerProcessEntry.js'
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)
+
+    at Module._load (node:internal/modules/cjs/loader:1341:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v24.20.0
+
+[169/174] [webkit] › tests\todo\lifecycle.spec.ts:110:7 › Todo page lifecycle › should seed todos while preserving a filter that hides some items
+  14) [webkit] › tests\todo\lifecycle.spec.ts:110:7 › Todo page lifecycle › should seed todos while preserving a filter that hides some items 
+
+    Error: worker process exited unexpectedly (code=1, signal=null)
+
+
+[170/174] [webkit] › tests\todo\lifecycle.spec.ts:122:7 › Todo page lifecycle › should reject seeding an empty list, which the application cannot hold
+  15) [webkit] › tests\todo\lifecycle.spec.ts:122:7 › Todo page lifecycle › should reject seeding an empty list, which the application cannot hold 
+
+    Error: worker process exited unexpectedly (code=1, signal=null)
+
+
+
+node:internal/modules/cjs/loader:1568
+  throw err;
+  ^
+
+Error: Cannot find module 'E:\Automation Testing\senior-qa-automation-playwright\node_modules\playwright\lib\worker\workerProcessEntry.js'
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)
+    at Module._load (node:internal/modules/cjs/loader:1341:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v24.20.0
+
+[171/174] [webkit] › tests\todo\lifecycle.spec.ts:128:7 › Todo page lifecycle › should allow normal application seeding after storage is removed
+  16) [webkit] › tests\todo\lifecycle.spec.ts:128:7 › Todo page lifecycle › should allow normal application seeding after storage is removed 
+
+    Error: worker process exited unexpectedly (code=1, signal=null)
+
+
+[172/174] [webkit] › tests\todo\persistence.spec.ts:8:7 › Persistence › should persist todos across a page reload
+  17) [webkit] › tests\todo\persistence.spec.ts:8:7 › Persistence › should persist todos across a page reload 
+
+    Error: worker process exited unexpectedly (code=1, signal=null)
+
+
+
+node:internal/modules/cjs/loader:1568
+  throw err;
+  ^
+
+Error: Cannot find module 'playwright-core/lib/utilsBundle'
+Require stack:
+- E:\Automation Testing\senior-qa-automation-playwright\node_modules\playwright\lib\common\index.js
+- E:\Automation Testing\senior-qa-automation-playwright\node_modules\playwright\lib\worker\workerProcessEntry.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)
+    at Module._load (node:internal/modules/cjs/loader:1341:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.require (node:internal/modules/cjs/loader:1674:12)
+    at require (node:internal/modules/helpers:157:16)
+
+    at Object.<anonymous> (E:\Automation Testing\senior-qa-automation-playwright\node_modules\playwright\lib\common\index.js:79:24)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'E:\\Automation Testing\\senior-qa-automation-playwright\\node_modules\\playwright\\lib\\common\\index.js',
+    'E:\\Automation Testing\\senior-qa-automation-playwright\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js'
+  ]
+}
+
+Node.js v24.20.0
+[173/174] [webkit] › tests\todo\persistence.spec.ts:27:7 › Persistence › should persist the completed state of todos across a page reload
+  18) [webkit] › tests\todo\persistence.spec.ts:27:7 › Persistence › should persist the completed state of todos across a page reload 
+
+    Error: worker process exited unexpectedly (code=1, signal=null)
+
+
+[174/174] [webkit] › tests\todo\persistence.spec.ts:49:7 › Persistence › should persist the active filter selection across a page reload
+  19) [webkit] › tests\todo\persistence.spec.ts:49:7 › Persistence › should persist the active filter selection across a page reload 
+
+    Error: worker process exited unexpectedly (code=1, signal=null)
+
+
+  20) [webkit] › tests\todo\lifecycle.spec.ts:87:9 › Todo page lifecycle › should reload mixed todos in the active view 
+
+    Test timeout of 30000ms exceeded.
+
+    attachment #4: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-lifecycle-Todo-page-l-da220-ed-todos-in-the-active-view-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-lifecycle-Todo-page-l-da220-ed-todos-in-the-active-view-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence\review-2026-11-03\baseline-artifacts\todo-lifecycle-Todo-page-l-da220-ed-todos-in-the-active-view-webkit\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence\review-2026-11-03\baseline-artifacts\todo-lifecycle-Todo-page-l-da220-ed-todos-in-the-active-view-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace evidence\review-2026-11-03\baseline-artifacts\todo-lifecycle-Todo-page-l-da220-ed-todos-in-the-active-view-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  20 failed
+    [firefox] › tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape 
+    [webkit] › tests\a11y\a11y.spec.ts:35:7 › Accessibility › base todo list view has no detectable WCAG violations @smoke 
+    [webkit] › tests\a11y\a11y.spec.ts:48:7 › Accessibility › inline-editing state has no detectable WCAG violations 
+    [webkit] › tests\a11y\a11y.spec.ts:62:7 › Accessibility › toggle-all control has no detectable WCAG violations 
+    [webkit] › tests\todo\add.spec.ts:7:7 › Add todo › should add a single todo item @smoke ────────
+    [webkit] › tests\todo\complete.spec.ts:49:7 › Complete todo › should update item count when todos are completed 
+    [webkit] › tests\todo\delete.spec.ts:9:7 › Delete todo › should delete a todo by clicking the destroy button @smoke 
+    [webkit] › tests\todo\delete.spec.ts:29:7 › Delete todo › should delete one todo from a list of many 
+    [webkit] › tests\todo\edit.spec.ts:66:7 › Edit todo › should revert to original text when pressing Escape 
+    [webkit] › tests\todo\edit.spec.ts:89:7 › Edit todo › should delete a todo when its edited text is cleared and Enter is pressed 
+    [webkit] › tests\todo\lifecycle.spec.ts:77:7 › Todo page lifecycle › should leave unrelated storage untouched when seeding 
+    [webkit] › tests\todo\lifecycle.spec.ts:87:9 › Todo page lifecycle › should reload mixed todos in the active view 
+    [webkit] › tests\todo\lifecycle.spec.ts:87:9 › Todo page lifecycle › should reload mixed todos in the completed view 
+    [webkit] › tests\todo\lifecycle.spec.ts:99:7 › Todo page lifecycle › should reload an empty filtered view with stored todos 
+    [webkit] › tests\todo\lifecycle.spec.ts:110:7 › Todo page lifecycle › should seed todos while preserving a filter that hides some items 
+    [webkit] › tests\todo\lifecycle.spec.ts:122:7 › Todo page lifecycle › should reject seeding an empty list, which the application cannot hold 
+    [webkit] › tests\todo\lifecycle.spec.ts:128:7 › Todo page lifecycle › should allow normal application seeding after storage is removed 
+    [webkit] › tests\todo\persistence.spec.ts:8:7 › Persistence › should persist todos across a page reload 
+    [webkit] › tests\todo\persistence.spec.ts:27:7 › Persistence › should persist the completed state of todos across a page reload 
+    [webkit] › tests\todo\persistence.spec.ts:49:7 › Persistence › should persist the active filter selection across a page reload 
+  154 passed (17.5m)

@@ -1,10 +1,65 @@
 import { test, expect } from '../fixtures/todoFixtures';
 import { allure } from 'allure-playwright';
+import { TODO_STORAGE_KEY } from '../../pages/TodoPage';
+import { hasReviewedDefects } from '../fixtures/knownDefects';
+
+function isKnownRouteError(error: Error): boolean {
+  const knownMessage = /this\[.*activeRoute.*\] is not a function/.test(error.message)
+    || error.message === 'this[("show" + (intermediate value))] is not a function';
+  return knownMessage && !!error.stack?.includes('/assets/js/todo/controller.js');
+}
+
+test('known product defect: unknown hash must fall back to All without losing writes', async ({ page }, testInfo) => {
+  // Deliberately bypass TodoPage readiness and its UI cleanup in a fresh context.
+  const errors: Error[] = [];
+  page.on('pageerror', (error) => errors.push(error));
+  await page.goto('/todo#/unknown');
+  await page.locator('.new-todo').fill('Written on unknown route');
+  await page.locator('.new-todo').press('Enter');
+  const before = {
+    selected: await page.locator('.filters a.selected').allTextContents(),
+    rows: await page.locator('.todo-list li label').allTextContents(),
+  };
+  const saved = await page.evaluate((key) => JSON.parse(localStorage.getItem(key)!) as Array<{ title: string; completed: boolean }>, TODO_STORAGE_KEY);
+  expect(saved.filter((todo) => todo.title === 'Written on unknown route')).toHaveLength(1);
+  await page.reload();
+  const after = {
+    selected: await page.locator('.filters a.selected').allTextContents(),
+    rows: await page.locator('.todo-list li label').allTextContents(),
+  };
+  expect(await page.evaluate((key) => JSON.parse(localStorage.getItem(key)!) as unknown, TODO_STORAGE_KEY)).toEqual(saved);
+  expect(errors.filter((error) => !isKnownRouteError(error))).toEqual([]);
+  const messages = errors.map((error) => error.message);
+  await testInfo.attach('unknown-route-evidence', { body: JSON.stringify({ before, after, saved, errors: errors.map((error) => ({ message: error.message, stack: error.stack })) }, null, 2), contentType: 'application/json' });
+  await allure.issue('7', 'https://github.com/darkonaumovski/senior-qa-automation-playwright/issues/7');
+  test.fail(hasReviewedDefects(testInfo.config.metadata.appCommit), 'Upstream #7: fallback to All must render writes and avoid the route exception');
+  expect({ before, after, errors: messages }).toEqual({
+    before: { selected: ['All'], rows: saved.map((todo) => todo.title) },
+    after: { selected: ['All'], rows: saved.map((todo) => todo.title) },
+    errors: [],
+  });
+});
 
 test.describe('Filter todos', () => {
   // Every test here seeds its own data, so the fixture's UI cleanup would be
   // wasted work: seedTodos() overwrites stored todos regardless.
   test.use({ todoFeature: 'Filter Todos', todoStart: 'as-is' });
+
+  for (const filter of ['active', 'completed'] as const) {
+    test(`should add an active todo while the ${filter} filter is selected`, async ({ todoPage }) => {
+      await todoPage.seedTodos(['Existing active', { title: 'Existing done', completed: true }]);
+      await todoPage.page.goto(`/todo#/${filter}`);
+      await todoPage.expectActiveFilterLink(filter);
+      await todoPage.addTodo('Added under filter');
+      await expect(todoPage.todoItems.locator('label')).toHaveText(
+        filter === 'active' ? ['Existing active', 'Added under filter'] : ['Existing done'],
+      );
+      await todoPage.expectItemCountText('2 items left');
+      await todoPage.filterByAll();
+      await expect(todoPage.todoItems.locator('label')).toHaveText(['Existing active', 'Existing done', 'Added under filter']);
+      await todoPage.expectTodoNotCompleted(2);
+    });
+  }
 
   test('should show all todos when the "All" filter is active', { tag: '@smoke' }, async ({ todoPage }) => {
     await allure.story('All filter');

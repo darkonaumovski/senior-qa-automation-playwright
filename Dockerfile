@@ -37,11 +37,11 @@ RUN pin="${APP_COMMIT:-$(tr -d '[:space:]' < /tmp/.app-commit)}" \
        else \
          git fetch origin && git checkout "${pin}"; \
        fi \
-    && echo "Checked out $(git rev-parse HEAD)"
+    && git rev-parse HEAD > /opt/kitchensink/.qa-revision
 
 WORKDIR /opt/kitchensink
 # --ignore-scripts avoids the husky post-install hook in the kitchensink repo
-RUN npm install --ignore-scripts --omit=dev
+RUN npm ci --ignore-scripts --omit=dev
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Stage 2 – Test runner: Playwright + Allure, includes the app from stage 1

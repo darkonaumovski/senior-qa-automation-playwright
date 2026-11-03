@@ -1,0 +1,22 @@
+
+> todo-playwright-tests@1.0.0 test:harness
+> node --test scripts/report-tools.test.mjs scripts/run-support.test.mjs
+
+✔ repeat count accepts only 1 through 10, including hostile shell strings (2.2611ms)
+✔ complete failing shards can publish; missing shard cannot replace a complete report (27.7818ms)
+✔ rejects wrong inventory, duplicate shards, unexecuted tests and contaminated raw results (14.8093ms)
+(node:11300) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///E:/Automation%20Testing/senior-qa-automation-playwright/scripts/run-support.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\E:\Automation Testing\senior-qa-automation-playwright\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ requested pin cannot attribute an unverified remote target (3.5748ms)
+✔ revision file carries the built revision and rejects malformed or missing evidence (5.381ms)
+✔ Firefox workaround is explicit and Windows only, preserving the host environment (2.4181ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 252.8828

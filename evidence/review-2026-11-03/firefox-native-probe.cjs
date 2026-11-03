@@ -1,0 +1,1 @@
+const {firefox}=require('@playwright/test');(async()=>{const b=await firefox.launch();const p=await b.newPage();await p.goto('http://localhost:8088/todo');console.log(JSON.stringify({url:p.url(),inputVisible:await p.locator('.new-todo').isVisible(),sandboxOverride:false}));await b.close()})().catch(e=>{console.error(e);process.exitCode=1});

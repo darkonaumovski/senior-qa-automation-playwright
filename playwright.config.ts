@@ -1,4 +1,6 @@
-import { readFileSync } from 'node:fs';
+import categories from './reporting/categories.json';
+import { randomUUID } from 'node:crypto';
+import { appRevision, firefoxEnvironment } from './scripts/run-support';
 import { join } from 'node:path';
 import { defineConfig, devices } from '@playwright/test';
 
@@ -11,64 +13,15 @@ const BASE_URL = process.env.TODO_BASE_URL ?? 'http://localhost:8080';
 /** Used to turn Allure `issue()` ids into links, and to label the report. */
 const REPO_URL = 'https://github.com/darkonaumovski/senior-qa-automation-playwright';
 
-/**
- * Commit of the application under test, recorded in the report so a result is
- * attributable to a specific app revision rather than to whatever master
- * happened to be that day.
- *
- * Read from .app-commit, the single place the SHA is written down. An explicit
- * APP_COMMIT wins so a one-off run against another revision labels itself
- * correctly. The file is only missing if the config is run from outside the
- * repository, which is worth saying in the report rather than guessing.
- */
-function resolveAppCommit(): string {
-  const fromEnv = process.env.APP_COMMIT?.trim();
-  if (fromEnv) {
-    return fromEnv;
-  }
-  try {
-    // Resolved against this file rather than the working directory, so the
-    // value does not depend on where the run was invoked from.
-    return readFileSync(join(__dirname, '.app-commit'), 'utf8').trim();
-  } catch {
-    return 'unknown (.app-commit not readable)';
-  }
-}
-
-const APP_COMMIT = resolveAppCommit();
-
-/**
- * Firefox launch options.
- *
- * Some managed Windows hosts cannot start Firefox content processes unless the
- * content and GMP sandboxes are disabled. That workaround is scoped to Windows:
- * weakening sandboxing everywhere, including Linux CI, buys nothing.
- *
- * launchOptions.env *replaces* the browser's environment rather than extending
- * it, so process.env has to be spread back in. Passing only the MOZ_* variables
- * strips SystemRoot, TEMP and APPDATA, which makes Firefox unstable on Windows
- * with graphics failures such as "RenderCompositorSWGL failed mapping default
- * framebuffer".
- */
-function firefoxLaunchOptions(): { env?: Record<string, string> } {
-  if (process.platform !== 'win32') {
-    return {};
-  }
-
-  const env: Record<string, string> = {};
-  for (const [key, value] of Object.entries(process.env)) {
-    if (value !== undefined) {
-      env[key] = value;
-    }
-  }
-  env.MOZ_DISABLE_CONTENT_SANDBOX = '1';
-  env.MOZ_DISABLE_GMP_SANDBOX = '1';
-
-  return { env };
-}
+const APP_COMMIT = appRevision(BASE_URL);
+process.env.QA_RUN_ID ??= new Date().toISOString().replace(/[:.]/g, '-') + '-' + randomUUID();
+const RUN_ID = process.env.QA_RUN_ID;
+const RESULTS_DIR = join(__dirname, '.runs', RUN_ID, 'allure-results');
 
 export default defineConfig({
   testDir: './tests',
+  globalSetup: './scripts/fresh-results.ts',
+  metadata: { appCommit: APP_COMMIT, runId: RUN_ID, resultsDir: RESULTS_DIR },
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -83,18 +36,22 @@ export default defineConfig({
 
   reporter: [
     ['line'],
+    ['json', { outputFile: join(__dirname, '.runs', RUN_ID, 'playwright-results.json') }],
+    ['./scripts/evidence-reporter.ts'],
     ['html', { outputFolder: 'playwright-report', open: 'never' }],
     [
       'allure-playwright',
       {
         detail: true,
-        outputFolder: 'allure-results',
+        resultsDir: RESULTS_DIR,
+        categories,
         suiteTitle: false,
         environmentInfo: {
           BASE_URL,
           NODE_VERSION: process.version,
           OS: process.platform,
           APP_COMMIT,
+          RUN_ID,
         },
         links: {
           issue: { urlTemplate: `${REPO_URL}/issues/%s` },
@@ -122,7 +79,7 @@ export default defineConfig({
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
-        launchOptions: firefoxLaunchOptions(),
+        launchOptions: firefoxEnvironment(),
       },
     },
     {

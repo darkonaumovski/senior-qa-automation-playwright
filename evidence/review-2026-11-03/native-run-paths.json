@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "shard": 1,
+      "exitCode": 1,
+      "seconds": 139.0422825,
+      "workers": 1,
+      "retries": 0
+    },
+    {
+      "shard": 2,
+      "exitCode": 1,
+      "seconds": 263.6741437,
+      "workers": 1,
+      "retries": 0
+    }
+  ],
+  "merged": ".runs/native-matrix-9e185e25-08d5-4cc8-b7c8-0d7e2e78e91c-complete",
+  "root": ".runs/native-matrix-9e185e25-08d5-4cc8-b7c8-0d7e2e78e91c"
+}

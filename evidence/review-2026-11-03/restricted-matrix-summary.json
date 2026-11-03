@@ -1,0 +1,522 @@
+{
+  "stats": {
+    "startTime": "2026-11-03T18:32:53.368Z",
+    "duration": 835465.998,
+    "expected": 134,
+    "skipped": 0,
+    "unexpected": 70,
+    "flaky": 0
+  },
+  "browsers": {
+    "chromium": {
+      "expected": 68,
+      "unexpected": 0,
+      "skipped": 0,
+      "flaky": 0
+    },
+    "firefox": {
+      "expected": 0,
+      "unexpected": 68,
+      "skipped": 0,
+      "flaky": 0
+    },
+    "webkit": {
+      "expected": 66,
+      "unexpected": 2,
+      "skipped": 0,
+      "flaky": 0
+    }
+  },
+  "failures": [
+    {
+      "title": "base todo list view has no unexpected WCAG violations",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "known product defect: inline editor needs an accessible name",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "accessibility gate rejects an additional unnamed input",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "accessibility gate flags a repaired checkbox exception as obsolete",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "toggle-all control has no detectable WCAG violations",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "known product defect: inline editor needs an accessible name",
+      "browser": "webkit",
+      "errors": [
+        "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+      ]
+    },
+    {
+      "title": "keyboard journey adds, completes and filters a todo with visible link focus",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "known product defect: input and checkbox need visible keyboard focus",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "known product defect: row edit and delete controls need keyboard access",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "keyboard journey adds, completes and filters a todo with visible link focus",
+      "browser": "webkit",
+      "errors": [
+        "Error: Keyboard could not reach .filters a[href=\"#/active\"] in 40 Tabs\n\n   9 |     await page.keyboard.press('Tab');\n  10 |   }\n> 11 |   throw new Error('Keyboard could not reach ' + selector + ' in 40 Tabs');\n     |         ^\n  12 | }\n  13 |\n  14 | test.describe('Keyboard interaction', () => {\n    at tabTo (E:\\Automation Testing\\senior-qa-automation-playwright\\tests\\a11y\\keyboard.spec.ts:11:9)\n    at E:\\Automation Testing\\senior-qa-automation-playwright\\tests\\a11y\\keyboard.spec.ts:25:5"
+      ]
+    },
+    {
+      "title": "should add a single todo item",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should add multiple todo items",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should not add an empty todo when Enter is pressed on blank input",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should not add a todo containing only whitespace",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should trim leading and trailing whitespace from todo text",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should handle special characters in todo text",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should clear input field after adding a todo",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should mark all todos as complete using toggle-all",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should recolor the toggle-all chevron when all todos become complete",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should unmark all todos when toggle-all is clicked while all are completed",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should complete remaining active todos when toggle-all is used with mixed state",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should remove all completed todos via \"Clear completed\"",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should not show \"Clear completed\" button when no todos are completed",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should show \"Clear completed\" once a todo is completed",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should hide \"Clear completed\" again once all completed todos are cleared",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should update item count correctly after clearing completed todos",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should mark a todo as complete by clicking its checkbox",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should unmark a completed todo as active",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should update item count when todos are completed",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should visually distinguish completed todos from active ones",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should show 0 items left when all todos are completed",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should synchronize the bulk checkbox after individual toggles",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should delete a todo by clicking the destroy button",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should delete one todo from a list of many",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should delete a completed todo",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should show destroy button only on hover",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should recolor the destroy button on hover",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should delete all todos one by one and empty the list",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should enter edit mode when double-clicking a todo label",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should save edited text when pressing Enter",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should save edited text when focus leaves the input (blur)",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should revert to original text when pressing Escape",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should delete a todo when its edited text is cleared and Enter is pressed",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should trim whitespace when saving an edited todo",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "known product defect: unknown hash must fall back to All without losing writes",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should add an active todo while the active filter is selected",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should add an active todo while the completed filter is selected",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should show all todos when the \"All\" filter is active",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should show only active (incomplete) todos when \"Active\" filter is selected",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should show only completed todos when \"Completed\" filter is selected",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should update the Active view in real-time when a visible todo is completed",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should reflect the selected filter in the URL hash",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should show zero todos in Active filter when all are completed",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should show zero todos in Completed filter when none are completed",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should preserve todos on navigation when cleanup is disabled",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should reset existing todos without clearing unrelated storage",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should clear todos hidden by an empty filtered view",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should allow normal application seeding after storage is removed",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should clear the All view without clicking its already selected filter",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should start from seeded data instead of the application sample todos",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should leave unrelated storage untouched when seeding",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should reload mixed todos in the active view",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should reload mixed todos in the completed view",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should reload an empty filtered view with stored todos",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should seed todos while preserving a filter that hides some items",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should reject seeding an empty list, which the application cannot hold",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should preserve record identity when editing and deleting duplicate titles",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should persist todos across a page reload",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should persist the completed state of todos across a page reload",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    },
+    {
+      "title": "should persist the active filter selection across a page reload",
+      "browser": "firefox",
+      "errors": [
+        "TypeError: browserContext.newPage: Cannot read properties of undefined (reading '_page')"
+      ]
+    }
+  ]
+}

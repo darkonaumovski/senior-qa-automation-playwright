@@ -1,0 +1,19 @@
+
+Running 3 tests using 1 worker
+
+
+
+(node:9660) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/3] [chromium] › tests\todo\add.spec.ts:116:7 › Add todo › known product defect: consecutive identical Enter submissions create distinct records
+(node:54132) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/3] [firefox] › tests\todo\add.spec.ts:116:7 › Add todo › known product defect: consecutive identical Enter submissions create distinct records
+(node:46920) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[3/3] [webkit] › tests\todo\add.spec.ts:116:7 › Add todo › known product defect: consecutive identical Enter submissions create distinct records
+  3 passed (23.2s)

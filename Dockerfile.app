@@ -27,11 +27,11 @@ RUN pin="${APP_COMMIT:-$(tr -d '[:space:]' < /tmp/.app-commit)}" \
        else \
          git fetch origin && git checkout "${pin}"; \
        fi \
-    && echo "Checked out $(git rev-parse HEAD)"
+    && git rev-parse HEAD > /app/app/__qa_revision
 
 WORKDIR /app
 # --ignore-scripts avoids the husky post-install hook in the kitchensink repo
-RUN npm install --ignore-scripts --omit=dev
+RUN npm ci --ignore-scripts --omit=dev
 
 EXPOSE 8080
 

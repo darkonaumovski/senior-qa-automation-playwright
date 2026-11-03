@@ -7,7 +7,6 @@ dist/
 # Generated test output
 allure-report/
 allure-results/*
-!allure-results/categories.json
 allure-latest-report/
 allure-latest-results/
 playwright-report/
@@ -21,6 +20,10 @@ test-results/
 
 # The application is cloned inside the image, not copied from the host.
 cypress-example-kitchensink/
+kitchensink/
+.runs/
+.cache/
+evidence/
 
 # Docs
 *.md
