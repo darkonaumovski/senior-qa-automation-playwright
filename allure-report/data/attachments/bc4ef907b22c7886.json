@@ -1,0 +1,35 @@
+{
+  "before": {
+    "selected": [
+      "All"
+    ],
+    "rows": []
+  },
+  "after": {
+    "selected": [
+      "All"
+    ],
+    "rows": []
+  },
+  "saved": [
+    {
+      "title": "Written on unknown route",
+      "completed": false,
+      "id": 1793736417366
+    }
+  ],
+  "errors": [
+    {
+      "message": "this[activeRoute] is not a function",
+      "stack": "TypeError: this[activeRoute] is not a function\n    at Controller._filter (http://localhost:8080/assets/js/todo/controller.js:264:33)\n    at Controller._updateFilterState (http://localhost:8080/assets/js/todo/controller.js:282:10)\n    at Controller.setView (http://localhost:8080/assets/js/todo/controller.js:66:10)\n    at setView (http://localhost:8080/assets/js/todo/app.js:40:21)\n    at init (http://localhost:8080/assets/js/todo/app.js:28:5)"
+    },
+    {
+      "message": "this[activeRoute] is not a function",
+      "stack": "TypeError: this[activeRoute] is not a function\n    at Controller._filter (http://localhost:8080/assets/js/todo/controller.js:264:33)\n    at Store.<anonymous> (http://localhost:8080/assets/js/todo/controller.js:116:12)\n    at Store.save (http://localhost:8080/assets/js/todo/store.js:107:16)\n    at Model.create (http://localhost:8080/assets/js/todo/model.js:36:18)\n    at Controller.addItem (http://localhost:8080/assets/js/todo/controller.js:114:16)\n    at http://localhost:8080/assets/js/todo/controller.js:25:12\n    at HTMLInputElement.<anonymous> (http://localhost:8080/assets/js/todo/view.js:190:9)"
+    },
+    {
+      "message": "this[activeRoute] is not a function",
+      "stack": "TypeError: this[activeRoute] is not a function\n    at Controller._filter (http://localhost:8080/assets/js/todo/controller.js:264:33)\n    at Controller._updateFilterState (http://localhost:8080/assets/js/todo/controller.js:282:10)\n    at Controller.setView (http://localhost:8080/assets/js/todo/controller.js:66:10)\n    at setView (http://localhost:8080/assets/js/todo/app.js:40:21)\n    at init (http://localhost:8080/assets/js/todo/app.js:28:5)"
+    }
+  ]
+}

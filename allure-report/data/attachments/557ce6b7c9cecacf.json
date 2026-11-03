@@ -1,0 +1,422 @@
+[
+  {
+    "html": "<input id=\"toggle-all\" class=\"toggle-all\" type=\"checkbox\">",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<input class=\"toggle\" type=\"checkbox\">",
+    "toggle": true,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/\" class=\"selected\">All</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/active\">Active</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/completed\">Completed</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<body>\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container\">\n      <div class=\"navbar-header\">\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\">\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n   ",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a class=\"navbar-brand\" href=\"/\">cypress.io</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\">Commands <span class=\"caret\"></span></a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"/utilities\">Utilities</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"/cypress-api\">Cypress API</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"https://github.com/cypress-io/cypress-example-kitchensink\">GitHub</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<input class=\"new-todo\" placeholder=\"What needs to be done?\" data-test=\"new-todo\" autofocus=\"\">",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<input id=\"toggle-all\" class=\"toggle-all\" type=\"checkbox\">",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<input class=\"toggle\" type=\"checkbox\">",
+    "toggle": true,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/\" class=\"selected\">All</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/active\">Active</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/completed\">Completed</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<body>\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container\">\n      <div class=\"navbar-header\">\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\">\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n   ",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a class=\"navbar-brand\" href=\"/\">cypress.io</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\">Commands <span class=\"caret\"></span></a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"/utilities\">Utilities</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"/cypress-api\">Cypress API</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"https://github.com/cypress-io/cypress-example-kitchensink\">GitHub</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<input class=\"new-todo\" placeholder=\"What needs to be done?\" data-test=\"new-todo\" autofocus=\"\">",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<input id=\"toggle-all\" class=\"toggle-all\" type=\"checkbox\">",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<input class=\"toggle\" type=\"checkbox\">",
+    "toggle": true,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/\" class=\"selected\">All</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/active\">Active</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/completed\">Completed</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<body>\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container\">\n      <div class=\"navbar-header\">\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\">\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n   ",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a class=\"navbar-brand\" href=\"/\">cypress.io</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\">Commands <span class=\"caret\"></span></a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"/utilities\">Utilities</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"/cypress-api\">Cypress API</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"https://github.com/cypress-io/cypress-example-kitchensink\">GitHub</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<input class=\"new-todo\" placeholder=\"What needs to be done?\" data-test=\"new-todo\" autofocus=\"\">",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<input id=\"toggle-all\" class=\"toggle-all\" type=\"checkbox\">",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<input class=\"toggle\" type=\"checkbox\">",
+    "toggle": true,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/\" class=\"selected\">All</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/active\">Active</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/completed\">Completed</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<body>\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container\">\n      <div class=\"navbar-header\">\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\">\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n   ",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a class=\"navbar-brand\" href=\"/\">cypress.io</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\">Commands <span class=\"caret\"></span></a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"/utilities\">Utilities</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"/cypress-api\">Cypress API</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"https://github.com/cypress-io/cypress-example-kitchensink\">GitHub</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<input class=\"new-todo\" placeholder=\"What needs to be done?\" data-test=\"new-todo\" autofocus=\"\">",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<input id=\"toggle-all\" class=\"toggle-all\" type=\"checkbox\">",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<input class=\"toggle\" type=\"checkbox\">",
+    "toggle": true,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/\" class=\"selected\">All</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/active\">Active</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/completed\">Completed</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<body>\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container\">\n      <div class=\"navbar-header\">\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\">\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n   ",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a class=\"navbar-brand\" href=\"/\">cypress.io</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\">Commands <span class=\"caret\"></span></a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"/utilities\">Utilities</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"/cypress-api\">Cypress API</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"https://github.com/cypress-io/cypress-example-kitchensink\">GitHub</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<input class=\"new-todo\" placeholder=\"What needs to be done?\" data-test=\"new-todo\" autofocus=\"\">",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<input id=\"toggle-all\" class=\"toggle-all\" type=\"checkbox\">",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<input class=\"toggle\" type=\"checkbox\">",
+    "toggle": true,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/\" class=\"selected\">All</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/active\">Active</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/completed\">Completed</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  }
+]

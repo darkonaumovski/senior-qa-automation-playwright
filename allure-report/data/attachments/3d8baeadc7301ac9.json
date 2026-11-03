@@ -1,0 +1,35 @@
+{
+  "before": {
+    "selected": [
+      "All"
+    ],
+    "rows": []
+  },
+  "after": {
+    "selected": [
+      "All"
+    ],
+    "rows": []
+  },
+  "saved": [
+    {
+      "title": "Written on unknown route",
+      "completed": false,
+      "id": 1793736520836
+    }
+  ],
+  "errors": [
+    {
+      "message": "this[`show${activeRoute}`] is not a function. (In 'this[`show${activeRoute}`]()', 'this[`show${activeRoute}`]' is undefined)",
+      "stack": "TypeError: this[`show${activeRoute}`] is not a function. (In 'this[`show${activeRoute}`]()', 'this[`show${activeRoute}`]' is undefined)\n    at unknown (http://localhost:8080/assets/js/todo/controller.js:264:33)\n    at unknown (http://localhost:8080/assets/js/todo/controller.js:282:17)\n    at unknown (http://localhost:8080/assets/js/todo/controller.js:66:28)\n    at setView (http://localhost:8080/assets/js/todo/app.js:40:28)\n    at init (http://localhost:8080/assets/js/todo/app.js:28:12)"
+    },
+    {
+      "message": "this[`show${activeRoute}`] is not a function. (In 'this[`show${activeRoute}`]()', 'this[`show${activeRoute}`]' is undefined)",
+      "stack": "TypeError: this[`show${activeRoute}`] is not a function. (In 'this[`show${activeRoute}`]()', 'this[`show${activeRoute}`]' is undefined)\n    at unknown (http://localhost:8080/assets/js/todo/controller.js:264:33)\n    at unknown (http://localhost:8080/assets/js/todo/controller.js:116:19)\n    at unknown (http://localhost:8080/assets/js/todo/store.js:107:20)\n    at unknown (http://localhost:8080/assets/js/todo/model.js:36:22)\n    at unknown (http://localhost:8080/assets/js/todo/controller.js:114:22)\n    at unknown (http://localhost:8080/assets/js/todo/controller.js:25:19)\n    at unknown (http://localhost:8080/assets/js/todo/view.js:190:16)"
+    },
+    {
+      "message": "this[`show${activeRoute}`] is not a function. (In 'this[`show${activeRoute}`]()', 'this[`show${activeRoute}`]' is undefined)",
+      "stack": "TypeError: this[`show${activeRoute}`] is not a function. (In 'this[`show${activeRoute}`]()', 'this[`show${activeRoute}`]' is undefined)\n    at unknown (http://localhost:8080/assets/js/todo/controller.js:264:33)\n    at unknown (http://localhost:8080/assets/js/todo/controller.js:282:17)\n    at unknown (http://localhost:8080/assets/js/todo/controller.js:66:28)\n    at setView (http://localhost:8080/assets/js/todo/app.js:40:28)\n    at init (http://localhost:8080/assets/js/todo/app.js:28:12)"
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+[
+  {
+    "html": "<input id=\"toggle-all\" class=\"toggle-all\" type=\"checkbox\">",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<input class=\"toggle\" type=\"checkbox\">",
+    "toggle": true,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/\" class=\"selected\">All</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/active\">Active</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"#/completed\">Completed</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  },
+  {
+    "html": "<a href=\"http://todomvc.com\">TodoMVC</a>",
+    "toggle": false,
+    "edit": false,
+    "destroy": false
+  }
+]
